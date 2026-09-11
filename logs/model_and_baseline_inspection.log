@@ -1,0 +1,327 @@
+SHRUTAM_COMMIT
+e249bba6f7319c27912847fbbebb4258ead3b848
+SHRUTAM_FILES
+model_meta/Shrutam-2/.git/HEAD 21 bytes
+model_meta/Shrutam-2/.git/config 300 bytes
+model_meta/Shrutam-2/.git/description 73 bytes
+model_meta/Shrutam-2/.git/index 2086 bytes
+model_meta/Shrutam-2/.git/packed-refs 112 bytes
+model_meta/Shrutam-2/.gitattributes 1748 bytes
+model_meta/Shrutam-2/844424930324970-261-f.wav 131 bytes
+model_meta/Shrutam-2/BharatGen_Logo.png 131 bytes
+model_meta/Shrutam-2/LICENSE 3144 bytes
+model_meta/Shrutam-2/README.md 4376 bytes
+model_meta/Shrutam-2/asr_model.py 7789 bytes
+model_meta/Shrutam-2/config.json 159 bytes
+model_meta/Shrutam-2/conformer_encoder.py 8717 bytes
+model_meta/Shrutam-2/encoder.pt 135 bytes
+model_meta/Shrutam-2/inference_config.py 532 bytes
+model_meta/Shrutam-2/inference_config.yaml 504 bytes
+model_meta/Shrutam-2/inference_script.py 2817 bytes
+model_meta/Shrutam-2/llm/chat_template.jinja 3184 bytes
+model_meta/Shrutam-2/llm/config.json 694 bytes
+model_meta/Shrutam-2/llm/generation_config.json 154 bytes
+model_meta/Shrutam-2/llm/model.safetensors 135 bytes
+model_meta/Shrutam-2/llm/special_tokens_map.json 931 bytes
+model_meta/Shrutam-2/llm/tokenizer.json 133 bytes
+model_meta/Shrutam-2/llm/tokenizer_config.json 1475991 bytes
+model_meta/Shrutam-2/model.pt 135 bytes
+model_meta/Shrutam-2/requirements.txt 97 bytes
+model_meta/Shrutam-2/smear.py 3747 bytes
+model_meta/Shrutam-2/speech_encoder.py 5440 bytes
+model_meta/Shrutam-2/utils.py 1279 bytes
+SHRUTAM_LFS
+eeba9b6c42 - 844424930324970-261-f.wav
+a145addd3c - BharatGen_Logo.png
+a7c7319afc - encoder.pt
+d875285759 - llm/model.safetensors
+5d4c129eb6 - llm/tokenizer.json
+254134d324 - model.pt
+SHRUTAM_README
+---
+language:
+  - hi
+  - mr
+  - ta
+  - te
+  - ml
+  - kn
+  - or
+  - bn
+  - ur
+  - as
+  - gu
+  - pa
+tags:
+  - automatic-speech-recognition
+  - multilingual
+  - conformer
+  - mixture-of-experts
+  - llm
+  - speech-to-text
+pipeline_tag: automatic-speech-recognition
+---
+
+<div align="center">
+  <img src="./BharatGen_Logo.png" width="60%" alt="BharatGen" />
+</div>
+<hr>
+<div align="center">
+  <a href="https://huggingface.co/bharatgenai/Shrutam-2/blob/main/LICENSE" target="_blank" style="margin: 4px;">
+    <img alt="License" src="https://img.shields.io/badge/License-BharatGen%20Non--Commercial-yellow.svg" />
+  </a>
+</div>
+
+# Shrutam-2: LLM-Powered Multilingual Indic Speech Recognition
+
+**Shrutam-2** is a LLM based automatic speech recognition system for 12 major Indian languages. It bridges a Conformer speech encoder with a pretrained LLM decoder through a Mixture-of-Experts (MoE) projection layer, enabling high-quality, prompt-controllable transcription across diverse Indic languages.
+
+## Architecture Overview
+
+Unlike conventional CTC/Attention ASR systems that map audio directly to text tokens, Shrutam-2 reframes speech recognition as a conditional language generation task. A speech encoder produces frame-level audio representations, which are then projected into the LLM's embedding space and fed to a frozen LLM decoder alongside a text prompt.
+
+The key architectural contribution is the **MoE Projector** that bridges the encoder and the LLM:
+
+| Component | Details |
+|---|---|
+| **Downsampler** | Two-stage Conv1D that reduces the encoder frame rate for efficient LLM consumption |
+| **MoE Projector** | 8 linear experts with **SMEAR** (Soft Merging of Experts with Adaptive Routing) — utterance-level soft gating computes a weighted merge of all expert parameters into a single projector per input, avoiding discrete top-k routing and its associated load-balancing issues |
+
+Each expert is a two-layer MLP (`encoder_dim → 2048 → llm_dim`). Rather than routing each frame to a single expert, SMEAR computes frame-wise router probabilities, averages them at the utterance level, and produces a single merged weight matrix per utterance. This yields a smooth, fully differentiable routing mechanism with a simple MSE-based load-balancing loss.
+
+### Why LLM-Based ASR?
+
+Traditional ASR pipelines rely on acoustic models trained exclusively on speech-text pairs. By grounding transcription in a pretrained LLM, this approach gains several advantages:
+
+- **Rich linguistic priors** — The LLM's language knowledge reduces hallucinations and improves fluency, especially for low-resource languages.
+- **Prompt controllability** — Transcription behavior can be steered through natural-language prompts without retraining.
+- **Unified multilingual capacity** — A single model serves all 12 languages, with the MoE layer learning language-adaptive projections.
+
+## Languages Supported
+
+| # | Language | Script | ISO 639-1 |
+|---|----------|--------|-----------|
+| 1 | Hindi | Devanagari | `hi` |
+| 2 | Marathi | Devanagari | `mr` |
+| 3 | Tamil | Tamil | `ta` |
+| 4 | Telugu | Telugu | `te` |
+| 5 | Malayalam | Malayalam | `ml` |
+| 6 | Kannada | Kannada | `kn` |
+| 7 | Odia | Odia | `or` |
+| 8 | Bengali | Bengali | `bn` |
+| 9 | Urdu | Nastaliq | `ur` |
+| 10 | Assamese | Bengali | `as` |
+| 11 | Gujarati | Gujarati | `gu` |
+| 12 | Punjabi | Gurmukhi | `pa` |
+
+
+
+
+
+## Usage
+
+### 1. Create virtual env
+
+```bash
+conda create -n shrutam2 python=3.10.14
+conda activate shrutam2
+```
+
+### 2. Download code
+
+```bash
+pip install huggingface_hub
+huggingface-cli download bharatgenai/Shrutam-2 \
+  --include "*.py" "*.yaml" "*.json" "*.txt" \
+  --local-dir shrutam2
+cd shrutam2
+```
+
+### 3. Install dependencies
+
+```bash
+pip install torch==2.3.0 torchvision==0.18.0 torchaudio==2.3.0 --index-url https://download.pytorch.org/whl/cu118
+pip install -r requirements.txt
+```
+
+### 4. Run inference
+
+```bash
+python inference_script.py
+```
+
+The script automatically downloads the model weights (`encoder.pt`, `model.pt`, `llm/`) from the Hub on first run and caches them locally.
+
+
+## License
+
+This model is released under the BharatGen non-commercial license.
+Please refer to the LICENSE file for detailed terms and conditions.
+
+Shrutam 2 is developed based on the research outlined in the paper-<a href="https://arxiv.org/abs/2601.19451">https://arxiv.org/abs/2601.19451</a>
+BASELINE_COMMIT
+93586a8d949d364f26c600e2f5213a9cdccf69aa
+BASELINE_FILES
+baseline/TensorRT-fastconformer/README.md
+baseline/TensorRT-fastconformer/benchmark_fastconformer_encoder_trt_file.py
+baseline/TensorRT-fastconformer/build_trt_engine.sh
+baseline/TensorRT-fastconformer/convert_librispeech_to_nemo.py
+baseline/TensorRT-fastconformer/export_fastconformer_onnx.py
+baseline/TensorRT-fastconformer/filter_manifest.py
+baseline/TensorRT-fastconformer/infer_fastconformer_trt.py
+baseline/TensorRT-fastconformer/sort_manifest.py
+baseline/TensorRT-fastconformer/transcribe_speech_file.py
+BASELINE_README
+# FastConformer CTC: NeMo vs. TensorRT Benchmark
+
+This guide prepares LibriSpeech `test-clean`, benchmarks the original NeMo
+FastConformer CTC Large model, exports it to ONNX/TensorRT, and compares the
+two runtimes using both random-order and duration-sorted manifests.
+
+## Installation
+
+```bash
+docker run -it --gpus '"device=0"' --ipc=host -v $PWD:/home nvcr.io/nvidia/nemo:25.11
+
+pip install pycuda
+```
+
+## Prerequisites
+
+Run every command from this directory. The following files are expected to be
+available here:
+
+- `convert_librispeech_to_nemo.py`
+- `filter_manifest.py`
+- `sort_manifest.py`
+- `transcribe_speech_file.py`
+- `export_fastconformer_onnx.py`
+- `build_trt_engine.sh`
+- `benchmark_fastconformer_encoder_trt_file.py`
+
+The NeMo checkpoint is referenced as:
+
+```text
+./stt_en_fastconformer_ctc_large.nemo
+```
+
+## 1. Prepare LibriSpeech test-clean
+
+Download and extract the dataset:
+
+```bash
+wget https://openslr.trmal.net/resources/12/test-clean.tar.gz
+tar -xzf test-clean.tar.gz
+```
+
+Convert the LibriSpeech metadata into a NeMo manifest:
+
+```bash
+python convert_librispeech_to_nemo.py \
+  --librispeech_dir /home/fastconformer/trt_fastconformer/LibriSpeech \
+  --output_manifest test_clean_manifest.json \
+  --subset test-clean
+```
+
+Remove samples longer than 20 seconds:
+
+```bash
+python filter_manifest.py \
+  --input_manifest test_clean_manifest.json \
+  --output_manifest test_clean_manifest_filtered.json \
+  --max_duration 20.0
+```
+
+Create a duration-ascending version of the filtered manifest. This is the
+sorted workload used for more efficient batching:
+
+```bash
+python sort_manifest.py \
+  --input_manifest test_clean_manifest_filtered.json \
+  --output_manifest test_clean_manifest_sorted_filtered.json
+```
+
+The two benchmark inputs are:
+
+| Workload | Manifest |
+| --- | --- |
+| Random | `test_clean_manifest_filtered.json` |
+| Sorted | `test_clean_manifest_sorted_filtered.json` |
+
+## 2. Benchmark the NeMo model
+
+Download the nemo model:
+
+```bash
+wget https://huggingface.co/nvidia/stt_en_fastconformer_ctc_large/resolve/main/stt_en_fastconformer_ctc_large.nemo
+```
+
+Run the baseline on the duration-sorted manifest (check with different batch sizes):
+
+```bash
+CUDA_VISIBLE_DEVICES=0 python transcribe_speech_file.py \
+  --model ./stt_en_fastconformer_ctc_large.nemo \
+  --manifest test_clean_manifest_sorted_filtered.json \
+  --batch-size 64 \
+  --warmup-steps 5 \
+  --run-steps 10 \
+  --device cuda
+```
+
+Repeat the same command for the random manifest by changing `--manifest` to
+`test_clean_manifest_filtered.json`. To reproduce the comparison below, run
+both manifests with batch sizes `32`, `64`, and `128`.
+
+## 3. Export NeMo to ONNX and build TensorRT
+
+Export the FastConformer encoder to ONNX:
+
+```bash
+python3 export_fastconformer_onnx.py \
+  --model ./stt_en_fastconformer_ctc_large.nemo \
+  --output fastconformer_ctc_large.onnx
+```
+
+Build the FP16 TensorRT engine:
+
+```bash
+bash build_trt_engine.sh
+```
+
+This produces `fastconformer_encoder_fp16.plan`.
+
+## 4. Benchmark the TensorRT engine
+
+Example TensorRT run for the sorted workload at batch size 128:
+
+```bash
+python3 benchmark_fastconformer_encoder_trt_file.py \
+  --engine fastconformer_encoder_fp16.plan \
+  --nemo ./stt_en_fastconformer_ctc_large.nemo \
+  --manifest test_clean_manifest_sorted_filtered.json \
+  --batch-sizes 1 8 32 64 128 \
+  --warmup 5 \
+  --runs 10 \
+  --csv results.csv
+```
+
+Repeat with `--manifest test_clean_manifest_filtered.json` for the random
+workload. Benchmark batch sizes `32`, `64`, and `128` (the engine supports
+batch sizes up to 128).
+
+## Results
+
+All results use five warm-up iterations and ten measured iterations. RTFX is
+real-time factor: larger is better.
+
+GPU: 1xA100
+
+| Batch size | Mean batch latency (NeMo random / TRT random) | Mean batch latency (NeMo sorted / TRT sorted) | Random RTFX (NeMo / TRT) | Sorted RTFX (NeMo / TRT) | RTFX speedup (random / sorted) |
+| ---: | ---: | ---: | ---: | ---: | ---: |
+| 32 | 251.56 ms / 18.42 ms | 114.77 ms / 20.31 ms | 868.14x / 4,124.90x | 1,902.77x / 3,742.10x | 4.75x / 1.97x |
+| 64 | 472.62 ms / 23.02 ms | 192.82 ms / 26.17 ms | 924.16x / 7,768.23x | 2,265.26x / 6,832.99x | 8.41x / 3.02x |
+| 128 | 1,026.64 ms / 44.56 ms | 374.88 ms / 45.00 ms | 850.89x / 10,630.59x | 2,330.26x / 10,525.53x | 12.49x / 4.52x |
+
+TensorRT delivers the largest random-workload gain at batch size 128: **12.49x**
+RTFX over NeMo. Sorted input materially improves the NeMo baseline, while the
+TensorRT engine remains consistently high-throughput.

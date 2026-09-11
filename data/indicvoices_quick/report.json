@@ -1,0 +1,268 @@
+{
+  "cache_root": "/host_cache/huggingface/datasets/parquet",
+  "samples": 46,
+  "audio_seconds": 206.151125,
+  "languages": {
+    "as": {
+      "candidates": 4166,
+      "selected": 4,
+      "durations": [
+        1.2,
+        2.4990625,
+        4.983,
+        8.993
+      ]
+    },
+    "bn": {
+      "candidates": 3267,
+      "selected": 4,
+      "durations": [
+        1.2,
+        2.498,
+        5.005,
+        9.0
+      ]
+    },
+    "gu": {
+      "candidates": 2461,
+      "selected": 4,
+      "durations": [
+        1.214,
+        2.5,
+        5.023,
+        8.993
+      ]
+    },
+    "hi": {
+      "candidates": 9096,
+      "selected": 4,
+      "durations": [
+        1.202,
+        2.5,
+        4.992,
+        8.997
+      ]
+    },
+    "kn": {
+      "candidates": 3374,
+      "selected": 4,
+      "durations": [
+        1.202,
+        2.486,
+        5.003,
+        8.994
+      ]
+    },
+    "ml": {
+      "candidates": 3662,
+      "selected": 4,
+      "durations": [
+        1.201,
+        2.497,
+        4.995,
+        8.996
+      ]
+    },
+    "mr": {
+      "candidates": 2852,
+      "selected": 3,
+      "durations": [
+        2.502,
+        4.999,
+        8.999
+      ]
+    },
+    "or": {
+      "candidates": 4016,
+      "selected": 4,
+      "durations": [
+        1.2,
+        2.491,
+        5.0,
+        9.004
+      ]
+    },
+    "pa": {
+      "candidates": 3334,
+      "selected": 3,
+      "durations": [
+        1.203,
+        2.485,
+        9.0
+      ]
+    },
+    "ta": {
+      "candidates": 4198,
+      "selected": 4,
+      "durations": [
+        1.2,
+        2.5,
+        5.002,
+        8.9940625
+      ]
+    },
+    "te": {
+      "candidates": 2712,
+      "selected": 4,
+      "durations": [
+        1.194,
+        2.497,
+        4.996,
+        8.993
+      ]
+    },
+    "ur": {
+      "candidates": 2732,
+      "selected": 4,
+      "durations": [
+        1.203,
+        2.501,
+        5.011,
+        9.004
+      ]
+    }
+  },
+  "inspected": [
+    {
+      "arrow": "/host_cache/huggingface/datasets/parquet/default-076c4f99c2317a3f/0.0.0/a859584b6747f312c02efa800dcc0a33038f602cb670b65dc6103d3f269c5565/parquet-train.arrow",
+      "rows": 2767,
+      "supported": {}
+    },
+    {
+      "arrow": "/host_cache/huggingface/datasets/parquet/default-0f605b4ae1e00bbe/0.0.0/a859584b6747f312c02efa800dcc0a33038f602cb670b65dc6103d3f269c5565/parquet-train.arrow",
+      "rows": 3679,
+      "supported": {
+        "mr": 2852
+      }
+    },
+    {
+      "arrow": "/host_cache/huggingface/datasets/parquet/default-0f96965d6210d03a/0.0.0/a859584b6747f312c02efa800dcc0a33038f602cb670b65dc6103d3f269c5565/parquet-train.arrow",
+      "rows": 2852,
+      "supported": {}
+    },
+    {
+      "arrow": "/host_cache/huggingface/datasets/parquet/default-39946dc67b362c8b/0.0.0/a859584b6747f312c02efa800dcc0a33038f602cb670b65dc6103d3f269c5565/parquet-train.arrow",
+      "rows": 2619,
+      "supported": {}
+    },
+    {
+      "arrow": "/host_cache/huggingface/datasets/parquet/default-47c76f72f267e8ba/0.0.0/a859584b6747f312c02efa800dcc0a33038f602cb670b65dc6103d3f269c5565/parquet-train.arrow",
+      "rows": 2970,
+      "supported": {
+        "gu": 2461
+      }
+    },
+    {
+      "arrow": "/host_cache/huggingface/datasets/parquet/default-4c06d6e622f5dfdc/0.0.0/a859584b6747f312c02efa800dcc0a33038f602cb670b65dc6103d3f269c5565/parquet-train.arrow",
+      "rows": 4036,
+      "supported": {
+        "pa": 3334
+      }
+    },
+    {
+      "arrow": "/host_cache/huggingface/datasets/parquet/default-5ad9241173579270/0.0.0/a859584b6747f312c02efa800dcc0a33038f602cb670b65dc6103d3f269c5565/parquet-train.arrow",
+      "rows": 2732,
+      "supported": {}
+    },
+    {
+      "arrow": "/host_cache/huggingface/datasets/parquet/default-5f7e3cb1abc92781/0.0.0/a859584b6747f312c02efa800dcc0a33038f602cb670b65dc6103d3f269c5565/parquet-train.arrow",
+      "rows": 4009,
+      "supported": {
+        "bn": 3267
+      }
+    },
+    {
+      "arrow": "/host_cache/huggingface/datasets/parquet/default-76ce4135e2118d71/0.0.0/a859584b6747f312c02efa800dcc0a33038f602cb670b65dc6103d3f269c5565/parquet-train.arrow",
+      "rows": 2829,
+      "supported": {}
+    },
+    {
+      "arrow": "/host_cache/huggingface/datasets/parquet/default-840cdf755a0a9db3/0.0.0/a859584b6747f312c02efa800dcc0a33038f602cb670b65dc6103d3f269c5565/parquet-train.arrow",
+      "rows": 3383,
+      "supported": {
+        "ur": 2732
+      }
+    },
+    {
+      "arrow": "/host_cache/huggingface/datasets/parquet/default-8640e8e44bc28944/0.0.0/a859584b6747f312c02efa800dcc0a33038f602cb670b65dc6103d3f269c5565/parquet-train.arrow",
+      "rows": 5276,
+      "supported": {
+        "ta": 4198
+      }
+    },
+    {
+      "arrow": "/host_cache/huggingface/datasets/parquet/default-8f4f7c6f3b7097b4/0.0.0/a859584b6747f312c02efa800dcc0a33038f602cb670b65dc6103d3f269c5565/parquet-train.arrow",
+      "rows": 1927,
+      "supported": {}
+    },
+    {
+      "arrow": "/host_cache/huggingface/datasets/parquet/default-9a8cf397c98bfe8f/0.0.0/a859584b6747f312c02efa800dcc0a33038f602cb670b65dc6103d3f269c5565/parquet-train.arrow",
+      "rows": 2795,
+      "supported": {}
+    },
+    {
+      "arrow": "/host_cache/huggingface/datasets/parquet/default-b80babcbcaeb0f5f/0.0.0/a859584b6747f312c02efa800dcc0a33038f602cb670b65dc6103d3f269c5565/parquet-train.arrow",
+      "rows": 5062,
+      "supported": {
+        "as": 4166
+      }
+    },
+    {
+      "arrow": "/host_cache/huggingface/datasets/parquet/default-bce4e8ccef290470/0.0.0/a859584b6747f312c02efa800dcc0a33038f602cb670b65dc6103d3f269c5565/parquet-train.arrow",
+      "rows": 4524,
+      "supported": {
+        "ml": 3662
+      }
+    },
+    {
+      "arrow": "/host_cache/huggingface/datasets/parquet/default-be98621c332787b5/0.0.0/a859584b6747f312c02efa800dcc0a33038f602cb670b65dc6103d3f269c5565/parquet-train.arrow",
+      "rows": 3295,
+      "supported": {
+        "te": 2712
+      }
+    },
+    {
+      "arrow": "/host_cache/huggingface/datasets/parquet/default-cb1bd88b6758621b/0.0.0/a859584b6747f312c02efa800dcc0a33038f602cb670b65dc6103d3f269c5565/parquet-train.arrow",
+      "rows": 5530,
+      "supported": {
+        "hi": 4548
+      }
+    },
+    {
+      "arrow": "/host_cache/huggingface/datasets/parquet/default-db8270c8f603defc/0.0.0/a859584b6747f312c02efa800dcc0a33038f602cb670b65dc6103d3f269c5565/parquet-train.arrow",
+      "rows": 4126,
+      "supported": {
+        "kn": 3374
+      }
+    },
+    {
+      "arrow": "/host_cache/huggingface/datasets/parquet/default-e19f90cf50fe9101/0.0.0/a859584b6747f312c02efa800dcc0a33038f602cb670b65dc6103d3f269c5565/parquet-train.arrow",
+      "rows": 3562,
+      "supported": {}
+    },
+    {
+      "arrow": "/host_cache/huggingface/datasets/parquet/default-e5077938d830db39/0.0.0/a859584b6747f312c02efa800dcc0a33038f602cb670b65dc6103d3f269c5565/parquet-train.arrow",
+      "rows": 1814,
+      "supported": {}
+    },
+    {
+      "arrow": "/host_cache/huggingface/datasets/parquet/default-ede2d61f2cf7431f/0.0.0/a859584b6747f312c02efa800dcc0a33038f602cb670b65dc6103d3f269c5565/parquet-train.arrow",
+      "rows": 5530,
+      "supported": {
+        "hi": 4548
+      }
+    },
+    {
+      "arrow": "/host_cache/huggingface/datasets/parquet/default-ef57d2c8aa8249b0/0.0.0/a859584b6747f312c02efa800dcc0a33038f602cb670b65dc6103d3f269c5565/parquet-train.arrow",
+      "rows": 2537,
+      "supported": {}
+    },
+    {
+      "arrow": "/host_cache/huggingface/datasets/parquet/default-f88dab339a26d84f/0.0.0/a859584b6747f312c02efa800dcc0a33038f602cb670b65dc6103d3f269c5565/parquet-train.arrow",
+      "rows": 5245,
+      "supported": {
+        "or": 4016
+      }
+    }
+  ]
+}

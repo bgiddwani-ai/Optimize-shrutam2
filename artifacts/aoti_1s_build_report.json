@@ -1,0 +1,11 @@
+{
+  "torch": "2.6.0a0+ecf3bae40a.nv25.01",
+  "cuda": "12.8",
+  "max_batch": 256,
+  "max_frames": 2001,
+  "static_frames": 101,
+  "aoti_api": true,
+  "exported": true,
+  "packaged": true,
+  "package_bytes": 1238962888
+}

@@ -1,0 +1,18 @@
+__pycache__/
+*.py[cod]
+.venv*/
+model/
+baseline/
+
+# Rebuildable or remote-only binaries.
+*.onnx
+*.plan
+*.engine
+*.pt2
+*.cache
+artifacts/torchinductor_cache/
+artifacts/trt_py/
+
+# Local runtime state.
+*.pid
+screenlog.*

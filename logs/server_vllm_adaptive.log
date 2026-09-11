@@ -1,0 +1,503 @@
+/home/nvidia/Optimize-shrutam2/server_vllm.py:182: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("startup")
+/home/nvidia/Optimize-shrutam2/server_vllm.py:207: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("shutdown")
+INFO:     Started server process [2961513]
+INFO:     Waiting for application startup.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+INFO 09-11 08:53:22 [model.py:637] Resolved architecture: LlamaForCausalLM
+INFO 09-11 08:53:22 [model.py:1750] Using max model len 1024
+INFO 09-11 08:53:22 [scheduler.py:228] Chunked prefill is enabled with max_num_batched_tokens=32768.
+The tokenizer you are loading from '/home/nvidia/Optimize-shrutam2/artifacts/vllm_llm_bf16' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+[0;36m(EngineCore_DP0 pid=2961896)[0;0m INFO 09-11 08:53:26 [core.py:93] Initializing a V1 LLM engine (v0.12.0) with config: model='/home/nvidia/Optimize-shrutam2/artifacts/vllm_llm_bf16', speculative_config=None, tokenizer='/home/nvidia/Optimize-shrutam2/artifacts/vllm_llm_bf16', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=1024, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01), seed=0, served_model_name=/home/nvidia/Optimize-shrutam2/artifacts/vllm_llm_bf16, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'level': None, 'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'splitting_ops': ['vllm::unified_attention', 'vllm::unified_attention_with_output', 'vllm::unified_mla_attention', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::gdn_attention_core', 'vllm::kda_attention', 'vllm::sparse_attn_indexer'], 'compile_mm_encoder': False, 'compile_sizes': [], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'eliminate_noops': True, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>}, 'local_cache_dir': None}
+[0;36m(EngineCore_DP0 pid=2961896)[0;0m INFO 09-11 08:53:28 [parallel_state.py:1200] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://172.16.0.150:43389 backend=nccl
+[0;36m(EngineCore_DP0 pid=2961896)[0;0m INFO 09-11 08:53:28 [parallel_state.py:1408] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank 0
+[0;36m(EngineCore_DP0 pid=2961896)[0;0m INFO 09-11 08:53:28 [gpu_model_runner.py:3467] Starting to load model /home/nvidia/Optimize-shrutam2/artifacts/vllm_llm_bf16...
+[0;36m(EngineCore_DP0 pid=2961896)[0;0m /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages/tvm_ffi/_optional_torch_c_dlpack.py:192: UserWarning: Failed to JIT torch c dlpack extension, EnvTensorAllocator will not be enabled.
+[0;36m(EngineCore_DP0 pid=2961896)[0;0m We recommend installing via `pip install torch-c-dlpack-ext`
+[0;36m(EngineCore_DP0 pid=2961896)[0;0m   warnings.warn(
+[0;36m(EngineCore_DP0 pid=2961896)[0;0m INFO 09-11 08:53:30 [cuda.py:411] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION']
+[0;36m(EngineCore_DP0 pid=2961896)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+[0;36m(EngineCore_DP0 pid=2961896)[0;0m Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  2.83it/s]
+[0;36m(EngineCore_DP0 pid=2961896)[0;0m Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  2.83it/s]
+[0;36m(EngineCore_DP0 pid=2961896)[0;0m 
+[0;36m(EngineCore_DP0 pid=2961896)[0;0m INFO 09-11 08:53:31 [default_loader.py:308] Loading weights took 0.39 seconds
+[0;36m(EngineCore_DP0 pid=2961896)[0;0m INFO 09-11 08:53:31 [gpu_model_runner.py:3549] Model loading took 2.3017 GiB memory and 1.989801 seconds
+[0;36m(EngineCore_DP0 pid=2961896)[0;0m INFO 09-11 08:53:35 [backends.py:655] Using cache directory: /home/nvidia/.cache/vllm/torch_compile_cache/dadccdfb28/rank_0_0/backbone for vLLM's torch.compile
+[0;36m(EngineCore_DP0 pid=2961896)[0;0m INFO 09-11 08:53:35 [backends.py:715] Dynamo bytecode transform time: 3.29 s
+[0;36m(EngineCore_DP0 pid=2961896)[0;0m INFO 09-11 08:53:37 [backends.py:216] Directly load the compiled graph(s) for dynamic shape from the cache, took 2.459 s
+[0;36m(EngineCore_DP0 pid=2961896)[0;0m INFO 09-11 08:53:38 [monitor.py:34] torch.compile takes 5.75 s in total
+[0;36m(EngineCore_DP0 pid=2961896)[0;0m INFO 09-11 08:53:39 [gpu_worker.py:359] Available KV cache memory: 55.59 GiB
+[0;36m(EngineCore_DP0 pid=2961896)[0;0m INFO 09-11 08:53:40 [kv_cache_utils.py:1286] GPU KV cache size: 1,821,648 tokens
+[0;36m(EngineCore_DP0 pid=2961896)[0;0m INFO 09-11 08:53:40 [kv_cache_utils.py:1291] Maximum concurrency for 1,024 tokens per request: 1778.95x
+[0;36m(EngineCore_DP0 pid=2961896)[0;0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/51 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  10%|▉         | 5/51 [00:00<00:01, 43.42it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  20%|█▉        | 10/51 [00:00<00:00, 42.30it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  29%|██▉       | 15/51 [00:00<00:00, 41.72it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  39%|███▉      | 20/51 [00:00<00:00, 42.97it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  49%|████▉     | 25/51 [00:00<00:00, 40.67it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  59%|█████▉    | 30/51 [00:00<00:00, 40.50it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  69%|██████▊   | 35/51 [00:00<00:00, 39.97it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  78%|███████▊  | 40/51 [00:00<00:00, 39.90it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  86%|████████▋ | 44/51 [00:01<00:00, 36.49it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  94%|█████████▍| 48/51 [00:01<00:00, 37.07it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 51/51 [00:01<00:00, 39.36it/s]
+[0;36m(EngineCore_DP0 pid=2961896)[0;0m Capturing CUDA graphs (decode, FULL):   0%|          | 0/51 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):  12%|█▏        | 6/51 [00:00<00:00, 59.23it/s]Capturing CUDA graphs (decode, FULL):  25%|██▌       | 13/51 [00:00<00:00, 62.95it/s]Capturing CUDA graphs (decode, FULL):  39%|███▉      | 20/51 [00:00<00:00, 63.36it/s]Capturing CUDA graphs (decode, FULL):  53%|█████▎    | 27/51 [00:00<00:00, 63.13it/s]Capturing CUDA graphs (decode, FULL):  67%|██████▋   | 34/51 [00:00<00:00, 63.30it/s]Capturing CUDA graphs (decode, FULL):  80%|████████  | 41/51 [00:00<00:00, 63.45it/s]Capturing CUDA graphs (decode, FULL):  94%|█████████▍| 48/51 [00:00<00:00, 64.11it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 51/51 [00:00<00:00, 63.47it/s]
+[0;36m(EngineCore_DP0 pid=2961896)[0;0m INFO 09-11 08:53:42 [gpu_model_runner.py:4466] Graph capturing finished in 3 secs, took 0.39 GiB
+[0;36m(EngineCore_DP0 pid=2961896)[0;0m INFO 09-11 08:53:42 [core.py:254] init engine (profile, create kv cache, warmup model) took 11.26 seconds
+[0;36m(EngineCore_DP0 pid=2961896)[0;0m The tokenizer you are loading from '/home/nvidia/Optimize-shrutam2/artifacts/vllm_llm_bf16' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+The tokenizer you are loading from '/home/nvidia/Optimize-shrutam2/model/llm' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+`torch_dtype` is deprecated! Use `dtype` instead!
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8092 (Press CTRL+C to quit)
+INFO:     127.0.0.1:48818 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55876 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55876 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55876 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55954 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56136 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56316 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55956 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55966 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56114 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56196 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56334 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56340 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56356 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56382 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55938 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56330 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56074 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56186 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55992 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56230 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56398 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56120 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56152 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55906 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56026 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56148 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56272 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56050 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56014 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56208 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56294 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56218 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56368 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56350 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56348 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56336 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56000 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56100 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56360 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56416 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56414 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56168 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56284 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56400 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56210 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55904 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56238 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56012 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56042 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55888 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55928 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56066 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56086 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56176 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56250 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56378 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56342 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55916 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55934 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55980 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56056 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56108 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56262 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56002 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56070 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56306 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55876 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55916 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55934 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55906 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55954 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55980 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55904 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56086 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55956 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55928 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56012 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55966 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56014 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56050 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56108 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56168 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56186 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56196 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56210 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56238 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56114 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55876 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56262 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56272 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56120 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56218 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56208 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56230 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56056 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55992 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56000 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56306 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56348 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56368 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56416 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56002 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56330 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56334 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56336 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56400 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56074 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56284 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56316 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56340 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56342 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56360 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56378 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56382 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56398 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56414 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56066 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56350 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56356 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55938 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56026 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56042 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56176 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56250 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56100 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55888 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56012 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56504 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56514 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56600 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56632 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56636 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56070 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56520 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56708 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56764 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55906 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56152 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56456 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55916 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55934 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55904 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56702 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55956 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56014 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55928 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56478 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56736 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56492 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56466 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56758 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56136 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56460 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56596 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56562 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56742 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56682 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56680 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56750 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56050 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56554 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56538 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56726 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56566 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56694 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56834 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56148 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56840 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56424 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56602 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56294 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55980 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56578 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56652 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55954 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55966 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56616 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56560 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56668 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56438 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56722 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56534 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56868 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56862 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56772 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56874 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56588 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56446 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56796 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56786 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56852 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56846 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56824 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56808 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55876 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55888 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55906 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55938 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55966 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55992 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55956 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55916 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55928 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55934 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55904 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55954 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55980 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56002 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56012 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56014 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56042 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55938 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56050 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55906 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55876 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55888 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56026 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55956 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56000 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55904 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55916 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55966 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55934 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55928 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55954 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55980 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55938 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55906 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55888 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55904 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55956 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55876 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55954 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55916 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55966 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55934 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55980 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56000 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56002 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55992 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55938 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55928 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55906 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55876 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55888 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55904 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55934 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55966 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55916 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55956 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55954 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55928 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55938 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55888 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55876 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55980 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55904 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55906 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55992 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55934 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55966 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55916 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55956 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55928 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56000 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55954 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55938 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55888 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55876 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55904 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55906 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55934 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55966 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55928 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55916 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55888 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55954 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55938 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55876 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55928 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55904 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55934 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55906 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55956 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55888 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55966 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55916 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55980 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55992 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55938 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55934 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55876 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56000 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55954 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55904 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55906 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55928 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55966 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55956 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56002 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55938 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55888 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55980 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55904 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55906 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55916 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55934 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55876 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55928 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55966 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55954 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56000 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55956 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55938 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55904 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55992 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55888 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55928 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55916 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55906 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55954 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55934 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55876 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55980 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55966 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55956 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55904 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55888 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55916 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55928 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55906 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55934 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55954 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55992 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55980 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55938 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55966 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55956 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55876 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55904 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55888 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55906 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55916 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55934 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56000 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56002 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56014 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55966 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55956 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56012 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55904 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55928 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55938 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55954 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55992 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55980 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56148 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56616 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56424 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56446 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56852 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56294 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56438 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56534 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56588 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39654 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39738 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55916 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56668 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39686 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39692 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39816 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39870 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40104 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55876 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55906 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56862 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39618 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39712 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39912 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39920 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40040 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40056 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40072 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55888 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56808 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56824 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56868 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56846 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39980 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40000 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56042 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56000 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56050 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56796 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55934 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56026 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56786 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56136 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56560 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56722 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56772 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56874 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39566 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39642 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39636 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39634 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39666 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39626 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39542 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39728 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39966 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39554 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39746 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39762 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40014 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40002 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39984 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39950 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39838 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39786 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39996 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39622 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39840 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39700 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39540 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39602 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39806 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39588 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39792 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39774 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39670 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39546 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39580 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39830 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39930 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39878 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39852 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39846 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40120 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39842 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39862 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39890 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40094 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40022 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39946 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39898 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40024 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40088 - "POST /transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55876 - "GET /stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38434 - "GET /stats HTTP/1.1" 200 OK

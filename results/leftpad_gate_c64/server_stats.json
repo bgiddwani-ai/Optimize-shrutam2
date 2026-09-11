@@ -1,0 +1,29 @@
+{
+  "runtime": "eager",
+  "precision": "bf16",
+  "uptime_seconds": 67.43050122261047,
+  "queue_depth": 0,
+  "total_requests": 65,
+  "total_failures": 0,
+  "total_audio_seconds": 282.2350625,
+  "batch_histogram": {
+    "1": 1,
+    "4": 1,
+    "28": 1,
+    "32": 1
+  },
+  "batch_latency_p50_ms": 660.9089544799645,
+  "batch_latency_p95_ms": 764.3579180061352,
+  "queue_latency_p50_ms": 595.0966899981722,
+  "queue_latency_p95_ms": 1104.4715610216372,
+  "last_batch": {
+    "runtime": "eager",
+    "precision": "bf16",
+    "batch_size": 28,
+    "encoder_projector_ms": 94.98500503832474,
+    "decode_ms": 677.418495004531,
+    "total_ms": 772.4035000428557,
+    "max_audio_samples": 144064,
+    "max_encoder_tokens": 113
+  }
+}

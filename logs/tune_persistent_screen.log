@@ -1,0 +1,75 @@
+{"concurrency": 128, "requests": 128, "valid": 128, "failed": 0, "wall_seconds": 1.500428645987995, "audio_seconds": 597.5315625, "rtfx": 398.24057218431756, "requests_per_second": 85.30895510576924, "latency_mean_ms": 1224.168507093509, "latency_p50_ms": 1278.621531499084, "latency_p95_ms": 1416.6489448252833, "latency_p99_ms": 1464.3515204940923, "observed_batch_sizes": [1, 4, 5, 8, 20, 26, 32], "preconnected_streams": 128, "preconnect_ms_untimed": 572.6820179843344}
+{"concurrency": 256, "requests": 256, "valid": 256, "failed": 0, "wall_seconds": 2.4269183869473636, "audio_seconds": 1115.4776875, "rtfx": 459.627193687001, "requests_per_second": 105.4835635911115, "latency_mean_ms": 1464.8685144613864, "latency_p50_ms": 1469.2668484931346, "latency_p95_ms": 2176.766014745226, "latency_p99_ms": 2224.5684599998635, "observed_batch_sizes": [9, 55, 64], "preconnected_streams": 256, "preconnect_ms_untimed": 4776.510676019825}
+{"concurrency": 128, "requests": 128, "valid": 128, "failed": 0, "wall_seconds": 1.5869981269934215, "audio_seconds": 128.0, "rtfx": 80.65541970266648, "requests_per_second": 80.65541970266648, "latency_mean_ms": 934.6893529314002, "latency_p50_ms": 926.0093945194967, "latency_p95_ms": 1477.2875311638927, "latency_p99_ms": 1544.1753685323056, "observed_batch_sizes": [3, 4, 5, 6, 7, 8, 9, 13, 14, 17], "preconnected_streams": 128, "preconnect_ms_untimed": 568.3850049972534}
+{"concurrency": 256, "requests": 256, "valid": 256, "failed": 0, "wall_seconds": 1.9907076010131277, "audio_seconds": 256.0, "rtfx": 128.59748959099483, "requests_per_second": 128.59748959099483, "latency_mean_ms": 1133.2164013192596, "latency_p50_ms": 1090.558603493264, "latency_p95_ms": 1630.5914492695592, "latency_p99_ms": 1700.6267413875319, "observed_batch_sizes": [3, 61, 64], "preconnected_streams": 256, "preconnect_ms_untimed": 2645.1692370465025}
+/usr/lib/python3.12/asyncio/base_events.py:785: RuntimeWarning: coroutine 'connect_tcp.<locals>.try_connect' was never awaited
+  def call_soon(self, callback, *args, context=None):
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+Traceback (most recent call last):
+  File "/home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 231, in _receive_event
+    raise RemoteProtocolError(msg)
+httpcore.RemoteProtocolError: Server disconnected without sending a response.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/nvidia/Optimize-shrutam2/benchmark_client.py", line 273, in <module>
+    asyncio.run(main_async(parse_args()))
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/nvidia/Optimize-shrutam2/benchmark_client.py", line 211, in main_async
+    preconnect = await asyncio.gather(*(
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages/httpx/_client.py", line 1768, in get
+    return await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages/httpx/_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.RemoteProtocolError: Server disconnected without sending a response.

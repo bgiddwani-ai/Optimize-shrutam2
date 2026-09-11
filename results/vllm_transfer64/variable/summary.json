@@ -1,0 +1,90 @@
+[
+  {
+    "concurrency": 32,
+    "requests": 32,
+    "valid": 32,
+    "failed": 0,
+    "wall_seconds": 0.6742566070170142,
+    "audio_seconds": 140.377,
+    "rtfx": 208.1952160929403,
+    "requests_per_second": 47.45967583702522,
+    "latency_mean_ms": 521.2917011212994,
+    "latency_p50_ms": 557.0269149611704,
+    "latency_p95_ms": 645.6673717009835,
+    "latency_p99_ms": 663.1230143655557,
+    "observed_batch_sizes": [
+      2,
+      4,
+      5,
+      21
+    ]
+  },
+  {
+    "concurrency": 64,
+    "requests": 64,
+    "valid": 64,
+    "failed": 0,
+    "wall_seconds": 0.7886386590544134,
+    "audio_seconds": 281.0350625,
+    "rtfx": 356.35466163548733,
+    "requests_per_second": 81.15250154834752,
+    "latency_mean_ms": 629.6965917617854,
+    "latency_p50_ms": 634.9557875073515,
+    "latency_p95_ms": 731.4518468745518,
+    "latency_p99_ms": 742.0697167061735,
+    "observed_batch_sizes": [
+      4,
+      25,
+      35
+    ]
+  },
+  {
+    "concurrency": 128,
+    "requests": 128,
+    "valid": 128,
+    "failed": 0,
+    "wall_seconds": 1.3687260469887406,
+    "audio_seconds": 597.5315625,
+    "rtfx": 436.5603794963912,
+    "requests_per_second": 93.51761828570868,
+    "latency_mean_ms": 851.0007844306529,
+    "latency_p50_ms": 850.9613254864234,
+    "latency_p95_ms": 1201.8595042754896,
+    "latency_p99_ms": 1231.53297153709,
+    "observed_batch_sizes": [
+      3,
+      5,
+      15,
+      17,
+      22,
+      24,
+      25
+    ]
+  },
+  {
+    "concurrency": 256,
+    "requests": 256,
+    "valid": 256,
+    "failed": 0,
+    "wall_seconds": 5.477800428052433,
+    "audio_seconds": 1115.4776875,
+    "rtfx": 203.6360583323761,
+    "requests_per_second": 46.73408667628619,
+    "latency_mean_ms": 3037.153313779072,
+    "latency_p50_ms": 2957.5946435215883,
+    "latency_p95_ms": 5012.65441373107,
+    "latency_p99_ms": 5229.8330272577,
+    "observed_batch_sizes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      12,
+      15,
+      33
+    ]
+  }
+]

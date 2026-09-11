@@ -1,0 +1,16 @@
+{
+  "checkpoint_tensor_count": 185,
+  "moe_expert_tensor_count": 32,
+  "duplicate_encoder_projector_tensor_count": 0,
+  "moe_expert_examples": [
+    "MoELayer_routing.experts.0.linear1.bias",
+    "MoELayer_routing.experts.0.linear1.weight",
+    "MoELayer_routing.experts.0.linear2.bias",
+    "MoELayer_routing.experts.0.linear2.weight",
+    "MoELayer_routing.experts.1.linear1.bias",
+    "MoELayer_routing.experts.1.linear1.weight",
+    "MoELayer_routing.experts.1.linear2.bias",
+    "MoELayer_routing.experts.1.linear2.weight"
+  ],
+  "explanation": "ASRModel registers the same projector modules under MoELayer_routing.experts and encoder_projector. The checkpoint stores the former names, so strict=False reports the latter alias names as missing even though the shared modules were loaded."
+}

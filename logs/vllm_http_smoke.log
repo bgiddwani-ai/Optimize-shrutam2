@@ -1,0 +1,27 @@
+Traceback (most recent call last):
+  File "/home/nvidia/Optimize-shrutam2/benchmark_client.py", line 233, in <module>
+    asyncio.run(main_async(parse_args()))
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/nvidia/Optimize-shrutam2/benchmark_client.py", line 169, in main_async
+    samples = load_manifest(Path(args.manifest), args.fixed_seconds)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nvidia/Optimize-shrutam2/benchmark_client.py", line 46, in load_manifest
+    waveform, sample_rate = sf.read(audio_path, dtype="float32", always_2d=False)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages/soundfile.py", line 313, in read
+    with SoundFile(file, 'r', samplerate, channels,
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages/soundfile.py", line 708, in __init__
+    self._file = self._open(file, mode_int, closefd)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages/soundfile.py", line 1296, in _open
+    raise LibsndfileError(err, prefix=f"Error opening {self.name!r}: ")
+soundfile.LibsndfileError: Error opening '/workspace/data/indicvoices_quick/audio/as_00.wav': System error.

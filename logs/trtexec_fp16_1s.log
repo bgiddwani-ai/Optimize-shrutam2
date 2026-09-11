@@ -1,0 +1,488 @@
+
+=============
+== PyTorch ==
+=============
+
+NVIDIA Release 25.04 (build 159049541)
+PyTorch Version 2.7.0a0+79aa174
+Container image Copyright (c) 2025, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+Copyright (c) 2014-2024 Facebook Inc.
+Copyright (c) 2011-2014 Idiap Research Institute (Ronan Collobert)
+Copyright (c) 2012-2014 Deepmind Technologies    (Koray Kavukcuoglu)
+Copyright (c) 2011-2012 NEC Laboratories America (Koray Kavukcuoglu)
+Copyright (c) 2011-2013 NYU                      (Clement Farabet)
+Copyright (c) 2006-2010 NEC Laboratories America (Ronan Collobert, Leon Bottou, Iain Melvin, Jason Weston)
+Copyright (c) 2006      Idiap Research Institute (Samy Bengio)
+Copyright (c) 2001-2004 Idiap Research Institute (Ronan Collobert, Samy Bengio, Johnny Mariethoz)
+Copyright (c) 2015      Google Inc.
+Copyright (c) 2015      Yangqing Jia
+Copyright (c) 2013-2016 The Caffe contributors
+All rights reserved.
+
+Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+
+GOVERNING TERMS: The software and materials are governed by the NVIDIA Software License Agreement
+(found at https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-software-license-agreement/)
+and the Product-Specific Terms for NVIDIA AI Products
+(found at https://www.nvidia.com/en-us/agreements/enterprise-software/product-specific-terms-for-ai-products/).
+
+&&&& RUNNING TensorRT.trtexec [TensorRT v101000] [b31] # /usr/local/tensorrt/bin/trtexec --loadEngine=/workspace/artifacts/shrutam2_encoder_fp16.plan --shapes=audio_signal:1x80x101,lengths:1 --warmUp=500 --duration=0 --iterations=100 --noDataTransfers --useCudaGraph --exportTimes=/workspace/results/encoder/trtexec_fp16_1s/times_b1.json
+[09/10/2026-15:07:28] [I] TF32 is enabled by default. Add --noTF32 flag to further improve accuracy with some performance cost.
+[09/10/2026-15:07:28] [I] === Model Options ===
+[09/10/2026-15:07:28] [I] Format: *
+[09/10/2026-15:07:28] [I] Model: 
+[09/10/2026-15:07:28] [I] Output:
+[09/10/2026-15:07:28] [I] 
+[09/10/2026-15:07:28] [I] === System Options ===
+[09/10/2026-15:07:28] [I] Device: 0
+[09/10/2026-15:07:28] [I] DLACore: 
+[09/10/2026-15:07:28] [I] Plugins:
+[09/10/2026-15:07:28] [I] setPluginsToSerialize:
+[09/10/2026-15:07:28] [I] dynamicPlugins:
+[09/10/2026-15:07:28] [I] ignoreParsedPluginLibs: 0
+[09/10/2026-15:07:28] [I] 
+[09/10/2026-15:07:28] [I] === Inference Options ===
+[09/10/2026-15:07:28] [I] Batch: Explicit
+[09/10/2026-15:07:28] [I] Input inference shape : lengths=1
+[09/10/2026-15:07:28] [I] Input inference shape : audio_signal=1x80x101
+[09/10/2026-15:07:28] [I] Iterations: 100
+[09/10/2026-15:07:28] [I] Duration: 0s (+ 500ms warm up)
+[09/10/2026-15:07:28] [I] Sleep time: 0ms
+[09/10/2026-15:07:28] [I] Idle time: 0ms
+[09/10/2026-15:07:28] [I] Inference Streams: 1
+[09/10/2026-15:07:28] [I] ExposeDMA: Disabled
+[09/10/2026-15:07:28] [I] Data transfers: Disabled
+[09/10/2026-15:07:28] [I] Spin-wait: Disabled
+[09/10/2026-15:07:28] [I] Multithreading: Disabled
+[09/10/2026-15:07:28] [I] CUDA Graph: Enabled
+[09/10/2026-15:07:28] [I] Separate profiling: Disabled
+[09/10/2026-15:07:28] [I] Time Deserialize: Disabled
+[09/10/2026-15:07:28] [I] Time Refit: Disabled
+[09/10/2026-15:07:28] [I] NVTX verbosity: 0
+[09/10/2026-15:07:28] [I] Persistent Cache Ratio: 0
+[09/10/2026-15:07:28] [I] Optimization Profile Index: 0
+[09/10/2026-15:07:28] [I] Weight Streaming Budget: 100.000000%
+[09/10/2026-15:07:28] [I] Inputs:
+[09/10/2026-15:07:28] [I] Debug Tensor Save Destinations:
+[09/10/2026-15:07:28] [I] === Reporting Options ===
+[09/10/2026-15:07:28] [I] Verbose: Disabled
+[09/10/2026-15:07:28] [I] Averages: 10 inferences
+[09/10/2026-15:07:28] [I] Percentiles: 90,95,99
+[09/10/2026-15:07:28] [I] Dump refittable layers:Disabled
+[09/10/2026-15:07:28] [I] Dump output: Disabled
+[09/10/2026-15:07:28] [I] Profile: Disabled
+[09/10/2026-15:07:28] [I] Export timing to JSON file: /workspace/results/encoder/trtexec_fp16_1s/times_b1.json
+[09/10/2026-15:07:28] [I] Export output to JSON file: 
+[09/10/2026-15:07:28] [I] Export profile to JSON file: 
+[09/10/2026-15:07:28] [I] 
+[09/10/2026-15:07:28] [I] === Device Information ===
+[09/10/2026-15:07:28] [I] Available Devices: 
+[09/10/2026-15:07:28] [I]   Device 0: "NVIDIA H100 NVL" UUID: GPU-78d0dccb-0e2a-0c21-2402-dd562bbf9845
+[09/10/2026-15:07:28] [I] Selected Device: NVIDIA H100 NVL
+[09/10/2026-15:07:28] [I] Selected Device ID: 0
+[09/10/2026-15:07:28] [I] Selected Device UUID: GPU-78d0dccb-0e2a-0c21-2402-dd562bbf9845
+[09/10/2026-15:07:28] [I] Compute Capability: 9.0
+[09/10/2026-15:07:28] [I] SMs: 132
+[09/10/2026-15:07:28] [I] Device Global Memory: 95321 MiB
+[09/10/2026-15:07:28] [I] Shared Memory per SM: 228 KiB
+[09/10/2026-15:07:28] [I] Memory Bus Width: 6016 bits (ECC enabled)
+[09/10/2026-15:07:28] [I] Application Compute Clock Rate: 1.785 GHz
+[09/10/2026-15:07:28] [I] Application Memory Clock Rate: 2.619 GHz
+[09/10/2026-15:07:28] [I] 
+[09/10/2026-15:07:28] [I] Note: The application clock rates do not reflect the actual clock rates that the GPU is currently running at.
+[09/10/2026-15:07:28] [I] 
+[09/10/2026-15:07:28] [I] TensorRT version: 10.10.0
+[09/10/2026-15:07:28] [I] Loading standard plugins
+[09/10/2026-15:07:29] [I] [TRT] Loaded engine size: 1210 MiB
+[09/10/2026-15:07:29] [I] Engine deserialized in 1.25906 sec.
+[09/10/2026-15:07:29] [I] [TRT] [MS] Running engine with multi stream info
+[09/10/2026-15:07:29] [I] [TRT] [MS] Number of aux streams is 2
+[09/10/2026-15:07:29] [I] [TRT] [MS] Number of total worker streams is 3
+[09/10/2026-15:07:29] [I] [TRT] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[09/10/2026-15:07:30] [I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +658, now: CPU 0, GPU 1836 (MiB)
+[09/10/2026-15:07:30] [I] Setting persistentCacheLimit to 0 bytes.
+[09/10/2026-15:07:30] [I] Set shape of input tensor audio_signal to: 1x80x101
+[09/10/2026-15:07:30] [I] Set shape of input tensor lengths to: 1
+[09/10/2026-15:07:30] [I] Created execution context with device memory size: 657.77 MiB
+[09/10/2026-15:07:30] [I] Using random values for input audio_signal
+[09/10/2026-15:07:30] [I] Input binding for audio_signal with dimensions 1x80x101 is created.
+[09/10/2026-15:07:30] [I] Using random values for input lengths
+[09/10/2026-15:07:30] [I] Input binding for lengths with dimensions 1 is created.
+[09/10/2026-15:07:30] [I] Output binding for encoded with dimensions 1x1024x13 is created.
+[09/10/2026-15:07:30] [I] Output binding for encoded_lengths with dimensions 1 is created.
+[09/10/2026-15:07:30] [I] Starting inference
+[09/10/2026-15:07:30] [I] Capturing CUDA graph for the current execution context
+[09/10/2026-15:07:31] [I] Successfully captured CUDA graph for the current execution context
+[09/10/2026-15:07:31] [I] Warmup completed 112 queries over 500 ms
+[09/10/2026-15:07:31] [I] Timing trace has 100 queries over 0.376089 s
+[09/10/2026-15:07:31] [I] 
+[09/10/2026-15:07:31] [I] === Trace details ===
+[09/10/2026-15:07:31] [I] Trace averages of 10 runs:
+[09/10/2026-15:07:31] [I] Average on 10 runs - GPU latency: 3.75805 ms - Host latency: 3.75805 ms (enqueue 0.269391 ms)
+[09/10/2026-15:07:31] [I] Average on 10 runs - GPU latency: 3.75829 ms - Host latency: 3.75829 ms (enqueue 0.271265 ms)
+[09/10/2026-15:07:31] [I] Average on 10 runs - GPU latency: 3.75709 ms - Host latency: 3.75709 ms (enqueue 0.266858 ms)
+[09/10/2026-15:07:31] [I] Average on 10 runs - GPU latency: 3.757 ms - Host latency: 3.757 ms (enqueue 0.26825 ms)
+[09/10/2026-15:07:31] [I] Average on 10 runs - GPU latency: 3.75841 ms - Host latency: 3.75841 ms (enqueue 0.269293 ms)
+[09/10/2026-15:07:31] [I] Average on 10 runs - GPU latency: 3.75705 ms - Host latency: 3.75705 ms (enqueue 0.27135 ms)
+[09/10/2026-15:07:31] [I] Average on 10 runs - GPU latency: 3.75645 ms - Host latency: 3.75645 ms (enqueue 0.273712 ms)
+[09/10/2026-15:07:31] [I] Average on 10 runs - GPU latency: 3.7575 ms - Host latency: 3.7575 ms (enqueue 0.271777 ms)
+[09/10/2026-15:07:31] [I] Average on 10 runs - GPU latency: 3.75827 ms - Host latency: 3.75827 ms (enqueue 0.269464 ms)
+[09/10/2026-15:07:31] [I] Average on 10 runs - GPU latency: 3.75555 ms - Host latency: 3.75555 ms (enqueue 0.266211 ms)
+[09/10/2026-15:07:31] [I] 
+[09/10/2026-15:07:31] [I] === Performance summary ===
+[09/10/2026-15:07:31] [I] Throughput: 265.894 qps
+[09/10/2026-15:07:31] [I] Latency: min = 3.74933 ms, max = 3.76343 ms, mean = 3.75737 ms, median = 3.75775 ms, percentile(90%) = 3.76099 ms, percentile(95%) = 3.76208 ms, percentile(99%) = 3.76343 ms
+[09/10/2026-15:07:31] [I] Enqueue Time: min = 0.242615 ms, max = 0.297363 ms, mean = 0.269757 ms, median = 0.267731 ms, percentile(90%) = 0.286926 ms, percentile(95%) = 0.29071 ms, percentile(99%) = 0.297363 ms
+[09/10/2026-15:07:31] [I] H2D Latency: min = 0 ms, max = 0 ms, mean = 0 ms, median = 0 ms, percentile(90%) = 0 ms, percentile(95%) = 0 ms, percentile(99%) = 0 ms
+[09/10/2026-15:07:31] [I] GPU Compute Time: min = 3.74933 ms, max = 3.76343 ms, mean = 3.75737 ms, median = 3.75775 ms, percentile(90%) = 3.76099 ms, percentile(95%) = 3.76208 ms, percentile(99%) = 3.76343 ms
+[09/10/2026-15:07:31] [I] D2H Latency: min = 0 ms, max = 0 ms, mean = 0 ms, median = 0 ms, percentile(90%) = 0 ms, percentile(95%) = 0 ms, percentile(99%) = 0 ms
+[09/10/2026-15:07:31] [I] Total Host Walltime: 0.376089 s
+[09/10/2026-15:07:31] [I] Total GPU Compute Time: 0.375737 s
+[09/10/2026-15:07:31] [I] Explanations of the performance metrics are printed in the verbose logs.
+[09/10/2026-15:07:31] [I] 
+&&&& PASSED TensorRT.trtexec [TensorRT v101000] [b31] # /usr/local/tensorrt/bin/trtexec --loadEngine=/workspace/artifacts/shrutam2_encoder_fp16.plan --shapes=audio_signal:1x80x101,lengths:1 --warmUp=500 --duration=0 --iterations=100 --noDataTransfers --useCudaGraph --exportTimes=/workspace/results/encoder/trtexec_fp16_1s/times_b1.json
+&&&& RUNNING TensorRT.trtexec [TensorRT v101000] [b31] # /usr/local/tensorrt/bin/trtexec --loadEngine=/workspace/artifacts/shrutam2_encoder_fp16.plan --shapes=audio_signal:2x80x101,lengths:2 --warmUp=500 --duration=0 --iterations=100 --noDataTransfers --useCudaGraph --exportTimes=/workspace/results/encoder/trtexec_fp16_1s/times_b2.json
+[09/10/2026-15:07:32] [I] TF32 is enabled by default. Add --noTF32 flag to further improve accuracy with some performance cost.
+[09/10/2026-15:07:32] [I] === Model Options ===
+[09/10/2026-15:07:32] [I] Format: *
+[09/10/2026-15:07:32] [I] Model: 
+[09/10/2026-15:07:32] [I] Output:
+[09/10/2026-15:07:32] [I] 
+[09/10/2026-15:07:32] [I] === System Options ===
+[09/10/2026-15:07:32] [I] Device: 0
+[09/10/2026-15:07:32] [I] DLACore: 
+[09/10/2026-15:07:32] [I] Plugins:
+[09/10/2026-15:07:32] [I] setPluginsToSerialize:
+[09/10/2026-15:07:32] [I] dynamicPlugins:
+[09/10/2026-15:07:32] [I] ignoreParsedPluginLibs: 0
+[09/10/2026-15:07:32] [I] 
+[09/10/2026-15:07:32] [I] === Inference Options ===
+[09/10/2026-15:07:32] [I] Batch: Explicit
+[09/10/2026-15:07:32] [I] Input inference shape : lengths=2
+[09/10/2026-15:07:32] [I] Input inference shape : audio_signal=2x80x101
+[09/10/2026-15:07:32] [I] Iterations: 100
+[09/10/2026-15:07:32] [I] Duration: 0s (+ 500ms warm up)
+[09/10/2026-15:07:32] [I] Sleep time: 0ms
+[09/10/2026-15:07:32] [I] Idle time: 0ms
+[09/10/2026-15:07:32] [I] Inference Streams: 1
+[09/10/2026-15:07:32] [I] ExposeDMA: Disabled
+[09/10/2026-15:07:32] [I] Data transfers: Disabled
+[09/10/2026-15:07:32] [I] Spin-wait: Disabled
+[09/10/2026-15:07:32] [I] Multithreading: Disabled
+[09/10/2026-15:07:32] [I] CUDA Graph: Enabled
+[09/10/2026-15:07:32] [I] Separate profiling: Disabled
+[09/10/2026-15:07:32] [I] Time Deserialize: Disabled
+[09/10/2026-15:07:32] [I] Time Refit: Disabled
+[09/10/2026-15:07:32] [I] NVTX verbosity: 0
+[09/10/2026-15:07:32] [I] Persistent Cache Ratio: 0
+[09/10/2026-15:07:32] [I] Optimization Profile Index: 0
+[09/10/2026-15:07:32] [I] Weight Streaming Budget: 100.000000%
+[09/10/2026-15:07:32] [I] Inputs:
+[09/10/2026-15:07:32] [I] Debug Tensor Save Destinations:
+[09/10/2026-15:07:32] [I] === Reporting Options ===
+[09/10/2026-15:07:32] [I] Verbose: Disabled
+[09/10/2026-15:07:32] [I] Averages: 10 inferences
+[09/10/2026-15:07:32] [I] Percentiles: 90,95,99
+[09/10/2026-15:07:32] [I] Dump refittable layers:Disabled
+[09/10/2026-15:07:32] [I] Dump output: Disabled
+[09/10/2026-15:07:32] [I] Profile: Disabled
+[09/10/2026-15:07:32] [I] Export timing to JSON file: /workspace/results/encoder/trtexec_fp16_1s/times_b2.json
+[09/10/2026-15:07:32] [I] Export output to JSON file: 
+[09/10/2026-15:07:32] [I] Export profile to JSON file: 
+[09/10/2026-15:07:32] [I] 
+[09/10/2026-15:07:32] [I] === Device Information ===
+[09/10/2026-15:07:32] [I] Available Devices: 
+[09/10/2026-15:07:32] [I]   Device 0: "NVIDIA H100 NVL" UUID: GPU-78d0dccb-0e2a-0c21-2402-dd562bbf9845
+[09/10/2026-15:07:32] [I] Selected Device: NVIDIA H100 NVL
+[09/10/2026-15:07:32] [I] Selected Device ID: 0
+[09/10/2026-15:07:32] [I] Selected Device UUID: GPU-78d0dccb-0e2a-0c21-2402-dd562bbf9845
+[09/10/2026-15:07:32] [I] Compute Capability: 9.0
+[09/10/2026-15:07:32] [I] SMs: 132
+[09/10/2026-15:07:32] [I] Device Global Memory: 95321 MiB
+[09/10/2026-15:07:32] [I] Shared Memory per SM: 228 KiB
+[09/10/2026-15:07:32] [I] Memory Bus Width: 6016 bits (ECC enabled)
+[09/10/2026-15:07:32] [I] Application Compute Clock Rate: 1.785 GHz
+[09/10/2026-15:07:32] [I] Application Memory Clock Rate: 2.619 GHz
+[09/10/2026-15:07:32] [I] 
+[09/10/2026-15:07:32] [I] Note: The application clock rates do not reflect the actual clock rates that the GPU is currently running at.
+[09/10/2026-15:07:32] [I] 
+[09/10/2026-15:07:32] [I] TensorRT version: 10.10.0
+[09/10/2026-15:07:32] [I] Loading standard plugins
+[09/10/2026-15:07:33] [I] [TRT] Loaded engine size: 1210 MiB
+[09/10/2026-15:07:33] [I] Engine deserialized in 1.31173 sec.
+[09/10/2026-15:07:33] [I] [TRT] [MS] Running engine with multi stream info
+[09/10/2026-15:07:33] [I] [TRT] [MS] Number of aux streams is 2
+[09/10/2026-15:07:33] [I] [TRT] [MS] Number of total worker streams is 3
+[09/10/2026-15:07:33] [I] [TRT] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[09/10/2026-15:07:35] [I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +658, now: CPU 0, GPU 1836 (MiB)
+[09/10/2026-15:07:35] [I] Setting persistentCacheLimit to 0 bytes.
+[09/10/2026-15:07:35] [I] Set shape of input tensor audio_signal to: 2x80x101
+[09/10/2026-15:07:35] [I] Set shape of input tensor lengths to: 2
+[09/10/2026-15:07:35] [I] Created execution context with device memory size: 657.77 MiB
+[09/10/2026-15:07:35] [I] Using random values for input audio_signal
+[09/10/2026-15:07:35] [I] Input binding for audio_signal with dimensions 2x80x101 is created.
+[09/10/2026-15:07:35] [I] Using random values for input lengths
+[09/10/2026-15:07:35] [I] Input binding for lengths with dimensions 2 is created.
+[09/10/2026-15:07:35] [I] Output binding for encoded with dimensions 2x1024x13 is created.
+[09/10/2026-15:07:35] [I] Output binding for encoded_lengths with dimensions 2 is created.
+[09/10/2026-15:07:35] [I] Starting inference
+[09/10/2026-15:07:35] [I] Capturing CUDA graph for the current execution context
+[09/10/2026-15:07:35] [I] Successfully captured CUDA graph for the current execution context
+[09/10/2026-15:07:36] [I] Warmup completed 111 queries over 500 ms
+[09/10/2026-15:07:36] [I] Timing trace has 100 queries over 0.376665 s
+[09/10/2026-15:07:36] [I] 
+[09/10/2026-15:07:36] [I] === Trace details ===
+[09/10/2026-15:07:36] [I] Trace averages of 10 runs:
+[09/10/2026-15:07:36] [I] Average on 10 runs - GPU latency: 3.76445 ms - Host latency: 3.76445 ms (enqueue 0.263223 ms)
+[09/10/2026-15:07:36] [I] Average on 10 runs - GPU latency: 3.76487 ms - Host latency: 3.76487 ms (enqueue 0.265723 ms)
+[09/10/2026-15:07:36] [I] Average on 10 runs - GPU latency: 3.76109 ms - Host latency: 3.76109 ms (enqueue 0.265039 ms)
+[09/10/2026-15:07:36] [I] Average on 10 runs - GPU latency: 3.76495 ms - Host latency: 3.76495 ms (enqueue 0.260193 ms)
+[09/10/2026-15:07:36] [I] Average on 10 runs - GPU latency: 3.76425 ms - Host latency: 3.76425 ms (enqueue 0.266962 ms)
+[09/10/2026-15:07:36] [I] Average on 10 runs - GPU latency: 3.76304 ms - Host latency: 3.76304 ms (enqueue 0.26217 ms)
+[09/10/2026-15:07:36] [I] Average on 10 runs - GPU latency: 3.76292 ms - Host latency: 3.76292 ms (enqueue 0.262695 ms)
+[09/10/2026-15:07:36] [I] Average on 10 runs - GPU latency: 3.76223 ms - Host latency: 3.76223 ms (enqueue 0.265411 ms)
+[09/10/2026-15:07:36] [I] Average on 10 runs - GPU latency: 3.76271 ms - Host latency: 3.76271 ms (enqueue 0.261139 ms)
+[09/10/2026-15:07:36] [I] Average on 10 runs - GPU latency: 3.76468 ms - Host latency: 3.76468 ms (enqueue 0.264239 ms)
+[09/10/2026-15:07:36] [I] 
+[09/10/2026-15:07:36] [I] === Performance summary ===
+[09/10/2026-15:07:36] [I] Throughput: 265.488 qps
+[09/10/2026-15:07:36] [I] Latency: min = 3.75867 ms, max = 3.76935 ms, mean = 3.76352 ms, median = 3.7634 ms, percentile(90%) = 3.76709 ms, percentile(95%) = 3.76862 ms, percentile(99%) = 3.76935 ms
+[09/10/2026-15:07:36] [I] Enqueue Time: min = 0.24707 ms, max = 0.302429 ms, mean = 0.26368 ms, median = 0.261932 ms, percentile(90%) = 0.281616 ms, percentile(95%) = 0.285461 ms, percentile(99%) = 0.302429 ms
+[09/10/2026-15:07:36] [I] H2D Latency: min = 0 ms, max = 0 ms, mean = 0 ms, median = 0 ms, percentile(90%) = 0 ms, percentile(95%) = 0 ms, percentile(99%) = 0 ms
+[09/10/2026-15:07:36] [I] GPU Compute Time: min = 3.75867 ms, max = 3.76935 ms, mean = 3.76352 ms, median = 3.7634 ms, percentile(90%) = 3.76709 ms, percentile(95%) = 3.76862 ms, percentile(99%) = 3.76935 ms
+[09/10/2026-15:07:36] [I] D2H Latency: min = 0 ms, max = 0 ms, mean = 0 ms, median = 0 ms, percentile(90%) = 0 ms, percentile(95%) = 0 ms, percentile(99%) = 0 ms
+[09/10/2026-15:07:36] [I] Total Host Walltime: 0.376665 s
+[09/10/2026-15:07:36] [I] Total GPU Compute Time: 0.376352 s
+[09/10/2026-15:07:36] [I] Explanations of the performance metrics are printed in the verbose logs.
+[09/10/2026-15:07:36] [I] 
+&&&& PASSED TensorRT.trtexec [TensorRT v101000] [b31] # /usr/local/tensorrt/bin/trtexec --loadEngine=/workspace/artifacts/shrutam2_encoder_fp16.plan --shapes=audio_signal:2x80x101,lengths:2 --warmUp=500 --duration=0 --iterations=100 --noDataTransfers --useCudaGraph --exportTimes=/workspace/results/encoder/trtexec_fp16_1s/times_b2.json
+&&&& RUNNING TensorRT.trtexec [TensorRT v101000] [b31] # /usr/local/tensorrt/bin/trtexec --loadEngine=/workspace/artifacts/shrutam2_encoder_fp16.plan --shapes=audio_signal:8x80x101,lengths:8 --warmUp=500 --duration=0 --iterations=100 --noDataTransfers --useCudaGraph --exportTimes=/workspace/results/encoder/trtexec_fp16_1s/times_b8.json
+[09/10/2026-15:07:36] [I] TF32 is enabled by default. Add --noTF32 flag to further improve accuracy with some performance cost.
+[09/10/2026-15:07:36] [I] === Model Options ===
+[09/10/2026-15:07:36] [I] Format: *
+[09/10/2026-15:07:36] [I] Model: 
+[09/10/2026-15:07:36] [I] Output:
+[09/10/2026-15:07:36] [I] 
+[09/10/2026-15:07:36] [I] === System Options ===
+[09/10/2026-15:07:36] [I] Device: 0
+[09/10/2026-15:07:36] [I] DLACore: 
+[09/10/2026-15:07:36] [I] Plugins:
+[09/10/2026-15:07:36] [I] setPluginsToSerialize:
+[09/10/2026-15:07:36] [I] dynamicPlugins:
+[09/10/2026-15:07:36] [I] ignoreParsedPluginLibs: 0
+[09/10/2026-15:07:36] [I] 
+[09/10/2026-15:07:36] [I] === Inference Options ===
+[09/10/2026-15:07:36] [I] Batch: Explicit
+[09/10/2026-15:07:36] [I] Input inference shape : lengths=8
+[09/10/2026-15:07:36] [I] Input inference shape : audio_signal=8x80x101
+[09/10/2026-15:07:36] [I] Iterations: 100
+[09/10/2026-15:07:36] [I] Duration: 0s (+ 500ms warm up)
+[09/10/2026-15:07:36] [I] Sleep time: 0ms
+[09/10/2026-15:07:36] [I] Idle time: 0ms
+[09/10/2026-15:07:36] [I] Inference Streams: 1
+[09/10/2026-15:07:36] [I] ExposeDMA: Disabled
+[09/10/2026-15:07:36] [I] Data transfers: Disabled
+[09/10/2026-15:07:36] [I] Spin-wait: Disabled
+[09/10/2026-15:07:36] [I] Multithreading: Disabled
+[09/10/2026-15:07:36] [I] CUDA Graph: Enabled
+[09/10/2026-15:07:36] [I] Separate profiling: Disabled
+[09/10/2026-15:07:36] [I] Time Deserialize: Disabled
+[09/10/2026-15:07:36] [I] Time Refit: Disabled
+[09/10/2026-15:07:36] [I] NVTX verbosity: 0
+[09/10/2026-15:07:36] [I] Persistent Cache Ratio: 0
+[09/10/2026-15:07:36] [I] Optimization Profile Index: 0
+[09/10/2026-15:07:36] [I] Weight Streaming Budget: 100.000000%
+[09/10/2026-15:07:36] [I] Inputs:
+[09/10/2026-15:07:36] [I] Debug Tensor Save Destinations:
+[09/10/2026-15:07:36] [I] === Reporting Options ===
+[09/10/2026-15:07:36] [I] Verbose: Disabled
+[09/10/2026-15:07:36] [I] Averages: 10 inferences
+[09/10/2026-15:07:36] [I] Percentiles: 90,95,99
+[09/10/2026-15:07:36] [I] Dump refittable layers:Disabled
+[09/10/2026-15:07:36] [I] Dump output: Disabled
+[09/10/2026-15:07:36] [I] Profile: Disabled
+[09/10/2026-15:07:36] [I] Export timing to JSON file: /workspace/results/encoder/trtexec_fp16_1s/times_b8.json
+[09/10/2026-15:07:36] [I] Export output to JSON file: 
+[09/10/2026-15:07:36] [I] Export profile to JSON file: 
+[09/10/2026-15:07:36] [I] 
+[09/10/2026-15:07:36] [I] === Device Information ===
+[09/10/2026-15:07:36] [I] Available Devices: 
+[09/10/2026-15:07:36] [I]   Device 0: "NVIDIA H100 NVL" UUID: GPU-78d0dccb-0e2a-0c21-2402-dd562bbf9845
+[09/10/2026-15:07:36] [I] Selected Device: NVIDIA H100 NVL
+[09/10/2026-15:07:36] [I] Selected Device ID: 0
+[09/10/2026-15:07:36] [I] Selected Device UUID: GPU-78d0dccb-0e2a-0c21-2402-dd562bbf9845
+[09/10/2026-15:07:36] [I] Compute Capability: 9.0
+[09/10/2026-15:07:36] [I] SMs: 132
+[09/10/2026-15:07:36] [I] Device Global Memory: 95321 MiB
+[09/10/2026-15:07:36] [I] Shared Memory per SM: 228 KiB
+[09/10/2026-15:07:36] [I] Memory Bus Width: 6016 bits (ECC enabled)
+[09/10/2026-15:07:36] [I] Application Compute Clock Rate: 1.785 GHz
+[09/10/2026-15:07:36] [I] Application Memory Clock Rate: 2.619 GHz
+[09/10/2026-15:07:36] [I] 
+[09/10/2026-15:07:36] [I] Note: The application clock rates do not reflect the actual clock rates that the GPU is currently running at.
+[09/10/2026-15:07:36] [I] 
+[09/10/2026-15:07:36] [I] TensorRT version: 10.10.0
+[09/10/2026-15:07:36] [I] Loading standard plugins
+[09/10/2026-15:07:37] [I] [TRT] Loaded engine size: 1210 MiB
+[09/10/2026-15:07:38] [I] Engine deserialized in 1.26388 sec.
+[09/10/2026-15:07:38] [I] [TRT] [MS] Running engine with multi stream info
+[09/10/2026-15:07:38] [I] [TRT] [MS] Number of aux streams is 2
+[09/10/2026-15:07:38] [I] [TRT] [MS] Number of total worker streams is 3
+[09/10/2026-15:07:38] [I] [TRT] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[09/10/2026-15:07:39] [I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +658, now: CPU 0, GPU 1836 (MiB)
+[09/10/2026-15:07:39] [I] Setting persistentCacheLimit to 0 bytes.
+[09/10/2026-15:07:39] [I] Set shape of input tensor audio_signal to: 8x80x101
+[09/10/2026-15:07:39] [I] Set shape of input tensor lengths to: 8
+[09/10/2026-15:07:39] [I] Created execution context with device memory size: 657.77 MiB
+[09/10/2026-15:07:39] [I] Using random values for input audio_signal
+[09/10/2026-15:07:39] [I] Input binding for audio_signal with dimensions 8x80x101 is created.
+[09/10/2026-15:07:39] [I] Using random values for input lengths
+[09/10/2026-15:07:39] [I] Input binding for lengths with dimensions 8 is created.
+[09/10/2026-15:07:39] [I] Output binding for encoded with dimensions 8x1024x13 is created.
+[09/10/2026-15:07:39] [I] Output binding for encoded_lengths with dimensions 8 is created.
+[09/10/2026-15:07:39] [I] Starting inference
+[09/10/2026-15:07:39] [I] Capturing CUDA graph for the current execution context
+[09/10/2026-15:07:39] [I] Successfully captured CUDA graph for the current execution context
+[09/10/2026-15:07:40] [I] Warmup completed 107 queries over 500 ms
+[09/10/2026-15:07:40] [I] Timing trace has 100 queries over 0.389813 s
+[09/10/2026-15:07:40] [I] 
+[09/10/2026-15:07:40] [I] === Trace details ===
+[09/10/2026-15:07:40] [I] Trace averages of 10 runs:
+[09/10/2026-15:07:40] [I] Average on 10 runs - GPU latency: 3.89314 ms - Host latency: 3.89314 ms (enqueue 0.388397 ms)
+[09/10/2026-15:07:40] [I] Average on 10 runs - GPU latency: 3.89468 ms - Host latency: 3.89468 ms (enqueue 0.389355 ms)
+[09/10/2026-15:07:40] [I] Average on 10 runs - GPU latency: 3.89504 ms - Host latency: 3.89504 ms (enqueue 0.387073 ms)
+[09/10/2026-15:07:40] [I] Average on 10 runs - GPU latency: 3.89395 ms - Host latency: 3.89395 ms (enqueue 0.387848 ms)
+[09/10/2026-15:07:40] [I] Average on 10 runs - GPU latency: 3.89488 ms - Host latency: 3.89488 ms (enqueue 0.390906 ms)
+[09/10/2026-15:07:40] [I] Average on 10 runs - GPU latency: 3.89619 ms - Host latency: 3.89619 ms (enqueue 0.391943 ms)
+[09/10/2026-15:07:40] [I] Average on 10 runs - GPU latency: 3.89537 ms - Host latency: 3.89537 ms (enqueue 0.389594 ms)
+[09/10/2026-15:07:40] [I] Average on 10 runs - GPU latency: 3.89482 ms - Host latency: 3.89482 ms (enqueue 0.386188 ms)
+[09/10/2026-15:07:40] [I] Average on 10 runs - GPU latency: 3.89494 ms - Host latency: 3.89494 ms (enqueue 0.388171 ms)
+[09/10/2026-15:07:40] [I] Average on 10 runs - GPU latency: 3.89438 ms - Host latency: 3.89438 ms (enqueue 0.391168 ms)
+[09/10/2026-15:07:40] [I] 
+[09/10/2026-15:07:40] [I] === Performance summary ===
+[09/10/2026-15:07:40] [I] Throughput: 256.534 qps
+[09/10/2026-15:07:40] [I] Latency: min = 3.88507 ms, max = 3.90356 ms, mean = 3.89474 ms, median = 3.89465 ms, percentile(90%) = 3.89874 ms, percentile(95%) = 3.89978 ms, percentile(99%) = 3.90356 ms
+[09/10/2026-15:07:40] [I] Enqueue Time: min = 0.362366 ms, max = 0.427063 ms, mean = 0.389064 ms, median = 0.387939 ms, percentile(90%) = 0.410034 ms, percentile(95%) = 0.416077 ms, percentile(99%) = 0.427063 ms
+[09/10/2026-15:07:40] [I] H2D Latency: min = 0 ms, max = 0 ms, mean = 0 ms, median = 0 ms, percentile(90%) = 0 ms, percentile(95%) = 0 ms, percentile(99%) = 0 ms
+[09/10/2026-15:07:40] [I] GPU Compute Time: min = 3.88507 ms, max = 3.90356 ms, mean = 3.89474 ms, median = 3.89465 ms, percentile(90%) = 3.89874 ms, percentile(95%) = 3.89978 ms, percentile(99%) = 3.90356 ms
+[09/10/2026-15:07:40] [I] D2H Latency: min = 0 ms, max = 0 ms, mean = 0 ms, median = 0 ms, percentile(90%) = 0 ms, percentile(95%) = 0 ms, percentile(99%) = 0 ms
+[09/10/2026-15:07:40] [I] Total Host Walltime: 0.389813 s
+[09/10/2026-15:07:40] [I] Total GPU Compute Time: 0.389474 s
+[09/10/2026-15:07:40] [I] Explanations of the performance metrics are printed in the verbose logs.
+[09/10/2026-15:07:40] [I] 
+&&&& PASSED TensorRT.trtexec [TensorRT v101000] [b31] # /usr/local/tensorrt/bin/trtexec --loadEngine=/workspace/artifacts/shrutam2_encoder_fp16.plan --shapes=audio_signal:8x80x101,lengths:8 --warmUp=500 --duration=0 --iterations=100 --noDataTransfers --useCudaGraph --exportTimes=/workspace/results/encoder/trtexec_fp16_1s/times_b8.json
+&&&& RUNNING TensorRT.trtexec [TensorRT v101000] [b31] # /usr/local/tensorrt/bin/trtexec --loadEngine=/workspace/artifacts/shrutam2_encoder_fp16.plan --shapes=audio_signal:32x80x101,lengths:32 --warmUp=500 --duration=0 --iterations=100 --noDataTransfers --useCudaGraph --exportTimes=/workspace/results/encoder/trtexec_fp16_1s/times_b32.json
+[09/10/2026-15:07:41] [I] TF32 is enabled by default. Add --noTF32 flag to further improve accuracy with some performance cost.
+[09/10/2026-15:07:41] [I] === Model Options ===
+[09/10/2026-15:07:41] [I] Format: *
+[09/10/2026-15:07:41] [I] Model: 
+[09/10/2026-15:07:41] [I] Output:
+[09/10/2026-15:07:41] [I] 
+[09/10/2026-15:07:41] [I] === System Options ===
+[09/10/2026-15:07:41] [I] Device: 0
+[09/10/2026-15:07:41] [I] DLACore: 
+[09/10/2026-15:07:41] [I] Plugins:
+[09/10/2026-15:07:41] [I] setPluginsToSerialize:
+[09/10/2026-15:07:41] [I] dynamicPlugins:
+[09/10/2026-15:07:41] [I] ignoreParsedPluginLibs: 0
+[09/10/2026-15:07:41] [I] 
+[09/10/2026-15:07:41] [I] === Inference Options ===
+[09/10/2026-15:07:41] [I] Batch: Explicit
+[09/10/2026-15:07:41] [I] Input inference shape : lengths=32
+[09/10/2026-15:07:41] [I] Input inference shape : audio_signal=32x80x101
+[09/10/2026-15:07:41] [I] Iterations: 100
+[09/10/2026-15:07:41] [I] Duration: 0s (+ 500ms warm up)
+[09/10/2026-15:07:41] [I] Sleep time: 0ms
+[09/10/2026-15:07:41] [I] Idle time: 0ms
+[09/10/2026-15:07:41] [I] Inference Streams: 1
+[09/10/2026-15:07:41] [I] ExposeDMA: Disabled
+[09/10/2026-15:07:41] [I] Data transfers: Disabled
+[09/10/2026-15:07:41] [I] Spin-wait: Disabled
+[09/10/2026-15:07:41] [I] Multithreading: Disabled
+[09/10/2026-15:07:41] [I] CUDA Graph: Enabled
+[09/10/2026-15:07:41] [I] Separate profiling: Disabled
+[09/10/2026-15:07:41] [I] Time Deserialize: Disabled
+[09/10/2026-15:07:41] [I] Time Refit: Disabled
+[09/10/2026-15:07:41] [I] NVTX verbosity: 0
+[09/10/2026-15:07:41] [I] Persistent Cache Ratio: 0
+[09/10/2026-15:07:41] [I] Optimization Profile Index: 0
+[09/10/2026-15:07:41] [I] Weight Streaming Budget: 100.000000%
+[09/10/2026-15:07:41] [I] Inputs:
+[09/10/2026-15:07:41] [I] Debug Tensor Save Destinations:
+[09/10/2026-15:07:41] [I] === Reporting Options ===
+[09/10/2026-15:07:41] [I] Verbose: Disabled
+[09/10/2026-15:07:41] [I] Averages: 10 inferences
+[09/10/2026-15:07:41] [I] Percentiles: 90,95,99
+[09/10/2026-15:07:41] [I] Dump refittable layers:Disabled
+[09/10/2026-15:07:41] [I] Dump output: Disabled
+[09/10/2026-15:07:41] [I] Profile: Disabled
+[09/10/2026-15:07:41] [I] Export timing to JSON file: /workspace/results/encoder/trtexec_fp16_1s/times_b32.json
+[09/10/2026-15:07:41] [I] Export output to JSON file: 
+[09/10/2026-15:07:41] [I] Export profile to JSON file: 
+[09/10/2026-15:07:41] [I] 
+[09/10/2026-15:07:41] [I] === Device Information ===
+[09/10/2026-15:07:41] [I] Available Devices: 
+[09/10/2026-15:07:41] [I]   Device 0: "NVIDIA H100 NVL" UUID: GPU-78d0dccb-0e2a-0c21-2402-dd562bbf9845
+[09/10/2026-15:07:41] [I] Selected Device: NVIDIA H100 NVL
+[09/10/2026-15:07:41] [I] Selected Device ID: 0
+[09/10/2026-15:07:41] [I] Selected Device UUID: GPU-78d0dccb-0e2a-0c21-2402-dd562bbf9845
+[09/10/2026-15:07:41] [I] Compute Capability: 9.0
+[09/10/2026-15:07:41] [I] SMs: 132
+[09/10/2026-15:07:41] [I] Device Global Memory: 95321 MiB
+[09/10/2026-15:07:41] [I] Shared Memory per SM: 228 KiB
+[09/10/2026-15:07:41] [I] Memory Bus Width: 6016 bits (ECC enabled)
+[09/10/2026-15:07:41] [I] Application Compute Clock Rate: 1.785 GHz
+[09/10/2026-15:07:41] [I] Application Memory Clock Rate: 2.619 GHz
+[09/10/2026-15:07:41] [I] 
+[09/10/2026-15:07:41] [I] Note: The application clock rates do not reflect the actual clock rates that the GPU is currently running at.
+[09/10/2026-15:07:41] [I] 
+[09/10/2026-15:07:41] [I] TensorRT version: 10.10.0
+[09/10/2026-15:07:41] [I] Loading standard plugins
+[09/10/2026-15:07:42] [I] [TRT] Loaded engine size: 1210 MiB
+[09/10/2026-15:07:42] [I] Engine deserialized in 1.2116 sec.
+[09/10/2026-15:07:42] [I] [TRT] [MS] Running engine with multi stream info
+[09/10/2026-15:07:42] [I] [TRT] [MS] Number of aux streams is 2
+[09/10/2026-15:07:42] [I] [TRT] [MS] Number of total worker streams is 3
+[09/10/2026-15:07:42] [I] [TRT] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[09/10/2026-15:07:43] [I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +658, now: CPU 0, GPU 1836 (MiB)
+[09/10/2026-15:07:43] [I] Setting persistentCacheLimit to 0 bytes.
+[09/10/2026-15:07:43] [I] Set shape of input tensor audio_signal to: 32x80x101
+[09/10/2026-15:07:43] [I] Set shape of input tensor lengths to: 32
+[09/10/2026-15:07:43] [I] Created execution context with device memory size: 657.77 MiB
+[09/10/2026-15:07:43] [I] Using random values for input audio_signal
+[09/10/2026-15:07:43] [I] Input binding for audio_signal with dimensions 32x80x101 is created.
+[09/10/2026-15:07:43] [I] Using random values for input lengths
+[09/10/2026-15:07:43] [I] Input binding for lengths with dimensions 32 is created.
+[09/10/2026-15:07:43] [I] Output binding for encoded with dimensions 32x1024x13 is created.
+[09/10/2026-15:07:43] [I] Output binding for encoded_lengths with dimensions 32 is created.
+[09/10/2026-15:07:43] [I] Starting inference
+[09/10/2026-15:07:43] [I] Capturing CUDA graph for the current execution context
+[09/10/2026-15:07:43] [I] Successfully captured CUDA graph for the current execution context
+[09/10/2026-15:07:44] [I] Warmup completed 96 queries over 500 ms
+[09/10/2026-15:07:44] [I] Timing trace has 100 queries over 0.449267 s
+[09/10/2026-15:07:44] [I] 
+[09/10/2026-15:07:44] [I] === Trace details ===
+[09/10/2026-15:07:44] [I] Trace averages of 10 runs:
+[09/10/2026-15:07:44] [I] Average on 10 runs - GPU latency: 4.49127 ms - Host latency: 4.49127 ms (enqueue 0.284122 ms)
+[09/10/2026-15:07:44] [I] Average on 10 runs - GPU latency: 4.49301 ms - Host latency: 4.49301 ms (enqueue 0.282654 ms)
+[09/10/2026-15:07:44] [I] Average on 10 runs - GPU latency: 4.48907 ms - Host latency: 4.48907 ms (enqueue 0.283899 ms)
+[09/10/2026-15:07:44] [I] Average on 10 runs - GPU latency: 4.49031 ms - Host latency: 4.49031 ms (enqueue 0.270618 ms)
+[09/10/2026-15:07:44] [I] Average on 10 runs - GPU latency: 4.49011 ms - Host latency: 4.49011 ms (enqueue 0.26814 ms)
+[09/10/2026-15:07:44] [I] Average on 10 runs - GPU latency: 4.4866 ms - Host latency: 4.4866 ms (enqueue 0.267932 ms)
+[09/10/2026-15:07:44] [I] Average on 10 runs - GPU latency: 4.49051 ms - Host latency: 4.49051 ms (enqueue 0.271472 ms)
+[09/10/2026-15:07:44] [I] Average on 10 runs - GPU latency: 4.48347 ms - Host latency: 4.48347 ms (enqueue 0.282971 ms)
+[09/10/2026-15:07:44] [I] Average on 10 runs - GPU latency: 4.48923 ms - Host latency: 4.48923 ms (enqueue 0.285486 ms)
+[09/10/2026-15:07:44] [I] Average on 10 runs - GPU latency: 4.4879 ms - Host latency: 4.4879 ms (enqueue 0.274255 ms)
+[09/10/2026-15:07:44] [I] 
+[09/10/2026-15:07:44] [I] === Performance summary ===
+[09/10/2026-15:07:44] [I] Throughput: 222.585 qps
+[09/10/2026-15:07:44] [I] Latency: min = 4.47736 ms, max = 4.50586 ms, mean = 4.48915 ms, median = 4.48953 ms, percentile(90%) = 4.49799 ms, percentile(95%) = 4.49963 ms, percentile(99%) = 4.50586 ms
+[09/10/2026-15:07:44] [I] Enqueue Time: min = 0.259949 ms, max = 0.323914 ms, mean = 0.277155 ms, median = 0.273132 ms, percentile(90%) = 0.295715 ms, percentile(95%) = 0.300385 ms, percentile(99%) = 0.323914 ms
+[09/10/2026-15:07:44] [I] H2D Latency: min = 0 ms, max = 0 ms, mean = 0 ms, median = 0 ms, percentile(90%) = 0 ms, percentile(95%) = 0 ms, percentile(99%) = 0 ms
+[09/10/2026-15:07:44] [I] GPU Compute Time: min = 4.47736 ms, max = 4.50586 ms, mean = 4.48915 ms, median = 4.48953 ms, percentile(90%) = 4.49799 ms, percentile(95%) = 4.49963 ms, percentile(99%) = 4.50586 ms
+[09/10/2026-15:07:44] [I] D2H Latency: min = 0 ms, max = 0 ms, mean = 0 ms, median = 0 ms, percentile(90%) = 0 ms, percentile(95%) = 0 ms, percentile(99%) = 0 ms
+[09/10/2026-15:07:44] [I] Total Host Walltime: 0.449267 s
+[09/10/2026-15:07:44] [I] Total GPU Compute Time: 0.448915 s
+[09/10/2026-15:07:44] [I] Explanations of the performance metrics are printed in the verbose logs.
+[09/10/2026-15:07:44] [I] 
+&&&& PASSED TensorRT.trtexec [TensorRT v101000] [b31] # /usr/local/tensorrt/bin/trtexec --loadEngine=/workspace/artifacts/shrutam2_encoder_fp16.plan --shapes=audio_signal:32x80x101,lengths:32 --warmUp=500 --duration=0 --iterations=100 --noDataTransfers --useCudaGraph --exportTimes=/workspace/results/encoder/trtexec_fp16_1s/times_b32.json

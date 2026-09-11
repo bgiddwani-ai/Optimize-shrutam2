@@ -1,0 +1,33 @@
+
+====================
+== NeMo Framework ==
+====================
+
+NVIDIA Release  (build 134983853)
+Container image Copyright (c) 2025, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+Copyright (c) 2014-2024 Facebook Inc.
+Copyright (c) 2011-2014 Idiap Research Institute (Ronan Collobert)
+Copyright (c) 2012-2014 Deepmind Technologies    (Koray Kavukcuoglu)
+Copyright (c) 2011-2012 NEC Laboratories America (Koray Kavukcuoglu)
+Copyright (c) 2011-2013 NYU                      (Clement Farabet)
+Copyright (c) 2006-2010 NEC Laboratories America (Ronan Collobert, Leon Bottou, Iain Melvin, Jason Weston)
+Copyright (c) 2006      Idiap Research Institute (Samy Bengio)
+Copyright (c) 2001-2004 Idiap Research Institute (Ronan Collobert, Samy Bengio, Johnny Mariethoz)
+Copyright (c) 2015      Google Inc.
+Copyright (c) 2015      Yangqing Jia
+Copyright (c) 2013-2016 The Caffe contributors
+All rights reserved.
+
+Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+{"runtime": "compile", "batch_size": 1, "mean_latency_ms": 3.741960786283016, "p50_latency_ms": 3.7146270042285323, "audio_seconds": 1.0, "rtfx": 267.2395722760433, "encoded_shape": [1, 1024, 13], "valid_encoded_frames": 13}
+{"runtime": "compile", "batch_size": 2, "mean_latency_ms": 5.084771988913417, "p50_latency_ms": 5.065712990472093, "audio_seconds": 2.0, "rtfx": 393.331304601406, "encoded_shape": [2, 1024, 13], "valid_encoded_frames": 26}
+{"runtime": "compile", "batch_size": 8, "mean_latency_ms": 5.931398394750431, "p50_latency_ms": 5.903975485125557, "audio_seconds": 8.0, "rtfx": 1348.7544534321585, "encoded_shape": [8, 1024, 13], "valid_encoded_frames": 104}
+{"runtime": "compile", "batch_size": 32, "mean_latency_ms": 6.361492886207998, "p50_latency_ms": 6.338818988297135, "audio_seconds": 32.0, "rtfx": 5030.265783897587, "encoded_shape": [32, 1024, 13], "valid_encoded_frames": 416}
+{"runtime": "compile", "batch_size": 64, "mean_latency_ms": 15.78563409857452, "p50_latency_ms": 15.766491007525474, "audio_seconds": 64.0, "rtfx": 4054.3192373741485, "encoded_shape": [64, 1024, 13], "valid_encoded_frames": 832}
+{"runtime": "compile", "batch_size": 128, "mean_latency_ms": 27.645341405877843, "p50_latency_ms": 27.61291796923615, "audio_seconds": 128.0, "rtfx": 4630.074851337707, "encoded_shape": [128, 1024, 13], "valid_encoded_frames": 1664}
+{"runtime": "compile", "batch_size": 256, "mean_latency_ms": 51.31178148440085, "p50_latency_ms": 51.26157699851319, "audio_seconds": 256.0, "rtfx": 4989.1076200078105, "encoded_shape": [256, 1024, 13], "valid_encoded_frames": 3328}

@@ -1,0 +1,114 @@
+
+=============
+== PyTorch ==
+=============
+
+NVIDIA Release 25.04 (build 159049541)
+PyTorch Version 2.7.0a0+79aa174
+Container image Copyright (c) 2025, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+Copyright (c) 2014-2024 Facebook Inc.
+Copyright (c) 2011-2014 Idiap Research Institute (Ronan Collobert)
+Copyright (c) 2012-2014 Deepmind Technologies    (Koray Kavukcuoglu)
+Copyright (c) 2011-2012 NEC Laboratories America (Koray Kavukcuoglu)
+Copyright (c) 2011-2013 NYU                      (Clement Farabet)
+Copyright (c) 2006-2010 NEC Laboratories America (Ronan Collobert, Leon Bottou, Iain Melvin, Jason Weston)
+Copyright (c) 2006      Idiap Research Institute (Samy Bengio)
+Copyright (c) 2001-2004 Idiap Research Institute (Ronan Collobert, Samy Bengio, Johnny Mariethoz)
+Copyright (c) 2015      Google Inc.
+Copyright (c) 2015      Yangqing Jia
+Copyright (c) 2013-2016 The Caffe contributors
+All rights reserved.
+
+Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+
+GOVERNING TERMS: The software and materials are governed by the NVIDIA Software License Agreement
+(found at https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-software-license-agreement/)
+and the Product-Specific Terms for NVIDIA AI Products
+(found at https://www.nvidia.com/en-us/agreements/enterprise-software/product-specific-terms-for-ai-products/).
+
+2026-09-10 15:28:46,794 - INFO - flashinfer.jit: Prebuilt kernels not found, using JIT backend
+[TensorRT-LLM] TensorRT-LLM version: 0.20.0
+[TensorRT-LLM][INFO] Engine version 0.20.0 found in the config file, assuming engine(s) built by new builder API.
+[TensorRT-LLM][INFO] MPI size: 1, MPI local size: 1, rank: 0
+[TensorRT-LLM][INFO] Engine version 0.20.0 found in the config file, assuming engine(s) built by new builder API.
+[TensorRT-LLM][INFO] Refreshed the MPI local session
+[TensorRT-LLM][INFO] MPI size: 1, MPI local size: 1, rank: 0
+[TensorRT-LLM][INFO] Using user-specified devices: (0)
+[TensorRT-LLM][INFO] Rank 0 is using GPU 0
+[TensorRT-LLM][INFO] TRTGptModel maxNumSequences: 32
+[TensorRT-LLM][INFO] TRTGptModel maxBatchSize: 32
+[TensorRT-LLM][INFO] TRTGptModel maxBeamWidth: 4
+[TensorRT-LLM][INFO] TRTGptModel maxSequenceLen: 512
+[TensorRT-LLM][INFO] TRTGptModel maxDraftLen: 0
+[TensorRT-LLM][INFO] TRTGptModel mMaxAttentionWindowSize: (512) * 16
+[TensorRT-LLM][INFO] TRTGptModel enableTrtOverlap: 0
+[TensorRT-LLM][INFO] TRTGptModel normalizeLogProbs: 1
+[TensorRT-LLM][INFO] TRTGptModel maxNumTokens: 8192
+[TensorRT-LLM][INFO] TRTGptModel maxInputLen: 511 = min(maxSequenceLen - 1, maxNumTokens) since context FMHA and usePackedInput are enabled
+[TensorRT-LLM][INFO] TRTGptModel If model type is encoder, maxInputLen would be reset in trtEncoderModel to maxInputLen: min(maxSequenceLen, maxNumTokens).
+[TensorRT-LLM][INFO] Capacity Scheduler Policy: GUARANTEED_NO_EVICT
+[TensorRT-LLM][INFO] Context Chunking Scheduler Policy: None
+[TensorRT-LLM][INFO] Loaded engine size: 2862 MiB
+[TensorRT-LLM][INFO] Engine load time 1540 ms
+[TensorRT-LLM][INFO] Inspecting the engine to identify potential runtime issues...
+[TensorRT-LLM][INFO] The profiling verbosity of the engine does not allow this analysis to proceed. Re-build the engine with 'detailed' profiling verbosity to get more diagnostics.
+[TensorRT-LLM][INFO] [MemUsageChange] Allocated 480.01 MiB for execution context memory.
+[TensorRT-LLM][INFO] gatherContextLogits: 0
+[TensorRT-LLM][INFO] gatherGenerationLogits: 0
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 2857 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Allocated 79.79 MB GPU memory for runtime buffers.
+[TensorRT-LLM][INFO] [MemUsageChange] Allocated 206.45 MB GPU memory for decoder.
+[TensorRT-LLM][INFO] Memory usage when calculating max tokens in paged kv cache: total: 93.09 GiB, available: 84.24 GiB, extraCostMemory: 0.00 GiB
+[TensorRT-LLM][INFO] Number of blocks in KV cache primary pool: 43133
+[TensorRT-LLM][INFO] Number of blocks in KV cache secondary pool: 0, onboard blocks to primary memory before reuse: true
+[TensorRT-LLM][INFO] before Create KVCacheManager cacheTransPreAllocaSize:0
+[TensorRT-LLM][INFO] Max KV cache pages per sequence: 16 [window size=512]
+[TensorRT-LLM][INFO] Number of tokens per block: 32.
+[TensorRT-LLM][INFO] [MemUsageChange] Allocated 42.12 GiB for max tokens in paged KV cache (1380256).
+{"index": 0, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/as_00.wav", "duration_seconds": 1.2, "reference": "টকিঅ'", "language": "as", "text": "টোকিও", "latency_ms": 578.3913600025699, "concurrency": 1, "audio_prefix_tokens": 16}
+{"index": 1, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/as_01.wav", "duration_seconds": 2.4990625, "reference": "অঁ পইচা বেছিকৈ লাগিব নেকি পঞ্চাশ টকাত নহয় নেকি", "language": "as", "text": "অ' পইচা বেছিকৈ লাগিব নেকি পঞ্চাছ টকাত নহয় নেকি?", "latency_ms": 99.99167401110753, "concurrency": 1, "audio_prefix_tokens": 32}
+{"index": 2, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/as_02.wav", "duration_seconds": 4.983, "reference": "বা আমাৰ কৰ্মস্থানত যথেষ্ট প্ৰভাৱ পেলাইছে কিয়নো", "language": "as", "text": "বা আমাৰ কৰ্মস্থানত যথেষ্টই প্ৰভাৱ পেলাইছে কিয়নো", "latency_ms": 79.35209502466023, "concurrency": 1, "audio_prefix_tokens": 63}
+{"index": 3, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/as_03.wav", "duration_seconds": 8.993, "reference": "গোট খোলাৰ ব্যৱস্থা কৰি দিছে তাৰ উপৰি বিভিন্ন ধৰণৰ জব ক্ৰিয়েট কৰিছে যাতে শিক্ষিত যিসকল নিবনুৱা আছে তেওঁলোকে সংস্থাপন লাভ কৰে", "language": "as", "text": "গোট খোলাৰ ব্যৱস্থা কৰি দিছে তাৰোপৰি বিভিন্ন ধৰণৰ জব ক্ৰিয়েট কৰিছে যাতে শিক্ষিত যিসকল যিসকল নিবনুৱা আছে তেওঁলোকে সংস্থাপন লাভ কৰে", "latency_ms": 128.00700700609013, "concurrency": 1, "audio_prefix_tokens": 113}
+{"index": 4, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/bn_00.wav", "duration_seconds": 1.2, "reference": "হ্যালো", "language": "bn", "text": "Hello", "latency_ms": 28.27810699818656, "concurrency": 1, "audio_prefix_tokens": 16}
+{"index": 5, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/bn_01.wav", "duration_seconds": 2.498, "reference": "আচ্ছা একবার ওষুধ এখান থেকে নিয়ে গিয়েছিলেন", "language": "bn", "text": "আচ্ছা একবার ওষুধ এখানে থেকে নিয়ে গিয়েছিলেন", "latency_ms": 48.52318001212552, "concurrency": 1, "audio_prefix_tokens": 32}
+{"index": 6, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/bn_02.wav", "duration_seconds": 5.005, "reference": "কোরেস গ্লু স্টিক্স এর জন্য তিরিশ শতাংশ অফার কখন ফিরবে", "language": "bn", "text": "কোরস গ্লুটিক্স এর জন্য তিরিশ শতাংশ অফার কখন ফিরবে", "latency_ms": 66.73901400063187, "concurrency": 1, "audio_prefix_tokens": 63}
+{"index": 7, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/bn_03.wav", "duration_seconds": 9.0, "reference": "গাছপালার বা পার্কে বা জঙ্গল আছে সেখানে তারা যায় বিকেলবেলার দিকে হাওয়া খেতে খেলা করতে ইত্যাদি গাছ থেকে", "language": "bn", "text": "গাছপালার বা পার্কে বা জঙ্গল আছে সেখানে তারা যায় বিকেলবেলার দিকে হাওয়া খেতে খেলা করতে ইত্যাদি গাছ থেকে", "latency_ms": 101.89686401281506, "concurrency": 1, "audio_prefix_tokens": 113}
+{"index": 8, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/gu_00.wav", "duration_seconds": 1.214, "reference": "શનિ દેવ સિંગણાપુર", "language": "gu", "text": "સન પછી નવું નામ", "latency_ms": 44.00301800342277, "concurrency": 1, "audio_prefix_tokens": 16}
+{"index": 9, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/gu_01.wav", "duration_seconds": 2.5, "reference": "હા તે કંઇ વાંધો નહીં તો હું કાલે લઈને આવું છું", "language": "gu", "text": "કાલે કાલે આવીશ", "latency_ms": 46.61500500515103, "concurrency": 1, "audio_prefix_tokens": 32}
+{"index": 10, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/gu_02.wav", "duration_seconds": 5.023, "reference": "ઘણા ગુજરાતના ગામડાઓમાં સ સમુદાયોમાં પુરુષો અને મહિલાઓને", "language": "gu", "text": "ઘણા ગુજરાતના ગામડાઓમાં સ સમુદાયોમાં પુરુષો અને મહિલાઓને", "latency_ms": 61.14500999683514, "concurrency": 1, "audio_prefix_tokens": 63}
+{"index": 11, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/gu_03.wav", "duration_seconds": 8.993, "reference": "કે એ સ્ત્રી તમારો આનંદનો સ્ત્રોત નથી તો એ સ્ત્રી સાથે ગમે તે થાય તમને એનાથી આનંદ મળશે કે દુઃખ મળશે", "language": "gu", "text": "એ સ્ત્રી તમારો આનંદનો સ્ત્રોત નથી તો એ સ્ત્રી સાથે ગમે તે તમને આનંદ મળશે", "latency_ms": 81.5918690059334, "concurrency": 1, "audio_prefix_tokens": 113}
+{"index": 12, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/hi_00.wav", "duration_seconds": 1.202, "reference": "नमस्ते नमस्ते", "language": "hi", "text": "नमस्कार", "latency_ms": 37.014270026702434, "concurrency": 1, "audio_prefix_tokens": 16}
+{"index": 13, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/hi_01.wav", "duration_seconds": 2.5, "reference": "हाँ दिखाइए पहले चलिए", "language": "hi", "text": "हाँ देखिए", "latency_ms": 41.301768040284514, "concurrency": 1, "audio_prefix_tokens": 32}
+{"index": 14, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/hi_02.wav", "duration_seconds": 4.992, "reference": "परंतु पुराने दिनों में या पुराने समय में", "language": "hi", "text": "परंतु पुराने दिनों में या पुराने समय में", "latency_ms": 53.867767041083425, "concurrency": 1, "audio_prefix_tokens": 63}
+{"index": 15, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/hi_03.wav", "duration_seconds": 8.997, "reference": "खूबसूरत हाइ के हाइक के का जहाँ तक सवाल है मैं कोई खास बात तो नहीं किया हूँ अपने जीवन में", "language": "hi", "text": "खूब हो सकता है कि हाइक का जहाँ से सवाल है मैं कोई खास बात तो नहीं किया हूँ अपने जीवन में", "latency_ms": 84.30853398749605, "concurrency": 1, "audio_prefix_tokens": 113}
+{"index": 16, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/kn_00.wav", "duration_seconds": 1.202, "reference": "ಆಯ್ತು ರೀ ಹ್ಞೂ", "language": "kn", "text": "ಆಯ್ತಾಯ್ತು", "latency_ms": 45.228315982967615, "concurrency": 1, "audio_prefix_tokens": 16}
+{"index": 17, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/kn_01.wav", "duration_seconds": 2.486, "reference": "ಒಂದು ಒಣ ಮೆಣ್ಸಿನ್ಕಾಯ್ ರೀ", "language": "kn", "text": "ಅವರು ಶಂಕಾರು", "latency_ms": 44.504664023406804, "concurrency": 1, "audio_prefix_tokens": 32}
+{"index": 18, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/kn_02.wav", "duration_seconds": 5.003, "reference": "ಹಾಂ ಹ್ಞೂ ನಮ್ಮದೇ ಇದೆ ರಾಯಲ್ ಬ್ರದರ್ಸ್ ಅಂತ ಆನ್ಲೈನ್ ಬುಕಿಂಗ್ ಮಾಡಿದ್ರಾ", "language": "kn", "text": "ಹಾಂ ನಮ್ಮದೇ ಇದೆ ರಾಯಲ್ ಬರ್ದರ್ಸ್ ಅಂತ ಆನ್ಲೈನ್ ಬುಕಿಂಗ್ ಮಾಡಿದಿರಾ", "latency_ms": 80.62422700459138, "concurrency": 1, "audio_prefix_tokens": 63}
+{"index": 19, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/kn_03.wav", "duration_seconds": 8.994, "reference": "ಆವಾಗ ಗಸಗಸೆ ಪಾಯಸ ಮಾಡು ಇರ್ಬೋದು ಮತ್ತು ಹಾಲಿಂದ ಕೆಲವೊಂದು ಉಂಡೆಗಳಿರ್ಬೋದು ಹಾಲಿಂದ ಕೆಲವೊಂದು ಕೆನೆಗಳಿರ್ಬೋದು ಈ ರೀತಿ ನಾವು ಮಾಡಬೋದು", "language": "kn", "text": "ಅವಾಗ ಗಸಗಸೆ ಪಾಯಸ ಮಾಡಿರ್ಬೋದು ಮತ್ತು ಹಾಲಿಂದ ಕೆಲವೊಂದು ಉಂಡೆಗಳಿರ್ಬೋದು ಹಾಲಿಂದ ಕೆಲವೊಂದು ಕೆನೆಗಳಿರ್ಬೋದು ಈ ರೀತಿ ನಾವು ಮಾಡಿರ್ಬೋದು", "latency_ms": 140.46327403048053, "concurrency": 1, "audio_prefix_tokens": 113}
+{"index": 20, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/ml_00.wav", "duration_seconds": 1.201, "reference": "ഓ ഞാൻ റെഡി ആക്കിത്തരാം", "language": "ml", "text": "ഓടിയാക്കി തരാം", "latency_ms": 56.859383010305464, "concurrency": 1, "audio_prefix_tokens": 16}
+{"index": 21, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/ml_01.wav", "duration_seconds": 2.497, "reference": "ആ രണ്ടും കൂടെ കൂടി ഒരു ഒന്നിൻ്റെ മേലെ എങ്ങനെയായാലും ആവും", "language": "ml", "text": "രണ്ടും കൂടി ഒരു ഒന്നിൻ്റെ മേലെ എങ്ങനെ ആയാലും", "latency_ms": 68.00281803589314, "concurrency": 1, "audio_prefix_tokens": 32}
+{"index": 22, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/ml_02.wav", "duration_seconds": 4.995, "reference": "ആ ഇവിടെ എൽ കെ ജിക്കാണെങ്കിൽ ഒരു വർഷത്തേക്ക് മുപ്പതിനായിരം രൂപ സെക്കൻറ്റ് സ്റ്റാൻഡേർഡ് ആവുമ്പോൾ അൻപതിനായിരം രൂപ വരും", "language": "ml", "text": "ആ ഇവിടെ എൽ കെ ജിക്കാണെങ്കിൽ ഒരു വർഷത്തേക്ക് ഒരു സെക്കൻഡ് സെക്കൻഡ് സെക്കൻഡ് സെക്കൻഡ് സെക്കൻഡ് സെക്കൻഡ് സെക്കൻഡ് രൂപ വരും", "latency_ms": 127.39455100381747, "concurrency": 1, "audio_prefix_tokens": 63}
+{"index": 23, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/ml_03.wav", "duration_seconds": 8.996, "reference": "കഴിഞ്ഞ ആഴ്ച മുതൽ എനിക്ക് പാനീയങ്ങൾ ലഭിച്ചിട്ടില്ല അതിൻ്റെ കണക്കാക്കിയ ഡെലിവർ തീയതി എപ്പോഴാണ്", "language": "ml", "text": "കഴിഞ്ഞ ആഴ്ച മുതൽ എനിക്ക് പാനീയങ്ങൾ ലഭിച്ചിട്ടില്ല അതിൻ്റെ കണക്കാക്കിയ ഡെലിവർ തീയതി എപ്പോഴാണ്", "latency_ms": 110.46922096284106, "concurrency": 1, "audio_prefix_tokens": 113}
+{"index": 24, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/mr_01.wav", "duration_seconds": 2.502, "reference": "ऑक्सावेरा सोलीज ऑस्टीन", "language": "mr", "text": "ऑक्सावारा सोलेस अॅस्टीन", "latency_ms": 55.301281972788274, "concurrency": 1, "audio_prefix_tokens": 32}
+{"index": 25, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/mr_02.wav", "duration_seconds": 4.999, "reference": "युनो एस बी आयकडून मिळालेला नवीनतम रिवार्क क्लेम करा", "language": "mr", "text": "योनो एस बी आय कडून मिळाला नवीनतम रिवॉर्ड क्लेम करा", "latency_ms": 74.34835698222741, "concurrency": 1, "audio_prefix_tokens": 63}
+{"index": 26, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/mr_03.wav", "duration_seconds": 8.999, "reference": "विकत घेऊ शकतो अ हेसुद्धा एक गुंतवणुकीसाठी चांगला मार्ग आहे त्याच्यानंतर अशा व्यवसायांमुळे आपल्याला उत्पन्न मिळू शकते", "language": "mr", "text": "विकास घेऊ शकतो आहे स्वतः एका गुंतवणुकीसाठी चांगला मार्ग आहे त्याच्यानंतर अशा व्यवसायांमुळे आपल्याला उत्पन्न मिळू शकते", "latency_ms": 84.78590799495578, "concurrency": 1, "audio_prefix_tokens": 113}
+{"index": 27, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/or_00.wav", "duration_seconds": 1.2, "reference": "ହଁ ହଁ କେଉଁ ଟାଇମରେ", "language": "or", "text": "ହଁ ହଁ କେଉଁ ଟାଇମ ରେ", "latency_ms": 65.31063199508935, "concurrency": 1, "audio_prefix_tokens": 16}
+{"index": 28, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/or_01.wav", "duration_seconds": 2.491, "reference": "ତାହେଲେ ଟିକେ ଅଧିକା ପଡ଼ିବ ଆଉ ସେଇ ବାଇଶ ଟଙ୍କା ତେଇଶ ଟଙ୍କା ଟିକିଏ ପଡ଼ିବ", "language": "or", "text": "ସେଇ ପାଗାଳି ପାଗାଳି ପାଗାଳି ପାଗାଳି ପାଗାଳି ପାଗାଳି ପାଗାଳି", "latency_ms": 113.30789898056537, "concurrency": 1, "audio_prefix_tokens": 32}
+{"index": 29, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/or_02.wav", "duration_seconds": 5.0, "reference": "ଆଉ ସବୁ ପିଲାଙ୍କୁ କହିବେ ଯେମିତିକି ସବୁଦିନ ଠିକ୍ ସମୟରେ ଅନଲାଇନରେ ରୁହନ୍ତୁ କ୍ଲାସ", "language": "or", "text": "ହଁ ସବୁ ପିଲାଙ୍କୁ କହିବେ ଯେମିତିକି ସବୁଦିନ ଠିକ୍ ସମୟରେ ଅନଲାଇନରେ ରୁହନ୍ତୁ କ୍ଲାସ୍", "latency_ms": 107.51685500144958, "concurrency": 1, "audio_prefix_tokens": 63}
+{"index": 30, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/or_03.wav", "duration_seconds": 9.004, "reference": "ଚାଷ କରିବାପାଇଁ ଲୋକମାନେ ତାଙ୍କ ପାଖରେ ପଇସାର ଅସୁବିଧା ରହିଛି ସରକାରଙ୍କ ତରଫରୁ", "language": "or", "text": "ଚାଷ କରିବା ପାଇଁ ଲୋକମାନେ ତାଙ୍କ ପାଖେ ପଇସାର ଅସୁବିଧା ରହିଛି ସରକାରଙ୍କ ତରଫରୁ", "latency_ms": 85.96644300268963, "concurrency": 1, "audio_prefix_tokens": 113}
+{"index": 31, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/pa_00.wav", "duration_seconds": 1.203, "reference": "ਹਾਂਜੀ ਜ਼ਰੂਰ", "language": "pa", "text": "ਹਾਂਜੀ ضرور", "latency_ms": 46.9796639517881, "concurrency": 1, "audio_prefix_tokens": 16}
+{"index": 32, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/pa_01.wav", "duration_seconds": 2.485, "reference": "ਅੱਛਾ ਜੀ ਕੀ ਕੁਆਂਟਿਟੀ ਹੋਵੇਗੀ ਜੀ ਔਡਰ ਦੀ", "language": "pa", "text": "ਅੱਛਾ ਜੀ ਇੱਕ ਕੁਆਂਟਿਟੀ ਹੋਵੇਗੀ ਜੀ ਔਡਰ ਦੀ", "latency_ms": 71.39826804632321, "concurrency": 1, "audio_prefix_tokens": 32}
+{"index": 33, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/pa_03.wav", "duration_seconds": 9.0, "reference": "ਸਾਡੀ ਸਰਕਾਰ ਨੇ ਬਣਾਏ ਹੋਏ ਹਨ ਟਾਈਮ ਟਾਈਮ 'ਤੇ ਇਹੋ ਜਿਹੀਆਂ ਕੰਪਨੀਆਂ ਬਣਾਈਆਂ ਹਨ ਜੋ ਕਾਨੂੰਨੀ ਕਾਰਵਾਈ ਕਰਦੀਆਂ ਰਹਿੰਦੀਆਂ ਹਨ", "language": "pa", "text": "ਸਾਡੀ ਸਰਕਾਰ ਨੇ ਬਣਾਏ ਹੋਏ ਹਨ ਟਾਈਮ ਟਾਈਮ 'ਤੇ ਇਹੋ ਜਿਹੀਆਂ ਕੰਪਨੀਆਂ ਬਣਾਈਆਂ ਹਨ ਜੋ ਕਾਨੂੰਨੀ ਕਾਰਵਾਈ ਕਰਦੀਆਂ ਰਹਿੰਦੀਆਂ ਹਨ", "latency_ms": 95.95935099059716, "concurrency": 1, "audio_prefix_tokens": 113}
+{"index": 34, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/ta_00.wav", "duration_seconds": 1.2, "reference": "ஓ சரி சரி", "language": "ta", "text": "ஓ சரி சரி", "latency_ms": 47.72496200166643, "concurrency": 1, "audio_prefix_tokens": 16}
+{"index": 35, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/ta_01.wav", "duration_seconds": 2.5, "reference": "ஆ ஆ சொல்லுங்கள் சொல்லுங்கள் சொல்லுங்கள்", "language": "ta", "text": "ஆ ஆ சொல்லுங்கள் சொல்லுங்கள்", "latency_ms": 62.56753101479262, "concurrency": 1, "audio_prefix_tokens": 32}
+{"index": 36, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/ta_02.wav", "duration_seconds": 5.002, "reference": "அது நீங்கள் எப்படி உங்களுடைய குடும்ப ஃபேமிலி பற்றி நீங்கள் பார்த்து அதுக்கு தகுந்த மாதிரி எப்படின் உங்களுக்கு பேசிக்கிங்க", "language": "ta", "text": "அது நீங்கள் எப்படி உங்களுடைய குடும்ப ஃபேமிலியை பற்றி நீங்கள் பார்த்து அது மாதிரி உங்களுக்கு பேசுங்க", "latency_ms": 98.0350769823417, "concurrency": 1, "audio_prefix_tokens": 63}
+{"index": 37, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/ta_03.wav", "duration_seconds": 8.9940625, "reference": "அவர் வந்து அதை வந்து ப்ரைஸ்ஸாக அவங்க அவருக்கு வந்து கொடுந்தாங்க அப்போ இது நிமித்தமாக பார்த்தீங்கனா அந்த அதனால அவங்க வந்து பெரிய ஒரு கோடிஸ்வரனாக ஆனாங்க ஒரு ஏழ்மை நிலையில் இருந்தவங்க", "language": "ta", "text": "அவர்கள் வந்து அதை வந்து ப்ரைஸாக அவங்க அவருக்கு வந்து கொடுத்தாங்க அப்போ இது நிம்மதமாக பார்த்தீங்கன்னா அந்த அதுனால அவங்க வந்து பெரிய ஒரு கோட்டை சொன்னார்கள் ஒரு ஏழு மணி நேரத்தில் இருந்தவங்க ஒரு ஏழு மணி நேரத்தில் இருந்தவங்க", "latency_ms": 194.44936199579388, "concurrency": 1, "audio_prefix_tokens": 113}
+{"index": 38, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/te_00.wav", "duration_seconds": 1.194, "reference": "చెప్పు", "language": "te", "text": "ആ తప్పకుండా", "latency_ms": 78.34885502234101, "concurrency": 1, "audio_prefix_tokens": 15}
+{"index": 39, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/te_01.wav", "duration_seconds": 2.497, "reference": "ఎన్ని మంత్స్ ఉంటుందండి ఇంట్రెస్ట్", "language": "te", "text": "ఎన్ని మంత్స్ ఉంటుందండి ఇంట్రెస్ట్", "latency_ms": 57.02992802252993, "concurrency": 1, "audio_prefix_tokens": 32}
+{"index": 40, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/te_02.wav", "duration_seconds": 4.996, "reference": "ఓకే సార్ మ్యాడమ్ది ఆధార్ కార్డు పాన్ కార్డు రేషన్ కార్డు రెండు ఫోటోసు", "language": "te", "text": "ఓకే సార్ మీరు ఆధార్ కార్డు ప్యాన్ కార్డు రేషన్ కార్డు రెండు ఫొటోసు", "latency_ms": 102.77094994671643, "concurrency": 1, "audio_prefix_tokens": 63}
+{"index": 41, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/te_03.wav", "duration_seconds": 8.993, "reference": "ఇక్కడ కొన్ని షాప్స్ ఉంటాయి మీరు విజిట్ చేసి మీకు ఏదైనా నచ్చితే తీసుకోవచ్చు అలాగే కలంకారి వేసే వర్కషాప్స్ కూడా ఉంటాయి", "language": "te", "text": "అక్కడే కొన్ని షాప్స్ ఉంటాయి మీరు విసిట్ చేసి మీకు ఏదైనా నచ్చితే తీసుకోవచ్చు అలాగే కలంకారి వేసే వర్క్ షాప్స్ కూడా ఉంటాయి", "latency_ms": 118.86833200696856, "concurrency": 1, "audio_prefix_tokens": 113}
+{"index": 42, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/ur_00.wav", "duration_seconds": 1.203, "reference": "اچھا کتنا لیں گے آپ", "language": "ur", "text": "اچھا کتنا لیں گے", "latency_ms": 53.77311701886356, "concurrency": 1, "audio_prefix_tokens": 16}
+{"index": 43, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/ur_01.wav", "duration_seconds": 2.501, "reference": "میرے الارمز کے بارے میں بتاؤ", "language": "ur", "text": "میرے الارمز کے بارے میں بتاؤ", "latency_ms": 59.302348003257066, "concurrency": 1, "audio_prefix_tokens": 32}
+{"index": 44, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/ur_02.wav", "duration_seconds": 5.011, "reference": "اگر ہمارے کسی کام کا روٹین نہیں بنا ہوتا ہے تو میرے دماغ میں ایک ٹینشن سا ہوتا ہے کہ", "language": "ur", "text": "اگر ہمارے کسی کام کا روٹین نہیں بنا ہوتا ہے تو میرے دماغ میں ایک ٹینشن سا ہوتا ہے کہ", "latency_ms": 93.74432300683111, "concurrency": 1, "audio_prefix_tokens": 63}
+{"index": 45, "ok": true, "path": "/workspace/data/indicvoices_quick/audio/ur_03.wav", "duration_seconds": 9.004, "reference": "اچھا ٹھیک ہے ٹھیک ہے سر ٹھیک ہے تو جیسا آپ کو مناسب لگے ہم کال کر لیں گے ٹھیک ہے سر ٹھیک ہے تھینک یو سر", "language": "ur", "text": "اچھا ٹھیک ہے ٹھیک ہے سر ٹھیک ہے تو جیسے آپ کو مناسب لگے ہم کال کر لیں گے ٹھیک تھینک یو", "latency_ms": 111.46009300136939, "concurrency": 1, "audio_prefix_tokens": 113}
+[TensorRT-LLM][INFO] Refreshed the MPI local session

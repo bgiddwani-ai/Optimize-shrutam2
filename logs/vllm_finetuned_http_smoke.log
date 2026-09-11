@@ -1,0 +1,4 @@
+{"concurrency": 1, "requests": 8, "valid": 8, "failed": 0, "wall_seconds": 0.9286556559964083, "audio_seconds": 37.707, "rtfx": 40.603855429644675, "requests_per_second": 8.614603215242724, "latency_mean_ms": 115.94272537331562, "latency_p50_ms": 119.15467647486366, "latency_p95_ms": 154.11769921192897, "latency_p99_ms": 164.88903825404122, "observed_batch_sizes": [1]}
+{"concurrency": 8, "requests": 8, "valid": 8, "failed": 0, "wall_seconds": 0.5229594529955648, "audio_seconds": 43.19, "rtfx": 82.58766478472336, "requests_per_second": 15.297553097425027, "latency_mean_ms": 413.1542722461745, "latency_p50_ms": 463.2241694780532, "latency_p95_ms": 514.3815316667315, "latency_p99_ms": 518.1150911457371, "observed_batch_sizes": [1, 3, 4]}
+{"samples": 7, "concurrency": 1, "wer": 0.26666666666666666, "cer": 0.15165876777251186}
+__VLLM_FINETUNED_HTTP_SMOKE_DONE__

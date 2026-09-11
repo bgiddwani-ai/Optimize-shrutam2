@@ -1,0 +1,2 @@
+{"source_checkpoint": "/home/nvidia/Optimize-shrutam2/model/model.pt", "tensor_count": 146, "missing": [], "extra_ignored": ["lm_head.weight"], "tied_lm_head_matches_embedding": true, "weights_bytes": 2470662568, "weights_sha256": "727c0cf4b68d9cfac69da68e5e796ea4170d697d48a57d937a70b1853e8f81fa"}
+__EXPORT_VLLM_CHECKPOINT_DONE__

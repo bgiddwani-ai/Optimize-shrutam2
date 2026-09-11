@@ -1,0 +1,239 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 503B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for nvcr.io/nvidia/nemo:25.02
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/3] FROM nvcr.io/nvidia/nemo:25.02@sha256:dcd657afd4b85c9ed3f1c784fe69a826f23915ed650ee453b3fd6812035f9989
+#4 resolve nvcr.io/nvidia/nemo:25.02@sha256:dcd657afd4b85c9ed3f1c784fe69a826f23915ed650ee453b3fd6812035f9989 0.1s done
+#4 DONE 9.1s
+
+#5 [2/3] RUN python -m pip install --no-cache-dir --upgrade     "transformers==4.56.2"     "huggingface_hub==0.36.0"     "soundfile==0.13.1"     "fastapi==0.116.1"     "uvicorn[standard]==0.35.0"     "httpx==0.28.1"     "python-multipart==0.0.20"     "jiwer==4.0.0"     "onnx==1.17.0"     "onnxscript==0.2.2"
+#5 0.762 DEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/lightning_thunder-0.2.0.dev0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+#5 0.762 DEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/lightning_utilities-0.12.0.dev0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+#5 0.762 DEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/looseversion-1.3.0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+#5 0.762 DEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/nvfuser-0.2.23a0+6627725-py3.12-linux-x86_64.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+#5 0.762 DEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/opt_einsum-3.4.0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+#5 0.772 Looking in indexes: https://pypi.org/simple, https://pypi.ngc.nvidia.com
+#5 0.918 WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc818230>: Failed to establish a new connection: [Errno -2] Name or service not known')': /transformers/
+#5 1.429 WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc818830>: Failed to establish a new connection: [Errno -2] Name or service not known')': /transformers/
+#5 2.487 WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc818a40>: Failed to establish a new connection: [Errno -2] Name or service not known')': /transformers/
+#5 4.504 WARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc818cb0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /transformers/
+#5 8.522 WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc818e90>: Failed to establish a new connection: [Errno -2] Name or service not known')': /transformers/
+#5 8.580 Collecting transformers==4.56.2
+#5 8.675   Downloading transformers-4.56.2-py3-none-any.whl.metadata (40 kB)
+#5 8.916 WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc71d580>: Failed to establish a new connection: [Errno -2] Name or service not known')': /huggingface-hub/
+#5 9.459 WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc85dfa0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /huggingface-hub/
+#5 10.50 WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc71f020>: Failed to establish a new connection: [Errno -2] Name or service not known')': /huggingface-hub/
+#5 12.52 WARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc71f1a0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /huggingface-hub/
+#5 16.54 WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc71f3e0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /huggingface-hub/
+#5 16.59 Collecting huggingface_hub==0.36.0
+#5 16.61   Downloading huggingface_hub-0.36.0-py3-none-any.whl.metadata (14 kB)
+#5 16.69 WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc655550>: Failed to establish a new connection: [Errno -2] Name or service not known')': /soundfile/
+#5 17.19 WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc75fc20>: Failed to establish a new connection: [Errno -2] Name or service not known')': /soundfile/
+#5 18.20 WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc6557c0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /soundfile/
+#5 20.22 WARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc655eb0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /soundfile/
+#5 24.26 WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc655e50>: Failed to establish a new connection: [Errno -2] Name or service not known')': /soundfile/
+#5 24.28 Collecting soundfile==0.13.1
+#5 24.30   Downloading soundfile-0.13.1-py2.py3-none-manylinux_2_28_x86_64.whl.metadata (16 kB)
+#5 24.43 WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc5134a0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /fastapi/
+#5 24.95 WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc5137a0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /fastapi/
+#5 25.97 WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc5139e0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /fastapi/
+#5 27.98 WARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc513bf0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /fastapi/
+#5 32.01 WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc513e30>: Failed to establish a new connection: [Errno -2] Name or service not known')': /fastapi/
+#5 32.07 Collecting fastapi==0.116.1
+#5 32.08   Downloading fastapi-0.116.1-py3-none-any.whl.metadata (28 kB)
+#5 32.17 WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc414e30>: Failed to establish a new connection: [Errno -2] Name or service not known')': /uvicorn/
+#5 32.69 WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc415a30>: Failed to establish a new connection: [Errno -2] Name or service not known')': /uvicorn/
+#5 33.71 WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc415d90>: Failed to establish a new connection: [Errno -2] Name or service not known')': /uvicorn/
+#5 35.73 WARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc415dc0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /uvicorn/
+#5 39.74 WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc416000>: Failed to establish a new connection: [Errno -2] Name or service not known')': /uvicorn/
+#5 39.77 Collecting uvicorn==0.35.0 (from uvicorn[standard]==0.35.0)
+#5 39.78   Downloading uvicorn-0.35.0-py3-none-any.whl.metadata (6.5 kB)
+#5 39.79 Requirement already satisfied: httpx==0.28.1 in /usr/local/lib/python3.12/dist-packages (0.28.1)
+#5 39.86 WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc4495e0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /httpx/
+#5 40.37 WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc449700>: Failed to establish a new connection: [Errno -2] Name or service not known')': /httpx/
+#5 41.38 WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc4498e0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /httpx/
+#5 43.40 WARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc449c40>: Failed to establish a new connection: [Errno -2] Name or service not known')': /httpx/
+#5 47.41 WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc449eb0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /httpx/
+#5 47.53 WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc449a30>: Failed to establish a new connection: [Errno -2] Name or service not known')': /python-multipart/
+#5 48.05 WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc4709e0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /python-multipart/
+#5 49.07 WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc470bf0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /python-multipart/
+#5 51.09 WARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc470e00>: Failed to establish a new connection: [Errno -2] Name or service not known')': /python-multipart/
+#5 55.10 WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc471040>: Failed to establish a new connection: [Errno -2] Name or service not known')': /python-multipart/
+#5 55.11 Collecting python-multipart==0.0.20
+#5 55.13   Downloading python_multipart-0.0.20-py3-none-any.whl.metadata (1.8 kB)
+#5 55.17 WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc4728a0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /jiwer/
+#5 55.68 WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc472a20>: Failed to establish a new connection: [Errno -2] Name or service not known')': /jiwer/
+#5 56.70 WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc472c60>: Failed to establish a new connection: [Errno -2] Name or service not known')': /jiwer/
+#5 58.72 WARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc472ea0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /jiwer/
+#5 62.73 WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc472fc0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /jiwer/
+#5 62.75 Collecting jiwer==4.0.0
+#5 62.76   Downloading jiwer-4.0.0-py3-none-any.whl.metadata (3.3 kB)
+#5 62.77 Requirement already satisfied: onnx==1.17.0 in /usr/local/lib/python3.12/dist-packages (1.17.0)
+#5 62.89 WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc163aa0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /onnx/
+#5 63.42 WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc163d10>: Failed to establish a new connection: [Errno -2] Name or service not known')': /onnx/
+#5 64.44 WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc163e90>: Failed to establish a new connection: [Errno -2] Name or service not known')': /onnx/
+#5 66.46 WARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc2081d0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /onnx/
+#5 70.48 WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc208530>: Failed to establish a new connection: [Errno -2] Name or service not known')': /onnx/
+#5 70.70 WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc1b3320>: Failed to establish a new connection: [Errno -2] Name or service not known')': /onnxscript/
+#5 71.23 WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc1b3650>: Failed to establish a new connection: [Errno -2] Name or service not known')': /onnxscript/
+#5 72.24 WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc1b3800>: Failed to establish a new connection: [Errno -2] Name or service not known')': /onnxscript/
+#5 74.25 WARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc1b3a70>: Failed to establish a new connection: [Errno -2] Name or service not known')': /onnxscript/
+#5 78.27 WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fc1b3c20>: Failed to establish a new connection: [Errno -2] Name or service not known')': /onnxscript/
+#5 78.32 Collecting onnxscript==0.2.2
+#5 78.33   Downloading onnxscript-0.2.2-py3-none-any.whl.metadata (15 kB)
+#5 78.35 Requirement already satisfied: filelock in /usr/local/lib/python3.12/dist-packages (from transformers==4.56.2) (3.16.1)
+#5 78.38 Requirement already satisfied: numpy>=1.17 in /usr/local/lib/python3.12/dist-packages (from transformers==4.56.2) (1.26.4)
+#5 78.38 Requirement already satisfied: packaging>=20.0 in /usr/local/lib/python3.12/dist-packages (from transformers==4.56.2) (23.2)
+#5 78.38 Requirement already satisfied: pyyaml>=5.1 in /usr/local/lib/python3.12/dist-packages (from transformers==4.56.2) (6.0.2)
+#5 78.38 Requirement already satisfied: regex!=2019.12.17 in /usr/local/lib/python3.12/dist-packages (from transformers==4.56.2) (2024.11.6)
+#5 78.38 Requirement already satisfied: requests in /usr/local/lib/python3.12/dist-packages (from transformers==4.56.2) (2.32.3)
+#5 78.57 WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fb46e090>: Failed to establish a new connection: [Errno -2] Name or service not known')': /tokenizers/
+#5 79.08 WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fb46e4b0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /tokenizers/
+#5 80.09 WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fb46e6f0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /tokenizers/
+#5 82.10 WARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fb46e930>: Failed to establish a new connection: [Errno -2] Name or service not known')': /tokenizers/
+#5 86.12 WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fb46eb70>: Failed to establish a new connection: [Errno -2] Name or service not known')': /tokenizers/
+#5 86.15 Collecting tokenizers<=0.23.0,>=0.22.0 (from transformers==4.56.2)
+#5 86.16   Downloading tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.3 kB)
+#5 86.17 Requirement already satisfied: safetensors>=0.4.3 in /usr/local/lib/python3.12/dist-packages (from transformers==4.56.2) (0.5.2)
+#5 86.17 Requirement already satisfied: tqdm>=4.27 in /usr/local/lib/python3.12/dist-packages (from transformers==4.56.2) (4.67.1)
+#5 86.18 Requirement already satisfied: fsspec>=2023.5.0 in /usr/local/lib/python3.12/dist-packages (from huggingface_hub==0.36.0) (2024.10.0)
+#5 86.18 Requirement already satisfied: typing-extensions>=3.7.4.3 in /usr/local/lib/python3.12/dist-packages (from huggingface_hub==0.36.0) (4.12.2)
+#5 86.28 WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fb8a1580>: Failed to establish a new connection: [Errno -2] Name or service not known')': /hf-xet/
+#5 86.80 WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fb8a1820>: Failed to establish a new connection: [Errno -2] Name or service not known')': /hf-xet/
+#5 87.81 WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fb8a1ac0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /hf-xet/
+#5 89.83 WARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fb8a1c70>: Failed to establish a new connection: [Errno -2] Name or service not known')': /hf-xet/
+#5 93.84 WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fb8a1e50>: Failed to establish a new connection: [Errno -2] Name or service not known')': /hf-xet/
+#5 93.86 Collecting hf-xet<2.0.0,>=1.1.3 (from huggingface_hub==0.36.0)
+#5 93.87   Downloading hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+#5 93.88 Requirement already satisfied: cffi>=1.0 in /usr/local/lib/python3.12/dist-packages (from soundfile==0.13.1) (1.17.1)
+#5 93.88 Requirement already satisfied: starlette<0.48.0,>=0.40.0 in /usr/local/lib/python3.12/dist-packages (from fastapi==0.116.1) (0.41.3)
+#5 93.89 Requirement already satisfied: pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4 in /usr/local/lib/python3.12/dist-packages (from fastapi==0.116.1) (2.10.5)
+#5 93.89 Requirement already satisfied: click>=7.0 in /usr/local/lib/python3.12/dist-packages (from uvicorn==0.35.0->uvicorn[standard]==0.35.0) (8.1.8)
+#5 93.89 Requirement already satisfied: h11>=0.8 in /usr/local/lib/python3.12/dist-packages (from uvicorn==0.35.0->uvicorn[standard]==0.35.0) (0.14.0)
+#5 93.90 Requirement already satisfied: anyio in /usr/local/lib/python3.12/dist-packages (from httpx==0.28.1) (4.8.0)
+#5 93.90 Requirement already satisfied: certifi in /usr/local/lib/python3.12/dist-packages (from httpx==0.28.1) (2024.12.14)
+#5 93.90 Requirement already satisfied: httpcore==1.* in /usr/local/lib/python3.12/dist-packages (from httpx==0.28.1) (1.0.7)
+#5 93.90 Requirement already satisfied: idna in /usr/local/lib/python3.12/dist-packages (from httpx==0.28.1) (3.10)
+#5 93.90 Requirement already satisfied: rapidfuzz>=3.9.7 in /usr/local/lib/python3.12/dist-packages (from jiwer==4.0.0) (3.12.2)
+#5 93.91 Requirement already satisfied: protobuf>=3.20.2 in /usr/local/lib/python3.12/dist-packages (from onnx==1.17.0) (3.20.3)
+#5 93.92 Requirement already satisfied: ml_dtypes in /usr/local/lib/python3.12/dist-packages (from onnxscript==0.2.2) (0.5.1)
+#5 93.99 WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fb9856d0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /httptools/
+#5 94.51 WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fb9858e0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /httptools/
+#5 95.52 WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fb985af0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /httptools/
+#5 97.55 WARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fb985d60>: Failed to establish a new connection: [Errno -2] Name or service not known')': /httptools/
+#5 101.6 WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fb985f10>: Failed to establish a new connection: [Errno -2] Name or service not known')': /httptools/
+#5 101.6 Collecting httptools>=0.6.3 (from uvicorn[standard]==0.35.0)
+#5 101.6   Downloading httptools-0.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (3.5 kB)
+#5 101.6 Requirement already satisfied: python-dotenv>=0.13 in /usr/local/lib/python3.12/dist-packages (from uvicorn[standard]==0.35.0) (1.0.1)
+#5 101.8 WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fb4d4ef0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /uvloop/
+#5 102.3 WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fb4d5250>: Failed to establish a new connection: [Errno -2] Name or service not known')': /uvloop/
+#5 103.3 WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fb4d54f0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /uvloop/
+#5 105.3 WARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fb4d5700>: Failed to establish a new connection: [Errno -2] Name or service not known')': /uvloop/
+#5 109.3 WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fb4d5910>: Failed to establish a new connection: [Errno -2] Name or service not known')': /uvloop/
+#5 109.3 Collecting uvloop>=0.15.1 (from uvicorn[standard]==0.35.0)
+#5 109.3   Downloading uvloop-0.22.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (4.9 kB)
+#5 109.5 WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fb359a30>: Failed to establish a new connection: [Errno -2] Name or service not known')': /watchfiles/
+#5 110.0 WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fb359d90>: Failed to establish a new connection: [Errno -2] Name or service not known')': /watchfiles/
+#5 111.0 WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fb359f40>: Failed to establish a new connection: [Errno -2] Name or service not known')': /watchfiles/
+#5 113.0 WARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fb35a0f0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /watchfiles/
+#5 117.0 WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fb35a2d0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /watchfiles/
+#5 117.1 Collecting watchfiles>=0.13 (from uvicorn[standard]==0.35.0)
+#5 117.1   Downloading watchfiles-1.2.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)
+#5 117.3 WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fae05ac0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /websockets/
+#5 117.8 WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fae05d00>: Failed to establish a new connection: [Errno -2] Name or service not known')': /websockets/
+#5 118.8 WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fae05f10>: Failed to establish a new connection: [Errno -2] Name or service not known')': /websockets/
+#5 120.8 WARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fae06120>: Failed to establish a new connection: [Errno -2] Name or service not known')': /websockets/
+#5 124.8 WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7702fae06360>: Failed to establish a new connection: [Errno -2] Name or service not known')': /websockets/
+#5 124.8 Collecting websockets>=10.4 (from uvicorn[standard]==0.35.0)
+#5 124.9   Downloading websockets-17.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (6.3 kB)
+#5 124.9 Requirement already satisfied: pycparser in /usr/local/lib/python3.12/dist-packages (from cffi>=1.0->soundfile==0.13.1) (2.22)
+#5 124.9 Requirement already satisfied: annotated-types>=0.6.0 in /usr/local/lib/python3.12/dist-packages (from pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4->fastapi==0.116.1) (0.7.0)
+#5 124.9 Requirement already satisfied: pydantic-core==2.27.2 in /usr/local/lib/python3.12/dist-packages (from pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4->fastapi==0.116.1) (2.27.2)
+#5 124.9 Requirement already satisfied: sniffio>=1.1 in /usr/local/lib/python3.12/dist-packages (from anyio->httpx==0.28.1) (1.3.1)
+#5 125.0 Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.12/dist-packages (from requests->transformers==4.56.2) (3.4.1)
+#5 125.0 Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.12/dist-packages (from requests->transformers==4.56.2) (1.26.20)
+#5 125.0 Downloading transformers-4.56.2-py3-none-any.whl (11.6 MB)
+#5 125.3    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.6/11.6 MB 37.3 MB/s eta 0:00:00
+#5 125.3 Downloading huggingface_hub-0.36.0-py3-none-any.whl (566 kB)
+#5 125.4    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 566.1/566.1 kB 402.3 MB/s eta 0:00:00
+#5 125.4 Downloading soundfile-0.13.1-py2.py3-none-manylinux_2_28_x86_64.whl (1.3 MB)
+#5 125.4    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 104.9 MB/s eta 0:00:00
+#5 125.4 Downloading fastapi-0.116.1-py3-none-any.whl (95 kB)
+#5 125.4 Downloading uvicorn-0.35.0-py3-none-any.whl (66 kB)
+#5 125.4 Downloading python_multipart-0.0.20-py3-none-any.whl (24 kB)
+#5 125.4 Downloading jiwer-4.0.0-py3-none-any.whl (23 kB)
+#5 125.4 Downloading onnxscript-0.2.2-py3-none-any.whl (694 kB)
+#5 125.5    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 694.9/694.9 kB 73.0 MB/s eta 0:00:00
+#5 125.5 Downloading hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.5 MB)
+#5 125.5    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 130.9 MB/s eta 0:00:00
+#5 125.5 Downloading httptools-0.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (523 kB)
+#5 125.5 Downloading tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+#5 125.6    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 155.5 MB/s eta 0:00:00
+#5 125.6 Downloading uvloop-0.22.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (4.4 MB)
+#5 125.6    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.4/4.4 MB 184.0 MB/s eta 0:00:00
+#5 125.6 Downloading watchfiles-1.2.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (456 kB)
+#5 125.6 Downloading websockets-17.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (224 kB)
+#5 126.6 Installing collected packages: websockets, uvloop, uvicorn, python-multipart, jiwer, httptools, hf-xet, watchfiles, soundfile, onnxscript, huggingface_hub, tokenizers, fastapi, transformers
+#5 126.8   Attempting uninstall: uvicorn
+#5 126.8     Found existing installation: uvicorn 0.34.0
+#5 126.8     Uninstalling uvicorn-0.34.0:
+#5 126.9       Successfully uninstalled uvicorn-0.34.0
+#5 126.9   Attempting uninstall: jiwer
+#5 126.9     Found existing installation: jiwer 3.1.0
+#5 126.9     Uninstalling jiwer-3.1.0:
+#5 126.9       Successfully uninstalled jiwer-3.1.0
+#5 127.1   Attempting uninstall: soundfile
+#5 127.1     Found existing installation: soundfile 0.13.0
+#5 127.1     Uninstalling soundfile-0.13.0:
+#5 127.7       Successfully uninstalled soundfile-0.13.0
+#5 128.2   Attempting uninstall: huggingface_hub
+#5 128.3     Found existing installation: huggingface-hub 0.29.2
+#5 128.3     Uninstalling huggingface-hub-0.29.2:
+#5 128.3       Successfully uninstalled huggingface-hub-0.29.2
+#5 128.6   Attempting uninstall: tokenizers
+#5 128.6     Found existing installation: tokenizers 0.21.0
+#5 128.6     Uninstalling tokenizers-0.21.0:
+#5 128.7       Successfully uninstalled tokenizers-0.21.0
+#5 128.7   Attempting uninstall: fastapi
+#5 128.7     Found existing installation: fastapi 0.115.4
+#5 128.7     Uninstalling fastapi-0.115.4:
+#5 128.8       Successfully uninstalled fastapi-0.115.4
+#5 128.8   Attempting uninstall: transformers
+#5 128.8     Found existing installation: transformers 4.48.3
+#5 129.0     Uninstalling transformers-4.48.3:
+#5 129.3       Successfully uninstalled transformers-4.48.3
+#5 133.7 Successfully installed fastapi-0.116.1 hf-xet-1.6.0 httptools-0.8.0 huggingface_hub-0.36.0 jiwer-4.0.0 onnxscript-0.2.2 python-multipart-0.0.20 soundfile-0.13.1 tokenizers-0.22.2 transformers-4.56.2 uvicorn-0.35.0 uvloop-0.22.1 watchfiles-1.2.0 websockets-17.1
+#5 133.7 ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+#5 133.7 tensorrt-llm 0.17.0 requires fastapi==0.115.4, but you have fastapi 0.116.1 which is incompatible.
+#5 133.7 tensorrt-llm 0.17.0 requires nvidia-modelopt[torch]==0.23.0rc3, but you have nvidia-modelopt 0.23.2 which is incompatible.
+#5 133.7 tensorrt-llm 0.17.0 requires pynvml>=11.5.0, but you have pynvml 11.4.1 which is incompatible.
+#5 133.7 tensorrt-llm 0.17.0 requires transformers<4.48.0,>=4.47.0, but you have transformers 4.56.2 which is incompatible.
+#5 133.7 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#5 133.8 
+#5 133.8 [notice] A new release of pip is available: 24.3.1 -> 26.2.1
+#5 133.8 [notice] To update, run: python -m pip install --upgrade pip
+#5 DONE 134.2s
+
+#6 [3/3] WORKDIR /workspace
+#6 DONE 0.1s
+
+#7 exporting to image
+#7 exporting layers
+#7 exporting layers 19.5s done
+#7 exporting manifest sha256:5e8c52ce679e9cc1692635f7f738b0f3a90d4705902a7021130340ced620d747 done
+#7 exporting config sha256:47c06c4f314b54018a6cc70ababb77fadce21d98f10fae902990711d895d40af done
+#7 exporting attestation manifest sha256:ec39d460668eae89a44c3768afcfd32c258d5b7e0516f415ddb6541bf8f5a7a8 0.0s done
+#7 exporting manifest list sha256:1773ef162065b5b5734f0045b7004563007694cace86bf5f255e8422ac4d04de done
+#7 naming to docker.io/library/shrutam2-runtime:25.02 done
+#7 unpacking to docker.io/library/shrutam2-runtime:25.02
+#7 unpacking to docker.io/library/shrutam2-runtime:25.02 2.9s done
+#7 DONE 22.9s

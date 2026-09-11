@@ -1,0 +1,3 @@
+The tokenizer you are loading from 'model/llm' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+64 2 [12.5, 31.0, 33.0, 45.58999999999998] 50 [28, 31, 31, 31, 32, 33, 33, 35, 43, 50]
+__HYP_TOKEN_LENGTHS_DONE__

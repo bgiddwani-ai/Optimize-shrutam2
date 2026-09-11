@@ -1,0 +1,92 @@
+{
+  "ready": true,
+  "architecture": "trt FastConformer frontend + vLLM continuous decoder",
+  "gpu": "NVIDIA H100 NVL",
+  "config": {
+    "runtime": "trt",
+    "precision": "bf16",
+    "decoder_dir": "/home/nvidia/Optimize-shrutam2/artifacts/vllm_llm_bf16",
+    "max_new_tokens": 96,
+    "max_model_len": 1024,
+    "max_num_seqs": 512,
+    "max_num_batched_tokens": 32768,
+    "gpu_memory_utilization": 0.65,
+    "trt_engine": "/home/nvidia/Optimize-shrutam2/artifacts/shrutam2_encoder_bf16.plan",
+    "llm_quantization": "none",
+    "kv_cache_dtype": "auto",
+    "calculate_kv_scales": false
+  },
+  "checkpoint_missing": [
+    "encoder_projector.0.linear1.weight",
+    "encoder_projector.0.linear1.bias",
+    "encoder_projector.0.linear2.weight",
+    "encoder_projector.0.linear2.bias",
+    "encoder_projector.1.linear1.weight",
+    "encoder_projector.1.linear1.bias",
+    "encoder_projector.1.linear2.weight",
+    "encoder_projector.1.linear2.bias",
+    "encoder_projector.2.linear1.weight",
+    "encoder_projector.2.linear1.bias",
+    "encoder_projector.2.linear2.weight",
+    "encoder_projector.2.linear2.bias",
+    "encoder_projector.3.linear1.weight",
+    "encoder_projector.3.linear1.bias",
+    "encoder_projector.3.linear2.weight",
+    "encoder_projector.3.linear2.bias",
+    "encoder_projector.4.linear1.weight",
+    "encoder_projector.4.linear1.bias",
+    "encoder_projector.4.linear2.weight",
+    "encoder_projector.4.linear2.bias",
+    "encoder_projector.5.linear1.weight",
+    "encoder_projector.5.linear1.bias",
+    "encoder_projector.5.linear2.weight",
+    "encoder_projector.5.linear2.bias",
+    "encoder_projector.6.linear1.weight",
+    "encoder_projector.6.linear1.bias",
+    "encoder_projector.6.linear2.weight",
+    "encoder_projector.6.linear2.bias",
+    "encoder_projector.7.linear1.weight",
+    "encoder_projector.7.linear1.bias",
+    "encoder_projector.7.linear2.weight",
+    "encoder_projector.7.linear2.bias"
+  ],
+  "checkpoint_unexpected": [],
+  "warmup": [
+    {
+      "batch_size": 1,
+      "frontend": {
+        "runtime": "trt",
+        "precision": "bf16",
+        "batch_size": 1,
+        "frontend_ms": 773.4694000100717,
+        "max_audio_samples": 16000,
+        "max_prompt_tokens": 30
+      },
+      "decode_ms_max": 66.53345201630145
+    },
+    {
+      "batch_size": 2,
+      "frontend": {
+        "runtime": "trt",
+        "precision": "bf16",
+        "batch_size": 2,
+        "frontend_ms": 78.53917795000598,
+        "max_audio_samples": 16000,
+        "max_prompt_tokens": 30
+      },
+      "decode_ms_max": 22.578840027563274
+    },
+    {
+      "batch_size": 8,
+      "frontend": {
+        "runtime": "trt",
+        "precision": "bf16",
+        "batch_size": 8,
+        "frontend_ms": 60.93955197138712,
+        "max_audio_samples": 16000,
+        "max_prompt_tokens": 30
+      },
+      "decode_ms_max": 40.46107898466289
+    }
+  ]
+}

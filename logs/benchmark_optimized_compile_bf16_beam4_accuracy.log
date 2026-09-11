@@ -1,0 +1,1 @@
+{"concurrency": 1, "requests": 64, "valid": 64, "failed": 0, "wall_seconds": 9.85938757902477, "audio_seconds": 280.6381875, "rtfx": 28.464058771463677, "requests_per_second": 6.491275394848661, "latency_mean_ms": 153.90598843259795, "latency_p50_ms": 123.66933448356576, "latency_p95_ms": 366.0181244136765, "latency_p99_ms": 433.0608198756815, "observed_batch_sizes": [1]}

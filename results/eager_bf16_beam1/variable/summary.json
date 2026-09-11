@@ -1,0 +1,138 @@
+[
+  {
+    "concurrency": 1,
+    "requests": 32,
+    "valid": 32,
+    "failed": 0,
+    "wall_seconds": 7.307067920977715,
+    "audio_seconds": 133.3900625,
+    "rtfx": 18.254936719152855,
+    "requests_per_second": 4.379321548131753,
+    "latency_mean_ms": 228.1951069326169,
+    "latency_p50_ms": 221.23500902671367,
+    "latency_p95_ms": 425.62032007845113,
+    "latency_p99_ms": 474.40580292488454,
+    "observed_batch_sizes": [
+      1
+    ]
+  },
+  {
+    "concurrency": 2,
+    "requests": 32,
+    "valid": 24,
+    "failed": 8,
+    "wall_seconds": 4.351023497001734,
+    "audio_seconds": 135.4210625,
+    "rtfx": 31.12395568383345,
+    "requests_per_second": 5.515943551336431,
+    "latency_mean_ms": 264.85462187459535,
+    "latency_p50_ms": 190.75119501212612,
+    "latency_p95_ms": 411.47875851893326,
+    "latency_p99_ms": 778.2349980721481,
+    "observed_batch_sizes": [
+      1,
+      2
+    ]
+  },
+  {
+    "concurrency": 8,
+    "requests": 32,
+    "valid": 16,
+    "failed": 16,
+    "wall_seconds": 1.831775052996818,
+    "audio_seconds": 80.671,
+    "rtfx": 44.03979619005115,
+    "requests_per_second": 8.734696967197857,
+    "latency_mean_ms": 425.1223606261192,
+    "latency_p50_ms": 400.2453040156979,
+    "latency_p95_ms": 642.5853422260843,
+    "latency_p99_ms": 643.4989340486936,
+    "observed_batch_sizes": [
+      2,
+      4,
+      6
+    ]
+  },
+  {
+    "concurrency": 32,
+    "requests": 32,
+    "valid": 12,
+    "failed": 20,
+    "wall_seconds": 0.9588809040142223,
+    "audio_seconds": 88.21,
+    "rtfx": 91.99265480282382,
+    "requests_per_second": 12.514588568573698,
+    "latency_mean_ms": 848.812458338216,
+    "latency_p50_ms": 932.9628635023255,
+    "latency_p95_ms": 945.0753096316475,
+    "latency_p99_ms": 945.173292333493,
+    "observed_batch_sizes": [
+      5,
+      27
+    ]
+  },
+  {
+    "concurrency": 64,
+    "requests": 64,
+    "valid": 16,
+    "failed": 48,
+    "wall_seconds": 1.3798555869725533,
+    "audio_seconds": 112.199,
+    "rtfx": 81.31213226897762,
+    "requests_per_second": 11.595416325489905,
+    "latency_mean_ms": 1058.1812848759,
+    "latency_p50_ms": 1105.0019180111121,
+    "latency_p95_ms": 1353.8954912073677,
+    "latency_p99_ms": 1359.505667022313,
+    "observed_batch_sizes": [
+      4,
+      28,
+      32
+    ]
+  },
+  {
+    "concurrency": 128,
+    "requests": 128,
+    "valid": 38,
+    "failed": 90,
+    "wall_seconds": 4.016630744037684,
+    "audio_seconds": 278.2000625,
+    "rtfx": 69.26204578625062,
+    "requests_per_second": 9.460665523313907,
+    "latency_mean_ms": 2774.0972110523694,
+    "latency_p50_ms": 2585.757847497007,
+    "latency_p95_ms": 3888.112725049723,
+    "latency_p99_ms": 3912.1808526210953,
+    "observed_batch_sizes": [
+      2,
+      30,
+      32
+    ]
+  },
+  {
+    "concurrency": 256,
+    "requests": 256,
+    "valid": 76,
+    "failed": 180,
+    "wall_seconds": 7.951563613023609,
+    "audio_seconds": 543.051,
+    "rtfx": 68.29486959150454,
+    "requests_per_second": 9.55786857763699,
+    "latency_mean_ms": 4946.7262929645485,
+    "latency_p50_ms": 5131.863938004244,
+    "latency_p95_ms": 7511.823304463178,
+    "latency_p99_ms": 7647.685686737532,
+    "observed_batch_sizes": [
+      1,
+      7,
+      10,
+      14,
+      16,
+      21,
+      23,
+      25,
+      31,
+      32
+    ]
+  }
+]

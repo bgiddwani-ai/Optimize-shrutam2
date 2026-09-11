@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/home/nvidia/Optimize-shrutam2/evaluate_accuracy.py", line 48, in <module>
+    main()
+  File "/home/nvidia/Optimize-shrutam2/evaluate_accuracy.py", line 24, in main
+    rows = [json.loads(line) for line in Path(args.requests).read_text(encoding="utf-8").splitlines() if line.strip()]
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1029, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1015, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'results/vllm_fp8w_fp8kv_adaptive_persistent_beam1/accuracy_requests/requests.jsonl'

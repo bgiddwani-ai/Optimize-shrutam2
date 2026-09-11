@@ -1,0 +1,116 @@
+
+=============
+== PyTorch ==
+=============
+
+NVIDIA Release 25.04 (build 159049541)
+PyTorch Version 2.7.0a0+79aa174
+Container image Copyright (c) 2025, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+Copyright (c) 2014-2024 Facebook Inc.
+Copyright (c) 2011-2014 Idiap Research Institute (Ronan Collobert)
+Copyright (c) 2012-2014 Deepmind Technologies    (Koray Kavukcuoglu)
+Copyright (c) 2011-2012 NEC Laboratories America (Koray Kavukcuoglu)
+Copyright (c) 2011-2013 NYU                      (Clement Farabet)
+Copyright (c) 2006-2010 NEC Laboratories America (Ronan Collobert, Leon Bottou, Iain Melvin, Jason Weston)
+Copyright (c) 2006      Idiap Research Institute (Samy Bengio)
+Copyright (c) 2001-2004 Idiap Research Institute (Ronan Collobert, Samy Bengio, Johnny Mariethoz)
+Copyright (c) 2015      Google Inc.
+Copyright (c) 2015      Yangqing Jia
+Copyright (c) 2013-2016 The Caffe contributors
+All rights reserved.
+
+Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+
+GOVERNING TERMS: The software and materials are governed by the NVIDIA Software License Agreement
+(found at https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-software-license-agreement/)
+and the Product-Specific Terms for NVIDIA AI Products
+(found at https://www.nvidia.com/en-us/agreements/enterprise-software/product-specific-terms-for-ai-products/).
+
+2026-09-10 15:10:58,109 - INFO - flashinfer.jit: Prebuilt kernels not found, using JIT backend
+[TensorRT-LLM] TensorRT-LLM version: 0.20.0
+0.20.0
+[09/10/2026-15:10:58] [TRT-LLM] [W] Implicitly setting LLaMAConfig.has_partial_lora_mask = False
+[09/10/2026-15:10:58] [TRT-LLM] [W] Implicitly setting LLaMAConfig.tie_word_embeddings = True
+0it [00:00, ?it/s]118it [00:00, 1963.04it/s]
+Total time of reading and converting: 0.076 s
+Total time of saving checkpoint: 4.737 s
+Total time of converting checkpoints: 00:00:05
+2026-09-10 15:11:12,837 - INFO - flashinfer.jit: Prebuilt kernels not found, using JIT backend
+[TensorRT-LLM] TensorRT-LLM version: 0.20.0
+[09/10/2026-15:11:13] [TRT-LLM] [I] Set bert_attention_plugin to auto.
+[09/10/2026-15:11:13] [TRT-LLM] [I] Set gpt_attention_plugin to bfloat16.
+[09/10/2026-15:11:13] [TRT-LLM] [I] Set gemm_plugin to bfloat16.
+[09/10/2026-15:11:13] [TRT-LLM] [I] Set gemm_swiglu_plugin to None.
+[09/10/2026-15:11:13] [TRT-LLM] [I] Set fp8_rowwise_gemm_plugin to None.
+[09/10/2026-15:11:13] [TRT-LLM] [I] Set nccl_plugin to auto.
+[09/10/2026-15:11:13] [TRT-LLM] [I] Set lora_plugin to None.
+[09/10/2026-15:11:13] [TRT-LLM] [I] Set dora_plugin to False.
+[09/10/2026-15:11:13] [TRT-LLM] [I] Set moe_plugin to auto.
+[09/10/2026-15:11:13] [TRT-LLM] [I] Set mamba_conv1d_plugin to auto.
+[09/10/2026-15:11:13] [TRT-LLM] [I] Set low_latency_gemm_plugin to None.
+[09/10/2026-15:11:13] [TRT-LLM] [I] Set low_latency_gemm_swiglu_plugin to None.
+[09/10/2026-15:11:13] [TRT-LLM] [I] Set gemm_allreduce_plugin to None.
+[09/10/2026-15:11:13] [TRT-LLM] [I] Set context_fmha to True.
+[09/10/2026-15:11:13] [TRT-LLM] [I] Set bert_context_fmha_fp32_acc to False.
+[09/10/2026-15:11:13] [TRT-LLM] [I] Set remove_input_padding to True.
+[09/10/2026-15:11:13] [TRT-LLM] [I] Set norm_quant_fusion to False.
+[09/10/2026-15:11:13] [TRT-LLM] [I] Set reduce_fusion to False.
+[09/10/2026-15:11:13] [TRT-LLM] [I] Set user_buffer to False.
+[09/10/2026-15:11:13] [TRT-LLM] [I] Set tokens_per_block to 32.
+[09/10/2026-15:11:13] [TRT-LLM] [I] Set use_paged_context_fmha to True.
+[09/10/2026-15:11:13] [TRT-LLM] [I] Set use_fp8_context_fmha to True.
+[09/10/2026-15:11:13] [TRT-LLM] [I] Set fuse_fp4_quant to False.
+[09/10/2026-15:11:13] [TRT-LLM] [I] Set multiple_profiles to False.
+[09/10/2026-15:11:13] [TRT-LLM] [I] Set paged_state to True.
+[09/10/2026-15:11:13] [TRT-LLM] [I] Set streamingllm to False.
+[09/10/2026-15:11:13] [TRT-LLM] [I] Set use_fused_mlp to True.
+[09/10/2026-15:11:13] [TRT-LLM] [I] Set pp_reduce_scatter to False.
+[09/10/2026-15:11:13] [TRT-LLM] [W] Implicitly setting LLaMAConfig.fc_after_embed = False
+[09/10/2026-15:11:13] [TRT-LLM] [W] Implicitly setting LLaMAConfig.use_input_layernorm_in_first_layer = True
+[09/10/2026-15:11:13] [TRT-LLM] [W] Implicitly setting LLaMAConfig.use_last_layernorm = True
+[09/10/2026-15:11:13] [TRT-LLM] [W] Implicitly setting LLaMAConfig.layer_idx_offset = 0
+[09/10/2026-15:11:13] [TRT-LLM] [W] Implicitly setting LLaMAConfig.has_partial_lora_mask = False
+[09/10/2026-15:11:13] [TRT-LLM] [W] Implicitly setting LLaMAConfig.tie_word_embeddings = True
+[09/10/2026-15:11:13] [TRT-LLM] [W] Provided but not required tensors: {'embed_positions_for_gpt_attention', 'rotary_inv_freq', 'embed_positions'}
+[09/10/2026-15:11:13] [TRT-LLM] [I] Set dtype to bfloat16.
+[09/10/2026-15:11:13] [TRT-LLM] [I] Set paged_kv_cache to True.
+[09/10/2026-15:11:13] [TRT-LLM] [W] Overriding paged_state to False
+[09/10/2026-15:11:13] [TRT-LLM] [I] Set paged_state to False.
+[09/10/2026-15:11:13] [TRT-LLM] [W] remove_input_padding is enabled, while opt_num_tokens is not set, setting to max_batch_size*max_beam_width. 
+
+[09/10/2026-15:11:13] [TRT-LLM] [W] padding removal and fMHA are both enabled, max_input_len is not required and will be ignored
+[09/10/2026-15:11:13] [TRT-LLM] [I] Set use_fp8_context_fmha to False.
+[09/10/2026-15:11:13] [TRT-LLM] [W] FP8 Context FMHA is disabled because it must be used together with the fp8 quantization workflow.
+[09/10/2026-15:11:13] [TRT] [I] [MemUsageChange] Init CUDA: CPU +11, GPU +0, now: CPU 1320, GPU 526 (MiB)
+[09/10/2026-15:11:16] [TRT] [I] [MemUsageChange] Init builder kernel library: CPU +2097, GPU +8, now: CPU 3619, GPU 534 (MiB)
+[09/10/2026-15:11:16] [TRT-LLM] [I] Set nccl_plugin to None.
+[09/10/2026-15:11:16] [TRT-LLM] [I] Total time of constructing network from module object 3.3450093269348145 seconds
+[09/10/2026-15:11:16] [TRT-LLM] [I] Total optimization profiles added: 1
+[09/10/2026-15:11:16] [TRT-LLM] [I] Total time to initialize the weights in network Unnamed Network 0: 00:00:00
+[09/10/2026-15:11:16] [TRT-LLM] [I] Build TensorRT engine Unnamed Network 0
+[09/10/2026-15:11:16] [TRT] [W] Unused Input: position_ids
+[09/10/2026-15:11:21] [TRT] [W] [RemoveDeadLayers] Input Tensor position_ids is unused or used only at compile-time, but is not being removed.
+[09/10/2026-15:11:21] [TRT] [I] Global timing cache in use. Profiling results in this builder pass will be stored.
+[09/10/2026-15:11:21] [TRT] [I] Compiler backend is used during engine build.
+[09/10/2026-15:11:23] [TRT] [I] [GraphReduction] The approximate region cut reduction algorithm is called.
+[09/10/2026-15:11:23] [TRT] [I] Detected 20 inputs and 1 output network tensors.
+[09/10/2026-15:11:26] [TRT] [I] Total Host Persistent Memory: 50368 bytes
+[09/10/2026-15:11:26] [TRT] [I] Total Device Persistent Memory: 0 bytes
+[09/10/2026-15:11:26] [TRT] [I] Max Scratch Memory: 81037312 bytes
+[09/10/2026-15:11:26] [TRT] [I] [BlockAssignment] Started assigning block shifts. This will take 258 steps to complete.
+[09/10/2026-15:11:26] [TRT] [I] [BlockAssignment] Algorithm ShiftNTopDown took 10.2793ms to assign 19 blocks to 258 nodes requiring 503323648 bytes.
+[09/10/2026-15:11:26] [TRT] [I] Total Activation Memory: 503323648 bytes
+[09/10/2026-15:11:26] [TRT] [I] Total Weights Memory: 2996048384 bytes
+[09/10/2026-15:11:26] [TRT] [I] Compiler backend is used during engine execution.
+[09/10/2026-15:11:26] [TRT] [I] Engine generation completed in 5.71632 seconds.
+[09/10/2026-15:11:26] [TRT] [I] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 2858 MiB
+[09/10/2026-15:11:27] [TRT] [I] [MemUsageStats] Peak memory usage during Engine building and serialization: CPU: 16550 MiB
+[09/10/2026-15:11:27] [TRT-LLM] [I] Total time of building Unnamed Network 0: 00:00:11
+[09/10/2026-15:11:27] [TRT] [I] Serialized 27 bytes of code generator cache.
+[09/10/2026-15:11:27] [TRT] [I] Serialized 180901 bytes of compilation cache.
+[09/10/2026-15:11:27] [TRT] [I] Serialized 9 timing cache entries
+[09/10/2026-15:11:27] [TRT-LLM] [I] Timing cache serialized to model.cache
+[09/10/2026-15:11:27] [TRT-LLM] [I] Build phase peak memory: 16645.40 MB, children: 12120.16 MB
+[09/10/2026-15:11:28] [TRT-LLM] [I] Serializing engine to /workspace/artifacts/trtllm_llm_bf16_engine/rank0.engine...
+[09/10/2026-15:11:29] [TRT-LLM] [I] Engine serialized. Total time: 00:00:01
+[09/10/2026-15:11:29] [TRT-LLM] [I] Total time of building all engines: 00:00:16

@@ -1,0 +1,39 @@
+
+====================
+== NeMo Framework ==
+====================
+
+NVIDIA Release  (build 134983853)
+Container image Copyright (c) 2025, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+Copyright (c) 2014-2024 Facebook Inc.
+Copyright (c) 2011-2014 Idiap Research Institute (Ronan Collobert)
+Copyright (c) 2012-2014 Deepmind Technologies    (Koray Kavukcuoglu)
+Copyright (c) 2011-2012 NEC Laboratories America (Koray Kavukcuoglu)
+Copyright (c) 2011-2013 NYU                      (Clement Farabet)
+Copyright (c) 2006-2010 NEC Laboratories America (Ronan Collobert, Leon Bottou, Iain Melvin, Jason Weston)
+Copyright (c) 2006      Idiap Research Institute (Samy Bengio)
+Copyright (c) 2001-2004 Idiap Research Institute (Ronan Collobert, Samy Bengio, Johnny Mariethoz)
+Copyright (c) 2015      Google Inc.
+Copyright (c) 2015      Yangqing Jia
+Copyright (c) 2013-2016 The Caffe contributors
+All rights reserved.
+
+Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+/usr/bin/ld: warning: /workspace/artifacts/aoti_1s_cache/cfgspmldncuyj3bwwdci43kgoupqd7tp4hfrvfaqomto5jegiuny/cdfiom2avnycio3tweiubghag42xb2mt233ckyf4ctz76nj2mixm/chaojbwdfzrah7u7w7t34ot4z2myrjrv4j7knqn7fhuzxl3dpgpz.o: missing .note.GNU-stack section implies executable stack
+/usr/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+{
+  "torch": "2.6.0a0+ecf3bae40a.nv25.01",
+  "cuda": "12.8",
+  "max_batch": 256,
+  "max_frames": 2001,
+  "static_frames": 101,
+  "aoti_api": true,
+  "exported": true,
+  "packaged": true,
+  "package_bytes": 1238962888
+}

@@ -1,0 +1,21 @@
+[
+  {
+    "concurrency": 1,
+    "requests": 64,
+    "valid": 64,
+    "failed": 0,
+    "wall_seconds": 11.191584401007276,
+    "audio_seconds": 280.6381875,
+    "rtfx": 25.075822818683452,
+    "requests_per_second": 5.7185826159019815,
+    "latency_mean_ms": 174.70196427984774,
+    "latency_p50_ms": 166.7078725004103,
+    "latency_p95_ms": 242.70948354387656,
+    "latency_p99_ms": 263.93375720654143,
+    "observed_batch_sizes": [
+      1
+    ],
+    "preconnected_streams": 1,
+    "preconnect_ms_untimed": 53.414988971780986
+  }
+]

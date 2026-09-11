@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/home/nvidia/Optimize-shrutam2/benchmark_client.py", line 275, in <module>
+    asyncio.run(main_async(parse_args()))
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/nvidia/Optimize-shrutam2/benchmark_client.py", line 206, in main_async
+    raise RuntimeError(f"warmup failed: {warm}")
+RuntimeError: warmup failed: {'index': -1, 'ok': False, 'attempts': 1, 'path': '/home/nvidia/Optimize-shrutam2/data/indicvoices_quick/audio/as_00.wav', 'duration_seconds': 1.2, 'reference': "টকিঅ'", 'language': 'as', 'error': "HTTPStatusError: Server error '500 Internal Server Error' for url 'http://127.0.0.1:8092/transcribe'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500", 'latency_ms': 370.7501100143418}

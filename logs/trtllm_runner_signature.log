@@ -1,0 +1,36 @@
+
+=============
+== PyTorch ==
+=============
+
+NVIDIA Release 25.04 (build 159049541)
+PyTorch Version 2.7.0a0+79aa174
+Container image Copyright (c) 2025, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+Copyright (c) 2014-2024 Facebook Inc.
+Copyright (c) 2011-2014 Idiap Research Institute (Ronan Collobert)
+Copyright (c) 2012-2014 Deepmind Technologies    (Koray Kavukcuoglu)
+Copyright (c) 2011-2012 NEC Laboratories America (Koray Kavukcuoglu)
+Copyright (c) 2011-2013 NYU                      (Clement Farabet)
+Copyright (c) 2006-2010 NEC Laboratories America (Ronan Collobert, Leon Bottou, Iain Melvin, Jason Weston)
+Copyright (c) 2006      Idiap Research Institute (Samy Bengio)
+Copyright (c) 2001-2004 Idiap Research Institute (Ronan Collobert, Samy Bengio, Johnny Mariethoz)
+Copyright (c) 2015      Google Inc.
+Copyright (c) 2015      Yangqing Jia
+Copyright (c) 2013-2016 The Caffe contributors
+All rights reserved.
+
+Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+
+GOVERNING TERMS: The software and materials are governed by the NVIDIA Software License Agreement
+(found at https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-software-license-agreement/)
+and the Product-Specific Terms for NVIDIA AI Products
+(found at https://www.nvidia.com/en-us/agreements/enterprise-software/product-specific-terms-for-ai-products/).
+
+NOTE: The SHMEM allocation limit is set to the default of 64MB.  This may be
+   insufficient for PyTorch.  NVIDIA recommends the use of the following flags:
+   docker run --gpus all --ipc=host --ulimit memlock=-1 --ulimit stack=67108864 ...
+
+2026-09-10 15:17:23,404 - INFO - flashinfer.jit: Prebuilt kernels not found, using JIT backend
+[TensorRT-LLM] TensorRT-LLM version: 0.20.0
+(engine_dir: str, *, lora_dir: Optional[str] = None, rank: int = 0, max_batch_size: Optional[int] = None, max_input_len: Optional[int] = None, max_output_len: Optional[int] = None, max_beam_width: Optional[int] = None, max_attention_window_size: Optional[list[int]] = None, sink_token_length: Optional[int] = None, kv_cache_free_gpu_memory_fraction: Optional[float] = None, cross_kv_cache_fraction: Optional[float] = None, medusa_choices: list[list[int]] | None = None, eagle_choices: list[list[int]] | None = None, eagle_posterior_threshold: float | None = None, eagle_use_dynamic_tree: bool = False, eagle_dynamic_tree_max_top_k: Optional[int] = None, lookahead_config: list[int] | None = None, debug_mode: bool = False, lora_ckpt_source: str = 'hf', use_gpu_direct_storage: bool = False, gpu_weights_percent: float = 1, max_tokens_in_paged_kv_cache: int | None = None, kv_cache_enable_block_reuse: bool = False, enable_chunked_context: bool = False, is_enc_dec: bool = False, multi_block_mode: bool = True, enable_context_fmha_fp32_acc: Optional[bool] = None, cuda_graph_mode: Optional[bool] = None, logits_processor_map: Optional[Dict[str, tensorrt_llm.runtime.generation.LogitsProcessor]] = None, device_ids: Optional[List[int]] = None, is_orchestrator_mode: bool = False, use_runtime_defaults: bool = True, gather_generation_logits: bool = False, use_variable_beam_width_search: bool = False, mm_embedding_offloading: bool = False) -> 'ModelRunnerCpp'
+(self, batch_input_ids: List[torch.Tensor], *, position_ids: List[torch.Tensor] = None, encoder_input_ids: List[torch.Tensor] = None, encoder_input_features: List[torch.Tensor] = None, encoder_output_lengths: List[int] = None, cross_attention_masks: List[torch.Tensor] = None, mrope_params: Optional[tensorrt_llm.layers.attention.MropeParams] = None, sampling_config: Optional[tensorrt_llm.runtime.generation.SamplingConfig] = None, lora_uids: Optional[list] = None, lookahead_config: list[int] | None = None, streaming: bool = False, stopping_criteria: Optional[tensorrt_llm.runtime.generation.StoppingCriteria] = None, logits_processor_names: list[str] | None = None, max_new_tokens: int = 1, end_id: int | None = None, pad_id: int | None = None, bad_words_list: list[list[int]] | None = None, stop_words_list: list[list[int]] | None = None, return_dict: bool = False, output_sequence_lengths: bool = False, output_generation_logits: bool = False, output_log_probs: bool = False, output_cum_log_probs: bool = False, prompt_table: Union[str, torch.Tensor, NoneType] = None, prompt_tasks: Optional[str] = None, input_token_extra_ids: List[List[int]] = None, return_all_generated_tokens: bool = False, language_adapter_uids: Optional[List[int]] = None, mm_embedding_offloading: bool = False, **kwargs) -> Union[torch.Tensor, dict]

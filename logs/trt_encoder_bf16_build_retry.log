@@ -1,0 +1,293 @@
+
+=============
+== PyTorch ==
+=============
+
+NVIDIA Release 25.04 (build 159049541)
+PyTorch Version 2.7.0a0+79aa174
+Container image Copyright (c) 2025, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+Copyright (c) 2014-2024 Facebook Inc.
+Copyright (c) 2011-2014 Idiap Research Institute (Ronan Collobert)
+Copyright (c) 2012-2014 Deepmind Technologies    (Koray Kavukcuoglu)
+Copyright (c) 2011-2012 NEC Laboratories America (Koray Kavukcuoglu)
+Copyright (c) 2011-2013 NYU                      (Clement Farabet)
+Copyright (c) 2006-2010 NEC Laboratories America (Ronan Collobert, Leon Bottou, Iain Melvin, Jason Weston)
+Copyright (c) 2006      Idiap Research Institute (Samy Bengio)
+Copyright (c) 2001-2004 Idiap Research Institute (Ronan Collobert, Samy Bengio, Johnny Mariethoz)
+Copyright (c) 2015      Google Inc.
+Copyright (c) 2015      Yangqing Jia
+Copyright (c) 2013-2016 The Caffe contributors
+All rights reserved.
+
+Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+
+GOVERNING TERMS: The software and materials are governed by the NVIDIA Software License Agreement
+(found at https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-software-license-agreement/)
+and the Product-Specific Terms for NVIDIA AI Products
+(found at https://www.nvidia.com/en-us/agreements/enterprise-software/product-specific-terms-for-ai-products/).
+
+&&&& RUNNING TensorRT.trtexec [TensorRT v101000] [b31] # /usr/local/tensorrt/bin/trtexec --onnx=/workspace/artifacts/shrutam2_encoder.onnx --saveEngine=/workspace/artifacts/shrutam2_encoder_bf16.plan --bf16 --minShapes=audio_signal:1x80x101,lengths:1 --optShapes=audio_signal:16x80x501,lengths:16 --maxShapes=audio_signal:32x80x1001,lengths:32 --memPoolSize=workspace:16384 --builderOptimizationLevel=5 --timingCacheFile=/workspace/artifacts/shrutam2_encoder.timing.cache --profilingVerbosity=detailed
+[09/10/2026-14:45:46] [I] === Model Options ===
+[09/10/2026-14:45:46] [I] Format: ONNX
+[09/10/2026-14:45:46] [I] Model: /workspace/artifacts/shrutam2_encoder.onnx
+[09/10/2026-14:45:46] [I] Output:
+[09/10/2026-14:45:46] [I] === Build Options ===
+[09/10/2026-14:45:46] [I] Memory Pools: workspace: 16384 MiB, dlaSRAM: default, dlaLocalDRAM: default, dlaGlobalDRAM: default, tacticSharedMem: default
+[09/10/2026-14:45:46] [I] avgTiming: 8
+[09/10/2026-14:45:46] [I] Precision: FP32+BF16
+[09/10/2026-14:45:46] [I] LayerPrecisions: 
+[09/10/2026-14:45:46] [I] Layer Device Types: 
+[09/10/2026-14:45:46] [I] Calibration: 
+[09/10/2026-14:45:46] [I] Refit: Disabled
+[09/10/2026-14:45:46] [I] Strip weights: Disabled
+[09/10/2026-14:45:46] [I] Version Compatible: Disabled
+[09/10/2026-14:45:46] [I] ONNX Plugin InstanceNorm: Disabled
+[09/10/2026-14:45:46] [I] TensorRT runtime: full
+[09/10/2026-14:45:46] [I] Lean DLL Path: 
+[09/10/2026-14:45:46] [I] Tempfile Controls: { in_memory: allow, temporary: allow }
+[09/10/2026-14:45:46] [I] Exclude Lean Runtime: Disabled
+[09/10/2026-14:45:46] [I] Sparsity: Disabled
+[09/10/2026-14:45:46] [I] Safe mode: Disabled
+[09/10/2026-14:45:46] [I] Build DLA standalone loadable: Disabled
+[09/10/2026-14:45:46] [I] Allow GPU fallback for DLA: Disabled
+[09/10/2026-14:45:46] [I] DirectIO mode: Disabled
+[09/10/2026-14:45:46] [I] Restricted mode: Disabled
+[09/10/2026-14:45:46] [I] Skip inference: Disabled
+[09/10/2026-14:45:46] [I] Save engine: /workspace/artifacts/shrutam2_encoder_bf16.plan
+[09/10/2026-14:45:46] [I] Load engine: 
+[09/10/2026-14:45:46] [I] Profiling verbosity: 2
+[09/10/2026-14:45:46] [I] Tactic sources: Using default tactic sources
+[09/10/2026-14:45:46] [I] timingCacheMode: global
+[09/10/2026-14:45:46] [I] timingCacheFile: /workspace/artifacts/shrutam2_encoder.timing.cache
+[09/10/2026-14:45:46] [I] Enable Compilation Cache: Enabled
+[09/10/2026-14:45:46] [I] Enable Monitor Memory: Disabled
+[09/10/2026-14:45:46] [I] errorOnTimingCacheMiss: Disabled
+[09/10/2026-14:45:46] [I] Preview Features: Use default preview flags.
+[09/10/2026-14:45:46] [I] MaxAuxStreams: -1
+[09/10/2026-14:45:46] [I] BuilderOptimizationLevel: 5
+[09/10/2026-14:45:46] [I] MaxTactics: -1
+[09/10/2026-14:45:46] [I] Calibration Profile Index: 0
+[09/10/2026-14:45:46] [I] Weight Streaming: Disabled
+[09/10/2026-14:45:46] [I] Runtime Platform: Same As Build
+[09/10/2026-14:45:46] [I] Debug Tensors: 
+[09/10/2026-14:45:46] [I] Input(s)s format: fp32:CHW
+[09/10/2026-14:45:46] [I] Output(s)s format: fp32:CHW
+[09/10/2026-14:45:46] [I] Input build shape (profile 0): audio_signal=1x80x101+16x80x501+32x80x1001
+[09/10/2026-14:45:46] [I] Input build shape (profile 0): lengths=1+16+32
+[09/10/2026-14:45:46] [I] Input calibration shapes: model
+[09/10/2026-14:45:46] [I] === System Options ===
+[09/10/2026-14:45:46] [I] Device: 0
+[09/10/2026-14:45:46] [I] DLACore: 
+[09/10/2026-14:45:46] [I] Plugins:
+[09/10/2026-14:45:46] [I] setPluginsToSerialize:
+[09/10/2026-14:45:46] [I] dynamicPlugins:
+[09/10/2026-14:45:46] [I] ignoreParsedPluginLibs: 0
+[09/10/2026-14:45:46] [I] 
+[09/10/2026-14:45:46] [I] === Inference Options ===
+[09/10/2026-14:45:46] [I] Batch: Explicit
+[09/10/2026-14:45:46] [I] Input inference shape : lengths=16
+[09/10/2026-14:45:46] [I] Input inference shape : audio_signal=16x80x501
+[09/10/2026-14:45:46] [I] Iterations: 10
+[09/10/2026-14:45:46] [I] Duration: 3s (+ 200ms warm up)
+[09/10/2026-14:45:46] [I] Sleep time: 0ms
+[09/10/2026-14:45:46] [I] Idle time: 0ms
+[09/10/2026-14:45:46] [I] Inference Streams: 1
+[09/10/2026-14:45:46] [I] ExposeDMA: Disabled
+[09/10/2026-14:45:46] [I] Data transfers: Enabled
+[09/10/2026-14:45:46] [I] Spin-wait: Disabled
+[09/10/2026-14:45:46] [I] Multithreading: Disabled
+[09/10/2026-14:45:46] [I] CUDA Graph: Disabled
+[09/10/2026-14:45:46] [I] Separate profiling: Disabled
+[09/10/2026-14:45:46] [I] Time Deserialize: Disabled
+[09/10/2026-14:45:46] [I] Time Refit: Disabled
+[09/10/2026-14:45:46] [I] NVTX verbosity: 2
+[09/10/2026-14:45:46] [I] Persistent Cache Ratio: 0
+[09/10/2026-14:45:46] [I] Optimization Profile Index: 0
+[09/10/2026-14:45:46] [I] Weight Streaming Budget: 100.000000%
+[09/10/2026-14:45:46] [I] Inputs:
+[09/10/2026-14:45:46] [I] Debug Tensor Save Destinations:
+[09/10/2026-14:45:46] [I] === Reporting Options ===
+[09/10/2026-14:45:46] [I] Verbose: Disabled
+[09/10/2026-14:45:46] [I] Averages: 10 inferences
+[09/10/2026-14:45:46] [I] Percentiles: 90,95,99
+[09/10/2026-14:45:46] [I] Dump refittable layers:Disabled
+[09/10/2026-14:45:46] [I] Dump output: Disabled
+[09/10/2026-14:45:46] [I] Profile: Disabled
+[09/10/2026-14:45:46] [I] Export timing to JSON file: 
+[09/10/2026-14:45:46] [I] Export output to JSON file: 
+[09/10/2026-14:45:46] [I] Export profile to JSON file: 
+[09/10/2026-14:45:46] [I] 
+[09/10/2026-14:45:46] [I] === Device Information ===
+[09/10/2026-14:45:46] [I] Available Devices: 
+[09/10/2026-14:45:46] [I]   Device 0: "NVIDIA H100 NVL" UUID: GPU-78d0dccb-0e2a-0c21-2402-dd562bbf9845
+[09/10/2026-14:45:46] [I] Selected Device: NVIDIA H100 NVL
+[09/10/2026-14:45:46] [I] Selected Device ID: 0
+[09/10/2026-14:45:46] [I] Selected Device UUID: GPU-78d0dccb-0e2a-0c21-2402-dd562bbf9845
+[09/10/2026-14:45:46] [I] Compute Capability: 9.0
+[09/10/2026-14:45:46] [I] SMs: 132
+[09/10/2026-14:45:46] [I] Device Global Memory: 95321 MiB
+[09/10/2026-14:45:46] [I] Shared Memory per SM: 228 KiB
+[09/10/2026-14:45:46] [I] Memory Bus Width: 6016 bits (ECC enabled)
+[09/10/2026-14:45:46] [I] Application Compute Clock Rate: 1.785 GHz
+[09/10/2026-14:45:46] [I] Application Memory Clock Rate: 2.619 GHz
+[09/10/2026-14:45:46] [I] 
+[09/10/2026-14:45:46] [I] Note: The application clock rates do not reflect the actual clock rates that the GPU is currently running at.
+[09/10/2026-14:45:46] [I] 
+[09/10/2026-14:45:46] [I] TensorRT version: 10.10.0
+[09/10/2026-14:45:46] [I] Loading standard plugins
+[09/10/2026-14:45:46] [I] [TRT] [MemUsageChange] Init CUDA: CPU +2, GPU +0, now: CPU 47, GPU 526 (MiB)
+[09/10/2026-14:45:48] [I] [TRT] [MemUsageChange] Init builder kernel library: CPU +2096, GPU +8, now: CPU 2344, GPU 534 (MiB)
+[09/10/2026-14:45:48] [I] Start parsing network model.
+[09/10/2026-14:45:49] [W] [TRT] ModelImporter.cpp:503: Make sure input lengths has Int64 binding.
+[09/10/2026-14:45:49] [I] [TRT] ----------------------------------------------------------------
+[09/10/2026-14:45:49] [I] [TRT] Input filename:   /workspace/artifacts/shrutam2_encoder.onnx
+[09/10/2026-14:45:49] [I] [TRT] ONNX IR version:  0.0.8
+[09/10/2026-14:45:49] [I] [TRT] Opset version:    17
+[09/10/2026-14:45:49] [I] [TRT] Producer name:    pytorch
+[09/10/2026-14:45:49] [I] [TRT] Producer version: 2.6.0
+[09/10/2026-14:45:49] [I] [TRT] Domain:           
+[09/10/2026-14:45:49] [I] [TRT] Model version:    0
+[09/10/2026-14:45:49] [I] [TRT] Doc string:       
+[09/10/2026-14:45:49] [I] [TRT] ----------------------------------------------------------------
+[09/10/2026-14:45:49] [W] [TRT] ModelImporter.cpp:848: Make sure output encoded_lengths has Int64 binding.
+[09/10/2026-14:45:49] [I] Finished parsing network model. Parse time: 1.24424
+[09/10/2026-14:45:49] [I] Set shape of input tensor audio_signal for optimization profile 0 to: MIN=1x80x101 OPT=16x80x501 MAX=32x80x1001
+[09/10/2026-14:45:49] [I] Set shape of input tensor lengths for optimization profile 0 to: MIN=1 OPT=16 MAX=32
+[09/10/2026-14:45:49] [W] [TRT] Could not read timing cache from: /workspace/artifacts/shrutam2_encoder.timing.cache. A new timing cache will be generated and written.
+[09/10/2026-14:45:54] [I] [TRT] Global timing cache in use. Profiling results in this builder pass will be stored.
+[09/10/2026-14:45:55] [I] [TRT] Compiler backend is used during engine build.
+[09/10/2026-14:48:46] [I] [TRT] [GraphReduction] The approximate region cut reduction algorithm is called.
+[09/10/2026-14:48:46] [I] [TRT] Detected 2 inputs and 2 output network tensors.
+[09/10/2026-14:49:06] [I] [TRT] Total Host Persistent Memory: 857648 bytes
+[09/10/2026-14:49:06] [I] [TRT] Total Device Persistent Memory: 0 bytes
+[09/10/2026-14:49:06] [I] [TRT] Max Scratch Memory: 33030656 bytes
+[09/10/2026-14:49:06] [I] [TRT] [BlockAssignment] Started assigning block shifts. This will take 1649 steps to complete.
+[09/10/2026-14:49:06] [I] [TRT] [BlockAssignment] Algorithm ShiftNTopDown took 148.964ms to assign 11 blocks to 1649 nodes requiring 921047040 bytes.
+[09/10/2026-14:49:06] [I] [TRT] Total Activation Memory: 921047040 bytes
+[09/10/2026-14:49:07] [I] [TRT] Total Weights Memory: 2471761152 bytes
+[09/10/2026-14:49:07] [I] [TRT] Compiler backend is used during engine execution.
+[09/10/2026-14:49:07] [I] [TRT] Engine generation completed in 192.445 seconds.
+[09/10/2026-14:49:07] [I] [TRT] [MS] Running engine with multi stream info
+[09/10/2026-14:49:07] [I] [TRT] [MS] Number of aux streams is 2
+[09/10/2026-14:49:07] [I] [TRT] [MS] Number of total worker streams is 3
+[09/10/2026-14:49:07] [I] [TRT] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[09/10/2026-14:49:08] [I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +1, GPU +879, now: CPU 2, GPU 3236 (MiB)
+[09/10/2026-14:49:08] [I] [TRT] Global timing cache in use. Profiling results in this builder pass will be stored.
+[09/10/2026-14:49:08] [I] [TRT] Compiler backend is used during engine build.
+[09/10/2026-14:50:45] [I] [TRT] Detected 2 inputs and 2 output network tensors.
+[09/10/2026-14:51:06] [I] [TRT] Total Host Persistent Memory: 612880 bytes
+[09/10/2026-14:51:06] [I] [TRT] Total Device Persistent Memory: 0 bytes
+[09/10/2026-14:51:06] [I] [TRT] Max Scratch Memory: 116830208 bytes
+[09/10/2026-14:51:06] [I] [TRT] [BlockAssignment] Started assigning block shifts. This will take 521 steps to complete.
+[09/10/2026-14:51:06] [I] [TRT] [BlockAssignment] Algorithm ShiftNTopDown took 23.6658ms to assign 8 blocks to 521 nodes requiring 1338135040 bytes.
+[09/10/2026-14:51:06] [I] [TRT] Total Activation Memory: 1338134528 bytes
+[09/10/2026-14:51:06] [I] [TRT] Total Weights Memory: 1387795840 bytes
+[09/10/2026-14:51:06] [I] [TRT] Compiler backend is used during engine execution.
+[09/10/2026-14:51:06] [I] [TRT] Engine generation completed in 118.051 seconds.
+[09/10/2026-14:51:06] [I] [TRT] [MS] Running engine with multi stream info
+[09/10/2026-14:51:06] [I] [TRT] [MS] Number of aux streams is 2
+[09/10/2026-14:51:06] [I] [TRT] [MS] Number of total worker streams is 3
+[09/10/2026-14:51:06] [I] [TRT] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[09/10/2026-14:51:07] [I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +1, GPU +1276, now: CPU 1, GPU 4957 (MiB)
+[09/10/2026-14:51:07] [I] [TRT] Global timing cache in use. Profiling results in this builder pass will be stored.
+[09/10/2026-14:51:08] [I] [TRT] Compiler backend is used during engine build.
+[09/10/2026-14:51:49] [I] [TRT] Detected 2 inputs and 2 output network tensors.
+[09/10/2026-14:52:08] [I] [TRT] Total Host Persistent Memory: 633536 bytes
+[09/10/2026-14:52:08] [I] [TRT] Total Device Persistent Memory: 0 bytes
+[09/10/2026-14:52:08] [I] [TRT] Max Scratch Memory: 116830208 bytes
+[09/10/2026-14:52:08] [I] [TRT] [BlockAssignment] Started assigning block shifts. This will take 613 steps to complete.
+[09/10/2026-14:52:08] [I] [TRT] [BlockAssignment] Algorithm ShiftNTopDown took 35.8366ms to assign 8 blocks to 613 nodes requiring 845959680 bytes.
+[09/10/2026-14:52:08] [I] [TRT] Total Activation Memory: 845959168 bytes
+[09/10/2026-14:52:08] [I] [TRT] Total Weights Memory: 1387795840 bytes
+[09/10/2026-14:52:08] [I] [TRT] Compiler backend is used during engine execution.
+[09/10/2026-14:52:08] [I] [TRT] Engine generation completed in 61.0762 seconds.
+[09/10/2026-14:52:08] [I] [TRT] [MS] Running engine with multi stream info
+[09/10/2026-14:52:08] [I] [TRT] [MS] Number of aux streams is 2
+[09/10/2026-14:52:08] [I] [TRT] [MS] Number of total worker streams is 3
+[09/10/2026-14:52:08] [I] [TRT] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[09/10/2026-14:52:10] [I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +1, GPU +807, now: CPU 1, GPU 3454 (MiB)
+[09/10/2026-14:52:11] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 135 MiB, GPU 4961 MiB
+[09/10/2026-14:52:11] [I] Engine built in 381.91 sec.
+[09/10/2026-14:52:11] [I] Created engine with size: 1363.33 MiB
+[09/10/2026-14:52:11] [W] [TRT] Could not read timing cache from: /workspace/artifacts/shrutam2_encoder.timing.cache. A new timing cache will be generated and written.
+[09/10/2026-14:52:11] [I] [TRT] Serialized 5124 bytes of code generator cache.
+[09/10/2026-14:52:12] [I] [TRT] Serialized 6705832 bytes of compilation cache.
+[09/10/2026-14:52:12] [I] [TRT] Serialized 970 timing cache entries
+[09/10/2026-14:52:12] [I] [TRT] Saved 6812004 bytes of timing cache to /workspace/artifacts/shrutam2_encoder.timing.cache
+[09/10/2026-14:52:14] [I] [TRT] Loaded engine size: 1363 MiB
+[09/10/2026-14:52:14] [I] Engine deserialized in 0.723745 sec.
+[09/10/2026-14:52:14] [I] [TRT] [MS] Running engine with multi stream info
+[09/10/2026-14:52:14] [I] [TRT] [MS] Number of aux streams is 2
+[09/10/2026-14:52:14] [I] [TRT] [MS] Number of total worker streams is 3
+[09/10/2026-14:52:14] [I] [TRT] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[09/10/2026-14:52:15] [I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +1276, now: CPU 0, GPU 2599 (MiB)
+[09/10/2026-14:52:15] [I] Setting persistentCacheLimit to 0 bytes.
+[09/10/2026-14:52:15] [I] Set shape of input tensor audio_signal to: 16x80x501
+[09/10/2026-14:52:15] [I] Set shape of input tensor lengths to: 16
+[09/10/2026-14:52:15] [I] Created execution context with device memory size: 1276.14 MiB
+[09/10/2026-14:52:15] [I] Using random values for input audio_signal
+[09/10/2026-14:52:15] [I] Input binding for audio_signal with dimensions 16x80x501 is created.
+[09/10/2026-14:52:15] [I] Using random values for input lengths
+[09/10/2026-14:52:15] [I] Input binding for lengths with dimensions 16 is created.
+[09/10/2026-14:52:15] [I] Output binding for encoded with dimensions 16x1024x63 is created.
+[09/10/2026-14:52:15] [I] Output binding for encoded_lengths with dimensions 16 is created.
+[09/10/2026-14:52:15] [I] Starting inference
+[09/10/2026-14:52:19] [I] Warmup completed 17 queries over 200 ms
+[09/10/2026-14:52:19] [I] Timing trace has 399 queries over 3.02672 s
+[09/10/2026-14:52:19] [I] 
+[09/10/2026-14:52:19] [I] === Trace details ===
+[09/10/2026-14:52:19] [I] Trace averages of 10 runs:
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.57862 ms - Host latency: 7.75134 ms (enqueue 5.45868 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.57454 ms - Host latency: 7.74963 ms (enqueue 5.50876 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.58208 ms - Host latency: 7.76023 ms (enqueue 5.513 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.56563 ms - Host latency: 7.74364 ms (enqueue 5.4929 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.56443 ms - Host latency: 7.74075 ms (enqueue 5.49295 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.55139 ms - Host latency: 7.72449 ms (enqueue 5.48059 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.54583 ms - Host latency: 7.70657 ms (enqueue 5.4121 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.56 ms - Host latency: 7.73752 ms (enqueue 5.5025 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.5733 ms - Host latency: 7.75071 ms (enqueue 5.49521 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.57334 ms - Host latency: 7.75056 ms (enqueue 5.49678 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.55051 ms - Host latency: 7.73006 ms (enqueue 5.49475 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.55525 ms - Host latency: 7.73441 ms (enqueue 5.49431 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.56316 ms - Host latency: 7.74165 ms (enqueue 5.49974 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.57175 ms - Host latency: 7.75106 ms (enqueue 5.49115 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.57153 ms - Host latency: 7.75007 ms (enqueue 5.90021 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.5719 ms - Host latency: 7.75114 ms (enqueue 5.40879 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.57711 ms - Host latency: 7.75812 ms (enqueue 5.40476 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.56636 ms - Host latency: 7.74866 ms (enqueue 5.40872 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.56722 ms - Host latency: 7.74717 ms (enqueue 5.4068 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.57181 ms - Host latency: 7.75111 ms (enqueue 5.40179 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.57075 ms - Host latency: 7.75363 ms (enqueue 5.43295 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.56873 ms - Host latency: 7.75199 ms (enqueue 5.40956 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.56471 ms - Host latency: 7.74448 ms (enqueue 5.40981 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.55256 ms - Host latency: 7.73158 ms (enqueue 5.41437 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.56976 ms - Host latency: 7.75161 ms (enqueue 5.39714 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.56938 ms - Host latency: 7.74939 ms (enqueue 5.40674 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.56902 ms - Host latency: 7.74959 ms (enqueue 5.41033 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.56875 ms - Host latency: 7.7499 ms (enqueue 5.4084 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.5665 ms - Host latency: 7.74656 ms (enqueue 5.41414 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.56836 ms - Host latency: 7.74817 ms (enqueue 5.40879 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.55869 ms - Host latency: 7.73855 ms (enqueue 5.41555 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.546 ms - Host latency: 7.72778 ms (enqueue 5.40994 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.54478 ms - Host latency: 7.7251 ms (enqueue 5.41008 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.54727 ms - Host latency: 7.72698 ms (enqueue 5.405 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.54727 ms - Host latency: 7.72705 ms (enqueue 5.40789 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.56521 ms - Host latency: 7.73479 ms (enqueue 5.54773 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.56802 ms - Host latency: 7.74988 ms (enqueue 5.40786 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.57249 ms - Host latency: 7.75393 ms (enqueue 5.41206 ms)
+[09/10/2026-14:52:19] [I] Average on 10 runs - GPU latency: 7.56111 ms - Host latency: 7.74087 ms (enqueue 5.40388 ms)
+[09/10/2026-14:52:19] [I] 
+[09/10/2026-14:52:19] [I] === Performance summary ===
+[09/10/2026-14:52:19] [I] Throughput: 131.826 qps
+[09/10/2026-14:52:19] [I] Latency: min = 7.66974 ms, max = 7.80151 ms, mean = 7.74289 ms, median = 7.74353 ms, percentile(90%) = 7.76636 ms, percentile(95%) = 7.77258 ms, percentile(99%) = 7.79272 ms
+[09/10/2026-14:52:19] [I] Enqueue Time: min = 5.19438 ms, max = 9.76245 ms, mean = 5.45266 ms, median = 5.42078 ms, percentile(90%) = 5.50891 ms, percentile(95%) = 5.52063 ms, percentile(99%) = 5.59668 ms
+[09/10/2026-14:52:19] [I] H2D Latency: min = 0.071991 ms, max = 0.115723 ms, mean = 0.0885831 ms, median = 0.0888672 ms, percentile(90%) = 0.0916748 ms, percentile(95%) = 0.0935059 ms, percentile(99%) = 0.108154 ms
+[09/10/2026-14:52:19] [I] GPU Compute Time: min = 7.51147 ms, max = 7.6178 ms, mean = 7.56425 ms, median = 7.5647 ms, percentile(90%) = 7.58749 ms, percentile(95%) = 7.59375 ms, percentile(99%) = 7.60559 ms
+[09/10/2026-14:52:19] [I] D2H Latency: min = 0.0796509 ms, max = 0.106781 ms, mean = 0.0900521 ms, median = 0.09021 ms, percentile(90%) = 0.0911865 ms, percentile(95%) = 0.0915527 ms, percentile(99%) = 0.0985107 ms
+[09/10/2026-14:52:19] [I] Total Host Walltime: 3.02672 s
+[09/10/2026-14:52:19] [I] Total GPU Compute Time: 3.01814 s
+[09/10/2026-14:52:19] [I] Explanations of the performance metrics are printed in the verbose logs.
+[09/10/2026-14:52:19] [I] 
+&&&& PASSED TensorRT.trtexec [TensorRT v101000] [b31] # /usr/local/tensorrt/bin/trtexec --onnx=/workspace/artifacts/shrutam2_encoder.onnx --saveEngine=/workspace/artifacts/shrutam2_encoder_bf16.plan --bf16 --minShapes=audio_signal:1x80x101,lengths:1 --optShapes=audio_signal:16x80x501,lengths:16 --maxShapes=audio_signal:32x80x1001,lengths:32 --memPoolSize=workspace:16384 --builderOptimizationLevel=5 --timingCacheFile=/workspace/artifacts/shrutam2_encoder.timing.cache --profilingVerbosity=detailed
+-rw-r--r-- 1 root root 6.5M Sep 10 14:52 /workspace/artifacts/shrutam2_encoder.timing.cache
+-rw-r--r-- 1 root root 1.4G Sep 10 14:52 /workspace/artifacts/shrutam2_encoder_bf16.plan

@@ -1,0 +1,313 @@
+
+=============
+== PyTorch ==
+=============
+
+NVIDIA Release 25.04 (build 159049541)
+PyTorch Version 2.7.0a0+79aa174
+Container image Copyright (c) 2025, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+Copyright (c) 2014-2024 Facebook Inc.
+Copyright (c) 2011-2014 Idiap Research Institute (Ronan Collobert)
+Copyright (c) 2012-2014 Deepmind Technologies    (Koray Kavukcuoglu)
+Copyright (c) 2011-2012 NEC Laboratories America (Koray Kavukcuoglu)
+Copyright (c) 2011-2013 NYU                      (Clement Farabet)
+Copyright (c) 2006-2010 NEC Laboratories America (Ronan Collobert, Leon Bottou, Iain Melvin, Jason Weston)
+Copyright (c) 2006      Idiap Research Institute (Samy Bengio)
+Copyright (c) 2001-2004 Idiap Research Institute (Ronan Collobert, Samy Bengio, Johnny Mariethoz)
+Copyright (c) 2015      Google Inc.
+Copyright (c) 2015      Yangqing Jia
+Copyright (c) 2013-2016 The Caffe contributors
+All rights reserved.
+
+Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+
+GOVERNING TERMS: The software and materials are governed by the NVIDIA Software License Agreement
+(found at https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-software-license-agreement/)
+and the Product-Specific Terms for NVIDIA AI Products
+(found at https://www.nvidia.com/en-us/agreements/enterprise-software/product-specific-terms-for-ai-products/).
+
+2026-09-10 15:12:50,967 - INFO - flashinfer.jit: Prebuilt kernels not found, using JIT backend
+[TensorRT-LLM] TensorRT-LLM version: 0.20.0
+usage: run.py [-h] [--max_input_length MAX_INPUT_LENGTH] --max_output_len
+              MAX_OUTPUT_LEN [--draft_engine_dir DRAFT_ENGINE_DIR]
+              [--input_text INPUT_TEXT [INPUT_TEXT ...]]
+              [--input_file INPUT_FILE]
+              [--multimodal_input_file MULTIMODAL_INPUT_FILE]
+              [--input_token_extra_ids INPUT_TOKEN_EXTRA_IDS [INPUT_TOKEN_EXTRA_IDS ...]]
+              [--input_token_extra_ids_file INPUT_TOKEN_EXTRA_IDS_FILE]
+              [--output_csv OUTPUT_CSV] [--output_npy OUTPUT_NPY]
+              [--output_generation_logits]
+              [--output_logits_npy OUTPUT_LOGITS_NPY]
+              [--output_log_probs_npy OUTPUT_LOG_PROBS_NPY]
+              [--output_cum_log_probs_npy OUTPUT_CUM_LOG_PROBS_NPY]
+              [--run_profiling] [--num_beams NUM_BEAMS]
+              [--num_return_sequences NUM_RETURN_SEQUENCES]
+              [--temperature TEMPERATURE] [--top_k TOP_K] [--top_p TOP_P]
+              [--length_penalty LENGTH_PENALTY]
+              [--repetition_penalty REPETITION_PENALTY]
+              [--presence_penalty PRESENCE_PENALTY]
+              [--frequency_penalty FREQUENCY_PENALTY] [--min_p MIN_P]
+              [--beam_search_diversity_rate BEAM_SEARCH_DIVERSITY_RATE]
+              [--random_seed RANDOM_SEED] [--early_stopping EARLY_STOPPING]
+              [--beam_width_array BEAM_WIDTH_ARRAY] [--end_id END_ID]
+              [--stop_words STOP_WORDS [STOP_WORDS ...]]
+              [--bad_words BAD_WORDS [BAD_WORDS ...]]
+              [--no_repeat_ngram_size NO_REPEAT_NGRAM_SIZE]
+              [--sink_token_length SINK_TOKEN_LENGTH]
+              [--max_attention_window_size MAX_ATTENTION_WINDOW_SIZE [MAX_ATTENTION_WINDOW_SIZE ...]]
+              [--multi_block_mode MULTI_BLOCK_MODE]
+              [--enable_context_fmha_fp32_acc] [--cuda_graph_mode]
+              [--log_level {verbose,info,warning,error,internal_error}]
+              [--no_prompt_template] [--use_py_session] [--debug_mode]
+              [--streaming] [--streaming_interval STREAMING_INTERVAL]
+              [--prompt_table_path PROMPT_TABLE_PATH]
+              [--prompt_tasks PROMPT_TASKS]
+              [--lora_dir LORA_DIR [LORA_DIR ...]]
+              [--lora_ckpt_source {hf,nemo}]
+              [--lora_task_uids LORA_TASK_UIDS [LORA_TASK_UIDS ...]]
+              [--num_prepend_vtokens NUM_PREPEND_VTOKENS [NUM_PREPEND_VTOKENS ...]]
+              [--draft_target_model_config DRAFT_TARGET_MODEL_CONFIG]
+              [--prompt_lookup_config PROMPT_LOOKUP_CONFIG]
+              [--medusa_choices MEDUSA_CHOICES]
+              [--eagle_choices EAGLE_CHOICES]
+              [--eagle_posterior_threshold EAGLE_POSTERIOR_THRESHOLD]
+              [--eagle_use_dynamic_tree]
+              [--eagle_dynamic_tree_max_top_k EAGLE_DYNAMIC_TREE_MAX_TOP_K]
+              [--lookahead_config LOOKAHEAD_CONFIG] [--engine_dir ENGINE_DIR]
+              [--tokenizer_type TOKENIZER_TYPE] [--vocab_file VOCAB_FILE]
+              [--no_add_special_tokens] [--hf_model_dir HF_MODEL_DIR]
+              [--tokenizer_dir TOKENIZER_DIR]
+              [--gpu_weights_percent GPU_WEIGHTS_PERCENT]
+              [--max_tokens_in_paged_kv_cache MAX_TOKENS_IN_PAGED_KV_CACHE]
+              [--kv_cache_enable_block_reuse | --no-kv_cache_enable_block_reuse]
+              [--kv_cache_free_gpu_memory_fraction KV_CACHE_FREE_GPU_MEMORY_FRACTION]
+              [--cross_kv_cache_fraction CROSS_KV_CACHE_FRACTION]
+              [--enable_chunked_context]
+              [--hf_data_type {fp32,fp16,bf16,float32,float16,bfloat16}]
+              [--hf_device_map_auto] [--return_all_generated_tokens]
+              [--language_task_uids LANGUAGE_TASK_UIDS [LANGUAGE_TASK_UIDS ...]]
+              [--backend BACKEND]
+
+options:
+  -h, --help            show this help message and exit
+  --max_input_length MAX_INPUT_LENGTH
+  --max_output_len MAX_OUTPUT_LEN
+  --draft_engine_dir DRAFT_ENGINE_DIR
+                        Path to engine of draft model in Draft-Target-Model
+                        mode.
+  --input_text INPUT_TEXT [INPUT_TEXT ...]
+  --input_file INPUT_FILE
+                        CSV or Numpy file containing tokenized input.
+                        Alternative to text input.
+  --multimodal_input_file MULTIMODAL_INPUT_FILE
+                        Path to multimodal input file.
+  --input_token_extra_ids INPUT_TOKEN_EXTRA_IDS [INPUT_TOKEN_EXTRA_IDS ...]
+                        Input token extra ids for using p-tuning and KV Cache
+                        reuse together (only available with cpp session).
+  --input_token_extra_ids_file INPUT_TOKEN_EXTRA_IDS_FILE
+                        CSV or Numpy file containing input token extra ids
+                        file. Alternative to text input (only available with
+                        cpp session).
+  --output_csv OUTPUT_CSV
+                        CSV file where the tokenized output is stored.
+  --output_npy OUTPUT_NPY
+                        Numpy file where the tokenized output is stored.
+  --output_generation_logits
+                        Enable gathering generation logits.
+  --output_logits_npy OUTPUT_LOGITS_NPY
+                        Numpy file where the generation logits are stored. Use
+                        only when num_beams==1
+  --output_log_probs_npy OUTPUT_LOG_PROBS_NPY
+                        Numpy file where the log_probs are stored
+  --output_cum_log_probs_npy OUTPUT_CUM_LOG_PROBS_NPY
+                        Numpy file where the cum_log_probs are stored
+  --run_profiling       Run several 10 iterations to profile the inference
+                        latencies.
+  --num_beams NUM_BEAMS
+                        Use beam search if num_beams > 1
+  --num_return_sequences NUM_RETURN_SEQUENCES
+                        Number of sequences to generate for each input.
+  --temperature TEMPERATURE
+  --top_k TOP_K
+  --top_p TOP_P
+  --length_penalty LENGTH_PENALTY
+  --repetition_penalty REPETITION_PENALTY
+  --presence_penalty PRESENCE_PENALTY
+  --frequency_penalty FREQUENCY_PENALTY
+  --min_p MIN_P
+  --beam_search_diversity_rate BEAM_SEARCH_DIVERSITY_RATE
+  --random_seed RANDOM_SEED
+  --early_stopping EARLY_STOPPING
+                        Use early stopping if num_beams > 1, 1 for early-
+                        stopping, 0 for non-early-stoppingother values for
+                        stopping by length
+  --beam_width_array BEAM_WIDTH_ARRAY
+                        Beam width array for each step. E.g.:
+                        --beam_width_array="[2,4,6,8]"
+  --end_id END_ID       Override tokenizer end_id to stop on given end_id
+                        token.
+  --stop_words STOP_WORDS [STOP_WORDS ...]
+                        Set stop words for a batch. Successive invocations of
+                        --stop_words set stop words for other batches. E.g.:
+                        --stop_words " London" " chef" --stop_words
+                        "eventually became" "was not"
+  --bad_words BAD_WORDS [BAD_WORDS ...]
+                        Set bad words for a batch. Successive invocations of
+                        --bad_words set bad words for other batches. E.g.:
+                        --bad_words " London" " chef" --bad_words "eventually
+                        became" "was not"
+  --no_repeat_ngram_size NO_REPEAT_NGRAM_SIZE
+  --sink_token_length SINK_TOKEN_LENGTH
+                        The sink token length.
+  --max_attention_window_size MAX_ATTENTION_WINDOW_SIZE [MAX_ATTENTION_WINDOW_SIZE ...]
+                        The attention window size that controls the sliding
+                        window attention / cyclic kv cache behavior
+  --multi_block_mode MULTI_BLOCK_MODE
+                        Distribute the work across multiple CUDA thread-blocks
+                        on the GPU for masked MHA kernel.
+  --enable_context_fmha_fp32_acc
+                        Enable FMHA runner FP32 accumulation.
+  --cuda_graph_mode     Enable cuda graphs in the inference.
+  --log_level {verbose,info,warning,error,internal_error}
+  --no_prompt_template  Whether or not to use default prompt template to wrap
+                        the input text.
+  --use_py_session      Whether or not to use Python runtime session
+  --debug_mode          Whether or not to turn on the debug mode
+  --streaming
+  --streaming_interval STREAMING_INTERVAL
+                        How often to return tokens when streaming.
+  --prompt_table_path PROMPT_TABLE_PATH
+                        Path to .npy file, exported by nemo_prompt_convert.py
+  --prompt_tasks PROMPT_TASKS
+                        Comma-separated list of tasks for prompt tuning, e.g.,
+                        0,3,1,0
+  --lora_dir LORA_DIR [LORA_DIR ...]
+                        The directory of LoRA weights
+  --lora_ckpt_source {hf,nemo}
+                        The source of lora checkpoint.
+  --lora_task_uids LORA_TASK_UIDS [LORA_TASK_UIDS ...]
+                        The list of LoRA task uids; use -1 to disable the LoRA
+                        module
+  --num_prepend_vtokens NUM_PREPEND_VTOKENS [NUM_PREPEND_VTOKENS ...]
+                        Number of (default) virtual tokens to prepend to each
+                        sentence. For example, '--num_prepend_vtokens=10' will
+                        prepend the tokens [vocab_size, vocab_size + 1, ...,
+                        vocab_size + 9] to the sentence.
+  --draft_target_model_config DRAFT_TARGET_MODEL_CONFIG
+                        Configuration of Draft-Target-Model decoding, see
+                        `examples/draft_target_model/README.md` for more
+                        information. E.g.: [4, [0], [1], False] for
+                        [draft_len, draft_model_device_list,
+                        target_model_device_list, use_logits].
+  --prompt_lookup_config PROMPT_LOOKUP_CONFIG
+                        Configuration of Prompt-Lookup decoding, see
+                        `examples/prompt_lookup/README.md` for more
+                        information. E.g.: [10,2,[0]] for
+                        [prompt_lookup_num_tokens, max_matching_ngram_size,
+                        device_list].
+  --medusa_choices MEDUSA_CHOICES
+                        Configuration of Medusa decoding. E.g.: [[0, 0, 0, 0],
+                        [0, 1, 0], [1, 0], [1, 1]] for 9 medusa tokens.
+  --eagle_choices EAGLE_CHOICES
+                        Configuration of Eagle-1 decoding. E.g.: [[0, 0, 0,
+                        0], [0, 1, 0], [1, 0], [1, 1]] for 9 draft tokens.
+  --eagle_posterior_threshold EAGLE_POSTERIOR_THRESHOLD
+                        Minimum token probability threshold for typical
+                        acceptance. Enables typical acceptance in Eagle.
+                        Corresponds to epsilon in
+                        https://arxiv.org/pdf/2401.10774.
+  --eagle_use_dynamic_tree
+                        Whether to use Ealge-2
+  --eagle_dynamic_tree_max_top_k EAGLE_DYNAMIC_TREE_MAX_TOP_K
+                        The maximum number of draft tokens to expand for each
+                        node in Eagle-2.
+  --lookahead_config LOOKAHEAD_CONFIG
+                        Configuration of executor and request lookahead
+                        decoding. E.g.: [5, 6, 7] for [max_window_size,
+                        max_ngram_size, max_verification_set_size].
+  --engine_dir ENGINE_DIR
+  --tokenizer_type TOKENIZER_TYPE
+                        Specify that argument when providing a .model file as
+                        the tokenizer_dir. It allows AutoTokenizer to
+                        instantiate the correct tokenizer type.
+  --vocab_file VOCAB_FILE
+                        Used for sentencepiece tokenizers
+  --no_add_special_tokens
+                        Whether or not to add special tokens
+  --hf_model_dir HF_MODEL_DIR, --model_dir HF_MODEL_DIR
+  --tokenizer_dir TOKENIZER_DIR
+                        tokenizer path; defaults to hf_model_dir if left
+                        unspecified
+  --gpu_weights_percent GPU_WEIGHTS_PERCENT
+                        Specify the percentage of weights that reside on GPU
+                        instead of CPU and streaming load during runtime.
+  --max_tokens_in_paged_kv_cache MAX_TOKENS_IN_PAGED_KV_CACHE
+                        Specify the maximum number of tokens in a kv cache
+                        page (only available with cpp session).
+  --kv_cache_enable_block_reuse, --no-kv_cache_enable_block_reuse
+                        Enables block reuse in kv cache (only available with
+                        cpp session).
+  --kv_cache_free_gpu_memory_fraction KV_CACHE_FREE_GPU_MEMORY_FRACTION
+                        Specify the free gpu memory fraction.
+  --cross_kv_cache_fraction CROSS_KV_CACHE_FRACTION
+                        Specify the kv cache fraction reserved for cross
+                        attention. Only applicable for encoder-decoder models.
+                        By default 0.5 for self and 0.5 for cross.
+  --enable_chunked_context
+                        Enables chunked context (only available with cpp
+                        session).
+  --hf_data_type {fp32,fp16,bf16,float32,float16,bfloat16}, --data_type {fp32,fp16,bf16,float32,float16,bfloat16}
+                        The data type for hf model.
+  --hf_device_map_auto  Use device map 'auto' to load a pretrained HF model.
+                        This may help to test a large model that cannot fit
+                        into a singlue GPU.
+  --return_all_generated_tokens
+                        This option changes the token output only for
+                        streaming. If not specified, return only generated
+                        tokens at each step. If specified, return the full
+                        beams/outputs at each step. It is automatically
+                        enabled for num_beams>1 (only available with cpp
+                        session). WARNING: using this option may increase
+                        network usage significantly (quadratically w.r.t
+                        output length).
+  --language_task_uids LANGUAGE_TASK_UIDS [LANGUAGE_TASK_UIDS ...]
+                        language task id indicating which adapter to use in
+                        language adapter. Please include 1 locale per input
+                        text
+  --backend BACKEND
+/app/tensorrt_llm/examples/eval_long_context.py:289:            prompt_table=args.prompt_table_path,
+/app/tensorrt_llm/examples/models/core/gpt/nemo_prompt_convert.py:66:            prompt_task_weights = prompt_weights["prompt_table"].get(
+/app/tensorrt_llm/examples/models/core/gpt/nemo_prompt_convert.py:67:                f"prompt_table.{prompt_task_name}.prompt_embeddings.weight")
+/app/tensorrt_llm/examples/models/core/qwen2audio/run.py:248:    def ptuning_setup(self, prompt_table, dtype, hidden_size, tasks, input_ids):
+/app/tensorrt_llm/examples/models/core/qwen2audio/run.py:249:        if prompt_table is not None:
+/app/tensorrt_llm/examples/models/core/qwen2audio/run.py:250:            task_vocab_size = torch.tensor([prompt_table.shape[0]],
+/app/tensorrt_llm/examples/models/core/qwen2audio/run.py:253:            prompt_table = prompt_table.to(
+/app/tensorrt_llm/examples/models/core/qwen2audio/run.py:257:            prompt_table = torch.empty([1, hidden_size], device=self.gpu_device)
+/app/tensorrt_llm/examples/models/core/qwen2audio/run.py:271:        return [prompt_table, tasks, task_vocab_size]
+/app/tensorrt_llm/examples/models/core/qwen2audio/run.py:330:        prompt_table=None,
+/app/tensorrt_llm/examples/models/core/qwen2audio/run.py:344:        prompt_table = prompt_table.unsqueeze(0)
+/app/tensorrt_llm/examples/models/core/qwen2audio/run.py:368:                prompt_table=prompt_table,
+/app/tensorrt_llm/examples/models/core/qwen2audio/run.py:507:            prompt_table, tasks, task_vocab_size = self.ptuning_setup(
+/app/tensorrt_llm/examples/models/core/qwen2audio/run.py:534:            prompt_table, tasks, task_vocab_size = self.ptuning_setup(
+/app/tensorrt_llm/examples/models/core/qwen2audio/run.py:540:            input_ids, args, prompt_table, extra_ids, run_time)
+/app/tensorrt_llm/examples/models/core/qwenvl/run.py:213:    def ptuning_setup(self, prompt_table, dtype, hidden_size, tasks, input_ids):
+/app/tensorrt_llm/examples/models/core/qwenvl/run.py:214:        if prompt_table is not None:
+/app/tensorrt_llm/examples/models/core/qwenvl/run.py:215:            task_vocab_size = torch.tensor([prompt_table.shape[1]],
+/app/tensorrt_llm/examples/models/core/qwenvl/run.py:218:            prompt_table = prompt_table.view(
+/app/tensorrt_llm/examples/models/core/qwenvl/run.py:219:                (prompt_table.shape[0] * prompt_table.shape[1],
+/app/tensorrt_llm/examples/models/core/qwenvl/run.py:220:                 prompt_table.shape[2]))
+/app/tensorrt_llm/examples/models/core/qwenvl/run.py:221:            prompt_table = prompt_table.cuda().to(
+/app/tensorrt_llm/examples/models/core/qwenvl/run.py:224:            prompt_table = torch.empty([1, hidden_size]).cuda()
+/app/tensorrt_llm/examples/models/core/qwenvl/run.py:236:        return [prompt_table, tasks, task_vocab_size]
+/app/tensorrt_llm/examples/models/core/qwenvl/run.py:303:        prompt_table=None,
+/app/tensorrt_llm/examples/models/core/qwenvl/run.py:333:                prompt_table,
+/app/tensorrt_llm/examples/models/core/qwenvl/run.py:382:        prompt_table, tasks, task_vocab_size = self.ptuning_setup(
+/app/tensorrt_llm/examples/models/core/qwenvl/run.py:386:            input_ids, max_new_tokens, prompt_table, tasks, task_vocab_size,
+/app/tensorrt_llm/examples/prompt_lookup/run_dtm_pld.py:234:        prompt_table=args.prompt_table_path,
+/app/tensorrt_llm/examples/run.py:191:def parse_input_token_extra_ids(prompt_table_path, kv_cache_enable_block_reuse,
+/app/tensorrt_llm/examples/run.py:195:    if prompt_table_path and kv_cache_enable_block_reuse:
+/app/tensorrt_llm/examples/run.py:383:        args.prompt_table_path, args.kv_cache_enable_block_reuse,
+/app/tensorrt_llm/examples/run.py:540:                prompt_table=args.prompt_table_path,
+/app/tensorrt_llm/examples/run.py:639:                    prompt_table=args.prompt_table_path,
+/app/tensorrt_llm/examples/run.py:675:                    prompt_table=args.prompt_table_path,
+/app/tensorrt_llm/examples/utils.py:404:        '--prompt_table_path',

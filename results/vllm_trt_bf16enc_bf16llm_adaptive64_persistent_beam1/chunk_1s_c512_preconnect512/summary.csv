@@ -1,0 +1,2 @@
+concurrency,requests,valid,failed,wall_seconds,audio_seconds,rtfx,requests_per_second,latency_mean_ms,latency_p50_ms,latency_p95_ms,latency_p99_ms,observed_batch_sizes,preconnected_streams,preconnect_ms_untimed
+512,512,512,0,3.0414172790478915,512.0,168.34256960632524,168.34256960632524,1696.32338757458,1869.4143334869295,2747.7990312705515,2832.7109299763106,"[2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15, 16, 30, 55, 64]",512,3610.768479993567

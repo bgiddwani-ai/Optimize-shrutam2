@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT=${ROOT:-/home/nvidia/Optimize-shrutam2}
+ROOT=${ROOT:-/home/ubuntu/Optimize-shrutam2}
 VARIANT=${VARIANT:-eager_bf16}
-MANIFEST=${MANIFEST:-${ROOT}/data/indicvoices_quick/manifest.jsonl}
+MANIFEST=${MANIFEST:-${ROOT}/data/fleurs_quick/manifest.jsonl}
 URL=${URL:-http://127.0.0.1:8092}
+CONTAINER_NAME=${CONTAINER_NAME:-shrutam2-server}
 
 screen -S shrutam2_gpu_monitor -X quit >/dev/null 2>&1 || true
 screen -L -Logfile "${ROOT}/logs/gpu_${VARIANT}.csv" -dmS shrutam2_gpu_monitor \
@@ -12,7 +13,7 @@ screen -L -Logfile "${ROOT}/logs/gpu_${VARIANT}.csv" -dmS shrutam2_gpu_monitor \
   --format=csv -l 1
 trap 'screen -S shrutam2_gpu_monitor -X quit >/dev/null 2>&1 || true' EXIT
 
-docker exec shrutam2-server python /workspace/benchmark_client.py \
+docker exec "${CONTAINER_NAME}" python /workspace/benchmark_client.py \
   --url "${URL}" \
   --manifest "${MANIFEST/#${ROOT}/\/workspace}" \
   --output-dir "/workspace/results/${VARIANT}/variable" \
@@ -20,7 +21,7 @@ docker exec shrutam2-server python /workspace/benchmark_client.py \
   --min-requests 32 \
   --rounds 1 2>&1 | tee "${ROOT}/logs/benchmark_${VARIANT}_variable.log"
 
-docker exec shrutam2-server python /workspace/benchmark_client.py \
+docker exec "${CONTAINER_NAME}" python /workspace/benchmark_client.py \
   --url "${URL}" \
   --manifest "${MANIFEST/#${ROOT}/\/workspace}" \
   --output-dir "/workspace/results/${VARIANT}/chunk_1s" \
@@ -29,7 +30,7 @@ docker exec shrutam2-server python /workspace/benchmark_client.py \
   --min-requests 64 \
   --rounds 1 2>&1 | tee "${ROOT}/logs/benchmark_${VARIANT}_chunk_1s.log"
 
-docker exec shrutam2-server python /workspace/benchmark_client.py \
+docker exec "${CONTAINER_NAME}" python /workspace/benchmark_client.py \
   --url "${URL}" \
   --manifest "${MANIFEST/#${ROOT}/\/workspace}" \
   --output-dir "/workspace/results/${VARIANT}/accuracy_requests" \
@@ -38,10 +39,10 @@ docker exec shrutam2-server python /workspace/benchmark_client.py \
   --sequential \
   --rounds 1 2>&1 | tee "${ROOT}/logs/benchmark_${VARIANT}_accuracy.log"
 
-docker exec shrutam2-server python /workspace/evaluate_accuracy.py \
+docker exec "${CONTAINER_NAME}" python /workspace/evaluate_accuracy.py \
   --requests "/workspace/results/${VARIANT}/accuracy_requests/requests.jsonl" \
   --output "/workspace/results/${VARIANT}/quick_accuracy.json" \
   --concurrency 1 2>&1 | tee "${ROOT}/logs/accuracy_${VARIANT}.log"
 
-curl -fsS "${URL}/stats" | docker exec -i shrutam2-server sh -c \
+curl -fsS "${URL}/stats" | docker exec -i "${CONTAINER_NAME}" sh -c \
   "cat > /workspace/results/${VARIANT}/server_stats_final.json"

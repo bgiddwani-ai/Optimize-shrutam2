@@ -1,0 +1,10 @@
+{
+  "shrutam2_encoder_equiv_bf16.plan": {
+    "bytes": 1435234620,
+    "sha256": "d70c163304847f2a99104e09845f411102c1505a7dc3a4a498cbef8f3098d3d5"
+  },
+  "shrutam2_encoder_modelopt_fp8.plan": {
+    "bytes": 722717276,
+    "sha256": "54367a7a6589039368fde7250c0ec70546ea42151f8d0b9df7372ec64d0092f9"
+  }
+}

@@ -1,0 +1,113 @@
+
+=============
+== PyTorch ==
+=============
+
+NVIDIA Release 25.04 (build 159049541)
+PyTorch Version 2.7.0a0+79aa174
+Container image Copyright (c) 2025, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+Copyright (c) 2014-2024 Facebook Inc.
+Copyright (c) 2011-2014 Idiap Research Institute (Ronan Collobert)
+Copyright (c) 2012-2014 Deepmind Technologies    (Koray Kavukcuoglu)
+Copyright (c) 2011-2012 NEC Laboratories America (Koray Kavukcuoglu)
+Copyright (c) 2011-2013 NYU                      (Clement Farabet)
+Copyright (c) 2006-2010 NEC Laboratories America (Ronan Collobert, Leon Bottou, Iain Melvin, Jason Weston)
+Copyright (c) 2006      Idiap Research Institute (Samy Bengio)
+Copyright (c) 2001-2004 Idiap Research Institute (Ronan Collobert, Samy Bengio, Johnny Mariethoz)
+Copyright (c) 2015      Google Inc.
+Copyright (c) 2015      Yangqing Jia
+Copyright (c) 2013-2016 The Caffe contributors
+All rights reserved.
+
+Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+
+GOVERNING TERMS: The software and materials are governed by the NVIDIA Software License Agreement
+(found at https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-software-license-agreement/)
+and the Product-Specific Terms for NVIDIA AI Products
+(found at https://www.nvidia.com/en-us/agreements/enterprise-software/product-specific-terms-for-ai-products/).
+
+INFO:root:Model has dynamic inputs: ['audio_signal', 'lengths']!
+[09/15/2026-16:01:32] [TRT] [W] ModelImporter.cpp:503: Make sure input lengths has Int64 binding.
+[09/15/2026-16:01:34] [TRT] [W] ModelImporter.cpp:848: Make sure output encoded_lengths has Int64 binding.
+INFO:root:No custom ops found. If that's not correct, please make sure that the 'tensorrt' python package is correctly installed and that the paths to 'libcudnn*.so' and TensorRT 'lib/' are in 'LD_LIBRARY_PATH'. If the custom op is not directly available as a plugin in TensorRT, please also make sure that the path to the compiled '.so' TensorRT plugin is also being given via the  '--trt_plugins' flag (requires TRT 10+).
+INFO:root:Model /workspace/artifacts/shrutam2_encoder_equiv_fp32.onnx with opset_version 17 is loaded.
+INFO:root:Quantization Mode: fp8
+WARNING:root:Failed to enable ORT with CUDA EP: 'libcudnn_adv*.so* is not accessible in LD_LIBRARY_PATH! Please make sure that the path to that library is in the env var to use the CUDA or TensorRT EP and ensure that the correct version is available. Versioning compatibility can be checked at https://onnxruntime.ai/docs/execution-providers/CUDA-ExecutionProvider.html#requirements.'
+INFO:root:Successfully enabled 1 EPs for ORT: ['CPUExecutionProvider']
+INFO:root:Quantizable op types in the model: ['Conv', 'MatMul']
+INFO:root:Found unpaddable conv for FP8: /subsampling/conv/conv.0/Conv
+INFO:root:Found unpaddable conv for FP8: /subsampling/conv/conv.2/Conv
+INFO:root:Found unpaddable conv for FP8: /subsampling/conv/conv.5/Conv
+INFO:root:Found unpaddable conv for FP8: /layers.0/conv/depthwise_conv/Conv
+INFO:root:Found unpaddable conv for FP8: /layers.1/conv/depthwise_conv/Conv
+INFO:root:Found unpaddable conv for FP8: /layers.2/conv/depthwise_conv/Conv
+INFO:root:Found unpaddable conv for FP8: /layers.3/conv/depthwise_conv/Conv
+INFO:root:Found unpaddable conv for FP8: /layers.4/conv/depthwise_conv/Conv
+INFO:root:Found unpaddable conv for FP8: /layers.5/conv/depthwise_conv/Conv
+INFO:root:Found unpaddable conv for FP8: /layers.6/conv/depthwise_conv/Conv
+INFO:root:Found unpaddable conv for FP8: /layers.7/conv/depthwise_conv/Conv
+INFO:root:Found unpaddable conv for FP8: /layers.8/conv/depthwise_conv/Conv
+INFO:root:Found unpaddable conv for FP8: /layers.9/conv/depthwise_conv/Conv
+INFO:root:Found unpaddable conv for FP8: /layers.10/conv/depthwise_conv/Conv
+INFO:root:Found unpaddable conv for FP8: /layers.11/conv/depthwise_conv/Conv
+INFO:root:Found unpaddable conv for FP8: /layers.12/conv/depthwise_conv/Conv
+INFO:root:Found unpaddable conv for FP8: /layers.13/conv/depthwise_conv/Conv
+INFO:root:Found unpaddable conv for FP8: /layers.14/conv/depthwise_conv/Conv
+INFO:root:Found unpaddable conv for FP8: /layers.15/conv/depthwise_conv/Conv
+INFO:root:Found unpaddable conv for FP8: /layers.16/conv/depthwise_conv/Conv
+INFO:root:Found unpaddable conv for FP8: /layers.17/conv/depthwise_conv/Conv
+INFO:root:Found unpaddable conv for FP8: /layers.18/conv/depthwise_conv/Conv
+INFO:root:Found unpaddable conv for FP8: /layers.19/conv/depthwise_conv/Conv
+INFO:root:Found unpaddable conv for FP8: /layers.20/conv/depthwise_conv/Conv
+INFO:root:Found unpaddable conv for FP8: /layers.21/conv/depthwise_conv/Conv
+INFO:root:Found unpaddable conv for FP8: /layers.22/conv/depthwise_conv/Conv
+INFO:root:Found unpaddable conv for FP8: /layers.23/conv/depthwise_conv/Conv
+INFO:root:Total number of nodes: 3975
+WARNING:root:Please consider to run pre-processing before quantization. Refer to example: https://github.com/microsoft/onnxruntime-inference-examples/blob/main/quantization/image_classification/cpu/ReadMe.md
+WARNING:root:Please consider pre-processing before quantization. See https://github.com/microsoft/onnxruntime-inference-examples/blob/main/quantization/image_classification/cpu/ReadMe.md
+[''][W] Could not convert: FLOAT8E4M3FN to a corresponding NumPy type. The original ONNX type will be preserved.
+INFO:root:Deleting QDQ nodes from marked inputs to make certain operations fusible ...
+INFO:root:Fusing Q nodes for INT8/FP8 mode
+INFO:root:Removing 54 redundant Cast nodes
+INFO:root:Total number of nodes: 4868
+INFO:root:Total number of quantized nodes: 387
+INFO:root:Quantized type counts: {'Conv': 50, 'MatMul': 289, 'Shape': 48}
+INFO:root:Quantized onnx model is saved as /workspace/artifacts/shrutam2_encoder_modelopt_fp8.onnx
+{
+  "source_onnx": "/workspace/artifacts/shrutam2_encoder_equiv_fp32.onnx",
+  "calibration": "/workspace/artifacts/encoder_equiv_fp8_calibration.npz",
+  "output": "/workspace/artifacts/shrutam2_encoder_modelopt_fp8.onnx",
+  "output_bytes": 1709127,
+  "quantize_linear_nodes": 340,
+  "dequantize_linear_nodes": 607,
+  "operator_counts": {
+    "Constant": 1253,
+    "Transpose": 195,
+    "Add": 389,
+    "ConstantOfShape": 24,
+    "Unsqueeze": 418,
+    "DequantizeLinear": 607,
+    "Div": 3,
+    "Concat": 169,
+    "Conv": 77,
+    "Reshape": 217,
+    "Relu": 3,
+    "Slice": 73,
+    "QuantizeLinear": 340,
+    "Cast": 2,
+    "Shape": 149,
+    "Gather": 149,
+    "Mul": 194,
+    "MatMul": 289,
+    "LayerNormalization": 120,
+    "Sub": 2,
+    "Range": 1,
+    "Less": 1,
+    "Sigmoid": 96,
+    "Not": 1,
+    "Pad": 24,
+    "Where": 24,
+    "Softmax": 24,
+    "Split": 24
+  }
+}

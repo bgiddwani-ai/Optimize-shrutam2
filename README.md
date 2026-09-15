@@ -1,409 +1,224 @@
 # Optimize Shrutam-2
 
-Measured server/client optimization of `bharatgenai/Shrutam-2` on GPU 0 of
-`minimum-fuchsia-mule`. The promoted maximum-throughput deployment runs the
-FastConformer encoder in TensorRT 10.10 BF16, keeps SMEAR in BF16, and serves
-the fine-tuned Llama decoder through vLLM BF16 continuous batching. It uses
-adaptive length-aware frontend batches through 64, 512 persistent client
-streams, and an extended server keep-alive. The earlier compiled four-beam path
-remains the quality-oriented alternative.
+Measured server/client optimization of `bharatgenai/Shrutam-2` on the Brev
+instance `equivalent-purple-ostrich`. Shrutam-2 uses a **FastConformer encoder**,
+not a plain Conformer encoder, followed by the SMEAR projector and a fine-tuned
+Llama decoder.
 
-All requested matrices completed with zero failed requests in the final runs.
-Raw request records, health responses, server batch counters, GPU telemetry,
-accuracy pairs, build logs, and checksums are under `results/`, `logs/`, and
-`artifacts/`.
+All eight requested beam-1 configurations completed both throughput matrices.
+There were zero failed requests among 14,336 timed matrix requests, and every
+quick WER result remained within the accepted +1.5 percentage-point budget.
+The consolidated machine-readable report is
+[`results/equivalent_consolidated_results.json`](results/equivalent_consolidated_results.json).
 
-## Reproduced environment
+## Result summary
 
-| Item | Value |
-|---|---|
-| Brev instance | `minimum-fuchsia-mule` |
-| Benchmark GPU | GPU 0, NVIDIA H100 NVL, 95,830 MiB |
-| Driver | 595.71.05 |
-| Shrutam-2 revision | `e249bba6f7319c27912847fbbebb4258ead3b848` |
-| Baseline-code revision | `93586a8d949d364f26c600e2f5213a9cdccf69aa` |
-| Canary/vLLM reference revision | `ae29af4502c9ac52eb88dbbbd6df721e4d8cac82` |
-| vLLM / PyTorch | vLLM 0.12.0 / PyTorch 2.9.1+cu129 |
-| HTTP runtime image | `shrutam2-runtime:25.02`, based on `nvcr.io/nvidia/nemo:25.02` |
-| TensorRT-LLM image | `nvcr.io/nvidia/tensorrt-llm/release:0.20.0` |
-| TensorRT engine builder | TensorRT 10.10.0.31 |
-| Promoted HTTP TensorRT | TensorRT 10.10.0.31 in the TensorRT-LLM 0.20 image |
-| Data | 46 IndicVoices clips, 12 supported languages, 16 kHz |
+The maximum variable-audio result was **1,105.05 RTFx at c128** with the
+calibrated mixed-FP8 TensorRT FastConformer and Model Optimizer FP8
+TensorRT-LLM decoder. Its quick WER was 19.2825%, a signed change of -0.2242
+percentage points from the HF baseline. The best exact-1-second c1 result was
+36.51 RTFx with the same profile.
 
-GPU 0 was isolated for these runs. GPU 1 continued to host an unrelated Indic
-Flex service and was never selected by the Shrutam containers.
+The encoder FP8 label is deliberately qualified as *mixed-FP8*: NVIDIA Model
+Optimizer inserted FP8 Q/DQ for eligible MatMul and convolution operators, but
+TensorRT retained unsupported depthwise convolutions at higher precision. This
+is the deployable calibrated engine that passed real-audio transcript gates,
+not a claim that every encoder operator ran in FP8.
 
-## Measurement definition
+| Key | Requested configuration, beam 1 | WER | CER | WER delta pp | CER delta pp | Peak variable RTFx |
+|---|---|---:|---:|---:|---:|---:|
+| `base_hf` | Base: FP32 FastConformer + HF BF16 LLM | 19.5067% | 5.9750% | 0.0000 | 0.0000 | 334.69 |
+| `compiled_bf16` | Compiled BF16 FastConformer + HF BF16 LLM | 20.6278% | 6.5474% | +1.1211 | +0.5725 | 313.04 |
+| `trtllm_bf16` | PyTorch BF16 FastConformer + TensorRT-LLM BF16 | 20.2915% | 6.4043% | +0.7848 | +0.4293 | 862.57 |
+| `trtllm_fp8` | PyTorch BF16 FastConformer + TensorRT-LLM ModelOpt FP8 weights, BF16 KV | 19.7309% | 6.2791% | +0.2242 | +0.3041 | 983.91 |
+| `trt_bf16_trtllm_bf16` | TensorRT BF16 FastConformer + TensorRT-LLM BF16 | 19.9552% | 6.1896% | +0.4484 | +0.2147 | 875.88 |
+| `trt_bf16_trtllm_fp8` | TensorRT BF16 FastConformer + TensorRT-LLM ModelOpt FP8 weights, BF16 KV | 20.6278% | 6.9410% | +1.1211 | +0.9660 | 1,081.29 |
+| `trt_bf16_trtllm_bf16_fp8kv` | TensorRT BF16 FastConformer + TensorRT-LLM BF16 weights, FP8 KV | 19.5067% | 5.9571% | 0.0000 | -0.0179 | 879.97 |
+| `trt_fp8_trtllm_fp8` | TensorRT calibrated mixed-FP8 FastConformer + TensorRT-LLM ModelOpt FP8 weights, BF16 KV | 19.2825% | 6.2075% | -0.2242 | +0.2326 | **1,105.05** |
 
-End-to-end RTFx is:
+WER/CER are quick accuracy measurements over the same fixed 48-clip FLEURS
+set for every row, not a full model-quality evaluation. A negative delta is an
+improvement on this sample. The original cached IndicVoices set used on the
+earlier H100 work was unavailable on this fresh instance, so the controlled
+comparison uses four public test clips from each of 12 supported languages.
+
+## Full end-to-end RTFx matrices
+
+RTFx is:
 
 ```text
 sum(valid input audio seconds) / client wall-clock seconds
 ```
 
-It includes request upload on an already-established HTTP connection, server queueing, log-mel preprocessing,
-Conformer, SMEAR projection, autoregressive Llama decoding, and response
-parsing. File loading, PCM conversion, and connection establishment are outside
-the timed interval, matching a persistent server/client deployment. The final
-client preconnects all requested logical streams, including all 512 before the
-c512 timed interval. The exact-1-second matrix trims or zero-pads each
-request to exactly 16,000 samples. Concurrency is client concurrency, not an
-assertion that the engine saw the same batch size. Actual microbatches are
-recorded in each `server_stats.json`; the adaptive frontend uses batch 32 or 64,
-a 5 ms low-load window, and a 50 ms high-load gather window.
+The timed boundary begins when persistent clients send requests and ends after
+non-empty transcripts are parsed. It includes HTTP transfer, server queueing,
+log-mel preprocessing, FastConformer, SMEAR projection, decoder execution, and
+response parsing. File loading, PCM preparation, and connection preconnect are
+untimed. Concurrency is client concurrency; adaptive server microbatches are
+recorded in each `server_stats.json`.
 
-Encoder-only RTFx is explicitly separated because it excludes HTTP,
-preprocessing, SMEAR, and Llama decoding. TensorRT `trtexec` values use GPU
-compute time, CUDA graphs, disabled host transfers, 100 timed iterations, and
-exact-1-second shapes.
+Variable-duration FLEURS audio:
 
-## Install
-
-All remote work was performed in persistent GNU screen sessions.
-
-```bash
-brev shell minimum-fuchsia-mule
-screen -S shrutam2_work
-mkdir -p /home/nvidia/Optimize-shrutam2
-cd /home/nvidia/Optimize-shrutam2
-```
-
-Copy this directory to the instance, then build the pinned runtime:
-
-```bash
-bash build_runtime.sh
-```
-
-Download the pinned model snapshot. No token is required for the currently
-public repository; if access policy changes, authenticate on the host without
-putting a token into a command or log.
-
-```bash
-docker run --rm -v "$PWD:/workspace" nvcr.io/nvidia/nemo:25.02 \
-  huggingface-cli download bharatgenai/Shrutam-2 \
-  --revision e249bba6f7319c27912847fbbebb4258ead3b848 \
-  --local-dir /workspace/model
-```
-
-Expected checkpoint hashes are retained in `logs/model_sha256.txt`.
-
-## Prepare the quick dataset
-
-The measured manifest was recovered from cached IndicVoices Arrow data because
-the source audio/reference pairs already existed on this host:
-
-```bash
-docker run --rm \
-  -v /home/nvidia/.cache:/host_cache:ro \
-  -v "$PWD:/workspace" -w /workspace shrutam2-runtime:25.02 \
-  python prepare_cached_indicvoices.py \
-    --cache-root /host_cache/huggingface/datasets/parquet \
-    --output-dir /workspace/data/indicvoices_quick \
-    --samples-per-language 4
-```
-
-The resulting manifest has 46 unique clips across Assamese, Bengali, Gujarati,
-Hindi, Kannada, Malayalam, Marathi, Odia, Punjabi, Tamil, Telugu, and Urdu.
-
-## Install and run the maximum-throughput vLLM server/client
-
-The vLLM path was inspired by the Canary/Qwen separation in
-[wuxuedaifu/Canary-Qwen-2.5b-vllm](https://github.com/wuxuedaifu/Canary-Qwen-2.5b-vllm):
-compute audio prompt embeddings in the ASR frontend, then let vLLM continuously
-batch independent decoder requests.
-
-```bash
-sudo apt-get update
-sudo apt-get install -y python3.12-venv
-
-mkdir -p baseline
-git clone https://github.com/wuxuedaifu/Canary-Qwen-2.5b-vllm \
-  baseline/Canary-Qwen-2.5b-vllm
-git -C baseline/Canary-Qwen-2.5b-vllm checkout \
-  ae29af4502c9ac52eb88dbbbd6df721e4d8cac82
-
-bash install_vllm.sh
-source .venv-vllm/bin/activate
-python export_vllm_checkpoint.py
-python smoke_vllm_prompt_embeds.py \
-  --model-dir artifacts/vllm_llm_bf16 \
-  --output artifacts/vllm_prompt_embed_smoke.json
-```
-
-The export step is mandatory: `model/model.pt` contains 147 fine-tuned
-`llm.*` tensors. Pointing vLLM at the released base `model/llm` directory
-instead produced 272% WER. The exported BF16 decoder contains 146 expected
-tensors and is checksummed in `artifacts/vllm_llm_bf16/export_report.json`.
-
-Start and benchmark in separate persistent remote screen sessions:
-
-```bash
-screen -L -Logfile logs/server_vllm_adaptive_final_screen.log \
-  -dmS shrutam2_vllm_server bash -lc \
-  'cd /home/nvidia/Optimize-shrutam2; ./start_server_vllm.sh'
-
-until curl -fsS http://127.0.0.1:8092/health; do sleep 2; done
-
-screen -L -Logfile logs/run_vllm_adaptive_final_screen.log \
-  -dmS shrutam2_vllm_bench bash -lc \
-  'cd /home/nvidia/Optimize-shrutam2; ./run_vllm_benchmarks.sh'
-
-tail -f logs/run_vllm_adaptive_final_screen.log
-screen -S shrutam2_vllm_server -X quit
-```
-
-The BF16-control launcher deploys GPU 0 only: eager BF16 FastConformer/SMEAR,
-vLLM BF16 with CUDA graphs and chunked prefill, 512 decoder sequences, adaptive
-32/64 frontend microbatches, a 256-request length lookahead, and 120-second HTTP
-keep-alive. `benchmark_client.py` rejects empty/invalid responses and records
-every latency, transcript, generated-token count, batch size, and retry count.
-
-Build and serve the promoted TensorRT-encoder plus vLLM configuration:
-
-```bash
-docker run --rm --gpus device=0 -v "$PWD:/workspace" -w /workspace \
-  nvcr.io/nvidia/tensorrt-llm/release:0.20.0 bash -lc \
-  'ROOT=/workspace \
-   ENGINE=/workspace/artifacts/shrutam2_encoder_bf16_b64.plan \
-   CACHE=/workspace/artifacts/shrutam2_encoder_bf16_b64.cache \
-   TRTEXEC=/usr/local/tensorrt/targets/x86_64-linux-gnu/bin/trtexec \
-   PRECISION=bf16 OPT_BATCH=32 MAX_BATCH=64 bash build_trt_encoder.sh'
-
-screen -L -Logfile logs/server_vllm_trt_b64_screen.log \
-  -dmS shrutam2_vllm_trt bash -lc \
-  'cd /home/nvidia/Optimize-shrutam2; \
-   TRT_ENGINE=$PWD/artifacts/shrutam2_encoder_bf16_b64.plan \
-   BASE_FRONTEND_BATCH=32 MAX_FRONTEND_BATCH=64 \
-   bash start_server_vllm_trt_container.sh'
-
-until curl -fsS http://127.0.0.1:8092/health; do sleep 2; done
-screen -L -Logfile logs/bench_vllm_trt_b64_screen.log \
-  -dmS shrutam2_vllm_trt_bench bash -lc \
-  'cd /home/nvidia/Optimize-shrutam2; \
-   VARIANT=vllm_trt_bf16enc_bf16llm_adaptive64_persistent_beam1_final \
-   bash run_vllm_benchmarks.sh'
-tail -f logs/bench_vllm_trt_b64_screen.log
-```
-
-The TensorRT launcher uses the TensorRT 10.10 libraries from the TensorRT-LLM
-0.20 image while mounting the tested vLLM 0.12/PyTorch 2.9 virtual environment.
-The runner casts each binding to the engine-declared type; in particular, the
-exported ONNX length input is INT64.
-
-The valid FP8-weight/BF16-KV experiment can be reproduced with:
-
-```bash
-RUNTIME=eager LLM_QUANTIZATION=fp8 KV_CACHE_DTYPE=auto \
-  bash start_server_vllm.sh
-```
-
-FP8 weights plus FP8 KV cache was also tested with
-`KV_CACHE_DTYPE=fp8` and `CALCULATE_KV_SCALES=1`, but failed the real-audio
-validity gate and is not a deployable result.
-
-## Run the quality-oriented HTTP server/client benchmark
-
-```bash
-RUNTIME=compile PRECISION=bf16 NUM_BEAMS=4 MAX_NEW_TOKENS=200 \
-  bash start_server.sh
-
-VARIANT=optimized_compile_bf16_beam4 bash run_http_benchmarks.sh
-bash stop_server.sh
-```
-
-`start_server.sh` persists the Inductor cache in
-`artifacts/torchinductor_cache`. Its readiness gate includes warm-up batches
-before clients are admitted. `run_http_benchmarks.sh` executes:
-
-- variable-duration concurrency `1,2,8,32,64,128,256`;
-- exact-1-second concurrency `1,2,8,32,64,128,256,512`;
-- sequential transcript capture and WER/CER calculation.
-
-For the maximum-throughput, lower-accuracy profile:
-
-```bash
-RUNTIME=eager PRECISION=bf16 NUM_BEAMS=1 MAX_NEW_TOKENS=96 bash start_server.sh
-VARIANT=optimized_eager_bf16_beam1 bash run_http_benchmarks.sh
-bash stop_server.sh
-```
-
-## End-to-end HTTP results
-
-RTFx, variable-duration audio:
-
-| Variant | c1 | c2 | c8 | c32 | c64 | c128 | c256 |
+| Key | c1 | c2 | c8 | c32 | c64 | c128 | c256 |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| Upstream FP32 Conformer, BF16 LLM, beam 4 | 16.16 | 19.72 | 38.16 | 78.02 | 99.93 | 97.46 | 138.31 |
-| Compiled BF16, beam 4 | 19.09 | 26.80 | 47.79 | 101.67 | 115.37 | 113.69 | 120.53 |
-| Eager BF16, beam 1 throughput profile | 22.22 | 29.55 | 32.49 | 89.95 | 116.87 | 132.80 | 183.37 |
-| vLLM adaptive persistent, BF16 beam 1 control | 32.96 | 57.41 | 97.49 | 164.22 | 314.13 | 423.81 | 550.85 |
-| vLLM FP8 weights, BF16 KV, eager BF16 encoder | 33.42 | 51.95 | 102.84 | 184.03 | 301.52 | 394.25 | 449.16 |
-| **TensorRT BF16 encoder + vLLM BF16, adaptive 64** | 32.86 | 67.97 | 124.04 | 220.10 | 366.53 | 408.63 | 566.34 |
+| `base_hf` | 39.80 | 45.59 | 151.55 | 232.87 | 297.79 | 320.87 | 334.69 |
+| `compiled_bf16` | 18.61 | 36.84 | 99.82 | 231.06 | 313.04 | 249.02 | 308.11 |
+| `trtllm_bf16` | 81.67 | 119.41 | 384.60 | 570.37 | 723.51 | 862.57 | 649.89 |
+| `trtllm_fp8` | 104.58 | 166.71 | 457.55 | 550.49 | 854.79 | 983.91 | 668.78 |
+| `trt_bf16_trtllm_bf16` | 83.46 | 124.76 | 349.50 | 570.70 | 763.40 | 875.88 | 652.43 |
+| `trt_bf16_trtllm_fp8` | 107.84 | 167.92 | 473.59 | 682.29 | 920.00 | 1,081.29 | 702.65 |
+| `trt_bf16_trtllm_bf16_fp8kv` | 81.43 | 122.43 | 356.22 | 560.61 | 751.75 | 879.97 | 647.52 |
+| `trt_fp8_trtllm_fp8` | 104.04 | 169.87 | 472.58 | 694.89 | 935.11 | **1,105.05** | 689.74 |
 
-RTFx, exact-1-second audio:
+Exact-one-second audio, trimmed or zero-padded to 16,000 samples:
 
-| Variant | c1 | c2 | c8 | c32 | c64 | c128 | c256 | c512 |
+| Key | c1 | c2 | c8 | c32 | c64 | c128 | c256 | c512 |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
-| Upstream FP32 Conformer, BF16 LLM, beam 4 | 9.54 | 24.41 | 46.94 | 90.67 | 73.98 | 84.66 | 48.61 | 83.60 |
-| Compiled BF16, beam 4 | 15.30 | 16.82 | 40.17 | 76.44 | 101.55 | 49.77 | 47.56 | 68.03 |
-| Eager BF16, beam 1 throughput profile | 17.20 | 28.94 | 53.55 | 120.79 | 117.56 | 92.05 | 48.49 | 73.61 |
-| vLLM adaptive persistent, BF16 beam 1 control | 12.56 | 21.12 | 51.25 | 98.01 | 111.85 | 112.91 | 119.98 | 95.59 |
-| vLLM FP8 weights, BF16 KV, eager BF16 encoder | 12.51 | 22.74 | 53.19 | 101.62 | 120.25 | 112.15 | 113.40 | 102.20 |
-| **TensorRT BF16 encoder + vLLM BF16, adaptive 64** | 17.13 | 27.99 | 60.39 | 135.80 | 113.12 | 106.20 | 158.34 | 138.08 |
+| `base_hf` | 22.15 | 37.23 | 106.16 | 174.30 | 205.36 | 159.05 | 132.09 | 80.29 |
+| `compiled_bf16` | 28.51 | 29.14 | 37.96 | 46.15 | 46.68 | 77.18 | 67.66 | 65.97 |
+| `trtllm_bf16` | 25.63 | 45.98 | 148.55 | 343.02 | 301.51 | 147.81 | 134.25 | 89.61 |
+| `trtllm_fp8` | 27.13 | 48.95 | 158.30 | 348.21 | 309.99 | 147.39 | 143.98 | 90.18 |
+| `trt_bf16_trtllm_bf16` | 31.56 | 56.07 | 168.74 | 291.38 | 296.69 | 152.38 | 141.02 | 91.11 |
+| `trt_bf16_trtllm_fp8` | 33.74 | 60.24 | 178.95 | **352.30** | 309.58 | 144.51 | 137.44 | 91.24 |
+| `trt_bf16_trtllm_bf16_fp8kv` | 31.59 | 55.89 | 168.13 | 323.79 | 330.68 | 150.47 | 141.92 | 89.04 |
+| `trt_fp8_trtllm_fp8` | **36.51** | **63.90** | **190.41** | 270.53 | 301.33 | 147.05 | 139.66 | 90.35 |
 
-The original vLLM row is a single cohesive control run. Against the earlier eager BF16
-beam-1 path, variable-duration RTFx improved by 1.48x, 1.94x, 3.00x, 1.83x,
-2.69x, 3.19x, and 3.00x at c1 through c256. Exact-1-second throughput favors
-the old path below c128, but vLLM improves c128/c256/c512 by 1.23x/2.47x/1.30x.
-The promoted TensorRT/vLLM row is another clean cohesive run: all 1,792 timed
-matrix responses were valid, with no failures or retries. Relative to the BF16
-vLLM control it reached 1.00x/1.18x/1.27x/1.34x/1.17x/0.96x/1.03x on variable
-audio and 1.36x/1.33x/1.18x/1.39x/1.01x/0.94x/1.32x/1.44x on one-second audio.
-The c128 regressions are reported rather than hidden; the integrated path wins
-most of the requested cells and the highest-concurrency endpoints.
+The exact-one-second results fall after c64 because 512 persistent clients and
+short outputs shift the bottleneck to request scheduling/transport rather than
+decoder arithmetic. The complete matrices are retained instead of selecting
+isolated peaks.
 
-The upstream c256 variable run initially had one transport `ReadError` and was
-excluded. The table uses the clean 256/256 retry at 138.31 RTFx; both runs are
-retained in the artifacts.
+## Reproduced environment
 
-## Quick accuracy
+| Item | Measured value |
+|---|---|
+| Brev instance | `equivalent-purple-ostrich` |
+| GPU | NVIDIA RTX PRO 6000 Blackwell Server Edition, 97,887 MiB, compute capability 12.0 |
+| Driver / CUDA runtime | 595.91.07 / 12.9 in container |
+| Model revision | `e249bba6f7319c27912847fbbebb4258ead3b848` |
+| TensorRT-LLM / TensorRT | 0.20.0 / 10.10.0.31 |
+| NVIDIA Model Optimizer | 0.29.0 |
+| PyTorch | 2.7.0a0+79aa17489c.nv25.04 |
+| Dataset | Google FLEURS test, 48 clips, 496.78 seconds, 12 languages |
+| Beam / max new tokens | 1 / 96 for every row |
+| Server/client | FastAPI HTTP server and persistent concurrent HTTP client |
 
-| Path | Beams | WER | CER | WER change vs upstream |
-|---|---:|---:|---:|---:|
-| Upstream FP32 Conformer + BF16 LLM | 4 | 29.412% | 17.334% | — |
-| **Compiled BF16 end-to-end** | 4 | **29.630%** | **17.522%** | **+0.218 pp** |
-| Eager BF16 throughput profile | 1 | 32.462% | 19.918% | +3.050 pp |
-| vLLM adaptive persistent BF16 control | 1 | 31.808% | 18.233% | +2.396 pp |
-| vLLM FP8 weights + BF16 KV | 1 | 32.244% | 17.746% | +2.832 pp |
-| **TensorRT BF16 encoder + vLLM BF16** | 1 | **32.462%** | **18.233%** | **+3.050 pp** |
+The fine-tuned decoder export contains all 146 expected tensors and has SHA-256
+`727c0cf4b68d9cfac69da68e5e796ea4170d697d48a57d937a70b1853e8f81fa`.
+Engine sizes and hashes are recorded in the consolidated report; large weights,
+ONNX graphs, and device-specific TensorRT plans are intentionally excluded from
+Git.
 
-The 46-clip set is a quick regression check, not a publication-grade model
-evaluation. The compiled BF16 profile remains the quality-oriented result
-because it keeps the same four-beam search and changes WER by only 0.218
-percentage points. The promoted TensorRT/vLLM profile changes WER by +0.654
-percentage points relative to its BF16 vLLM control, inside the accepted 1.5 pp
-budget. FP8 weights with BF16 KV also passed that gate (+0.436 pp versus the
-control), but did not improve the overall throughput matrix. The control's
-generated-token maximum was 49 versus the configured limit of 96, so no
-measured response was truncated by that limit.
+## Install and build
 
-## Conformer encoder optimization
-
-Build and test the BF16 ONNX/TensorRT engine:
+Use an interactive Brev SSH session and run long operations in GNU screen:
 
 ```bash
-docker run --rm --gpus device=0 --ipc=host -v "$PWD:/workspace" \
-  -w /workspace shrutam2-runtime:25.02 \
-  python export_encoder_onnx.py --model-dir /workspace/model
-
-docker run --rm --gpus device=0 --ipc=host -v "$PWD:/workspace" \
-  -w /workspace nvcr.io/nvidia/tensorrt-llm/release:0.20.0 \
-  bash build_trt_encoder.sh
-
-bash benchmark_trtexec.sh
+brev shell equivalent-purple-ostrich
+screen -S shrutam2_work
+mkdir -p /home/ubuntu/Optimize-shrutam2
+cd /home/ubuntu/Optimize-shrutam2
 ```
 
-For FP16, export FP32 ONNX weights and set `PRECISION=fp16`, `ENGINE`, and
-`CACHE` when invoking `build_trt_encoder.sh`; the exact command is preserved in
-`logs/trt_encoder_fp16_build.log`.
-
-Build the AOTInductor package and run the exact-shape comparison:
+Copy this repository to that directory, then build the HF/NeMo runtime and the
+TensorRT-LLM/ModelOpt runtime:
 
 ```bash
-docker run --rm --gpus device=0 --ipc=host -v "$PWD:/workspace" \
-  -w /workspace shrutam2-runtime:25.02 \
-  python export_encoder_aoti.py \
-    --model-dir /workspace/model \
-    --static-frames 101 --max-batch 256 \
-    --output /workspace/artifacts/shrutam2_encoder_bf16_1s.pt2 \
-    --report /workspace/artifacts/aoti_1s_build_report.json
-
-bash run_encoder_1s.sh
+ROOT=$PWD bash build_runtime.sh
+ROOT=$PWD bash build_trtllm_runtime.sh
 ```
 
-Exact-1-second encoder-only RTFx:
-
-| Runtime | b1 | b2 | b8 | b32 | b64 | b128 | b256 |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| PyTorch eager BF16 | 41.51 | 80.97 | 321.20 | 1202.14 | 2484.56 | 3832.08 | 4408.51 |
-| `torch.compile` BF16 | 267.24 | 393.33 | 1348.75 | 5030.27 | 4054.32 | 4630.07 | 4989.11 |
-| AOTI BF16, static time | 240.27 | 412.79 | 1396.80 | 5198.26 | 4199.20 | 4845.45 | 5205.14 |
-| TensorRT BF16 `trtexec` | 224.43 | 444.75 | 1692.17 | 5295.66 | — | — | — |
-| TensorRT FP16 `trtexec` | 266.14 | 531.42 | 2054.05 | **7128.30** | — | — | — |
-
-The original TensorRT plan was capped at batch 32. The promoted engine expands
-its min/opt/max profile to batches 1/32/64 and 101/501/1001 mel frames. Its
-remote-only plan is 1,416,359,964 bytes with SHA-256
-`bc3b1ad64041b7038086f52778fede0b8533a2a233ba42d23817780560aa00ef`.
-Full dynamic-time AOTI export failed on symbolic divisibility guards introduced
-by the 8x convolutional subsampler, so the valid AOTI artifact remains static in
-time (101 mel frames) and dynamic only in batch.
-
-The NeMo 25.02 HTTP image contains TensorRT 10.8 and cannot deserialize a 10.10
-plan. `start_server_vllm_trt_container.sh` resolves that mismatch by using the
-TensorRT-LLM 0.20/TensorRT 10.10 image while mounting the vLLM environment. A
-second integration bug was equally important: ONNX exported the length binding
-as INT64, while the old runner supplied an INT32 pointer. Casting every binding
-to the engine-declared type fixed empty transcripts. The main HTTP tables are
-now genuine integrated server/client results; the `trtexec` table remains
-encoder-stage-only evidence.
-
-## TensorRT-LLM BF16 and ModelOpt FP8
-
-Shrutam-2 passes projected audio vectors directly to Llama as prefix
-embeddings. The engine must therefore enable a prompt-embedding table; a
-text-only decoder smoke test is not valid evidence for this model.
+Download the pinned model, export the fine-tuned decoder, prepare the fixed
+FLEURS quick set, export FP32/BF16 encoder ONNX, and generate real-audio
+calibration tensors:
 
 ```bash
-bash probe_trtllm.sh
-bash build_trtllm_llm.sh
-
-docker run --rm --gpus device=0 --ipc=host \
-  -e HF_HUB_OFFLINE=1 -e TRANSFORMERS_OFFLINE=1 \
-  -v "$PWD:/workspace" -w /workspace \
-  nvcr.io/nvidia/tensorrt-llm/release:0.20.0 \
-  python trtllm_audio_smoke.py \
-    --model-dir /workspace/model \
-    --engine-dir /workspace/artifacts/trtllm_llm_bf16_engine \
-    --manifest /workspace/data/indicvoices_quick/manifest.jsonl \
-    --output /workspace/results/trtllm_bf16/accuracy_requests_beam4.jsonl \
-    --max-new-tokens 200 --num-beams 4
-
-bash build_modelopt_fp8_llm.sh
+ROOT=$PWD bash setup_equivalent.sh
 ```
 
-The real-audio prompt-table accuracy results were:
+Build the three TensorRT-LLM decoder variants and both TensorRT encoder plans:
 
-| Decoder engine | WER | CER | FP8 minus BF16 WER |
-|---|---:|---:|---:|
-| TensorRT-LLM BF16, beam 4 | 31.808% | 18.308% | — |
-| TensorRT-LLM ModelOpt FP8 + FP8 KV, beam 4 | 30.719% | 16.061% | -1.089 pp |
+```bash
+ROOT=$PWD bash build_trtllm_variants.sh
+ROOT=$PWD bash build_equivalent_encoder_engines.sh
+```
 
-FP8 produced no directional WER regression. However, the absolute WER movement
-is 1.089 percentage points, narrowly outside a strict `abs(FP8-BF16) < 1 pp`
-equivalence rule. The ModelOpt engine and evidence are retained as exploratory,
-but this README does not promote it as strict quality-equivalent on such a
-small set. Re-run on a larger, fixed evaluation manifest before deployment.
+ModelOpt calibration uses 128 CNN/DailyMail sequences for the Llama FP8
+weights. Encoder calibration uses the 48 real FLEURS waveforms after the actual
+Shrutam log-mel frontend. The decoder builds use max batch 64, beam 1, paged KV,
+removed input padding, context FMHA, and a global prompt-embedding table of
+16,384 entries.
 
-## Result map
+## Run the server/client benchmarks
 
-- `results/consolidated_results.json`: machine-readable tables and pass/fail
-  validation for every reported server/client matrix.
-- `results/vllm_continuous_bf16_adaptive_persistent_beam1/`: the BF16 vLLM
-  control matrices, accuracy pairs, and server counters.
-- `results/vllm_trt_bf16enc_bf16llm_adaptive64_persistent_beam1_final/`: the
-  promoted integrated TensorRT/vLLM result.
-- `results/vllm_fp8w_bf16kv_adaptive_persistent_beam1/`: valid FP8-weight,
-  BF16-KV evidence; the rejected FP8-KV health/log evidence is retained under
-  `results/vllm_fp8w_fp8kv_adaptive_persistent_beam1/` and `logs/`.
-- `artifacts/provenance.json`: host, revisions, and SHA-256 hashes for every
-  large engine/package.
-- `results/*/*/requests.jsonl`: per-request latency and transcript evidence.
-- `results/*/*/server_stats.json`: actual dynamic-batch histograms.
-- `logs/`: complete build, server, client, accuracy, GPU, and failure logs.
-- `LEARNIGS.md`: implementation decisions, failures, and boundaries.
+Run the two HF control rows:
 
-Large ONNX, AOTI, TensorRT, and TensorRT-LLM binaries are not duplicated in the
-local evidence bundle. Their byte sizes and hashes are recorded in
-`artifacts/provenance.json`, and all build scripts needed to reproduce them are
-included here.
+```bash
+ROOT=$PWD VARIANT=equiv_base_fp32enc_hf_bf16llm_beam1 \
+  RUNTIME=eager PRECISION=upstream bash run_equivalent_hf_variant.sh
+
+ROOT=$PWD VARIANT=equiv_compile_bf16_hf_bf16llm_beam1 \
+  RUNTIME=compile PRECISION=bf16 bash run_equivalent_hf_variant.sh
+```
+
+Run the BF16 PyTorch encoder plus BF16 TensorRT-LLM control:
+
+```bash
+ROOT=$PWD \
+VARIANT=equiv_eager_bf16enc_trtllm_bf16_beam1 \
+ENGINE_DIR=$PWD/artifacts/trtllm_equiv_bf16_engine \
+ENCODER_RUNTIME=eager ENCODER_PRECISION=bf16 \
+  bash run_equivalent_trtllm_variant.sh
+```
+
+Run the remaining five TensorRT-LLM/FP8 combinations and consolidate results:
+
+```bash
+ROOT=$PWD bash run_equivalent_remaining_trtllm.sh
+python3 finalize_equivalent.py
+```
+
+Each row starts a real HTTP server, waits for a real-audio warm-up gate, then
+runs variable concurrency `1,2,8,32,64,128,256`, exact-one-second concurrency
+`1,2,8,32,64,128,256,512`, and sequential accuracy capture. Failed or empty
+responses make the validation fail.
+
+For a standalone deployment, select an engine explicitly:
+
+```bash
+ROOT=$PWD \
+ENGINE_DIR=$PWD/artifacts/trtllm_equiv_fp8w_bf16kv_engine \
+ENCODER_RUNTIME=trt \
+TRT_ENGINE=$PWD/artifacts/shrutam2_encoder_modelopt_fp8.plan \
+NUM_BEAMS=1 MAX_BATCH_SIZE=64 MAX_DELAY_MS=12 \
+  bash start_server_trtllm.sh
+```
+
+Health and stats are available at `http://127.0.0.1:8092/health` and
+`http://127.0.0.1:8092/stats`. Run `bash stop_server.sh` after HF serving, or
+stop the TensorRT-LLM container with `docker rm -f shrutam2-trtllm-server`.
+
+## Artifact map
+
+- `results/equivalent_consolidated_results.json`: canonical all-row report,
+  matrices, WER/CER pairs, runtime health, validation counts, and checksums.
+- `results/equiv_*/`: raw request JSONL, per-workload CSV/JSON summaries,
+  server stats, health, and accuracy pairs for all eight rows.
+- `logs/*equiv*`: builds, servers, GPU telemetry, benchmark clients, ModelOpt,
+  TensorRT, and finalization logs.
+- `artifacts/equivalent_*.json`: environment, TensorRT-LLM configs, engine
+  hashes, and setup provenance.
+- `artifacts/equivalent_evidence_20260915.tgz`: checksum-preserved remote
+  evidence bundle; SHA-256
+  `2c0c306515f801303c9a6f4aaacfae3904898ac8291f8ab4c63fff2c1cc3981f`.
+- `LEARNIGS.md`: decisions, failed approaches, runtime traps, and conclusions.
+
+## Recommendation
+
+Use `trt_fp8_trtllm_fp8` when maximum variable-audio throughput is the goal and
+the calibrated mixed-FP8 encoder qualification is acceptable. Use
+`trt_bf16_trtllm_fp8` when the encoder must remain BF16; it reached 1,081.29
+RTFx and stayed within the allowed WER/CER budget. Use
+`trt_bf16_trtllm_bf16_fp8kv` when matching baseline WER is more important than
+peak throughput. FP8 KV did not provide a consistent speed benefit on this
+short-context ASR workload.

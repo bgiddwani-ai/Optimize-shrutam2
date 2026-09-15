@@ -1,0 +1,31 @@
+{
+  "model_revision": "e249bba6f7319c27912847fbbebb4258ead3b848",
+  "model_files": [
+    "model.pt",
+    "encoder.pt",
+    "llm/model.safetensors"
+  ],
+  "dataset": {
+    "dataset": "google/fleurs",
+    "split": "test",
+    "selection": "first usable non-silent rows in streaming source order",
+    "samples": 48,
+    "audio_seconds": 496.78,
+    "languages": {
+      "as": 4,
+      "bn": 4,
+      "gu": 4,
+      "hi": 4,
+      "kn": 4,
+      "ml": 4,
+      "mr": 4,
+      "or": 4,
+      "pa": 4,
+      "ta": 4,
+      "te": 4,
+      "ur": 4
+    },
+    "manifest": "/workspace/data/fleurs_quick/manifest.jsonl"
+  },
+  "all_audio_exists": true
+}

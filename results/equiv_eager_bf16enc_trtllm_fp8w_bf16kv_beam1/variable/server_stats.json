@@ -1,0 +1,42 @@
+{
+  "total_requests": 577,
+  "total_failures": 0,
+  "total_audio_seconds": 5989.64,
+  "queue_depth": 0,
+  "batch_histogram": {
+    "1": 33,
+    "2": 18,
+    "4": 1,
+    "6": 1,
+    "7": 5,
+    "8": 6,
+    "9": 1,
+    "10": 1,
+    "12": 2,
+    "13": 2,
+    "14": 1,
+    "16": 1,
+    "17": 1,
+    "23": 1,
+    "25": 1,
+    "32": 1,
+    "41": 1,
+    "54": 1,
+    "60": 1,
+    "64": 1
+  },
+  "last_batch": {
+    "encoder_runtime": "eager",
+    "encoder_precision": "bf16",
+    "decoder_dtype": "bfloat16",
+    "decoder_quant_algo": "FP8",
+    "kv_cache_quant_algo": null,
+    "batch_size": 54,
+    "frontend_ms": 164.42158100107918,
+    "decode_ms": 232.76917399925878,
+    "total_ms": 397.19075500033796,
+    "max_audio_samples": 305280,
+    "max_audio_tokens": 239,
+    "generated_tokens": 1245
+  }
+}

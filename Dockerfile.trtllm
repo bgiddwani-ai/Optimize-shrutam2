@@ -1,0 +1,13 @@
+FROM nvcr.io/nvidia/tensorrt-llm/release:0.20.0
+
+RUN python -m pip install --no-cache-dir --upgrade \
+    "nvidia-modelopt[onnx]==0.29.0" \
+    "soundfile==0.13.1" \
+    "fastapi==0.115.4" \
+    "uvicorn[standard]==0.35.0" \
+    "httpx==0.28.1" \
+    "python-multipart==0.0.20" \
+    "jiwer==4.0.0"
+
+WORKDIR /workspace
+ENV PYTHONUNBUFFERED=1 TOKENIZERS_PARALLELISM=false HF_HUB_DISABLE_TELEMETRY=1

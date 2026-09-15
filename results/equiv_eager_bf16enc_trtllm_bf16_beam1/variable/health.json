@@ -1,0 +1,70 @@
+{
+  "ready": true,
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "beam": 1,
+  "encoder_runtime": "eager",
+  "encoder_precision": "bf16",
+  "engine_dir": "/workspace/artifacts/trtllm_equiv_bf16_engine",
+  "decoder_dtype": "bfloat16",
+  "decoder_quant_algo": null,
+  "kv_cache_quant_algo": null,
+  "max_batch_size": 64,
+  "warmup": [
+    {
+      "encoder_runtime": "eager",
+      "encoder_precision": "bf16",
+      "decoder_dtype": "bfloat16",
+      "decoder_quant_algo": null,
+      "kv_cache_quant_algo": null,
+      "batch_size": 1,
+      "frontend_ms": 686.8631379984436,
+      "decode_ms": 91.8272570015688,
+      "total_ms": 778.6903950000124,
+      "max_audio_samples": 16000,
+      "max_audio_tokens": 13,
+      "generated_tokens": 1
+    },
+    {
+      "encoder_runtime": "eager",
+      "encoder_precision": "bf16",
+      "decoder_dtype": "bfloat16",
+      "decoder_quant_algo": null,
+      "kv_cache_quant_algo": null,
+      "batch_size": 2,
+      "frontend_ms": 28.899623999677715,
+      "decode_ms": 8.339564999914728,
+      "total_ms": 37.23918899959244,
+      "max_audio_samples": 16000,
+      "max_audio_tokens": 13,
+      "generated_tokens": 2
+    },
+    {
+      "encoder_runtime": "eager",
+      "encoder_precision": "bf16",
+      "decoder_dtype": "bfloat16",
+      "decoder_quant_algo": null,
+      "kv_cache_quant_algo": null,
+      "batch_size": 8,
+      "frontend_ms": 45.49588599911658,
+      "decode_ms": 11.725297001248691,
+      "total_ms": 57.22118300036527,
+      "max_audio_samples": 16000,
+      "max_audio_tokens": 13,
+      "generated_tokens": 8
+    },
+    {
+      "encoder_runtime": "eager",
+      "encoder_precision": "bf16",
+      "decoder_dtype": "bfloat16",
+      "decoder_quant_algo": null,
+      "kv_cache_quant_algo": null,
+      "batch_size": 32,
+      "frontend_ms": 25.644817998909275,
+      "decode_ms": 18.25478000137082,
+      "total_ms": 43.89959800028009,
+      "max_audio_samples": 16000,
+      "max_audio_tokens": 13,
+      "generated_tokens": 32
+    }
+  ]
+}

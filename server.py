@@ -164,6 +164,11 @@ def build_app(args: argparse.Namespace) -> FastAPI:
     async def stats() -> dict[str, Any]:
         return app.state.batcher.stats()
 
+    @app.get("/preconnect")
+    async def preconnect() -> dict[str, bool]:
+        """Allow benchmark clients to establish persistent sockets untimed."""
+        return {"ok": True}
+
     @app.post("/transcribe")
     async def transcribe(
         request: Request,

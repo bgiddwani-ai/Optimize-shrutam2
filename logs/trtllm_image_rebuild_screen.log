@@ -1,0 +1,96 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.trtllm
+#1 transferring dockerfile: 406B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for nvcr.io/nvidia/tensorrt-llm/release:0.20.0
+#2 DONE 0.4s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/3] FROM nvcr.io/nvidia/tensorrt-llm/release:0.20.0@sha256:e9901d3f7977096a87493569b9aab64fef924013f25a164f5a57ec690c105d7f
+#4 resolve nvcr.io/nvidia/tensorrt-llm/release:0.20.0@sha256:e9901d3f7977096a87493569b9aab64fef924013f25a164f5a57ec690c105d7f 0.0s done
+#4 CACHED
+
+#5 [2/3] RUN python -m pip install --no-cache-dir --upgrade     "soundfile==0.13.1"     "fastapi==0.115.4"     "uvicorn[standard]==0.35.0"     "httpx==0.28.1"     "python-multipart==0.0.20"     "jiwer==4.0.0"
+#5 0.414 DEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/looseversion-1.3.0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+#5 0.414 DEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/nvfuser-0.2.27a0+5111d3b-py3.12-linux-x86_64.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+#5 0.414 DEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/lightning_utilities-0.14.3-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+#5 0.414 DEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/lightning_thunder-0.2.2.dev0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+#5 0.415 DEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/opt_einsum-3.4.0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+#5 0.421 Requirement already satisfied: soundfile==0.13.1 in /usr/local/lib/python3.12/dist-packages (0.13.1)
+#5 0.455 Requirement already satisfied: fastapi==0.115.4 in /usr/local/lib/python3.12/dist-packages (0.115.4)
+#5 0.499 Collecting uvicorn==0.35.0 (from uvicorn[standard]==0.35.0)
+#5 0.526   Downloading uvicorn-0.35.0-py3-none-any.whl.metadata (6.5 kB)
+#5 0.537 Requirement already satisfied: httpx==0.28.1 in /usr/local/lib/python3.12/dist-packages (0.28.1)
+#5 0.549 Collecting python-multipart==0.0.20
+#5 0.553   Downloading python_multipart-0.0.20-py3-none-any.whl.metadata (1.8 kB)
+#5 0.559 Collecting jiwer==4.0.0
+#5 0.562   Downloading jiwer-4.0.0-py3-none-any.whl.metadata (3.3 kB)
+#5 0.564 Requirement already satisfied: cffi>=1.0 in /usr/local/lib/python3.12/dist-packages (from soundfile==0.13.1) (1.17.1)
+#5 0.564 Requirement already satisfied: numpy in /usr/local/lib/python3.12/dist-packages (from soundfile==0.13.1) (1.26.4)
+#5 0.566 Requirement already satisfied: starlette<0.42.0,>=0.40.0 in /usr/local/lib/python3.12/dist-packages (from fastapi==0.115.4) (0.41.3)
+#5 0.567 Requirement already satisfied: pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4 in /usr/local/lib/python3.12/dist-packages (from fastapi==0.115.4) (2.11.2)
+#5 0.567 Requirement already satisfied: typing-extensions>=4.8.0 in /usr/local/lib/python3.12/dist-packages (from fastapi==0.115.4) (4.12.2)
+#5 0.568 Requirement already satisfied: click>=7.0 in /usr/local/lib/python3.12/dist-packages (from uvicorn==0.35.0->uvicorn[standard]==0.35.0) (8.1.8)
+#5 0.568 Requirement already satisfied: h11>=0.8 in /usr/local/lib/python3.12/dist-packages (from uvicorn==0.35.0->uvicorn[standard]==0.35.0) (0.16.0)
+#5 0.569 Requirement already satisfied: anyio in /usr/local/lib/python3.12/dist-packages (from httpx==0.28.1) (4.9.0)
+#5 0.570 Requirement already satisfied: certifi in /usr/local/lib/python3.12/dist-packages (from httpx==0.28.1) (2025.1.31)
+#5 0.570 Requirement already satisfied: httpcore==1.* in /usr/local/lib/python3.12/dist-packages (from httpx==0.28.1) (1.0.9)
+#5 0.570 Requirement already satisfied: idna in /usr/local/lib/python3.12/dist-packages (from httpx==0.28.1) (3.10)
+#5 0.798 Collecting rapidfuzz>=3.9.7 (from jiwer==4.0.0)
+#5 0.802   Downloading rapidfuzz-3.14.6-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (12 kB)
+#5 0.817 Collecting httptools>=0.6.3 (from uvicorn[standard]==0.35.0)
+#5 0.820   Downloading httptools-0.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (3.5 kB)
+#5 0.827 Collecting python-dotenv>=0.13 (from uvicorn[standard]==0.35.0)
+#5 0.829   Downloading python_dotenv-1.2.3-py3-none-any.whl.metadata (29 kB)
+#5 0.833 Requirement already satisfied: pyyaml>=5.1 in /usr/local/lib/python3.12/dist-packages (from uvicorn[standard]==0.35.0) (6.0.2)
+#5 0.849 Collecting uvloop>=0.15.1 (from uvicorn[standard]==0.35.0)
+#5 0.852   Downloading uvloop-0.22.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (4.9 kB)
+#5 0.887 Collecting watchfiles>=0.13 (from uvicorn[standard]==0.35.0)
+#5 0.889   Downloading watchfiles-1.2.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)
+#5 0.955 Collecting websockets>=10.4 (from uvicorn[standard]==0.35.0)
+#5 0.958   Downloading websockets-17.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (6.3 kB)
+#5 0.961 Requirement already satisfied: pycparser in /usr/local/lib/python3.12/dist-packages (from cffi>=1.0->soundfile==0.13.1) (2.22)
+#5 0.963 Requirement already satisfied: annotated-types>=0.6.0 in /usr/local/lib/python3.12/dist-packages (from pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4->fastapi==0.115.4) (0.7.0)
+#5 0.964 Requirement already satisfied: pydantic-core==2.33.1 in /usr/local/lib/python3.12/dist-packages (from pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4->fastapi==0.115.4) (2.33.1)
+#5 0.964 Requirement already satisfied: typing-inspection>=0.4.0 in /usr/local/lib/python3.12/dist-packages (from pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4->fastapi==0.115.4) (0.4.0)
+#5 0.969 Requirement already satisfied: sniffio>=1.1 in /usr/local/lib/python3.12/dist-packages (from anyio->httpx==0.28.1) (1.3.1)
+#5 0.981 Downloading uvicorn-0.35.0-py3-none-any.whl (66 kB)
+#5 0.986 Downloading python_multipart-0.0.20-py3-none-any.whl (24 kB)
+#5 0.988 Downloading jiwer-4.0.0-py3-none-any.whl (23 kB)
+#5 0.991 Downloading httptools-0.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (523 kB)
+#5 0.997 Downloading python_dotenv-1.2.3-py3-none-any.whl (22 kB)
+#5 1.000 Downloading rapidfuzz-3.14.6-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (3.2 MB)
+#5 1.010    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.2/3.2 MB 370.9 MB/s eta 0:00:00
+#5 1.013 Downloading uvloop-0.22.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (4.4 MB)
+#5 1.030    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.4/4.4 MB 272.8 MB/s eta 0:00:00
+#5 1.033 Downloading watchfiles-1.2.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (456 kB)
+#5 1.036 Downloading websockets-17.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (224 kB)
+#5 1.357 Installing collected packages: websockets, uvloop, uvicorn, rapidfuzz, python-multipart, python-dotenv, httptools, watchfiles, jiwer
+#5 1.513   Attempting uninstall: uvicorn
+#5 1.516     Found existing installation: uvicorn 0.34.3
+#5 1.519     Uninstalling uvicorn-0.34.3:
+#5 1.529       Successfully uninstalled uvicorn-0.34.3
+#5 1.734 Successfully installed httptools-0.8.0 jiwer-4.0.0 python-dotenv-1.2.3 python-multipart-0.0.20 rapidfuzz-3.14.6 uvicorn-0.35.0 uvloop-0.22.1 watchfiles-1.2.0 websockets-17.1
+#5 1.734 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#5 DONE 1.9s
+
+#6 [3/3] WORKDIR /workspace
+#6 DONE 0.0s
+
+#7 exporting to image
+#7 exporting layers
+#7 exporting layers 0.9s done
+#7 exporting manifest sha256:795ad31bcb7e2e7dbf5346790dc9de6bbd638a61ea3ee9c6ee4b3a47d53cc577 0.0s done
+#7 exporting config sha256:28b822ef6241a54c1ff5b2a27ad3b8c774d70b25d48c121366f34e68116f4850 0.0s done
+#7 exporting attestation manifest sha256:bb1cf4e9b1994efbb174cf35be947d2c10a36928e686ef420d365a22c4836d86 0.0s done
+#7 exporting manifest list sha256:cec387c831da42350d2b7e75dd19959c66fa2a87b76b2241a0bd7602e655bce4 0.0s done
+#7 naming to docker.io/library/shrutam2-trtllm:0.20 done
+#7 unpacking to docker.io/library/shrutam2-trtllm:0.20
+#7 unpacking to docker.io/library/shrutam2-trtllm:0.20 0.2s done
+#7 DONE 1.2s
+sha256:cec387c831da42350d2b7e75dd19959c66fa2a87b76b2241a0bd7602e655bce4

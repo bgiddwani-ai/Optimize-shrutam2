@@ -1,0 +1,23 @@
+{
+  "total_requests": 9,
+  "total_failures": 0,
+  "total_audio_seconds": 107.63999999999999,
+  "queue_depth": 0,
+  "batch_histogram": {
+    "1": 9
+  },
+  "last_batch": {
+    "encoder_runtime": "trt",
+    "encoder_precision": "bf16",
+    "decoder_dtype": "bfloat16",
+    "decoder_quant_algo": "FP8",
+    "kv_cache_quant_algo": "FP8",
+    "batch_size": 1,
+    "frontend_ms": 23.3502400000134,
+    "decode_ms": 70.30188299995643,
+    "total_ms": 93.65212299996983,
+    "max_audio_samples": 165120,
+    "max_audio_tokens": 130,
+    "generated_tokens": 35
+  }
+}

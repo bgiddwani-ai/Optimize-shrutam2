@@ -1,0 +1,446 @@
+
+=============
+== PyTorch ==
+=============
+
+NVIDIA Release 25.04 (build 159049541)
+PyTorch Version 2.7.0a0+79aa174
+Container image Copyright (c) 2025, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+Copyright (c) 2014-2024 Facebook Inc.
+Copyright (c) 2011-2014 Idiap Research Institute (Ronan Collobert)
+Copyright (c) 2012-2014 Deepmind Technologies    (Koray Kavukcuoglu)
+Copyright (c) 2011-2012 NEC Laboratories America (Koray Kavukcuoglu)
+Copyright (c) 2011-2013 NYU                      (Clement Farabet)
+Copyright (c) 2006-2010 NEC Laboratories America (Ronan Collobert, Leon Bottou, Iain Melvin, Jason Weston)
+Copyright (c) 2006      Idiap Research Institute (Samy Bengio)
+Copyright (c) 2001-2004 Idiap Research Institute (Ronan Collobert, Samy Bengio, Johnny Mariethoz)
+Copyright (c) 2015      Google Inc.
+Copyright (c) 2015      Yangqing Jia
+Copyright (c) 2013-2016 The Caffe contributors
+All rights reserved.
+
+Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+
+GOVERNING TERMS: The software and materials are governed by the NVIDIA Software License Agreement
+(found at https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-software-license-agreement/)
+and the Product-Specific Terms for NVIDIA AI Products
+(found at https://www.nvidia.com/en-us/agreements/enterprise-software/product-specific-terms-for-ai-products/).
+
+2026-09-15 15:56:35,002 - INFO - flashinfer.jit: Prebuilt kernels not found, using JIT backend
+[TensorRT-LLM] TensorRT-LLM version: 0.20.0
+[09/15/2026-15:56:35] [TRT-LLM] [I] Set bert_attention_plugin to auto.
+[09/15/2026-15:56:35] [TRT-LLM] [I] Set gpt_attention_plugin to bfloat16.
+[09/15/2026-15:56:35] [TRT-LLM] [I] Set gemm_plugin to bfloat16.
+[09/15/2026-15:56:35] [TRT-LLM] [I] Set gemm_swiglu_plugin to None.
+[09/15/2026-15:56:35] [TRT-LLM] [I] Set fp8_rowwise_gemm_plugin to None.
+[09/15/2026-15:56:35] [TRT-LLM] [I] Set nccl_plugin to auto.
+[09/15/2026-15:56:35] [TRT-LLM] [I] Set lora_plugin to None.
+[09/15/2026-15:56:35] [TRT-LLM] [I] Set dora_plugin to False.
+[09/15/2026-15:56:35] [TRT-LLM] [I] Set moe_plugin to auto.
+[09/15/2026-15:56:35] [TRT-LLM] [I] Set mamba_conv1d_plugin to auto.
+[09/15/2026-15:56:35] [TRT-LLM] [I] Set low_latency_gemm_plugin to None.
+[09/15/2026-15:56:35] [TRT-LLM] [I] Set low_latency_gemm_swiglu_plugin to None.
+[09/15/2026-15:56:35] [TRT-LLM] [I] Set gemm_allreduce_plugin to None.
+[09/15/2026-15:56:35] [TRT-LLM] [I] Set context_fmha to True.
+[09/15/2026-15:56:35] [TRT-LLM] [I] Set bert_context_fmha_fp32_acc to False.
+[09/15/2026-15:56:35] [TRT-LLM] [I] Set remove_input_padding to True.
+[09/15/2026-15:56:35] [TRT-LLM] [I] Set norm_quant_fusion to False.
+[09/15/2026-15:56:35] [TRT-LLM] [I] Set reduce_fusion to False.
+[09/15/2026-15:56:35] [TRT-LLM] [I] Set user_buffer to False.
+[09/15/2026-15:56:35] [TRT-LLM] [I] Set tokens_per_block to 32.
+[09/15/2026-15:56:35] [TRT-LLM] [I] Set use_paged_context_fmha to True.
+[09/15/2026-15:56:35] [TRT-LLM] [I] Set use_fp8_context_fmha to True.
+[09/15/2026-15:56:35] [TRT-LLM] [I] Set fuse_fp4_quant to False.
+[09/15/2026-15:56:35] [TRT-LLM] [I] Set multiple_profiles to True.
+[09/15/2026-15:56:35] [TRT-LLM] [I] Set paged_state to True.
+[09/15/2026-15:56:35] [TRT-LLM] [I] Set streamingllm to False.
+[09/15/2026-15:56:35] [TRT-LLM] [I] Set use_fused_mlp to True.
+[09/15/2026-15:56:35] [TRT-LLM] [I] Set pp_reduce_scatter to False.
+[09/15/2026-15:56:35] [TRT-LLM] [W] Implicitly setting LLaMAConfig.fc_after_embed = False
+[09/15/2026-15:56:35] [TRT-LLM] [W] Implicitly setting LLaMAConfig.use_input_layernorm_in_first_layer = True
+[09/15/2026-15:56:35] [TRT-LLM] [W] Implicitly setting LLaMAConfig.use_last_layernorm = True
+[09/15/2026-15:56:35] [TRT-LLM] [W] Implicitly setting LLaMAConfig.layer_idx_offset = 0
+[09/15/2026-15:56:35] [TRT-LLM] [W] Implicitly setting LLaMAConfig.has_partial_lora_mask = False
+[09/15/2026-15:56:35] [TRT-LLM] [W] Implicitly setting LLaMAConfig.tie_word_embeddings = True
+[09/15/2026-15:56:35] [TRT-LLM] [I] Compute capability: (12, 0)
+[09/15/2026-15:56:35] [TRT-LLM] [I] SM count: 188
+[09/15/2026-15:56:35] [TRT-LLM] [I] SM clock: 2430 MHz
+[09/15/2026-15:56:35] [TRT-LLM] [I] int4 TFLOPS: 0
+[09/15/2026-15:56:35] [TRT-LLM] [I] int8 TFLOPS: 0
+[09/15/2026-15:56:35] [TRT-LLM] [I] fp8 TFLOPS: 0
+[09/15/2026-15:56:35] [TRT-LLM] [I] float16 TFLOPS: 0
+[09/15/2026-15:56:35] [TRT-LLM] [I] bfloat16 TFLOPS: 0
+[09/15/2026-15:56:35] [TRT-LLM] [I] float32 TFLOPS: 0
+[09/15/2026-15:56:35] [TRT-LLM] [I] Total Memory: 95 GiB
+[09/15/2026-15:56:35] [TRT-LLM] [I] Memory clock: 12481 MHz
+[09/15/2026-15:56:35] [TRT-LLM] [I] Memory bus width: 512
+[09/15/2026-15:56:35] [TRT-LLM] [I] Memory bandwidth: 1597 GB/s
+[09/15/2026-15:56:35] [TRT-LLM] [I] PCIe speed: 2500 Mbps
+[09/15/2026-15:56:35] [TRT-LLM] [I] PCIe link width: 16
+[09/15/2026-15:56:35] [TRT-LLM] [I] PCIe bandwidth: 5 GB/s
+[09/15/2026-15:56:35] [TRT-LLM] [W] Provided but not required tensors: {'rotary_inv_freq', 'embed_positions_for_gpt_attention', 'embed_positions'}
+[09/15/2026-15:56:35] [TRT-LLM] [I] Set dtype to bfloat16.
+[09/15/2026-15:56:35] [TRT-LLM] [I] Set paged_kv_cache to True.
+[09/15/2026-15:56:35] [TRT-LLM] [W] Overriding paged_state to False
+[09/15/2026-15:56:35] [TRT-LLM] [I] Set paged_state to False.
+[09/15/2026-15:56:35] [TRT-LLM] [W] padding removal and fMHA are both enabled, max_input_len is not required and will be ignored
+[09/15/2026-15:56:35] [TRT-LLM] [I] Set use_fp8_context_fmha to False.
+[09/15/2026-15:56:35] [TRT-LLM] [W] FP8 Context FMHA is disabled because it must be used together with the fp8 quantization workflow.
+[09/15/2026-15:56:35] [TRT] [I] [MemUsageChange] Init CUDA: CPU +2, GPU +0, now: CPU 1297, GPU 558 (MiB)
+[09/15/2026-15:56:37] [TRT] [I] [MemUsageChange] Init builder kernel library: CPU +1737, GPU +4, now: CPU 3235, GPU 562 (MiB)
+[09/15/2026-15:56:37] [TRT-LLM] [I] Set nccl_plugin to None.
+[09/15/2026-15:56:37] [TRT-LLM] [I] Total time of constructing network from module object 2.4899420738220215 seconds
+[09/15/2026-15:56:37] [TRT-LLM] [I] Total optimization profiles added: 6
+[09/15/2026-15:56:37] [TRT-LLM] [I] Total time to initialize the weights in network Unnamed Network 0: 00:00:00
+[09/15/2026-15:56:37] [TRT-LLM] [I] Build TensorRT engine Unnamed Network 0
+[09/15/2026-15:56:37] [TRT] [W] Unused Input: position_ids
+[09/15/2026-15:56:40] [TRT] [W] [RemoveDeadLayers] Input Tensor position_ids is unused or used only at compile-time, but is not being removed.
+[09/15/2026-15:56:40] [TRT] [I] Global timing cache in use. Profiling results in this builder pass will be stored.
+[09/15/2026-15:56:40] [TRT] [I] Compiler backend is used during engine build.
+[09/15/2026-15:56:41] [TRT] [I] [GraphReduction] The approximate region cut reduction algorithm is called.
+[09/15/2026-15:56:41] [TRT] [I] Detected 20 inputs and 1 output network tensors.
+[09/15/2026-15:56:44] [TRT] [I] Total Host Persistent Memory: 50368 bytes
+[09/15/2026-15:56:44] [TRT] [I] Total Device Persistent Memory: 0 bytes
+[09/15/2026-15:56:44] [TRT] [I] Max Scratch Memory: 33826560 bytes
+[09/15/2026-15:56:44] [TRT] [I] [BlockAssignment] Started assigning block shifts. This will take 258 steps to complete.
+[09/15/2026-15:56:44] [TRT] [I] [BlockAssignment] Algorithm ShiftNTopDown took 11.4181ms to assign 19 blocks to 258 nodes requiring 51792896 bytes.
+[09/15/2026-15:56:44] [TRT] [I] Total Activation Memory: 51792896 bytes
+[09/15/2026-15:56:45] [TRT] [I] [GraphReduction] The approximate region cut reduction algorithm is called.
+[09/15/2026-15:56:45] [TRT] [I] Detected 20 inputs and 1 output network tensors.
+[09/15/2026-15:56:45] [TRT] [I] Total Host Persistent Memory: 50368 bytes
+[09/15/2026-15:56:45] [TRT] [I] Total Device Persistent Memory: 0 bytes
+[09/15/2026-15:56:45] [TRT] [I] Max Scratch Memory: 34089216 bytes
+[09/15/2026-15:56:45] [TRT] [I] [BlockAssignment] Started assigning block shifts. This will take 258 steps to complete.
+[09/15/2026-15:56:45] [TRT] [I] [BlockAssignment] Algorithm ShiftNTopDown took 11.8874ms to assign 19 blocks to 258 nodes requiring 53628416 bytes.
+[09/15/2026-15:56:45] [TRT] [I] Total Activation Memory: 53628416 bytes
+[09/15/2026-15:56:47] [TRT] [I] [GraphReduction] The approximate region cut reduction algorithm is called.
+[09/15/2026-15:56:47] [TRT] [I] Detected 20 inputs and 1 output network tensors.
+[09/15/2026-15:56:47] [TRT] [I] Total Host Persistent Memory: 50368 bytes
+[09/15/2026-15:56:47] [TRT] [I] Total Device Persistent Memory: 0 bytes
+[09/15/2026-15:56:47] [TRT] [I] Max Scratch Memory: 34614528 bytes
+[09/15/2026-15:56:47] [TRT] [I] [BlockAssignment] Started assigning block shifts. This will take 258 steps to complete.
+[09/15/2026-15:56:47] [TRT] [I] [BlockAssignment] Algorithm ShiftNTopDown took 12.0545ms to assign 19 blocks to 258 nodes requiring 57299456 bytes.
+[09/15/2026-15:56:47] [TRT] [I] Total Activation Memory: 57299456 bytes
+[09/15/2026-15:56:49] [TRT] [I] [GraphReduction] The approximate region cut reduction algorithm is called.
+[09/15/2026-15:56:49] [TRT] [I] Detected 20 inputs and 1 output network tensors.
+[09/15/2026-15:56:49] [TRT] [I] Total Host Persistent Memory: 50368 bytes
+[09/15/2026-15:56:49] [TRT] [I] Total Device Persistent Memory: 0 bytes
+[09/15/2026-15:56:49] [TRT] [I] Max Scratch Memory: 35665152 bytes
+[09/15/2026-15:56:49] [TRT] [I] [BlockAssignment] Started assigning block shifts. This will take 258 steps to complete.
+[09/15/2026-15:56:49] [TRT] [I] [BlockAssignment] Algorithm ShiftNTopDown took 12.9402ms to assign 19 blocks to 258 nodes requiring 65032704 bytes.
+[09/15/2026-15:56:49] [TRT] [I] Total Activation Memory: 65032704 bytes
+[09/15/2026-15:56:51] [TRT] [I] [GraphReduction] The approximate region cut reduction algorithm is called.
+[09/15/2026-15:56:51] [TRT] [I] Detected 20 inputs and 1 output network tensors.
+[09/15/2026-15:56:51] [TRT] [I] Total Host Persistent Memory: 50368 bytes
+[09/15/2026-15:56:51] [TRT] [I] Total Device Persistent Memory: 0 bytes
+[09/15/2026-15:56:51] [TRT] [I] Max Scratch Memory: 37766400 bytes
+[09/15/2026-15:56:51] [TRT] [I] [BlockAssignment] Started assigning block shifts. This will take 258 steps to complete.
+[09/15/2026-15:56:51] [TRT] [I] [BlockAssignment] Algorithm ShiftNTopDown took 10.7127ms to assign 20 blocks to 258 nodes requiring 88105472 bytes.
+[09/15/2026-15:56:51] [TRT] [I] Total Activation Memory: 88105472 bytes
+[09/15/2026-15:56:52] [TRT] [I] [GraphReduction] The approximate region cut reduction algorithm is called.
+[09/15/2026-15:56:52] [TRT] [I] Detected 20 inputs and 1 output network tensors.
+[09/15/2026-15:56:53] [TRT] [I] Total Host Persistent Memory: 50368 bytes
+[09/15/2026-15:56:53] [TRT] [I] Total Device Persistent Memory: 0 bytes
+[09/15/2026-15:56:53] [TRT] [I] Max Scratch Memory: 148203520 bytes
+[09/15/2026-15:56:53] [TRT] [I] [BlockAssignment] Started assigning block shifts. This will take 258 steps to complete.
+[09/15/2026-15:56:53] [TRT] [I] [BlockAssignment] Algorithm ShiftNTopDown took 13.2933ms to assign 19 blocks to 258 nodes requiring 1006640128 bytes.
+[09/15/2026-15:56:53] [TRT] [I] Total Activation Memory: 1006640128 bytes
+[09/15/2026-15:56:53] [TRT] [I] Total Weights Memory: 2996048384 bytes
+[09/15/2026-15:56:53] [TRT] [I] Compiler backend is used during engine execution.
+[09/15/2026-15:56:53] [TRT] [I] Engine generation completed in 13.0664 seconds.
+[09/15/2026-15:56:53] [TRT] [I] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 2858 MiB
+[09/15/2026-15:56:54] [TRT] [I] [MemUsageStats] Peak memory usage during Engine building and serialization: CPU: 13970 MiB
+[09/15/2026-15:56:54] [TRT-LLM] [I] Total time of building Unnamed Network 0: 00:00:17
+[09/15/2026-15:56:54] [TRT] [I] Serialized 27 bytes of code generator cache.
+[09/15/2026-15:56:54] [TRT] [I] Serialized 786954 bytes of compilation cache.
+[09/15/2026-15:56:54] [TRT] [I] Serialized 9 timing cache entries
+[09/15/2026-15:56:54] [TRT-LLM] [I] Timing cache serialized to model.cache
+[09/15/2026-15:56:54] [TRT-LLM] [I] Build phase peak memory: 13976.20 MB, children: 3512.48 MB
+[09/15/2026-15:56:54] [TRT-LLM] [I] Serializing engine to /workspace/artifacts/trtllm_equiv_bf16_engine/rank0.engine...
+[09/15/2026-15:56:56] [TRT-LLM] [I] Engine serialized. Total time: 00:00:01
+[09/15/2026-15:56:56] [TRT-LLM] [I] Total time of building all engines: 00:00:21
+2026-09-15 15:57:05,328 - INFO - flashinfer.jit: Prebuilt kernels not found, using JIT backend
+[TensorRT-LLM] TensorRT-LLM version: 0.20.0
+[09/15/2026-15:57:05] [TRT-LLM] [I] Set bert_attention_plugin to auto.
+[09/15/2026-15:57:05] [TRT-LLM] [I] Set gpt_attention_plugin to bfloat16.
+[09/15/2026-15:57:05] [TRT-LLM] [I] Set gemm_plugin to fp8.
+[09/15/2026-15:57:05] [TRT-LLM] [I] Set gemm_swiglu_plugin to None.
+[09/15/2026-15:57:05] [TRT-LLM] [I] Set fp8_rowwise_gemm_plugin to None.
+[09/15/2026-15:57:05] [TRT-LLM] [I] Set nccl_plugin to auto.
+[09/15/2026-15:57:05] [TRT-LLM] [I] Set lora_plugin to None.
+[09/15/2026-15:57:05] [TRT-LLM] [I] Set dora_plugin to False.
+[09/15/2026-15:57:05] [TRT-LLM] [I] Set moe_plugin to auto.
+[09/15/2026-15:57:05] [TRT-LLM] [I] Set mamba_conv1d_plugin to auto.
+[09/15/2026-15:57:05] [TRT-LLM] [I] Set low_latency_gemm_plugin to None.
+[09/15/2026-15:57:05] [TRT-LLM] [I] Set low_latency_gemm_swiglu_plugin to None.
+[09/15/2026-15:57:05] [TRT-LLM] [I] Set gemm_allreduce_plugin to None.
+[09/15/2026-15:57:05] [TRT-LLM] [I] Set context_fmha to True.
+[09/15/2026-15:57:05] [TRT-LLM] [I] Set bert_context_fmha_fp32_acc to False.
+[09/15/2026-15:57:05] [TRT-LLM] [I] Set remove_input_padding to True.
+[09/15/2026-15:57:05] [TRT-LLM] [I] Set norm_quant_fusion to False.
+[09/15/2026-15:57:05] [TRT-LLM] [I] Set reduce_fusion to False.
+[09/15/2026-15:57:05] [TRT-LLM] [I] Set user_buffer to False.
+[09/15/2026-15:57:05] [TRT-LLM] [I] Set tokens_per_block to 32.
+[09/15/2026-15:57:05] [TRT-LLM] [I] Set use_paged_context_fmha to True.
+[09/15/2026-15:57:05] [TRT-LLM] [I] Set use_fp8_context_fmha to True.
+[09/15/2026-15:57:05] [TRT-LLM] [I] Set fuse_fp4_quant to False.
+[09/15/2026-15:57:05] [TRT-LLM] [I] Set multiple_profiles to True.
+[09/15/2026-15:57:05] [TRT-LLM] [I] Set paged_state to True.
+[09/15/2026-15:57:05] [TRT-LLM] [I] Set streamingllm to False.
+[09/15/2026-15:57:05] [TRT-LLM] [I] Set use_fused_mlp to True.
+[09/15/2026-15:57:05] [TRT-LLM] [I] Set pp_reduce_scatter to False.
+[09/15/2026-15:57:05] [TRT-LLM] [W] Implicitly setting LLaMAConfig.producer = {'name': 'modelopt', 'version': '0.29.0'}
+[09/15/2026-15:57:05] [TRT-LLM] [W] Implicitly setting LLaMAConfig.share_embedding_table = False
+[09/15/2026-15:57:05] [TRT-LLM] [W] Implicitly setting LLaMAConfig.bias = False
+[09/15/2026-15:57:05] [TRT-LLM] [W] Implicitly setting LLaMAConfig.rotary_pct = 1.0
+[09/15/2026-15:57:05] [TRT-LLM] [W] Implicitly setting LLaMAConfig.rank = 0
+[09/15/2026-15:57:05] [TRT-LLM] [W] Implicitly setting LLaMAConfig.decoder = llama
+[09/15/2026-15:57:05] [TRT-LLM] [W] Implicitly setting LLaMAConfig.rmsnorm = True
+[09/15/2026-15:57:05] [TRT-LLM] [W] Implicitly setting LLaMAConfig.lm_head_bias = False
+[09/15/2026-15:57:05] [TRT-LLM] [W] Implicitly setting LLaMAConfig.fc_after_embed = False
+[09/15/2026-15:57:05] [TRT-LLM] [W] Implicitly setting LLaMAConfig.use_input_layernorm_in_first_layer = True
+[09/15/2026-15:57:05] [TRT-LLM] [W] Implicitly setting LLaMAConfig.use_last_layernorm = True
+[09/15/2026-15:57:05] [TRT-LLM] [W] Implicitly setting LLaMAConfig.layer_idx_offset = 0
+[09/15/2026-15:57:05] [TRT-LLM] [W] Implicitly setting LLaMAConfig.has_partial_lora_mask = False
+[09/15/2026-15:57:05] [TRT-LLM] [W] Implicitly setting LLaMAConfig.tie_word_embeddings = True
+[09/15/2026-15:57:05] [TRT-LLM] [W] Implicitly setting LLaMAConfig.model_type = llama
+[09/15/2026-15:57:05] [TRT-LLM] [I] Compute capability: (12, 0)
+[09/15/2026-15:57:05] [TRT-LLM] [I] SM count: 188
+[09/15/2026-15:57:05] [TRT-LLM] [I] SM clock: 2430 MHz
+[09/15/2026-15:57:05] [TRT-LLM] [I] int4 TFLOPS: 0
+[09/15/2026-15:57:05] [TRT-LLM] [I] int8 TFLOPS: 0
+[09/15/2026-15:57:05] [TRT-LLM] [I] fp8 TFLOPS: 0
+[09/15/2026-15:57:05] [TRT-LLM] [I] float16 TFLOPS: 0
+[09/15/2026-15:57:05] [TRT-LLM] [I] bfloat16 TFLOPS: 0
+[09/15/2026-15:57:05] [TRT-LLM] [I] float32 TFLOPS: 0
+[09/15/2026-15:57:05] [TRT-LLM] [I] Total Memory: 95 GiB
+[09/15/2026-15:57:05] [TRT-LLM] [I] Memory clock: 12481 MHz
+[09/15/2026-15:57:05] [TRT-LLM] [I] Memory bus width: 512
+[09/15/2026-15:57:05] [TRT-LLM] [I] Memory bandwidth: 1597 GB/s
+[09/15/2026-15:57:05] [TRT-LLM] [I] PCIe speed: 2500 Mbps
+[09/15/2026-15:57:05] [TRT-LLM] [I] PCIe link width: 16
+[09/15/2026-15:57:05] [TRT-LLM] [I] PCIe bandwidth: 5 GB/s
+[09/15/2026-15:57:05] [TRT-LLM] [I] Set dtype to bfloat16.
+[09/15/2026-15:57:05] [TRT-LLM] [I] Set paged_kv_cache to True.
+[09/15/2026-15:57:05] [TRT-LLM] [W] Overriding paged_state to False
+[09/15/2026-15:57:05] [TRT-LLM] [I] Set paged_state to False.
+[09/15/2026-15:57:05] [TRT-LLM] [W] padding removal and fMHA are both enabled, max_input_len is not required and will be ignored
+[09/15/2026-15:57:05] [TRT-LLM] [I] Set use_fp8_context_fmha to False.
+[09/15/2026-15:57:05] [TRT-LLM] [W] FP8 Paged Context FMHA is disabled because it must be used together with fp8 KV Cache.
+[09/15/2026-15:57:11] [TRT] [I] [MemUsageChange] Init CUDA: CPU -2, GPU +0, now: CPU 787, GPU 558 (MiB)
+[09/15/2026-15:57:13] [TRT] [I] [MemUsageChange] Init builder kernel library: CPU +1735, GPU +4, now: CPU 2724, GPU 562 (MiB)
+[09/15/2026-15:57:13] [TRT-LLM] [I] Set nccl_plugin to None.
+[09/15/2026-15:57:13] [TRT-LLM] [I] Total time of constructing network from module object 8.189175367355347 seconds
+[09/15/2026-15:57:13] [TRT-LLM] [I] Total optimization profiles added: 6
+[09/15/2026-15:57:13] [TRT-LLM] [I] Total time to initialize the weights in network Unnamed Network 0: 00:00:00
+[09/15/2026-15:57:13] [TRT-LLM] [I] Build TensorRT engine Unnamed Network 0
+[09/15/2026-15:57:13] [TRT] [W] Unused Input: position_ids
+[09/15/2026-15:57:16] [TRT] [W] [RemoveDeadLayers] Input Tensor position_ids is unused or used only at compile-time, but is not being removed.
+[09/15/2026-15:57:16] [TRT] [I] Global timing cache in use. Profiling results in this builder pass will be stored.
+[09/15/2026-15:57:16] [TRT] [I] Compiler backend is used during engine build.
+[09/15/2026-15:57:18] [TRT] [I] [GraphReduction] The approximate region cut reduction algorithm is called.
+[09/15/2026-15:57:18] [TRT] [I] Detected 20 inputs and 1 output network tensors.
+[09/15/2026-15:57:20] [TRT] [I] Total Host Persistent Memory: 51648 bytes
+[09/15/2026-15:57:20] [TRT] [I] Total Device Persistent Memory: 0 bytes
+[09/15/2026-15:57:20] [TRT] [I] Max Scratch Memory: 33826560 bytes
+[09/15/2026-15:57:20] [TRT] [I] [BlockAssignment] Started assigning block shifts. This will take 274 steps to complete.
+[09/15/2026-15:57:20] [TRT] [I] [BlockAssignment] Algorithm ShiftNTopDown took 14.264ms to assign 19 blocks to 274 nodes requiring 51137536 bytes.
+[09/15/2026-15:57:20] [TRT] [I] Total Activation Memory: 51137536 bytes
+[09/15/2026-15:57:22] [TRT] [I] [GraphReduction] The approximate region cut reduction algorithm is called.
+[09/15/2026-15:57:22] [TRT] [I] Detected 20 inputs and 1 output network tensors.
+[09/15/2026-15:57:22] [TRT] [I] Total Host Persistent Memory: 51648 bytes
+[09/15/2026-15:57:22] [TRT] [I] Total Device Persistent Memory: 0 bytes
+[09/15/2026-15:57:22] [TRT] [I] Max Scratch Memory: 34089216 bytes
+[09/15/2026-15:57:22] [TRT] [I] [BlockAssignment] Started assigning block shifts. This will take 274 steps to complete.
+[09/15/2026-15:57:22] [TRT] [I] [BlockAssignment] Algorithm ShiftNTopDown took 14.4308ms to assign 19 blocks to 274 nodes requiring 52317696 bytes.
+[09/15/2026-15:57:22] [TRT] [I] Total Activation Memory: 52317696 bytes
+[09/15/2026-15:57:24] [TRT] [I] [GraphReduction] The approximate region cut reduction algorithm is called.
+[09/15/2026-15:57:24] [TRT] [I] Detected 20 inputs and 1 output network tensors.
+[09/15/2026-15:57:25] [TRT] [I] Total Host Persistent Memory: 51648 bytes
+[09/15/2026-15:57:25] [TRT] [I] Total Device Persistent Memory: 0 bytes
+[09/15/2026-15:57:25] [TRT] [I] Max Scratch Memory: 34614528 bytes
+[09/15/2026-15:57:25] [TRT] [I] [BlockAssignment] Started assigning block shifts. This will take 274 steps to complete.
+[09/15/2026-15:57:25] [TRT] [I] [BlockAssignment] Algorithm ShiftNTopDown took 16.4692ms to assign 19 blocks to 274 nodes requiring 54678016 bytes.
+[09/15/2026-15:57:25] [TRT] [I] Total Activation Memory: 54678016 bytes
+[09/15/2026-15:57:27] [TRT] [I] [GraphReduction] The approximate region cut reduction algorithm is called.
+[09/15/2026-15:57:27] [TRT] [I] Detected 20 inputs and 1 output network tensors.
+[09/15/2026-15:57:27] [TRT] [I] Total Host Persistent Memory: 51648 bytes
+[09/15/2026-15:57:27] [TRT] [I] Total Device Persistent Memory: 0 bytes
+[09/15/2026-15:57:27] [TRT] [I] Max Scratch Memory: 35665152 bytes
+[09/15/2026-15:57:27] [TRT] [I] [BlockAssignment] Started assigning block shifts. This will take 274 steps to complete.
+[09/15/2026-15:57:27] [TRT] [I] [BlockAssignment] Algorithm ShiftNTopDown took 15.8047ms to assign 19 blocks to 274 nodes requiring 59789824 bytes.
+[09/15/2026-15:57:27] [TRT] [I] Total Activation Memory: 59789824 bytes
+[09/15/2026-15:57:29] [TRT] [I] [GraphReduction] The approximate region cut reduction algorithm is called.
+[09/15/2026-15:57:29] [TRT] [I] Detected 20 inputs and 1 output network tensors.
+[09/15/2026-15:57:30] [TRT] [I] Total Host Persistent Memory: 51648 bytes
+[09/15/2026-15:57:30] [TRT] [I] Total Device Persistent Memory: 0 bytes
+[09/15/2026-15:57:30] [TRT] [I] Max Scratch Memory: 37766400 bytes
+[09/15/2026-15:57:30] [TRT] [I] [BlockAssignment] Started assigning block shifts. This will take 274 steps to complete.
+[09/15/2026-15:57:30] [TRT] [I] [BlockAssignment] Algorithm ShiftNTopDown took 15.0262ms to assign 20 blocks to 274 nodes requiring 86008320 bytes.
+[09/15/2026-15:57:30] [TRT] [I] Total Activation Memory: 86008320 bytes
+[09/15/2026-15:57:32] [TRT] [I] [GraphReduction] The approximate region cut reduction algorithm is called.
+[09/15/2026-15:57:32] [TRT] [I] Detected 20 inputs and 1 output network tensors.
+[09/15/2026-15:57:32] [TRT] [I] Total Host Persistent Memory: 51648 bytes
+[09/15/2026-15:57:32] [TRT] [I] Total Device Persistent Memory: 0 bytes
+[09/15/2026-15:57:32] [TRT] [I] Max Scratch Memory: 148203520 bytes
+[09/15/2026-15:57:32] [TRT] [I] [BlockAssignment] Started assigning block shifts. This will take 274 steps to complete.
+[09/15/2026-15:57:32] [TRT] [I] [BlockAssignment] Algorithm ShiftNTopDown took 14.5624ms to assign 19 blocks to 274 nodes requiring 838867968 bytes.
+[09/15/2026-15:57:32] [TRT] [I] Total Activation Memory: 838867968 bytes
+[09/15/2026-15:57:32] [TRT] [I] Total Weights Memory: 2022975364 bytes
+[09/15/2026-15:57:32] [TRT] [I] Compiler backend is used during engine execution.
+[09/15/2026-15:57:32] [TRT] [I] Engine generation completed in 16.5116 seconds.
+[09/15/2026-15:57:32] [TRT] [I] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 1930 MiB
+[09/15/2026-15:57:33] [TRT] [I] [MemUsageStats] Peak memory usage during Engine building and serialization: CPU: 11605 MiB
+[09/15/2026-15:57:33] [TRT-LLM] [I] Total time of building Unnamed Network 0: 00:00:20
+[09/15/2026-15:57:33] [TRT] [I] Serialized 27 bytes of code generator cache.
+[09/15/2026-15:57:33] [TRT] [I] Serialized 902120 bytes of compilation cache.
+[09/15/2026-15:57:33] [TRT] [I] Serialized 9 timing cache entries
+[09/15/2026-15:57:33] [TRT-LLM] [I] Timing cache serialized to model.cache
+[09/15/2026-15:57:33] [TRT-LLM] [I] Build phase peak memory: 11611.28 MB, children: 3512.17 MB
+[09/15/2026-15:57:34] [TRT-LLM] [I] Serializing engine to /workspace/artifacts/trtllm_equiv_fp8w_bf16kv_engine/rank0.engine...
+[09/15/2026-15:57:35] [TRT-LLM] [I] Engine serialized. Total time: 00:00:00
+[09/15/2026-15:57:35] [TRT-LLM] [I] Total time of building all engines: 00:00:29
+2026-09-15 15:57:43,705 - INFO - flashinfer.jit: Prebuilt kernels not found, using JIT backend
+[TensorRT-LLM] TensorRT-LLM version: 0.20.0
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set bert_attention_plugin to auto.
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set gpt_attention_plugin to bfloat16.
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set gemm_plugin to bfloat16.
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set gemm_swiglu_plugin to None.
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set fp8_rowwise_gemm_plugin to None.
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set nccl_plugin to auto.
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set lora_plugin to None.
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set dora_plugin to False.
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set moe_plugin to auto.
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set mamba_conv1d_plugin to auto.
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set low_latency_gemm_plugin to None.
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set low_latency_gemm_swiglu_plugin to None.
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set gemm_allreduce_plugin to None.
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set context_fmha to True.
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set bert_context_fmha_fp32_acc to False.
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set remove_input_padding to True.
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set norm_quant_fusion to False.
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set reduce_fusion to False.
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set user_buffer to False.
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set tokens_per_block to 32.
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set use_paged_context_fmha to True.
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set use_fp8_context_fmha to True.
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set fuse_fp4_quant to False.
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set multiple_profiles to True.
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set paged_state to True.
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set streamingllm to False.
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set use_fused_mlp to True.
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set pp_reduce_scatter to False.
+[09/15/2026-15:57:43] [TRT-LLM] [W] Implicitly setting LLaMAConfig.producer = {'name': 'modelopt', 'version': '0.29.0'}
+[09/15/2026-15:57:43] [TRT-LLM] [W] Implicitly setting LLaMAConfig.share_embedding_table = False
+[09/15/2026-15:57:43] [TRT-LLM] [W] Implicitly setting LLaMAConfig.bias = False
+[09/15/2026-15:57:43] [TRT-LLM] [W] Implicitly setting LLaMAConfig.rotary_pct = 1.0
+[09/15/2026-15:57:43] [TRT-LLM] [W] Implicitly setting LLaMAConfig.rank = 0
+[09/15/2026-15:57:43] [TRT-LLM] [W] Implicitly setting LLaMAConfig.decoder = llama
+[09/15/2026-15:57:43] [TRT-LLM] [W] Implicitly setting LLaMAConfig.rmsnorm = True
+[09/15/2026-15:57:43] [TRT-LLM] [W] Implicitly setting LLaMAConfig.lm_head_bias = False
+[09/15/2026-15:57:43] [TRT-LLM] [W] Implicitly setting LLaMAConfig.fc_after_embed = False
+[09/15/2026-15:57:43] [TRT-LLM] [W] Implicitly setting LLaMAConfig.use_input_layernorm_in_first_layer = True
+[09/15/2026-15:57:43] [TRT-LLM] [W] Implicitly setting LLaMAConfig.use_last_layernorm = True
+[09/15/2026-15:57:43] [TRT-LLM] [W] Implicitly setting LLaMAConfig.layer_idx_offset = 0
+[09/15/2026-15:57:43] [TRT-LLM] [W] Implicitly setting LLaMAConfig.has_partial_lora_mask = False
+[09/15/2026-15:57:43] [TRT-LLM] [W] Implicitly setting LLaMAConfig.tie_word_embeddings = True
+[09/15/2026-15:57:43] [TRT-LLM] [W] Implicitly setting LLaMAConfig.model_type = llama
+[09/15/2026-15:57:43] [TRT-LLM] [I] Compute capability: (12, 0)
+[09/15/2026-15:57:43] [TRT-LLM] [I] SM count: 188
+[09/15/2026-15:57:43] [TRT-LLM] [I] SM clock: 2430 MHz
+[09/15/2026-15:57:43] [TRT-LLM] [I] int4 TFLOPS: 0
+[09/15/2026-15:57:43] [TRT-LLM] [I] int8 TFLOPS: 0
+[09/15/2026-15:57:43] [TRT-LLM] [I] fp8 TFLOPS: 0
+[09/15/2026-15:57:43] [TRT-LLM] [I] float16 TFLOPS: 0
+[09/15/2026-15:57:43] [TRT-LLM] [I] bfloat16 TFLOPS: 0
+[09/15/2026-15:57:43] [TRT-LLM] [I] float32 TFLOPS: 0
+[09/15/2026-15:57:43] [TRT-LLM] [I] Total Memory: 95 GiB
+[09/15/2026-15:57:43] [TRT-LLM] [I] Memory clock: 12481 MHz
+[09/15/2026-15:57:43] [TRT-LLM] [I] Memory bus width: 512
+[09/15/2026-15:57:43] [TRT-LLM] [I] Memory bandwidth: 1597 GB/s
+[09/15/2026-15:57:43] [TRT-LLM] [I] PCIe speed: 2500 Mbps
+[09/15/2026-15:57:43] [TRT-LLM] [I] PCIe link width: 16
+[09/15/2026-15:57:43] [TRT-LLM] [I] PCIe bandwidth: 5 GB/s
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set dtype to bfloat16.
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set paged_kv_cache to True.
+[09/15/2026-15:57:43] [TRT-LLM] [W] Overriding paged_state to False
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set paged_state to False.
+[09/15/2026-15:57:43] [TRT-LLM] [W] padding removal and fMHA are both enabled, max_input_len is not required and will be ignored
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set use_fp8_context_fmha to False.
+[09/15/2026-15:57:43] [TRT-LLM] [W] FP8 Context FMHA is disabled because it must be used together with the fp8 quantization workflow.
+[09/15/2026-15:57:43] [TRT-LLM] [I] Set use_paged_context_fmha to False.
+[09/15/2026-15:57:43] [TRT-LLM] [W] FP8 Paged Context FMHA is disabled because FP8 context FMHA is disabled.
+[09/15/2026-15:57:48] [TRT] [I] [MemUsageChange] Init CUDA: CPU +6, GPU +0, now: CPU 1299, GPU 558 (MiB)
+[09/15/2026-15:57:50] [TRT] [I] [MemUsageChange] Init builder kernel library: CPU +1738, GPU +4, now: CPU 3238, GPU 562 (MiB)
+[09/15/2026-15:57:50] [TRT-LLM] [I] Set nccl_plugin to None.
+[09/15/2026-15:57:50] [TRT-LLM] [I] Total time of constructing network from module object 6.358152151107788 seconds
+[09/15/2026-15:57:50] [TRT-LLM] [I] Total optimization profiles added: 6
+[09/15/2026-15:57:50] [TRT-LLM] [I] Total time to initialize the weights in network Unnamed Network 0: 00:00:00
+[09/15/2026-15:57:50] [TRT-LLM] [I] Build TensorRT engine Unnamed Network 0
+[09/15/2026-15:57:50] [TRT] [W] Unused Input: position_ids
+[09/15/2026-15:57:52] [TRT] [W] [RemoveDeadLayers] Input Tensor position_ids is unused or used only at compile-time, but is not being removed.
+[09/15/2026-15:57:52] [TRT] [I] Global timing cache in use. Profiling results in this builder pass will be stored.
+[09/15/2026-15:57:52] [TRT] [I] Compiler backend is used during engine build.
+[09/15/2026-15:57:54] [TRT] [I] [GraphReduction] The approximate region cut reduction algorithm is called.
+[09/15/2026-15:57:54] [TRT] [I] Detected 20 inputs and 1 output network tensors.
+[09/15/2026-15:57:57] [TRT] [I] Total Host Persistent Memory: 53440 bytes
+[09/15/2026-15:57:57] [TRT] [I] Total Device Persistent Memory: 0 bytes
+[09/15/2026-15:57:57] [TRT] [I] Max Scratch Memory: 33564416 bytes
+[09/15/2026-15:57:57] [TRT] [I] [BlockAssignment] Started assigning block shifts. This will take 258 steps to complete.
+[09/15/2026-15:57:57] [TRT] [I] [BlockAssignment] Algorithm ShiftNTopDown took 11.5319ms to assign 19 blocks to 258 nodes requiring 51530752 bytes.
+[09/15/2026-15:57:57] [TRT] [I] Total Activation Memory: 51530752 bytes
+[09/15/2026-15:57:58] [TRT] [I] [GraphReduction] The approximate region cut reduction algorithm is called.
+[09/15/2026-15:57:58] [TRT] [I] Detected 20 inputs and 1 output network tensors.
+[09/15/2026-15:57:58] [TRT] [I] Total Host Persistent Memory: 53440 bytes
+[09/15/2026-15:57:58] [TRT] [I] Total Device Persistent Memory: 0 bytes
+[09/15/2026-15:57:58] [TRT] [I] Max Scratch Memory: 33564928 bytes
+[09/15/2026-15:57:58] [TRT] [I] [BlockAssignment] Started assigning block shifts. This will take 258 steps to complete.
+[09/15/2026-15:57:59] [TRT] [I] [BlockAssignment] Algorithm ShiftNTopDown took 12.3268ms to assign 19 blocks to 258 nodes requiring 53104128 bytes.
+[09/15/2026-15:57:59] [TRT] [I] Total Activation Memory: 53104128 bytes
+[09/15/2026-15:58:00] [TRT] [I] [GraphReduction] The approximate region cut reduction algorithm is called.
+[09/15/2026-15:58:00] [TRT] [I] Detected 20 inputs and 1 output network tensors.
+[09/15/2026-15:58:00] [TRT] [I] Total Host Persistent Memory: 53440 bytes
+[09/15/2026-15:58:00] [TRT] [I] Total Device Persistent Memory: 0 bytes
+[09/15/2026-15:58:00] [TRT] [I] Max Scratch Memory: 33565952 bytes
+[09/15/2026-15:58:00] [TRT] [I] [BlockAssignment] Started assigning block shifts. This will take 258 steps to complete.
+[09/15/2026-15:58:00] [TRT] [I] [BlockAssignment] Algorithm ShiftNTopDown took 13.2291ms to assign 19 blocks to 258 nodes requiring 56250880 bytes.
+[09/15/2026-15:58:00] [TRT] [I] Total Activation Memory: 56250880 bytes
+[09/15/2026-15:58:02] [TRT] [I] [GraphReduction] The approximate region cut reduction algorithm is called.
+[09/15/2026-15:58:02] [TRT] [I] Detected 20 inputs and 1 output network tensors.
+[09/15/2026-15:58:02] [TRT] [I] Total Host Persistent Memory: 53440 bytes
+[09/15/2026-15:58:02] [TRT] [I] Total Device Persistent Memory: 0 bytes
+[09/15/2026-15:58:02] [TRT] [I] Max Scratch Memory: 33568000 bytes
+[09/15/2026-15:58:02] [TRT] [I] [BlockAssignment] Started assigning block shifts. This will take 258 steps to complete.
+[09/15/2026-15:58:02] [TRT] [I] [BlockAssignment] Algorithm ShiftNTopDown took 12.5169ms to assign 19 blocks to 258 nodes requiring 62935552 bytes.
+[09/15/2026-15:58:02] [TRT] [I] Total Activation Memory: 62935552 bytes
+[09/15/2026-15:58:04] [TRT] [I] [GraphReduction] The approximate region cut reduction algorithm is called.
+[09/15/2026-15:58:04] [TRT] [I] Detected 20 inputs and 1 output network tensors.
+[09/15/2026-15:58:04] [TRT] [I] Total Host Persistent Memory: 53440 bytes
+[09/15/2026-15:58:04] [TRT] [I] Total Device Persistent Memory: 0 bytes
+[09/15/2026-15:58:04] [TRT] [I] Max Scratch Memory: 33572096 bytes
+[09/15/2026-15:58:04] [TRT] [I] [BlockAssignment] Started assigning block shifts. This will take 258 steps to complete.
+[09/15/2026-15:58:04] [TRT] [I] [BlockAssignment] Algorithm ShiftNTopDown took 11.8434ms to assign 20 blocks to 258 nodes requiring 83911168 bytes.
+[09/15/2026-15:58:04] [TRT] [I] Total Activation Memory: 83911168 bytes
+[09/15/2026-15:58:06] [TRT] [I] [GraphReduction] The approximate region cut reduction algorithm is called.
+[09/15/2026-15:58:06] [TRT] [I] Detected 20 inputs and 1 output network tensors.
+[09/15/2026-15:58:06] [TRT] [I] Total Host Persistent Memory: 53440 bytes
+[09/15/2026-15:58:06] [TRT] [I] Total Device Persistent Memory: 0 bytes
+[09/15/2026-15:58:06] [TRT] [I] Max Scratch Memory: 148203520 bytes
+[09/15/2026-15:58:06] [TRT] [I] [BlockAssignment] Started assigning block shifts. This will take 258 steps to complete.
+[09/15/2026-15:58:06] [TRT] [I] [BlockAssignment] Algorithm ShiftNTopDown took 13.6479ms to assign 19 blocks to 258 nodes requiring 1006640128 bytes.
+[09/15/2026-15:58:06] [TRT] [I] Total Activation Memory: 1006640128 bytes
+[09/15/2026-15:58:06] [TRT] [I] Total Weights Memory: 2996048896 bytes
+[09/15/2026-15:58:06] [TRT] [I] Compiler backend is used during engine execution.
+[09/15/2026-15:58:06] [TRT] [I] Engine generation completed in 13.747 seconds.
+[09/15/2026-15:58:06] [TRT] [I] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 2858 MiB
+[09/15/2026-15:58:08] [TRT] [I] [MemUsageStats] Peak memory usage during Engine building and serialization: CPU: 13965 MiB
+[09/15/2026-15:58:08] [TRT-LLM] [I] Total time of building Unnamed Network 0: 00:00:17
+[09/15/2026-15:58:08] [TRT] [I] Serialized 27 bytes of code generator cache.
+[09/15/2026-15:58:08] [TRT] [I] Serialized 787083 bytes of compilation cache.
+[09/15/2026-15:58:08] [TRT] [I] Serialized 9 timing cache entries
+[09/15/2026-15:58:08] [TRT-LLM] [I] Timing cache serialized to model.cache
+[09/15/2026-15:58:08] [TRT-LLM] [I] Build phase peak memory: 13971.02 MB, children: 3513.13 MB
+[09/15/2026-15:58:08] [TRT-LLM] [I] Serializing engine to /workspace/artifacts/trtllm_equiv_bf16w_fp8kv_engine/rank0.engine...
+[09/15/2026-15:58:09] [TRT-LLM] [I] Engine serialized. Total time: 00:00:01
+[09/15/2026-15:58:09] [TRT-LLM] [I] Total time of building all engines: 00:00:25
+build_trtllm_variants.sh: line 64: python: command not found

@@ -11,6 +11,7 @@ PORT=${PORT:-8092}
 MAX_BATCH_SIZE=${MAX_BATCH_SIZE:-64}
 MAX_DELAY_MS=${MAX_DELAY_MS:-12}
 MAX_NEW_TOKENS=${MAX_NEW_TOKENS:-96}
+MAX_AUDIO_SECONDS=${MAX_AUDIO_SECONDS:-19.0}
 NUM_BEAMS=${NUM_BEAMS:-1}
 KV_CACHE_FRACTION=${KV_CACHE_FRACTION:-0.55}
 CONTAINER_NAME=${CONTAINER_NAME:-shrutam2-trtllm-server}
@@ -31,5 +32,6 @@ exec docker run --rm --name "$CONTAINER_NAME" --gpus device=0 --ipc=host --netwo
     --encoder-precision "$ENCODER_PRECISION" \
     --port "$PORT" --max-batch-size "$MAX_BATCH_SIZE" \
     --max-delay-ms "$MAX_DELAY_MS" --max-new-tokens "$MAX_NEW_TOKENS" \
+    --max-audio-seconds "$MAX_AUDIO_SECONDS" \
     --num-beams "$NUM_BEAMS" --kv-cache-fraction "$KV_CACHE_FRACTION" \
     "${extra[@]}"

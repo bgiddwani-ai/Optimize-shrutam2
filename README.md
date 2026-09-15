@@ -5,19 +5,18 @@ instance `equivalent-purple-ostrich`. Shrutam-2 uses a **FastConformer encoder**
 not a plain Conformer encoder, followed by the SMEAR projector and a fine-tuned
 Llama decoder.
 
-All eight requested beam-1 configurations completed both throughput matrices.
-There were zero failed requests among 14,336 timed matrix requests, and every
-quick WER result remained within the accepted +1.5 percentage-point budget.
+All nine requested beam-1 configurations completed both throughput matrices.
+There were zero failed requests among 16,128 timed matrix requests and among
+44,595 held-out accuracy requests.
 The consolidated machine-readable report is
 [`results/equivalent_consolidated_results.json`](results/equivalent_consolidated_results.json).
 
 ## Result summary
 
-The maximum variable-audio result was **1,105.05 RTFx at c128** with the
+The maximum variable-audio result was **1,145.61 RTFx at c128** with the
 calibrated mixed-FP8 TensorRT FastConformer and Model Optimizer FP8
-TensorRT-LLM decoder. Its quick WER was 19.2825%, a signed change of -0.2242
-percentage points from the HF baseline. The best exact-1-second c1 result was
-36.51 RTFx with the same profile.
+TensorRT-LLM decoder using FP8 KV cache. The best exact-1-second c1 result was
+37.79 RTFx with the same profile.
 
 The encoder FP8 label is deliberately qualified as *mixed-FP8*: NVIDIA Model
 Optimizer inserted FP8 Q/DQ for eligible MatMul and convolution operators, but
@@ -27,20 +26,26 @@ not a claim that every encoder operator ran in FP8.
 
 | Key | Requested configuration, beam 1 | WER | CER | WER delta pp | CER delta pp | Peak variable RTFx |
 |---|---|---:|---:|---:|---:|---:|
-| `base_hf` | Base: FP32 FastConformer + HF BF16 LLM | 19.5067% | 5.9750% | 0.0000 | 0.0000 | 334.69 |
-| `compiled_bf16` | Compiled BF16 FastConformer + HF BF16 LLM | 20.6278% | 6.5474% | +1.1211 | +0.5725 | 313.04 |
-| `trtllm_bf16` | PyTorch BF16 FastConformer + TensorRT-LLM BF16 | 20.2915% | 6.4043% | +0.7848 | +0.4293 | 862.57 |
-| `trtllm_fp8` | PyTorch BF16 FastConformer + TensorRT-LLM ModelOpt FP8 weights, BF16 KV | 19.7309% | 6.2791% | +0.2242 | +0.3041 | 983.91 |
-| `trt_bf16_trtllm_bf16` | TensorRT BF16 FastConformer + TensorRT-LLM BF16 | 19.9552% | 6.1896% | +0.4484 | +0.2147 | 875.88 |
-| `trt_bf16_trtllm_fp8` | TensorRT BF16 FastConformer + TensorRT-LLM ModelOpt FP8 weights, BF16 KV | 20.6278% | 6.9410% | +1.1211 | +0.9660 | 1,081.29 |
-| `trt_bf16_trtllm_bf16_fp8kv` | TensorRT BF16 FastConformer + TensorRT-LLM BF16 weights, FP8 KV | 19.5067% | 5.9571% | 0.0000 | -0.0179 | 879.97 |
-| `trt_fp8_trtllm_fp8` | TensorRT calibrated mixed-FP8 FastConformer + TensorRT-LLM ModelOpt FP8 weights, BF16 KV | 19.2825% | 6.2075% | -0.2242 | +0.2326 | **1,105.05** |
+| `base_hf` | Base: FP32 FastConformer + HF BF16 LLM | 60.3809% | 51.5645% | 0.0000 | 0.0000 | 334.69 |
+| `compiled_bf16` | Compiled BF16 FastConformer + HF BF16 LLM | 60.3936% | 51.5708% | +0.0127 | +0.0063 | 313.04 |
+| `trtllm_bf16` | PyTorch BF16 FastConformer + TensorRT-LLM BF16 | 59.8534% | 50.1186% | -0.5274 | -1.4459 | 862.57 |
+| `trtllm_fp8` | PyTorch BF16 FastConformer + TensorRT-LLM ModelOpt FP8 weights, BF16 KV | 60.2287% | 50.5695% | -0.1521 | -0.9949 | 983.91 |
+| `trt_bf16_trtllm_bf16` | TensorRT BF16 FastConformer + TensorRT-LLM BF16 | 59.2436% | 49.5674% | -1.1373 | -1.9970 | 875.88 |
+| `trt_bf16_trtllm_fp8` | TensorRT BF16 FastConformer + TensorRT-LLM ModelOpt FP8 weights, BF16 KV | 60.0195% | 50.2724% | -0.3613 | -1.2920 | 1,081.29 |
+| `trt_bf16_trtllm_bf16_fp8kv` | TensorRT BF16 FastConformer + TensorRT-LLM BF16 weights, FP8 KV | 60.2389% | 50.4925% | -0.1420 | -1.0720 | 879.97 |
+| `trt_fp8_trtllm_fp8` | TensorRT calibrated mixed-FP8 FastConformer + TensorRT-LLM ModelOpt FP8 weights, BF16 KV | 59.1142% | 49.0432% | -1.2666 | -2.5213 | **1,105.05** |
+| `trt_fp8_trtllm_fp8_fp8kv` | TensorRT calibrated mixed-FP8 FastConformer + TensorRT-LLM ModelOpt FP8 weights, FP8 KV | 59.3285% | 49.4316% | -1.0524 | -2.1328 | **1,145.61** |
 
-WER/CER are quick accuracy measurements over the same fixed 48-clip FLEURS
-set for every row, not a full model-quality evaluation. A negative delta is an
-improvement on this sample. The original cached IndicVoices set used on the
-earlier H100 work was unavailable on this fresh instance, so the controlled
-comparison uses four public test clips from each of 12 supported languages.
+Primary WER/CER use all 4,955 usable clips (7.85 hours) from the official
+IndicVoices Hindi validation split. All rows use the same paths and references;
+failed or empty transcripts would be scored as empty hypotheses rather than
+silently excluded. The source split had 5,530 rows. Cleaning removed 205 rows
+whose reference contained `unintelligible` case-insensitively (including
+`<unintelligible>`) and 370 rows outside 0.5-19.0 seconds. The upper bound keeps
+every row within the shared 256-token TensorRT-LLM input contract. The absolute
+error rates show the domain mismatch on this split; signed deltas isolate the
+runtime/precision change. The earlier 48-clip FLEURS comparison is retained in
+the consolidated JSON only as an overlapping calibration smoke test.
 
 ## Full end-to-end RTFx matrices
 
@@ -69,6 +74,7 @@ Variable-duration FLEURS audio:
 | `trt_bf16_trtllm_fp8` | 107.84 | 167.92 | 473.59 | 682.29 | 920.00 | 1,081.29 | 702.65 |
 | `trt_bf16_trtllm_bf16_fp8kv` | 81.43 | 122.43 | 356.22 | 560.61 | 751.75 | 879.97 | 647.52 |
 | `trt_fp8_trtllm_fp8` | 104.04 | 169.87 | 472.58 | 694.89 | 935.11 | **1,105.05** | 689.74 |
+| `trt_fp8_trtllm_fp8_fp8kv` | 104.77 | 171.76 | 478.36 | 593.50 | 969.56 | **1,145.61** | 719.20 |
 
 Exact-one-second audio, trimmed or zero-padded to 16,000 samples:
 
@@ -82,6 +88,7 @@ Exact-one-second audio, trimmed or zero-padded to 16,000 samples:
 | `trt_bf16_trtllm_fp8` | 33.74 | 60.24 | 178.95 | **352.30** | 309.58 | 144.51 | 137.44 | 91.24 |
 | `trt_bf16_trtllm_bf16_fp8kv` | 31.59 | 55.89 | 168.13 | 323.79 | 330.68 | 150.47 | 141.92 | 89.04 |
 | `trt_fp8_trtllm_fp8` | **36.51** | **63.90** | **190.41** | 270.53 | 301.33 | 147.05 | 139.66 | 90.35 |
+| `trt_fp8_trtllm_fp8_fp8kv` | **37.79** | **66.18** | **194.52** | **352.81** | 318.05 | 155.03 | 136.22 | **92.40** |
 
 The exact-one-second results fall after c64 because 512 persistent clients and
 short outputs shift the bottleneck to request scheduling/transport rather than
@@ -99,7 +106,8 @@ isolated peaks.
 | TensorRT-LLM / TensorRT | 0.20.0 / 10.10.0.31 |
 | NVIDIA Model Optimizer | 0.29.0 |
 | PyTorch | 2.7.0a0+79aa17489c.nv25.04 |
-| Dataset | Google FLEURS test, 48 clips, 496.78 seconds, 12 languages |
+| Throughput / encoder calibration | Google FLEURS test, 48 clips, 496.78 seconds, 12 languages |
+| Held-out accuracy | AI4Bharat IndicVoices, Hindi validation, 4,955 cleaned clips, 28,249.95 seconds |
 | Beam / max new tokens | 1 / 96 for every row |
 | Server/client | FastAPI HTTP server and persistent concurrent HTTP client |
 
@@ -136,7 +144,7 @@ calibration tensors:
 ROOT=$PWD bash setup_equivalent.sh
 ```
 
-Build the three TensorRT-LLM decoder variants and both TensorRT encoder plans:
+Build the four TensorRT-LLM decoder variants and both TensorRT encoder plans:
 
 ```bash
 ROOT=$PWD bash build_trtllm_variants.sh
@@ -148,6 +156,23 @@ weights. Encoder calibration uses the 48 real FLEURS waveforms after the actual
 Shrutam log-mel frontend. The decoder builds use max batch 64, beam 1, paged KV,
 removed input padding, context FMHA, and a global prompt-embedding table of
 16,384 entries.
+
+Prepare the held-out Hindi accuracy set. Supply a Hugging Face read token via
+the environment; the token is used for the download and is not written to an
+artifact:
+
+```bash
+read -rsp 'Hugging Face token: ' HF_TOKEN; echo
+export HF_TOKEN
+docker run --rm -e HF_TOKEN -v "$PWD:/workspace" -w /workspace \
+  shrutam2-trtllm:0.20 python prepare_indicvoices_hindi_eval.py
+unset HF_TOKEN
+```
+
+The preparation script reads only `hindi/valid-00000-of-00001.parquet`, checks
+decoded audio, removes references containing `unintelligible`, enforces the
+common 0.5-19.0-second input envelope, and records every exclusion in
+`data/indicvoices_hindi_valid/report.json`.
 
 ## Run the server/client benchmarks
 
@@ -171,7 +196,8 @@ ENCODER_RUNTIME=eager ENCODER_PRECISION=bf16 \
   bash run_equivalent_trtllm_variant.sh
 ```
 
-Run the remaining five TensorRT-LLM/FP8 combinations and consolidate results:
+Run the remaining six TensorRT-LLM/FP8 combinations and consolidate throughput
+results:
 
 ```bash
 ROOT=$PWD bash run_equivalent_remaining_trtllm.sh
@@ -182,6 +208,21 @@ Each row starts a real HTTP server, waits for a real-audio warm-up gate, then
 runs variable concurrency `1,2,8,32,64,128,256`, exact-one-second concurrency
 `1,2,8,32,64,128,256,512`, and sequential accuracy capture. Failed or empty
 responses make the validation fail.
+
+Run the same cleaned IndicVoices Hindi validation manifest through all nine
+servers at concurrency 32, then calculate the canonical all-sample WER/CER
+table and merge it into the consolidated report:
+
+```bash
+ROOT=$PWD bash run_all_indicvoices_hindi_eval.sh
+docker run --rm --gpus all -v "$PWD:/workspace" -w /workspace \
+  shrutam2-trtllm:0.20 bash -lc \
+  'python finalize_indicvoices_hindi_accuracy.py && python finalize_equivalent.py'
+```
+
+The TensorRT-LLM server rejects audio longer than 19.0 seconds before adaptive
+batching, so a single invalid request cannot contaminate an otherwise valid
+batch.
 
 For a standalone deployment, select an engine explicitly:
 
@@ -200,25 +241,30 @@ stop the TensorRT-LLM container with `docker rm -f shrutam2-trtllm-server`.
 
 ## Artifact map
 
-- `results/equivalent_consolidated_results.json`: canonical all-row report,
+- `results/equivalent_consolidated_results.json`: canonical nine-row report,
   matrices, WER/CER pairs, runtime health, validation counts, and checksums.
-- `results/equiv_*/`: raw request JSONL, per-workload CSV/JSON summaries,
-  server stats, health, and accuracy pairs for all eight rows.
+- `results/indicvoices_hindi_valid_accuracy.json`: held-out Hindi comparison,
+  sample-integrity digests, signed deltas, and failure accounting.
+- `results/equiv_*/`: per-workload throughput request JSONL, CSV/JSON summaries,
+  server stats, health, and FLEURS smoke pairs for all nine rows. The larger
+  per-row IndicVoices transcript dumps are inside the evidence archive.
 - `logs/*equiv*`: builds, servers, GPU telemetry, benchmark clients, ModelOpt,
   TensorRT, and finalization logs.
 - `artifacts/equivalent_*.json`: environment, TensorRT-LLM configs, engine
   hashes, and setup provenance.
-- `artifacts/equivalent_evidence_20260915.tgz`: checksum-preserved remote
+- `artifacts/equivalent_evidence_20260916.tgz`: checksum-preserved remote
   evidence bundle; SHA-256
-  `2c0c306515f801303c9a6f4aaacfae3904898ac8291f8ab4c63fff2c1cc3981f`.
+  `a204b400fe1f29c7d22abe5ad4d1e7bdaf371abe22ce2f77b648d93334199f20`.
 - `LEARNIGS.md`: decisions, failed approaches, runtime traps, and conclusions.
 
 ## Recommendation
 
-Use `trt_fp8_trtllm_fp8` when maximum variable-audio throughput is the goal and
-the calibrated mixed-FP8 encoder qualification is acceptable. Use
+Use `trt_fp8_trtllm_fp8_fp8kv` when maximum variable-audio throughput is the
+goal and the calibrated mixed-FP8 encoder qualification is acceptable. It
+reached 1,145.61 RTFx and its IndicVoices Hindi WER was 1.0524 percentage points
+lower than the HF baseline on this evaluation. Use
 `trt_bf16_trtllm_fp8` when the encoder must remain BF16; it reached 1,081.29
-RTFx and stayed within the allowed WER/CER budget. Use
-`trt_bf16_trtllm_bf16_fp8kv` when matching baseline WER is more important than
-peak throughput. FP8 KV did not provide a consistent speed benefit on this
-short-context ASR workload.
+RTFx and its WER delta was -0.3613 points. FP8 KV is not a universal win on this
+short-context ASR workload, but with the mixed-FP8 encoder plus FP8-weight
+decoder it raised the variable-audio peak by 3.67% over the otherwise-identical
+BF16-KV row (1,145.61 versus 1,105.05 RTFx).

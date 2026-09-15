@@ -125,6 +125,7 @@ def build_app(args: argparse.Namespace) -> FastAPI:
             cuda_graph_mode=args.cuda_graph_mode,
         )
         app.state.warmup = await asyncio.to_thread(app.state.model.warmup, args.warmup_batches)
+        app.state.max_audio_samples = int(args.max_audio_seconds * 16000)
         app.state.batcher = DynamicBatcher(app.state.model, args.max_batch_size, args.max_delay_ms)
         app.state.batcher.start()
 
@@ -142,6 +143,7 @@ def build_app(args: argparse.Namespace) -> FastAPI:
             "decoder_quant_algo": model.quant_algo,
             "kv_cache_quant_algo": model.kv_cache_quant_algo,
             "max_batch_size": model.max_batch_size,
+            "max_audio_seconds": args.max_audio_seconds,
             "warmup": app.state.warmup,
         }
 
@@ -166,6 +168,11 @@ def build_app(args: argparse.Namespace) -> FastAPI:
         if len(body) < 320 or len(body) % 2:
             raise HTTPException(400, "PCM must be non-empty, even-length signed 16-bit audio")
         waveform = np.frombuffer(body, dtype="<i2").astype(np.float32) / 32768.0
+        if waveform.shape[0] > app.state.max_audio_samples:
+            raise HTTPException(
+                400,
+                f"audio exceeds {args.max_audio_seconds:g}s TensorRT-LLM input profile",
+            )
         if not np.isfinite(waveform).all() or float(np.max(np.abs(waveform))) < 1e-6:
             raise HTTPException(400, "audio is silent or invalid")
         started = time.perf_counter()
@@ -193,6 +200,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--host", default="0.0.0.0")
     parser.add_argument("--port", type=int, default=8092)
     parser.add_argument("--max-batch-size", type=int, default=64)
+    parser.add_argument("--max-audio-seconds", type=float, default=19.0)
     parser.add_argument("--max-delay-ms", type=float, default=12.0)
     parser.add_argument("--max-input-len", type=int, default=256)
     parser.add_argument("--max-new-tokens", type=int, default=96)

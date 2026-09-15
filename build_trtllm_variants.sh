@@ -12,7 +12,8 @@ set -euo pipefail
 rm -rf \
   /workspace/artifacts/trtllm_equiv_bf16_engine \
   /workspace/artifacts/trtllm_equiv_fp8w_bf16kv_engine \
-  /workspace/artifacts/trtllm_equiv_bf16w_fp8kv_engine
+  /workspace/artifacts/trtllm_equiv_bf16w_fp8kv_engine \
+  /workspace/artifacts/trtllm_equiv_fp8w_fp8kv_engine
 
 if [[ ! -f /workspace/artifacts/trtllm_equiv_bf16_ckpt/config.json ]]; then
 python /app/tensorrt_llm/examples/models/core/llama/convert_checkpoint.py \
@@ -39,6 +40,15 @@ python /app/tensorrt_llm/examples/quantization/quantize.py \
   --output_dir /workspace/artifacts/trtllm_equiv_bf16w_fp8kv_ckpt
 fi
 
+if [[ ! -f /workspace/artifacts/trtllm_equiv_fp8w_fp8kv_ckpt/config.json ]]; then
+python /app/tensorrt_llm/examples/quantization/quantize.py \
+  --model_dir /workspace/artifacts/vllm_llm_bf16 \
+  --dtype bfloat16 --qformat fp8 --kv_cache_dtype fp8 \
+  --calib_dataset cnn_dailymail --calib_size 128 --batch_size 8 \
+  --calib_max_seq_length 512 \
+  --output_dir /workspace/artifacts/trtllm_equiv_fp8w_fp8kv_ckpt
+fi
+
 build_one() {
   checkpoint=$1
   output=$2
@@ -61,6 +71,8 @@ build_one /workspace/artifacts/trtllm_equiv_fp8w_bf16kv_ckpt \
   /workspace/artifacts/trtllm_equiv_fp8w_bf16kv_engine fp8
 build_one /workspace/artifacts/trtllm_equiv_bf16w_fp8kv_ckpt \
   /workspace/artifacts/trtllm_equiv_bf16w_fp8kv_engine bfloat16
+build_one /workspace/artifacts/trtllm_equiv_fp8w_fp8kv_ckpt \
+  /workspace/artifacts/trtllm_equiv_fp8w_fp8kv_engine fp8
 '
 
 python3 - <<'PY'
@@ -72,6 +84,7 @@ for name in (
     "trtllm_equiv_bf16_engine",
     "trtllm_equiv_fp8w_bf16kv_engine",
     "trtllm_equiv_bf16w_fp8kv_engine",
+    "trtllm_equiv_fp8w_fp8kv_engine",
 ):
     config = json.loads((root / name / "config.json").read_text())
     quant = config["pretrained_config"].get("quantization") or {}

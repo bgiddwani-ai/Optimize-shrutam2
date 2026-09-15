@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Consolidate the controlled eight-row equivalent-purple-ostrich experiment."""
+"""Consolidate the controlled nine-row equivalent-purple-ostrich experiment."""
 
 from __future__ import annotations
 
@@ -20,7 +20,8 @@ VARIANTS = [
     ("trt_bf16_trtllm_bf16", "equiv_trt_bf16enc_trtllm_bf16_beam1", "TensorRT BF16 FastConformer + TensorRT-LLM BF16"),
     ("trt_bf16_trtllm_fp8", "equiv_trt_bf16enc_trtllm_fp8w_bf16kv_beam1", "TensorRT BF16 FastConformer + TensorRT-LLM ModelOpt FP8 weights/BF16 KV"),
     ("trt_bf16_trtllm_bf16_fp8kv", "equiv_trt_bf16enc_trtllm_bf16w_fp8kv_beam1", "TensorRT BF16 FastConformer + TensorRT-LLM BF16 weights/FP8 KV"),
-    ("trt_fp8_trtllm_fp8", "equiv_trt_fp8enc_trtllm_fp8w_bf16kv_beam1", "TensorRT ModelOpt FP8 FastConformer + TensorRT-LLM ModelOpt FP8 weights/BF16 KV"),
+    ("trt_fp8_trtllm_fp8", "equiv_trt_fp8enc_trtllm_fp8w_bf16kv_beam1", "TensorRT ModelOpt calibrated mixed-FP8 FastConformer + TensorRT-LLM ModelOpt FP8 weights/BF16 KV"),
+    ("trt_fp8_trtllm_fp8_fp8kv", "equiv_trt_fp8enc_trtllm_fp8w_fp8kv_beam1", "TensorRT ModelOpt calibrated mixed-FP8 FastConformer + TensorRT-LLM ModelOpt FP8 weights/FP8 KV"),
 ]
 VARIABLE_LEVELS = [1, 2, 8, 32, 64, 128, 256]
 CHUNK_LEVELS = [1, 2, 8, 32, 64, 128, 256, 512]
@@ -61,11 +62,14 @@ def validate(rows: list[dict], expected: list[int]) -> dict:
 def main() -> None:
     rows: list[dict] = []
     payload: dict[str, object] = {}
+    indicvoices = load(RESULTS / "indicvoices_hindi_valid_accuracy.json")
+    indicvoices_rows = {row["key"]: row for row in indicvoices["comparison_table"]}
     for key, directory, label in VARIANTS:
         root = RESULTS / directory
         variable = load(root / "variable" / "summary.json")
         chunk = load(root / "chunk_1s" / "summary.json")
-        accuracy = load(root / "quick_accuracy.json")
+        fleurs_smoke_accuracy = load(root / "quick_accuracy.json")
+        accuracy = indicvoices["variants"][key]
         health = load(root / "variable" / "health.json")
         validation = {
             "variable": validate(variable, VARIABLE_LEVELS),
@@ -78,21 +82,14 @@ def main() -> None:
             "variable": variable,
             "chunk_1s": chunk,
             "accuracy": accuracy,
+            "fleurs_overlap_smoke_accuracy": fleurs_smoke_accuracy,
             "health": health,
             "validation": validation,
         }
-        rows.append({
-            "key": key,
-            "label": label,
-            "beam": 1,
-            "wer": float(accuracy["wer"]),
-            "cer": float(accuracy["cer"]),
-        })
-    baseline = rows[0]
-    for row in rows:
-        row["wer_delta_pp_vs_base"] = (row["wer"] - baseline["wer"]) * 100.0
-        row["cer_delta_pp_vs_base"] = (row["cer"] - baseline["cer"]) * 100.0
-        row["within_1_5pp_wer_budget"] = row["wer_delta_pp_vs_base"] <= 1.5
+        row = dict(indicvoices_rows[key])
+        row["fleurs_overlap_smoke_wer"] = float(fleurs_smoke_accuracy["wer"])
+        row["fleurs_overlap_smoke_cer"] = float(fleurs_smoke_accuracy["cer"])
+        rows.append(row)
 
     artifact_paths = [
         ARTIFACTS / "vllm_llm_bf16" / "model.safetensors",
@@ -101,6 +98,7 @@ def main() -> None:
         ARTIFACTS / "trtllm_equiv_bf16_engine" / "rank0.engine",
         ARTIFACTS / "trtllm_equiv_fp8w_bf16kv_engine" / "rank0.engine",
         ARTIFACTS / "trtllm_equiv_bf16w_fp8kv_engine" / "rank0.engine",
+        ARTIFACTS / "trtllm_equiv_fp8w_fp8kv_engine" / "rank0.engine",
     ]
     inventory = {
         str(path.relative_to(ROOT)): {"bytes": path.stat().st_size, "sha256": sha256(path)}
@@ -114,7 +112,8 @@ def main() -> None:
             "gpu": command("nvidia-smi", "--query-gpu=index,name,memory.total,driver_version,compute_cap", "--format=csv,noheader,nounits"),
             "model": "bharatgenai/Shrutam-2",
             "model_revision": "e249bba6f7319c27912847fbbebb4258ead3b848",
-            "dataset": load(ROOT / "data/fleurs_quick/report.json"),
+            "performance_and_calibration_smoke_dataset": load(ROOT / "data/fleurs_quick/report.json"),
+            "accuracy_dataset": indicvoices["dataset"],
             "beam": 1,
         },
         "measurement": {
@@ -125,6 +124,7 @@ def main() -> None:
             "exact_1s": "trim or zero-pad to exactly 16000 PCM samples",
         },
         "comparison_table": rows,
+        "accuracy_evaluation": indicvoices["evaluation"],
         "variants": payload,
         "artifact_inventory": inventory,
         "all_matrices_passed": all(

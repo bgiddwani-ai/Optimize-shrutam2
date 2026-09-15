@@ -2,6 +2,7 @@
 set -euo pipefail
 
 ROOT=${ROOT:-/home/ubuntu/Optimize-shrutam2}
+IMAGE=${IMAGE:-shrutam2-runtime:25.02}
 RUNTIME=${RUNTIME:-eager}
 PRECISION=${PRECISION:-bf16}
 PORT=${PORT:-8092}
@@ -28,7 +29,7 @@ screen -L -Logfile "${ROOT}/logs/server_${RUNTIME}.log" -dmS shrutam2_server \
   docker run --rm --name shrutam2-server --gpus device=0 --ipc=host --network host \
   -e CUDA_VISIBLE_DEVICES=0 -e HF_HUB_OFFLINE=1 -e TRANSFORMERS_OFFLINE=1 \
   -e TORCHINDUCTOR_CACHE_DIR=/workspace/artifacts/torchinductor_cache \
-  -v "${ROOT}:/workspace" -w /workspace shrutam2-runtime:25.02 \
+  -v "${ROOT}:/workspace" -w /workspace "${IMAGE}" \
   python server.py \
     --model-dir /workspace/model \
     --runtime "${RUNTIME}" \

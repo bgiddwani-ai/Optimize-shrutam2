@@ -16,3 +16,9 @@ artifacts/trt_py/
 # Local runtime state.
 *.pid
 screenlog.*
+
+# Full held-out transcript dumps are retained in the checksummed evidence
+# archive; keep the compact canonical comparison in Git.
+results/*/indicvoices_hindi_valid_accuracy_requests/
+results/*/indicvoices_hindi_valid_accuracy.json
+results/*/indicvoices_hindi_valid_server_stats.json

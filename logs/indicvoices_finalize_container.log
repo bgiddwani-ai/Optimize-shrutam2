@@ -1,0 +1,333 @@
+
+=============
+== PyTorch ==
+=============
+
+NVIDIA Release 25.04 (build 159049541)
+PyTorch Version 2.7.0a0+79aa174
+Container image Copyright (c) 2025, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+Copyright (c) 2014-2024 Facebook Inc.
+Copyright (c) 2011-2014 Idiap Research Institute (Ronan Collobert)
+Copyright (c) 2012-2014 Deepmind Technologies    (Koray Kavukcuoglu)
+Copyright (c) 2011-2012 NEC Laboratories America (Koray Kavukcuoglu)
+Copyright (c) 2011-2013 NYU                      (Clement Farabet)
+Copyright (c) 2006-2010 NEC Laboratories America (Ronan Collobert, Leon Bottou, Iain Melvin, Jason Weston)
+Copyright (c) 2006      Idiap Research Institute (Samy Bengio)
+Copyright (c) 2001-2004 Idiap Research Institute (Ronan Collobert, Samy Bengio, Johnny Mariethoz)
+Copyright (c) 2015      Google Inc.
+Copyright (c) 2015      Yangqing Jia
+Copyright (c) 2013-2016 The Caffe contributors
+All rights reserved.
+
+Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+
+GOVERNING TERMS: The software and materials are governed by the NVIDIA Software License Agreement
+(found at https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-software-license-agreement/)
+and the Product-Specific Terms for NVIDIA AI Products
+(found at https://www.nvidia.com/en-us/agreements/enterprise-software/product-specific-terms-for-ai-products/).
+
+NOTE: The SHMEM allocation limit is set to the default of 64MB.  This may be
+   insufficient for PyTorch.  NVIDIA recommends the use of the following flags:
+   docker run --gpus all --ipc=host --ulimit memlock=-1 --ulimit stack=67108864 ...
+
+{
+  "output": "/workspace/results/indicvoices_hindi_valid_accuracy.json",
+  "scored_samples": 4955,
+  "comparison_table": [
+    {
+      "key": "base_hf",
+      "label": "FP32 FastConformer + HF BF16 LLM",
+      "beam": 1,
+      "samples": 4955,
+      "attempted": 4955,
+      "failed_or_empty": 0,
+      "wer": 0.6038087509984659,
+      "cer": 0.5156445162547125,
+      "successful_only_wer": 0.6038087509984659,
+      "successful_only_cer": 0.5156445162547125,
+      "wer_delta_pp_vs_base": 0.0,
+      "cer_delta_pp_vs_base": 0.0,
+      "within_1_5pp_wer_budget": true
+    },
+    {
+      "key": "compiled_bf16",
+      "label": "compiled BF16 FastConformer + HF BF16 LLM",
+      "beam": 1,
+      "samples": 4955,
+      "attempted": 4955,
+      "failed_or_empty": 0,
+      "wer": 0.6039355403126625,
+      "cer": 0.5157075412240595,
+      "successful_only_wer": 0.6039355403126625,
+      "successful_only_cer": 0.5157075412240595,
+      "wer_delta_pp_vs_base": 0.01267893141966292,
+      "cer_delta_pp_vs_base": 0.006302496934695867,
+      "within_1_5pp_wer_budget": true
+    },
+    {
+      "key": "trtllm_bf16",
+      "label": "PyTorch BF16 FastConformer + TensorRT-LLM BF16",
+      "beam": 1,
+      "samples": 4955,
+      "attempted": 4955,
+      "failed_or_empty": 0,
+      "wer": 0.5985343155278873,
+      "cer": 0.5011860153322562,
+      "successful_only_wer": 0.5985343155278873,
+      "successful_only_cer": 0.5011860153322562,
+      "wer_delta_pp_vs_base": -0.5274435470578598,
+      "cer_delta_pp_vs_base": -1.4458500922456374,
+      "within_1_5pp_wer_budget": true
+    },
+    {
+      "key": "trtllm_fp8",
+      "label": "PyTorch BF16 FastConformer + TensorRT-LLM ModelOpt FP8 weights/BF16 KV",
+      "beam": 1,
+      "samples": 4955,
+      "attempted": 4955,
+      "failed_or_empty": 0,
+      "wer": 0.6022872792281067,
+      "cer": 0.5056951654118969,
+      "successful_only_wer": 0.6022872792281067,
+      "successful_only_cer": 0.5056951654118969,
+      "wer_delta_pp_vs_base": -0.15214717703592173,
+      "cer_delta_pp_vs_base": -0.9949350842815674,
+      "within_1_5pp_wer_budget": true
+    },
+    {
+      "key": "trt_bf16_trtllm_bf16",
+      "label": "TensorRT BF16 FastConformer + TensorRT-LLM BF16",
+      "beam": 1,
+      "samples": 4955,
+      "attempted": 4955,
+      "failed_or_empty": 0,
+      "wer": 0.5924357495150309,
+      "cer": 0.4956741952857323,
+      "successful_only_wer": 0.5924357495150309,
+      "successful_only_cer": 0.4956741952857323,
+      "wer_delta_pp_vs_base": -1.1373001483435008,
+      "cer_delta_pp_vs_base": -1.9970320968980215,
+      "within_1_5pp_wer_budget": true
+    },
+    {
+      "key": "trt_bf16_trtllm_fp8",
+      "label": "TensorRT BF16 FastConformer + TensorRT-LLM ModelOpt FP8 weights/BF16 KV",
+      "beam": 1,
+      "samples": 4955,
+      "attempted": 4955,
+      "failed_or_empty": 0,
+      "wer": 0.6001952555438628,
+      "cer": 0.5027243975385884,
+      "successful_only_wer": 0.6001952555438628,
+      "successful_only_cer": 0.5027243975385884,
+      "wer_delta_pp_vs_base": -0.36134954546030995,
+      "cer_delta_pp_vs_base": -1.2920118716124085,
+      "within_1_5pp_wer_budget": true
+    },
+    {
+      "key": "trt_bf16_trtllm_bf16_fp8kv",
+      "label": "TensorRT BF16 FastConformer + TensorRT-LLM BF16 weights/FP8 KV",
+      "beam": 1,
+      "samples": 4955,
+      "attempted": 4955,
+      "failed_or_empty": 0,
+      "wer": 0.602388710679464,
+      "cer": 0.5049245419230637,
+      "successful_only_wer": 0.602388710679464,
+      "successful_only_cer": 0.5049245419230637,
+      "wer_delta_pp_vs_base": -0.14200403190018918,
+      "cer_delta_pp_vs_base": -1.071997433164884,
+      "within_1_5pp_wer_budget": true
+    },
+    {
+      "key": "trt_fp8_trtllm_fp8",
+      "label": "TensorRT ModelOpt mixed-FP8 FastConformer + TensorRT-LLM ModelOpt FP8 weights/BF16 KV",
+      "beam": 1,
+      "samples": 4955,
+      "attempted": 4955,
+      "failed_or_empty": 0,
+      "wer": 0.5911424985102256,
+      "cer": 0.4904316637445999,
+      "successful_only_wer": 0.5911424985102256,
+      "successful_only_cer": 0.4904316637445999,
+      "wer_delta_pp_vs_base": -1.266625248824027,
+      "cer_delta_pp_vs_base": -2.5212852510112627,
+      "within_1_5pp_wer_budget": true
+    },
+    {
+      "key": "trt_fp8_trtllm_fp8_fp8kv",
+      "label": "TensorRT ModelOpt mixed-FP8 FastConformer + TensorRT-LLM ModelOpt FP8 weights/FP8 KV",
+      "beam": 1,
+      "samples": 4955,
+      "attempted": 4955,
+      "failed_or_empty": 0,
+      "wer": 0.5932852379201481,
+      "cer": 0.494316293673439,
+      "successful_only_wer": 0.5932852379201481,
+      "successful_only_cer": 0.494316293673439,
+      "wer_delta_pp_vs_base": -1.052351307831778,
+      "cer_delta_pp_vs_base": -2.1328222581273537,
+      "within_1_5pp_wer_budget": true
+    }
+  ],
+  "all_variants_complete": true
+}
+{
+  "output": "/workspace/results/equivalent_consolidated_results.json",
+  "comparison_table": [
+    {
+      "key": "base_hf",
+      "label": "FP32 FastConformer + HF BF16 LLM",
+      "beam": 1,
+      "samples": 4955,
+      "attempted": 4955,
+      "failed_or_empty": 0,
+      "wer": 0.6038087509984659,
+      "cer": 0.5156445162547125,
+      "successful_only_wer": 0.6038087509984659,
+      "successful_only_cer": 0.5156445162547125,
+      "wer_delta_pp_vs_base": 0.0,
+      "cer_delta_pp_vs_base": 0.0,
+      "within_1_5pp_wer_budget": true,
+      "fleurs_overlap_smoke_wer": 0.19506726457399104,
+      "fleurs_overlap_smoke_cer": 0.059749552772808585
+    },
+    {
+      "key": "compiled_bf16",
+      "label": "compiled BF16 FastConformer + HF BF16 LLM",
+      "beam": 1,
+      "samples": 4955,
+      "attempted": 4955,
+      "failed_or_empty": 0,
+      "wer": 0.6039355403126625,
+      "cer": 0.5157075412240595,
+      "successful_only_wer": 0.6039355403126625,
+      "successful_only_cer": 0.5157075412240595,
+      "wer_delta_pp_vs_base": 0.01267893141966292,
+      "cer_delta_pp_vs_base": 0.006302496934695867,
+      "within_1_5pp_wer_budget": true,
+      "fleurs_overlap_smoke_wer": 0.2062780269058296,
+      "fleurs_overlap_smoke_cer": 0.06547406082289803
+    },
+    {
+      "key": "trtllm_bf16",
+      "label": "PyTorch BF16 FastConformer + TensorRT-LLM BF16",
+      "beam": 1,
+      "samples": 4955,
+      "attempted": 4955,
+      "failed_or_empty": 0,
+      "wer": 0.5985343155278873,
+      "cer": 0.5011860153322562,
+      "successful_only_wer": 0.5985343155278873,
+      "successful_only_cer": 0.5011860153322562,
+      "wer_delta_pp_vs_base": -0.5274435470578598,
+      "cer_delta_pp_vs_base": -1.4458500922456374,
+      "within_1_5pp_wer_budget": true,
+      "fleurs_overlap_smoke_wer": 0.20291479820627803,
+      "fleurs_overlap_smoke_cer": 0.06404293381037567
+    },
+    {
+      "key": "trtllm_fp8",
+      "label": "PyTorch BF16 FastConformer + TensorRT-LLM ModelOpt FP8 weights/BF16 KV",
+      "beam": 1,
+      "samples": 4955,
+      "attempted": 4955,
+      "failed_or_empty": 0,
+      "wer": 0.6022872792281067,
+      "cer": 0.5056951654118969,
+      "successful_only_wer": 0.6022872792281067,
+      "successful_only_cer": 0.5056951654118969,
+      "wer_delta_pp_vs_base": -0.15214717703592173,
+      "cer_delta_pp_vs_base": -0.9949350842815674,
+      "within_1_5pp_wer_budget": true,
+      "fleurs_overlap_smoke_wer": 0.19730941704035873,
+      "fleurs_overlap_smoke_cer": 0.06279069767441861
+    },
+    {
+      "key": "trt_bf16_trtllm_bf16",
+      "label": "TensorRT BF16 FastConformer + TensorRT-LLM BF16",
+      "beam": 1,
+      "samples": 4955,
+      "attempted": 4955,
+      "failed_or_empty": 0,
+      "wer": 0.5924357495150309,
+      "cer": 0.4956741952857323,
+      "successful_only_wer": 0.5924357495150309,
+      "successful_only_cer": 0.4956741952857323,
+      "wer_delta_pp_vs_base": -1.1373001483435008,
+      "cer_delta_pp_vs_base": -1.9970320968980215,
+      "within_1_5pp_wer_budget": true,
+      "fleurs_overlap_smoke_wer": 0.19955156950672645,
+      "fleurs_overlap_smoke_cer": 0.06189624329159213
+    },
+    {
+      "key": "trt_bf16_trtllm_fp8",
+      "label": "TensorRT BF16 FastConformer + TensorRT-LLM ModelOpt FP8 weights/BF16 KV",
+      "beam": 1,
+      "samples": 4955,
+      "attempted": 4955,
+      "failed_or_empty": 0,
+      "wer": 0.6001952555438628,
+      "cer": 0.5027243975385884,
+      "successful_only_wer": 0.6001952555438628,
+      "successful_only_cer": 0.5027243975385884,
+      "wer_delta_pp_vs_base": -0.36134954546030995,
+      "cer_delta_pp_vs_base": -1.2920118716124085,
+      "within_1_5pp_wer_budget": true,
+      "fleurs_overlap_smoke_wer": 0.2062780269058296,
+      "fleurs_overlap_smoke_cer": 0.06940966010733453
+    },
+    {
+      "key": "trt_bf16_trtllm_bf16_fp8kv",
+      "label": "TensorRT BF16 FastConformer + TensorRT-LLM BF16 weights/FP8 KV",
+      "beam": 1,
+      "samples": 4955,
+      "attempted": 4955,
+      "failed_or_empty": 0,
+      "wer": 0.602388710679464,
+      "cer": 0.5049245419230637,
+      "successful_only_wer": 0.602388710679464,
+      "successful_only_cer": 0.5049245419230637,
+      "wer_delta_pp_vs_base": -0.14200403190018918,
+      "cer_delta_pp_vs_base": -1.071997433164884,
+      "within_1_5pp_wer_budget": true,
+      "fleurs_overlap_smoke_wer": 0.19506726457399104,
+      "fleurs_overlap_smoke_cer": 0.05957066189624329
+    },
+    {
+      "key": "trt_fp8_trtllm_fp8",
+      "label": "TensorRT ModelOpt mixed-FP8 FastConformer + TensorRT-LLM ModelOpt FP8 weights/BF16 KV",
+      "beam": 1,
+      "samples": 4955,
+      "attempted": 4955,
+      "failed_or_empty": 0,
+      "wer": 0.5911424985102256,
+      "cer": 0.4904316637445999,
+      "successful_only_wer": 0.5911424985102256,
+      "successful_only_cer": 0.4904316637445999,
+      "wer_delta_pp_vs_base": -1.266625248824027,
+      "cer_delta_pp_vs_base": -2.5212852510112627,
+      "within_1_5pp_wer_budget": true,
+      "fleurs_overlap_smoke_wer": 0.19282511210762332,
+      "fleurs_overlap_smoke_cer": 0.06207513416815742
+    },
+    {
+      "key": "trt_fp8_trtllm_fp8_fp8kv",
+      "label": "TensorRT ModelOpt mixed-FP8 FastConformer + TensorRT-LLM ModelOpt FP8 weights/FP8 KV",
+      "beam": 1,
+      "samples": 4955,
+      "attempted": 4955,
+      "failed_or_empty": 0,
+      "wer": 0.5932852379201481,
+      "cer": 0.494316293673439,
+      "successful_only_wer": 0.5932852379201481,
+      "successful_only_cer": 0.494316293673439,
+      "wer_delta_pp_vs_base": -1.052351307831778,
+      "cer_delta_pp_vs_base": -2.1328222581273537,
+      "within_1_5pp_wer_budget": true,
+      "fleurs_overlap_smoke_wer": 0.21076233183856502,
+      "fleurs_overlap_smoke_cer": 0.06797853309481217
+    }
+  ],
+  "all_matrices_passed": true
+}

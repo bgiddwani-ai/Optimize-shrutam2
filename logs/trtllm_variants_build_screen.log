@@ -1,0 +1,97 @@
+
+=============
+== PyTorch ==
+=============
+
+NVIDIA Release 25.04 (build 159049541)
+PyTorch Version 2.7.0a0+79aa174
+Container image Copyright (c) 2025, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+Copyright (c) 2014-2024 Facebook Inc.
+Copyright (c) 2011-2014 Idiap Research Institute (Ronan Collobert)
+Copyright (c) 2012-2014 Deepmind Technologies    (Koray Kavukcuoglu)
+Copyright (c) 2011-2012 NEC Laboratories America (Koray Kavukcuoglu)
+Copyright (c) 2011-2013 NYU                      (Clement Farabet)
+Copyright (c) 2006-2010 NEC Laboratories America (Ronan Collobert, Leon Bottou, Iain Melvin, Jason Weston)
+Copyright (c) 2006      Idiap Research Institute (Samy Bengio)
+Copyright (c) 2001-2004 Idiap Research Institute (Ronan Collobert, Samy Bengio, Johnny Mariethoz)
+Copyright (c) 2015      Google Inc.
+Copyright (c) 2015      Yangqing Jia
+Copyright (c) 2013-2016 The Caffe contributors
+All rights reserved.
+
+Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+
+GOVERNING TERMS: The software and materials are governed by the NVIDIA Software License Agreement
+(found at https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-software-license-agreement/)
+and the Product-Specific Terms for NVIDIA AI Products
+(found at https://www.nvidia.com/en-us/agreements/enterprise-software/product-specific-terms-for-ai-products/).
+
+2026-09-15 15:52:45,697 - INFO - flashinfer.jit: Prebuilt kernels not found, using JIT backend
+[TensorRT-LLM] TensorRT-LLM version: 0.20.0
+0.20.0
+[09/15/2026-15:52:45] [TRT-LLM] [W] Implicitly setting LLaMAConfig.has_partial_lora_mask = False
+[09/15/2026-15:52:45] [TRT-LLM] [W] Implicitly setting LLaMAConfig.tie_word_embeddings = True
+0it [00:00, ?it/s]41it [00:00, 366.06it/s]83it [00:00, 272.00it/s]112it [00:00, 128.19it/s]118it [00:00, 162.21it/s]
+Total time of reading and converting: 0.739 s
+Total time of saving checkpoint: 18.881 s
+Total time of converting checkpoints: 00:00:19
+2026-09-15 15:53:15,386 - INFO - flashinfer.jit: Prebuilt kernels not found, using JIT backend
+[TensorRT-LLM] TensorRT-LLM version: 0.20.0
+Generating train split:   0%|          | 0/287113 [00:00<?, ? examples/s]Generating train split:   4%|▍         | 11000/287113 [00:00<00:02, 96824.67 examples/s]Generating train split:   9%|▊         | 25000/287113 [00:00<00:02, 115638.52 examples/s]Generating train split:  13%|█▎        | 38000/287113 [00:00<00:02, 116386.33 examples/s]Generating train split:  17%|█▋        | 50000/287113 [00:00<00:02, 116259.79 examples/s]Generating train split:  22%|██▏       | 62000/287113 [00:00<00:01, 115264.41 examples/s]Generating train split:  27%|██▋       | 77000/287113 [00:00<00:02, 101585.43 examples/s]Generating train split:  32%|███▏      | 92000/287113 [00:00<00:01, 100231.31 examples/s]Generating train split:  36%|███▌      | 103705/287113 [00:00<00:01, 102451.62 examples/s]Generating train split:  40%|████      | 115705/287113 [00:01<00:01, 105354.10 examples/s]Generating train split:  44%|████▍     | 127705/287113 [00:01<00:01, 108221.35 examples/s]Generating train split:  49%|████▊     | 139705/287113 [00:01<00:01, 110856.34 examples/s]Generating train split:  53%|█████▎    | 151705/287113 [00:01<00:01, 112814.46 examples/s]Generating train split:  57%|█████▋    | 164705/287113 [00:01<00:01, 114541.42 examples/s]Generating train split:  62%|██████▏   | 178705/287113 [00:01<00:00, 118199.77 examples/s]Generating train split:  67%|██████▋   | 192409/287113 [00:01<00:00, 120950.80 examples/s]Generating train split:  72%|███████▏  | 206409/287113 [00:01<00:00, 122895.93 examples/s]Generating train split:  77%|███████▋  | 220409/287113 [00:01<00:00, 123782.32 examples/s]Generating train split:  81%|████████▏ | 233409/287113 [00:02<00:00, 121450.84 examples/s]Generating train split:  88%|████████▊ | 251409/287113 [00:02<00:00, 118072.61 examples/s]Generating train split:  92%|█████████▏| 263409/287113 [00:02<00:00, 116277.65 examples/s]Generating train split:  96%|█████████▌| 275409/287113 [00:02<00:00, 116530.12 examples/s]Generating train split: 100%|██████████| 287113/287113 [00:02<00:00, 114367.43 examples/s]Generating train split: 100%|██████████| 287113/287113 [00:02<00:00, 113435.71 examples/s]
+Generating validation split:   0%|          | 0/13368 [00:00<?, ? examples/s]Generating validation split:  97%|█████████▋| 13000/13368 [00:00<00:00, 115760.70 examples/s]Generating validation split: 100%|██████████| 13368/13368 [00:00<00:00, 115065.25 examples/s]
+Generating test split:   0%|          | 0/11490 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 11490/11490 [00:00<00:00, 115799.60 examples/s]
+Registered <class 'transformers.models.llama.modeling_llama.LlamaAttention'> for KV Cache quantization
+Inserted 387 quantizers
+/usr/local/lib/python3.12/dist-packages/modelopt/torch/export/postprocess.py:748: UserWarning: Enable lm_head quantization. lm_head quantization may lead to additional accuracy loss.
+  warn(
+current rank: 0, tp rank: 0, pp rank: 0
+2026-09-15 15:53:51,758 - INFO - flashinfer.jit: Prebuilt kernels not found, using JIT backend
+[TensorRT-LLM] TensorRT-LLM version: 0.20.0
+Registered <class 'transformers.models.llama.modeling_llama.LlamaAttention'> for KV Cache quantization
+Inserted 387 quantizers
+/usr/local/lib/python3.12/dist-packages/modelopt/torch/export/postprocess.py:748: UserWarning: Enable lm_head quantization. lm_head quantization may lead to additional accuracy loss.
+  warn(
+current rank: 0, tp rank: 0, pp rank: 0
+2026-09-15 15:54:08,549 - INFO - flashinfer.jit: Prebuilt kernels not found, using JIT backend
+[TensorRT-LLM] TensorRT-LLM version: 0.20.0
+[09/15/2026-15:54:08] [TRT-LLM] [I] Set bert_attention_plugin to auto.
+[09/15/2026-15:54:08] [TRT-LLM] [I] Set gpt_attention_plugin to bfloat16.
+[09/15/2026-15:54:08] [TRT-LLM] [I] Set gemm_plugin to bfloat16.
+[09/15/2026-15:54:08] [TRT-LLM] [I] Set gemm_swiglu_plugin to None.
+[09/15/2026-15:54:08] [TRT-LLM] [I] Set fp8_rowwise_gemm_plugin to None.
+[09/15/2026-15:54:08] [TRT-LLM] [I] Set nccl_plugin to auto.
+[09/15/2026-15:54:08] [TRT-LLM] [I] Set lora_plugin to None.
+[09/15/2026-15:54:08] [TRT-LLM] [I] Set dora_plugin to False.
+[09/15/2026-15:54:08] [TRT-LLM] [I] Set moe_plugin to auto.
+[09/15/2026-15:54:08] [TRT-LLM] [I] Set mamba_conv1d_plugin to auto.
+[09/15/2026-15:54:08] [TRT-LLM] [I] Set low_latency_gemm_plugin to None.
+[09/15/2026-15:54:08] [TRT-LLM] [I] Set low_latency_gemm_swiglu_plugin to None.
+[09/15/2026-15:54:08] [TRT-LLM] [I] Set gemm_allreduce_plugin to None.
+[09/15/2026-15:54:08] [TRT-LLM] [I] Set context_fmha to True.
+[09/15/2026-15:54:08] [TRT-LLM] [I] Set bert_context_fmha_fp32_acc to False.
+[09/15/2026-15:54:08] [TRT-LLM] [I] Set remove_input_padding to True.
+[09/15/2026-15:54:08] [TRT-LLM] [I] Set norm_quant_fusion to False.
+[09/15/2026-15:54:08] [TRT-LLM] [I] Set reduce_fusion to False.
+[09/15/2026-15:54:08] [TRT-LLM] [I] Set user_buffer to False.
+[09/15/2026-15:54:08] [TRT-LLM] [I] Set tokens_per_block to 32.
+[09/15/2026-15:54:08] [TRT-LLM] [I] Set use_paged_context_fmha to True.
+[09/15/2026-15:54:08] [TRT-LLM] [I] Set use_fp8_context_fmha to True.
+[09/15/2026-15:54:08] [TRT-LLM] [I] Set fuse_fp4_quant to False.
+[09/15/2026-15:54:08] [TRT-LLM] [I] Set multiple_profiles to True.
+[09/15/2026-15:54:08] [TRT-LLM] [I] Set paged_state to True.
+[09/15/2026-15:54:08] [TRT-LLM] [I] Set streamingllm to False.
+[09/15/2026-15:54:08] [TRT-LLM] [I] Set use_fused_mlp to True.
+[09/15/2026-15:54:08] [TRT-LLM] [I] Set pp_reduce_scatter to False.
+[09/15/2026-15:54:08] [TRT-LLM] [W] Implicitly setting LLaMAConfig.fc_after_embed = False
+[09/15/2026-15:54:08] [TRT-LLM] [W] Implicitly setting LLaMAConfig.use_input_layernorm_in_first_layer = True
+[09/15/2026-15:54:08] [TRT-LLM] [W] Implicitly setting LLaMAConfig.use_last_layernorm = True
+[09/15/2026-15:54:08] [TRT-LLM] [W] Implicitly setting LLaMAConfig.layer_idx_offset = 0
+[09/15/2026-15:54:08] [TRT-LLM] [W] Implicitly setting LLaMAConfig.has_partial_lora_mask = False
+[09/15/2026-15:54:08] [TRT-LLM] [W] Implicitly setting LLaMAConfig.tie_word_embeddings = True
+Traceback (most recent call last):
+  File "/usr/local/bin/trtllm-build", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/tensorrt_llm/commands/build.py", line 532, in main
+    raise RuntimeError(
+RuntimeError: multiple_profiles is enabled, while opt_num_tokens is set. They are not supposed to be working in the same time for now.

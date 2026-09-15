@@ -50,3 +50,8 @@ run_variant \
   equiv_trt_fp8enc_trtllm_fp8w_bf16kv_beam1 \
   "$ROOT/artifacts/trtllm_equiv_fp8w_bf16kv_engine" \
   trt bf16 "$ROOT/artifacts/shrutam2_encoder_modelopt_fp8.plan"
+
+run_variant \
+  equiv_trt_fp8enc_trtllm_fp8w_fp8kv_beam1 \
+  "$ROOT/artifacts/trtllm_equiv_fp8w_fp8kv_engine" \
+  trt bf16 "$ROOT/artifacts/shrutam2_encoder_modelopt_fp8.plan"

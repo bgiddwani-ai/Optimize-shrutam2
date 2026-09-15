@@ -12,37 +12,48 @@ for variable-duration throughput. TensorRT acceleration of the FastConformer
 provided smaller end-to-end gains because the log-mel frontend, SMEAR, request
 scheduling, and short autoregressive decode remain outside the encoder plan.
 
-The best variable-audio cell was 1,105.05 RTFx at c128 for the TensorRT
-calibrated mixed-FP8 FastConformer plus ModelOpt FP8 TensorRT-LLM decoder. The
-HF baseline at the same concurrency was 320.87 RTFx, a 3.44x increase. Its
-quick WER changed from 19.5067% to 19.2825% (-0.2242 percentage points), while
-CER changed from 5.9750% to 6.2075% (+0.2326 points).
+The best variable-audio cell was 1,145.61 RTFx at c128 for the TensorRT
+calibrated mixed-FP8 FastConformer plus ModelOpt FP8 TensorRT-LLM decoder and
+FP8 KV cache. The HF baseline at the same concurrency was 320.87 RTFx, a 3.57x
+increase. On the held-out IndicVoices Hindi evaluation its WER changed from
+60.3809% to 59.3285% (-1.0524 percentage points), while CER changed from
+51.5645% to 49.4316% (-2.1328 points).
 
 ## Controlled comparison discipline
 
-Every row used the same pinned model revision, 48-audio manifest, beam 1,
-maximum 96 output tokens, server/client timing definition, and requested
-concurrency levels. Each row produced:
+Every throughput row used the same pinned model revision, 48-audio FLEURS
+manifest, beam 1, maximum 96 output tokens, server/client timing definition,
+and requested concurrency levels. Each row produced:
 
 - 576 variable-duration timed requests at c1, c2, c8, c32, c64, c128, c256;
 - 1,216 exact-one-second timed requests through c512;
-- 64 sequential accuracy requests, from which the 48 unique manifest samples
-  were scored;
+- a 48-clip FLEURS transcript smoke, retained only as an encoder-calibration
+  overlap check;
 - raw request records, health, final server counters, client summaries, and GPU
   telemetry.
 
-All 14,336 timed matrix requests across eight rows returned valid non-empty
+All 16,128 timed matrix requests across nine rows returned valid non-empty
 transcripts. The canonical report independently checks expected levels,
 request/valid counts, and nonzero failures before setting
 `all_matrices_passed=true`.
 
-This is a quick comparative accuracy gate, not a publishable full-dataset WER.
-The original cached IndicVoices audio was unavailable on this fresh host and
-the gated source could not be reconstructed without credentials. Substituting
-a fixed public FLEURS test set was preferable to silently changing samples
-between rows. It contains 48 clips, 496.78 seconds, and four clips each for
-Assamese, Bengali, Gujarati, Hindi, Kannada, Malayalam, Marathi, Odia, Punjabi,
-Tamil, Telugu, and Urdu.
+Primary WER/CER use the official AI4Bharat IndicVoices Hindi validation file,
+not the calibration set. It contained 5,530 source rows. Preparation removed
+205 rows whose reference included `unintelligible` case-insensitively
+(including `<unintelligible>`) and 370 rows outside the shared 0.5-19.0-second
+input envelope. The result is 4,955 clips and 28,249.95 seconds (7.85 hours).
+Every one of the nine rows attempted exactly those paths, returned 4,955
+non-empty transcripts, and used the same Unicode NFKC plus whitespace
+normalization. Across the accuracy comparison this is 44,595/44,595 successful
+requests. The finalizer treats failed or empty output as an empty hypothesis,
+so bad requests cannot make a row's WER look better through exclusion.
+
+The 19-second upper bound is a serving-contract constraint: the Hindi prompt
+uses 17 of the TensorRT-LLM engine's 256 input tokens, leaving 239 projected
+audio tokens. An initial 20-second run demonstrated why the limit must be
+enforced before adaptive batching: one oversized member caused a whole
+microbatch to return HTTP 500. The final server now rejects over-limit audio
+individually with HTTP 400 before it enters a batch.
 
 ## Fine-tuned Llama export is mandatory
 
@@ -60,11 +71,12 @@ The tested runtime was TensorRT-LLM 0.20.0, TensorRT 10.10.0.31, PyTorch
 2.7.0a0 nv25.04, CUDA runtime 12.9, and NVIDIA Model Optimizer 0.29.0 on an
 RTX PRO 6000 Blackwell Server Edition (compute capability 12.0).
 
-Three decoder plans were built:
+Four decoder plans were built:
 
 1. BF16 weights and BF16 KV cache;
 2. ModelOpt FP8 weights and BF16 KV cache;
-3. BF16 weights and ModelOpt FP8 KV cache.
+3. BF16 weights and ModelOpt FP8 KV cache;
+4. ModelOpt FP8 weights and ModelOpt FP8 KV cache.
 
 The FP8 checkpoint metadata records `producer.name=modelopt` and version
 0.29.0. Decoder FP8 calibration used 128 CNN/DailyMail sequences, batch 8,
@@ -86,11 +98,13 @@ lower, showing that adaptive request grouping and short-output variability can
 dominate a single cell. With a TensorRT BF16 encoder, FP8 decoder weights raised
 the variable peak from 875.88 to 1,081.29 RTFx.
 
-FP8 KV cache did not consistently improve this workload. It preserved baseline
-WER and slightly improved quick CER, but short ASR prompts and short generated
-sequences do not create the long-lived KV bandwidth pressure seen in long-text
-LLM serving. Its throughput was close to, and often below, the BF16-KV control.
-It remains a memory-capacity option rather than the promoted speed path.
+FP8 KV cache did not improve every cell, which is expected because short ASR
+prompts and outputs do not create the long-lived KV bandwidth pressure seen in
+long-text serving. It did help the strongest combined profile: mixed-FP8
+FastConformer + FP8 decoder weights peaked at 1,145.61 RTFx with FP8 KV versus
+1,105.05 with BF16 KV, a 3.67% gain. On the BF16 encoder/BF16 decoder-weight
+control, FP8 KV changed the peak only from 875.88 to 879.97 RTFx. Treat it as a
+profile-specific throughput and capacity option, not an automatic speedup.
 
 ## ModelOpt FP8 FastConformer
 
@@ -161,44 +175,51 @@ encoder precision, decoder quantization, KV quantization, and engine path in
 
 ## Accuracy interpretation
 
-All eight beam-1 WER deltas versus the base were within +1.5 percentage points:
+All nine beam-1 WER deltas versus the Hugging Face base were within the accepted
+1.5-percentage-point budget on the 4,955-clip IndicVoices Hindi validation set:
 
 | Key | WER | CER | WER delta pp | CER delta pp |
 |---|---:|---:|---:|---:|
-| `base_hf` | 19.5067% | 5.9750% | 0.0000 | 0.0000 |
-| `compiled_bf16` | 20.6278% | 6.5474% | +1.1211 | +0.5725 |
-| `trtllm_bf16` | 20.2915% | 6.4043% | +0.7848 | +0.4293 |
-| `trtllm_fp8` | 19.7309% | 6.2791% | +0.2242 | +0.3041 |
-| `trt_bf16_trtllm_bf16` | 19.9552% | 6.1896% | +0.4484 | +0.2147 |
-| `trt_bf16_trtllm_fp8` | 20.6278% | 6.9410% | +1.1211 | +0.9660 |
-| `trt_bf16_trtllm_bf16_fp8kv` | 19.5067% | 5.9571% | 0.0000 | -0.0179 |
-| `trt_fp8_trtllm_fp8` | 19.2825% | 6.2075% | -0.2242 | +0.2326 |
+| `base_hf` | 60.3809% | 51.5645% | 0.0000 | 0.0000 |
+| `compiled_bf16` | 60.3936% | 51.5708% | +0.0127 | +0.0063 |
+| `trtllm_bf16` | 59.8534% | 50.1186% | -0.5274 | -1.4459 |
+| `trtllm_fp8` | 60.2287% | 50.5695% | -0.1521 | -0.9949 |
+| `trt_bf16_trtllm_bf16` | 59.2436% | 49.5674% | -1.1373 | -1.9970 |
+| `trt_bf16_trtllm_fp8` | 60.0195% | 50.2724% | -0.3613 | -1.2920 |
+| `trt_bf16_trtllm_bf16_fp8kv` | 60.2389% | 50.4925% | -0.1420 | -1.0720 |
+| `trt_fp8_trtllm_fp8` | 59.1142% | 49.0432% | -1.2666 | -2.5213 |
+| `trt_fp8_trtllm_fp8_fp8kv` | 59.3285% | 49.4316% | -1.0524 | -2.1328 |
 
-Small negative or positive changes on 48 clips should not be interpreted as a
-general quality improvement or regression. They establish that no large
-precision-induced failure appeared. Before production, repeat on a larger
-customer-representative multilingual test set and report language-wise WER/CER.
+The absolute WER/CER are high and should not be mistaken for production Hindi
+quality; they expose a substantial mismatch between Shrutam-2 and this
+IndicVoices validation domain under only Unicode/whitespace normalization. The
+controlled value of the table is the relative effect of runtime and precision
+while sample identity, prompt, beam, and scoring remain fixed. A
+customer-representative multilingual evaluation is still required before a
+production quality claim.
 
 ## Deployment choices
 
 - Maximum variable throughput: calibrated mixed-FP8 TensorRT FastConformer +
-  ModelOpt FP8 TensorRT-LLM weights/BF16 KV.
+  ModelOpt FP8 TensorRT-LLM weights/FP8 KV; 1,145.61 peak RTFx and -1.0524 WER
+  points on the held-out Hindi comparison.
 - Conservative encoder precision: TensorRT BF16 FastConformer + ModelOpt FP8
-  TensorRT-LLM weights/BF16 KV; 1,081.29 peak RTFx and +1.1211 WER points.
-- Baseline-WER option: TensorRT BF16 FastConformer + BF16 TensorRT-LLM weights
-  with FP8 KV; no measured WER change, but no consistent speed benefit from KV
-  quantization.
+  TensorRT-LLM weights/BF16 KV; 1,081.29 peak RTFx and -0.3613 WER points.
+- Conservative decoder precision: TensorRT BF16 FastConformer + BF16
+  TensorRT-LLM weights/BF16 KV; 875.88 peak RTFx and -1.1373 WER points.
 - Do not promote the dynamic compiled HF server for this shape mix.
 
 ## Evidence and reproducibility
 
 `results/equivalent_consolidated_results.json` is the canonical source for all
-numbers. The eight `results/equiv_*` trees contain raw requests, summaries,
-health, stats, and transcript pairs. `logs/*equiv*` preserves builds, engine
+numbers. `results/indicvoices_hindi_valid_accuracy.json` preserves the common
+sample hashes, all-sample scoring policy, deltas, and failure counts. The nine
+`results/equiv_*` trees contain raw requests, summaries, health, stats, and
+transcript pairs. `logs/*equiv*` and `logs/indicvoices*` preserve builds, engine
 output, server logs, benchmark clients, accuracy, and GPU telemetry.
 
 The retrieved remote evidence archive is
-`artifacts/equivalent_evidence_20260915.tgz`, SHA-256
-`2c0c306515f801303c9a6f4aaacfae3904898ac8291f8ab4c63fff2c1cc3981f`.
+`artifacts/equivalent_evidence_20260916.tgz`, SHA-256
+`a204b400fe1f29c7d22abe5ad4d1e7bdaf371abe22ce2f77b648d93334199f20`.
 Weights, ONNX graphs, calibration arrays, and TensorRT plans are not committed;
 the README gives the exact commands to regenerate them.

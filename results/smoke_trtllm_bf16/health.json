@@ -1,0 +1,70 @@
+{
+  "ready": true,
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "beam": 1,
+  "encoder_runtime": "eager",
+  "encoder_precision": "bf16",
+  "engine_dir": "/workspace/artifacts/trtllm_equiv_bf16_engine",
+  "decoder_dtype": "bfloat16",
+  "decoder_quant_algo": null,
+  "kv_cache_quant_algo": null,
+  "max_batch_size": 64,
+  "warmup": [
+    {
+      "encoder_runtime": "eager",
+      "encoder_precision": "bf16",
+      "decoder_dtype": "bfloat16",
+      "decoder_quant_algo": null,
+      "kv_cache_quant_algo": null,
+      "batch_size": 1,
+      "frontend_ms": 1413.7076379993232,
+      "decode_ms": 93.98033200159261,
+      "total_ms": 1507.6879700009158,
+      "max_audio_samples": 16000,
+      "max_audio_tokens": 13,
+      "generated_tokens": 1
+    },
+    {
+      "encoder_runtime": "eager",
+      "encoder_precision": "bf16",
+      "decoder_dtype": "bfloat16",
+      "decoder_quant_algo": null,
+      "kv_cache_quant_algo": null,
+      "batch_size": 2,
+      "frontend_ms": 44.248075000723475,
+      "decode_ms": 9.194801999910851,
+      "total_ms": 53.442877000634326,
+      "max_audio_samples": 16000,
+      "max_audio_tokens": 13,
+      "generated_tokens": 2
+    },
+    {
+      "encoder_runtime": "eager",
+      "encoder_precision": "bf16",
+      "decoder_dtype": "bfloat16",
+      "decoder_quant_algo": null,
+      "kv_cache_quant_algo": null,
+      "batch_size": 8,
+      "frontend_ms": 49.55844899996009,
+      "decode_ms": 11.806648999481695,
+      "total_ms": 61.36509799944179,
+      "max_audio_samples": 16000,
+      "max_audio_tokens": 13,
+      "generated_tokens": 8
+    },
+    {
+      "encoder_runtime": "eager",
+      "encoder_precision": "bf16",
+      "decoder_dtype": "bfloat16",
+      "decoder_quant_algo": null,
+      "kv_cache_quant_algo": null,
+      "batch_size": 32,
+      "frontend_ms": 28.72162299900083,
+      "decode_ms": 21.088261000841158,
+      "total_ms": 49.809883999841986,
+      "max_audio_samples": 16000,
+      "max_audio_tokens": 13,
+      "generated_tokens": 32
+    }
+  ]
+}

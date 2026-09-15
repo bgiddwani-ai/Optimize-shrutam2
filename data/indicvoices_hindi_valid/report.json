@@ -1,0 +1,25 @@
+{
+  "dataset": "ai4bharat/IndicVoices",
+  "config": "hindi",
+  "split": "valid",
+  "source_examples": 5530,
+  "selection": "all usable rows in source order",
+  "filters": {
+    "min_seconds": 0.5,
+    "max_seconds": 19.0,
+    "text_exclusion": "case-insensitive substring 'unintelligible' (including <unintelligible>)",
+    "duration_reason": "fits the 256-token TensorRT-LLM input contract after the fixed 17-token Hindi prompt"
+  },
+  "samples": 4955,
+  "audio_seconds": 28249.9453125,
+  "excluded": {
+    "missing_reference": 0,
+    "unintelligible": 205,
+    "duration": 370,
+    "decode": 0,
+    "silent": 0
+  },
+  "manifest": "/workspace/data/indicvoices_hindi_valid/manifest.jsonl",
+  "dataset_fingerprint": "82ff900d2acb033d",
+  "source_file": "hindi/valid-00000-of-00001.parquet"
+}

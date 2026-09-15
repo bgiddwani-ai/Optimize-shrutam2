@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/ubuntu/Optimize-shrutam2/finalize_indicvoices_hindi_accuracy.py", line 12, in <module>
+    from jiwer import cer, wer
+ModuleNotFoundError: No module named 'jiwer'

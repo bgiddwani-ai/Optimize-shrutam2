@@ -1,576 +1,0 @@
-Collecting setuptools-scm>=8
-  Downloading setuptools_scm-10.2.3-py3-none-any.whl.metadata (6.7 kB)
-Collecting numpy
-  Using cached numpy-2.5.3-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
-Collecting cmake
-  Downloading cmake-4.4.3-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (7.0 kB)
-Collecting ninja
-  Downloading ninja-1.13.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (5.4 kB)
-Requirement already satisfied: packaging in ./.venv-vllm/lib/python3.12/site-packages (26.3)
-Collecting vcs-versioning<3,>=2.3.2.dev0 (from setuptools-scm>=8)
-  Downloading vcs_versioning-2.3.4-py3-none-any.whl.metadata (1.7 kB)
-Requirement already satisfied: setuptools in ./.venv-vllm/lib/python3.12/site-packages (from setuptools-scm>=8) (84.0.0)
-Downloading setuptools_scm-10.2.3-py3-none-any.whl (29 kB)
-Downloading vcs_versioning-2.3.4-py3-none-any.whl (115 kB)
-Using cached numpy-2.5.3-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.7 MB)
-Downloading cmake-4.4.3-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (30.2 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/30.2 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m [32m30.1/30.2 MB[0m [31m174.2 MB/s[0m eta [36m0:00:01[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m30.2/30.2 MB[0m [31m131.1 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading ninja-1.13.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (183 kB)
-Installing collected packages: vcs-versioning, numpy, ninja, cmake, setuptools-scm
-[?25l[2K   [91m━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1/5[0m [numpy][2K   [91m━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1/5[0m [numpy][2K   [91m━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1/5[0m [numpy][2K   [91m━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1/5[0m [numpy][2K   [91m━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1/5[0m [numpy][2K   [91m━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1/5[0m [numpy][2K   [91m━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1/5[0m [numpy][2K   [91m━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1/5[0m [numpy][2K   [91m━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1/5[0m [numpy][2K   [91m━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1/5[0m [numpy][2K   [91m━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1/5[0m [numpy][2K   [91m━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1/5[0m [numpy][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━[0m [32m3/5[0m [cmake][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━[0m [32m3/5[0m [cmake][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━[0m [32m3/5[0m [cmake][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━[0m [32m3/5[0m [cmake][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━[0m [32m3/5[0m [cmake][2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m5/5[0m [setuptools-scm]
-[?25h[1A[2KSuccessfully installed cmake-4.4.3 ninja-1.13.2 numpy-2.5.3 setuptools-scm-10.2.3 vcs-versioning-2.3.4
-Obtaining file:///home/nvidia/Optimize-shrutam2/baseline/Canary-Qwen-2.5b-vllm
-  Checking if build backend supports build_editable ... [?25ldone
-[?25h  Preparing editable metadata (pyproject.toml) ... [?25l- \ | / - done
-[?25hCollecting regex (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading regex-2026.9.10-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
-Collecting cachetools (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading cachetools-7.1.8-py3-none-any.whl.metadata (5.5 kB)
-Collecting psutil (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl.metadata (22 kB)
-Collecting sentencepiece (from vllm==0.1.dev1+gae29af450.precompiled)
-  Using cached sentencepiece-0.2.2-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (33 kB)
-Requirement already satisfied: numpy in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from vllm==0.1.dev1+gae29af450.precompiled) (2.5.3)
-Collecting requests>=2.26.0 (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
-Collecting tqdm (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
-Collecting blake3 (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading blake3-1.0.9-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)
-Collecting py-cpuinfo (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading py_cpuinfo-9.0.0-py3-none-any.whl.metadata (794 bytes)
-Collecting transformers<5,>=4.56.0 (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading transformers-4.57.6-py3-none-any.whl.metadata (43 kB)
-Collecting tokenizers>=0.21.1 (from vllm==0.1.dev1+gae29af450.precompiled)
-  Using cached tokenizers-0.23.2-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.8 kB)
-Collecting protobuf (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading protobuf-7.36.1-cp310-abi3-manylinux2014_x86_64.whl.metadata (595 bytes)
-Collecting fastapi>=0.115.0 (from fastapi[standard]>=0.115.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading fastapi-0.141.1-py3-none-any.whl.metadata (27 kB)
-Collecting aiohttp (from vllm==0.1.dev1+gae29af450.precompiled)
-  Using cached aiohttp-3.14.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.3 kB)
-Collecting openai>=1.99.1 (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading openai-3.13.0-py3-none-any.whl.metadata (41 kB)
-Collecting pydantic>=2.12.0 (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading pydantic-2.13.5-py3-none-any.whl.metadata (110 kB)
-Collecting prometheus_client>=0.18.0 (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading prometheus_client-0.26.0-py3-none-any.whl.metadata (2.1 kB)
-Collecting pillow (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading pillow-12.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
-Collecting prometheus-fastapi-instrumentator>=7.0.0 (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading prometheus_fastapi_instrumentator-8.1.0-py3-none-any.whl.metadata (13 kB)
-Collecting tiktoken>=0.6.0 (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading tiktoken-0.14.0-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (6.7 kB)
-Collecting lm-format-enforcer==0.11.3 (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading lm_format_enforcer-0.11.3-py3-none-any.whl.metadata (17 kB)
-Collecting llguidance<1.4.0,>=1.3.0 (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading llguidance-1.3.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (10 kB)
-Collecting outlines_core==0.2.11 (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading outlines_core-0.2.11-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.8 kB)
-Collecting diskcache==5.6.3 (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading diskcache-5.6.3-py3-none-any.whl.metadata (20 kB)
-Collecting lark==1.2.2 (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading lark-1.2.2-py3-none-any.whl.metadata (1.8 kB)
-Collecting xgrammar==0.1.27 (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading xgrammar-0.1.27-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.8 kB)
-Requirement already satisfied: typing_extensions>=4.10 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from vllm==0.1.dev1+gae29af450.precompiled) (4.16.0)
-Requirement already satisfied: filelock>=3.16.1 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from vllm==0.1.dev1+gae29af450.precompiled) (3.32.3)
-Collecting partial-json-parser (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading partial_json_parser-0.2.1.1.post7-py3-none-any.whl.metadata (6.1 kB)
-Collecting pyzmq>=25.0.0 (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading pyzmq-27.2.0-cp312-abi3-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (3.8 kB)
-Collecting msgspec (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading msgspec-0.21.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (5.8 kB)
-Collecting gguf>=0.17.0 (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading gguf-0.19.0-py3-none-any.whl.metadata (4.1 kB)
-Collecting mistral_common>=1.8.5 (from mistral_common[image]>=1.8.5->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading mistral_common-1.11.7-py3-none-any.whl.metadata (5.9 kB)
-Collecting opencv-python-headless>=4.11.0 (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading opencv_python_headless-5.0.0.93-cp37-abi3-manylinux_2_28_x86_64.whl.metadata (19 kB)
-Collecting pyyaml (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
-Collecting six>=1.16.0 (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
-Collecting setuptools<81.0.0,>=77.0.3 (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading setuptools-80.10.2-py3-none-any.whl.metadata (6.6 kB)
-Collecting einops (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading einops-0.8.2-py3-none-any.whl.metadata (13 kB)
-Collecting compressed-tensors==0.13.0 (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading compressed_tensors-0.13.0-py3-none-any.whl.metadata (7.0 kB)
-Collecting depyf==0.20.0 (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading depyf-0.20.0-py3-none-any.whl.metadata (7.3 kB)
-Collecting cloudpickle (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading cloudpickle-3.1.2-py3-none-any.whl.metadata (7.1 kB)
-Collecting watchfiles (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading watchfiles-1.2.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)
-Collecting python-json-logger (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading python_json_logger-4.2.0-py3-none-any.whl.metadata (2.9 kB)
-Collecting scipy (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading scipy-1.18.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
-Requirement already satisfied: ninja in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from vllm==0.1.dev1+gae29af450.precompiled) (1.13.2)
-Collecting pybase64 (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading pybase64-1.5.0-cp312-cp312-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl.metadata (11 kB)
-Collecting cbor2 (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading cbor2-6.1.4-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (5.5 kB)
-Collecting ijson (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading ijson-3.5.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (23 kB)
-Collecting setproctitle (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading setproctitle-1.3.7-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (10 kB)
-Collecting openai-harmony>=0.0.3 (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading openai_harmony-0.0.8-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (8.0 kB)
-Collecting anthropic==0.71.0 (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading anthropic-0.71.0-py3-none-any.whl.metadata (28 kB)
-Collecting model-hosting-container-standards<1.0.0,>=0.1.10 (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading model_hosting_container_standards-0.1.16-py3-none-any.whl.metadata (24 kB)
-Collecting mcp (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading mcp-2.2.0-py3-none-any.whl.metadata (7.8 kB)
-Collecting numba==0.61.2 (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading numba-0.61.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.8 kB)
-Collecting ray>=2.48.0 (from ray[cgraph]>=2.48.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading ray-2.58.0-cp312-cp312-manylinux2014_x86_64.whl.metadata (23 kB)
-Requirement already satisfied: torch==2.9.1 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from vllm==0.1.dev1+gae29af450.precompiled) (2.9.1+cu129)
-Requirement already satisfied: torchaudio==2.9.1 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from vllm==0.1.dev1+gae29af450.precompiled) (2.9.1+cu129)
-Collecting torchvision==0.24.1 (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading torchvision-0.24.1-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (5.9 kB)
-Collecting flashinfer-python==0.5.3 (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading flashinfer_python-0.5.3-py3-none-any.whl.metadata (11 kB)
-Collecting anyio<5,>=3.5.0 (from anthropic==0.71.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)
-Collecting distro<2,>=1.7.0 (from anthropic==0.71.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading distro-1.9.0-py3-none-any.whl.metadata (6.8 kB)
-Collecting docstring-parser<1,>=0.15 (from anthropic==0.71.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading docstring_parser-0.18.0-py3-none-any.whl.metadata (3.5 kB)
-Collecting httpx<1,>=0.25.0 (from anthropic==0.71.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
-Collecting jiter<1,>=0.4.0 (from anthropic==0.71.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading jiter-0.16.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.2 kB)
-Collecting sniffio (from anthropic==0.71.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)
-Collecting loguru (from compressed-tensors==0.13.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading loguru-0.7.3-py3-none-any.whl.metadata (22 kB)
-Collecting astor (from depyf==0.20.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading astor-0.8.1-py2.py3-none-any.whl.metadata (4.2 kB)
-Collecting dill (from depyf==0.20.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Using cached dill-0.4.1-py3-none-any.whl.metadata (10 kB)
-Collecting apache-tvm-ffi<0.2,>=0.1 (from flashinfer-python==0.5.3->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading apache_tvm_ffi-0.1.13.post3-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (6.2 kB)
-Collecting click (from flashinfer-python==0.5.3->vllm==0.1.dev1+gae29af450.precompiled)
-  Using cached click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
-Collecting nvidia-cudnn-frontend>=1.13.0 (from flashinfer-python==0.5.3->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading nvidia_cudnn_frontend-1.28.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (17 kB)
-Collecting nvidia-cutlass-dsl>=4.2.1 (from flashinfer-python==0.5.3->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading nvidia_cutlass_dsl-4.7.1-py3-none-any.whl.metadata (2.8 kB)
-Collecting nvidia-ml-py (from flashinfer-python==0.5.3->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading nvidia_ml_py-13.610.43-py3-none-any.whl.metadata (9.7 kB)
-Requirement already satisfied: packaging>=24.2 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from flashinfer-python==0.5.3->vllm==0.1.dev1+gae29af450.precompiled) (26.3)
-Collecting tabulate (from flashinfer-python==0.5.3->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading tabulate-0.10.0-py3-none-any.whl.metadata (40 kB)
-Collecting interegular>=0.3.2 (from lm-format-enforcer==0.11.3->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading interegular-0.3.3-py37-none-any.whl.metadata (3.0 kB)
-Collecting llvmlite<0.45,>=0.44.0dev0 (from numba==0.61.2->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading llvmlite-0.44.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.0 kB)
-Collecting numpy (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading numpy-2.2.6-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)
-Requirement already satisfied: sympy>=1.13.3 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from torch==2.9.1->vllm==0.1.dev1+gae29af450.precompiled) (1.14.0)
-Requirement already satisfied: networkx>=2.5.1 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from torch==2.9.1->vllm==0.1.dev1+gae29af450.precompiled) (3.6.1)
-Requirement already satisfied: jinja2 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from torch==2.9.1->vllm==0.1.dev1+gae29af450.precompiled) (3.1.6)
-Requirement already satisfied: fsspec>=0.8.5 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from torch==2.9.1->vllm==0.1.dev1+gae29af450.precompiled) (2026.7.0)
-Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.9.86 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from torch==2.9.1->vllm==0.1.dev1+gae29af450.precompiled) (12.9.86)
-Requirement already satisfied: nvidia-cuda-runtime-cu12==12.9.79 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from torch==2.9.1->vllm==0.1.dev1+gae29af450.precompiled) (12.9.79)
-Requirement already satisfied: nvidia-cuda-cupti-cu12==12.9.79 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from torch==2.9.1->vllm==0.1.dev1+gae29af450.precompiled) (12.9.79)
-Requirement already satisfied: nvidia-cudnn-cu12==9.10.2.21 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from torch==2.9.1->vllm==0.1.dev1+gae29af450.precompiled) (9.10.2.21)
-Requirement already satisfied: nvidia-cublas-cu12==12.9.1.4 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from torch==2.9.1->vllm==0.1.dev1+gae29af450.precompiled) (12.9.1.4)
-Requirement already satisfied: nvidia-cufft-cu12==11.4.1.4 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from torch==2.9.1->vllm==0.1.dev1+gae29af450.precompiled) (11.4.1.4)
-Requirement already satisfied: nvidia-curand-cu12==10.3.10.19 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from torch==2.9.1->vllm==0.1.dev1+gae29af450.precompiled) (10.3.10.19)
-Requirement already satisfied: nvidia-cusolver-cu12==11.7.5.82 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from torch==2.9.1->vllm==0.1.dev1+gae29af450.precompiled) (11.7.5.82)
-Requirement already satisfied: nvidia-cusparse-cu12==12.5.10.65 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from torch==2.9.1->vllm==0.1.dev1+gae29af450.precompiled) (12.5.10.65)
-Requirement already satisfied: nvidia-cusparselt-cu12==0.7.1 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from torch==2.9.1->vllm==0.1.dev1+gae29af450.precompiled) (0.7.1)
-Requirement already satisfied: nvidia-nccl-cu12==2.27.5 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from torch==2.9.1->vllm==0.1.dev1+gae29af450.precompiled) (2.27.5)
-Requirement already satisfied: nvidia-nvshmem-cu12==3.3.20 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from torch==2.9.1->vllm==0.1.dev1+gae29af450.precompiled) (3.3.20)
-Requirement already satisfied: nvidia-nvtx-cu12==12.9.79 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from torch==2.9.1->vllm==0.1.dev1+gae29af450.precompiled) (12.9.79)
-Requirement already satisfied: nvidia-nvjitlink-cu12==12.9.86 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from torch==2.9.1->vllm==0.1.dev1+gae29af450.precompiled) (12.9.86)
-Requirement already satisfied: nvidia-cufile-cu12==1.14.1.1 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from torch==2.9.1->vllm==0.1.dev1+gae29af450.precompiled) (1.14.1.1)
-Requirement already satisfied: triton==3.5.1 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from torch==2.9.1->vllm==0.1.dev1+gae29af450.precompiled) (3.5.1)
-Collecting idna>=2.8 (from anyio<5,>=3.5.0->anthropic==0.71.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading idna-3.19-py3-none-any.whl.metadata (9.2 kB)
-Collecting certifi (from httpx<1,>=0.25.0->anthropic==0.71.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading certifi-2026.7.22-py3-none-any.whl.metadata (2.5 kB)
-Collecting httpcore==1.* (from httpx<1,>=0.25.0->anthropic==0.71.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
-Collecting h11>=0.16 (from httpcore==1.*->httpx<1,>=0.25.0->anthropic==0.71.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
-Collecting jmespath (from model-hosting-container-standards<1.0.0,>=0.1.10->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading jmespath-1.1.0-py3-none-any.whl.metadata (7.6 kB)
-Collecting starlette>=0.49.1 (from model-hosting-container-standards<1.0.0,>=0.1.10->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading starlette-1.6.0-py3-none-any.whl.metadata (6.4 kB)
-Collecting supervisor>=4.2.0 (from model-hosting-container-standards<1.0.0,>=0.1.10->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading supervisor-4.3.0-py2.py3-none-any.whl.metadata (87 kB)
-Collecting annotated-types>=0.6.0 (from pydantic>=2.12.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
-Collecting pydantic-core==2.46.5 (from pydantic>=2.12.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading pydantic_core-2.46.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
-Collecting typing-inspection>=0.4.2 (from pydantic>=2.12.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading typing_inspection-0.4.4-py3-none-any.whl.metadata (2.6 kB)
-Collecting huggingface-hub<1.0,>=0.34.0 (from transformers<5,>=4.56.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading huggingface_hub-0.36.2-py3-none-any.whl.metadata (15 kB)
-Collecting tokenizers>=0.21.1 (from vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.3 kB)
-Collecting safetensors>=0.4.3 (from transformers<5,>=4.56.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Using cached safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
-Collecting hf-xet<2.0.0,>=1.1.3 (from huggingface-hub<1.0,>=0.34.0->transformers<5,>=4.56.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Using cached hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
-Collecting annotated-doc>=0.0.2 (from fastapi>=0.115.0->fastapi[standard]>=0.115.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Using cached annotated_doc-0.0.5-py3-none-any.whl.metadata (6.5 kB)
-Collecting fastapi-cli>=0.0.32 (from fastapi-cli[standard]>=0.0.32; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading fastapi_cli-0.0.32-py3-none-any.whl.metadata (6.7 kB)
-Collecting fastar>=0.9.0 (from fastapi[standard]>=0.115.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading fastar-0.12.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)
-Collecting python-multipart>=0.0.18 (from fastapi[standard]>=0.115.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading python_multipart-0.0.32-py3-none-any.whl.metadata (2.1 kB)
-Collecting email-validator>=2.0.0 (from fastapi[standard]>=0.115.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading email_validator-2.3.0-py3-none-any.whl.metadata (26 kB)
-Collecting uvicorn>=0.12.0 (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading uvicorn-0.52.4-py3-none-any.whl.metadata (6.6 kB)
-Collecting pydantic-settings>=2.0.0 (from fastapi[standard]>=0.115.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading pydantic_settings-2.15.0-py3-none-any.whl.metadata (3.9 kB)
-Collecting pydantic-extra-types>=2.0.0 (from fastapi[standard]>=0.115.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading pydantic_extra_types-2.11.1-py3-none-any.whl.metadata (4.2 kB)
-Collecting dnspython>=2.0.0 (from email-validator>=2.0.0->fastapi[standard]>=0.115.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading dnspython-2.8.0-py3-none-any.whl.metadata (5.7 kB)
-Collecting typer>=0.16.0 (from fastapi-cli>=0.0.32->fastapi-cli[standard]>=0.0.32; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Using cached typer-0.27.2-py3-none-any.whl.metadata (16 kB)
-Collecting rich-toolkit>=0.14.8 (from fastapi-cli>=0.0.32->fastapi-cli[standard]>=0.0.32; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading rich_toolkit-0.20.5-py3-none-any.whl.metadata (3.0 kB)
-Collecting fastapi-cloud-cli>=0.1.1 (from fastapi-cli[standard]>=0.0.32; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading fastapi_cloud_cli-0.26.0-py3-none-any.whl.metadata (3.1 kB)
-Collecting rignore>=0.5.1 (from fastapi-cloud-cli>=0.1.1->fastapi-cli[standard]>=0.0.32; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading rignore-0.8.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
-Collecting sentry-sdk>=2.20.0 (from fastapi-cloud-cli>=0.1.1->fastapi-cli[standard]>=0.0.32; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading sentry_sdk-2.69.1-py3-none-any.whl.metadata (11 kB)
-Collecting detect-installer>=0.1.0 (from fastapi-cloud-cli>=0.1.1->fastapi-cli[standard]>=0.0.32; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading detect_installer-0.2.1-py3-none-any.whl.metadata (1.2 kB)
-Collecting agent-detector>=1.1.0 (from fastapi-cloud-cli>=0.1.1->fastapi-cli[standard]>=0.0.32; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading agent_detector-2.0.0-py3-none-any.whl.metadata (6.6 kB)
-Requirement already satisfied: MarkupSafe>=2.0 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from jinja2->torch==2.9.1->vllm==0.1.dev1+gae29af450.precompiled) (3.0.3)
-Collecting jsonschema>=4.21.1 (from mistral_common>=1.8.5->mistral_common[image]>=1.8.5->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading jsonschema-4.26.0-py3-none-any.whl.metadata (7.6 kB)
-Collecting attrs>=22.2.0 (from jsonschema>=4.21.1->mistral_common>=1.8.5->mistral_common[image]>=1.8.5->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
-Collecting jsonschema-specifications>=2023.03.6 (from jsonschema>=4.21.1->mistral_common>=1.8.5->mistral_common[image]>=1.8.5->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl.metadata (2.9 kB)
-Collecting referencing>=0.28.4 (from jsonschema>=4.21.1->mistral_common>=1.8.5->mistral_common[image]>=1.8.5->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading referencing-0.37.0-py3-none-any.whl.metadata (2.8 kB)
-Collecting rpds-py>=0.25.0 (from jsonschema>=4.21.1->mistral_common>=1.8.5->mistral_common[image]>=1.8.5->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading rpds_py-2026.6.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)
-Collecting nvidia-cutlass-dsl-libs-base==4.7.1 (from nvidia-cutlass-dsl>=4.2.1->flashinfer-python==0.5.3->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading nvidia_cutlass_dsl_libs_base-4.7.1-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (2.9 kB)
-Collecting nvidia-cutlass-dsl-libs-cu12==4.7.1 (from nvidia-cutlass-dsl>=4.2.1->flashinfer-python==0.5.3->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading nvidia_cutlass_dsl_libs_cu12-4.7.1-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (2.9 kB)
-Collecting cuda-python>=12.8 (from nvidia-cutlass-dsl-libs-base==4.7.1->nvidia-cutlass-dsl>=4.2.1->flashinfer-python==0.5.3->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading cuda_python-13.4.1-py3-none-any.whl.metadata (6.8 kB)
-Collecting nvidia-cuda-nvdisasm<14,>=13.3 (from nvidia-cutlass-dsl-libs-base==4.7.1->nvidia-cutlass-dsl>=4.2.1->flashinfer-python==0.5.3->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading nvidia_cuda_nvdisasm-13.4.49-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.9 kB)
-Collecting nvidia-cutlass-dsl-libs-core==4.7.1 (from nvidia-cutlass-dsl-libs-base==4.7.1->nvidia-cutlass-dsl>=4.2.1->flashinfer-python==0.5.3->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading nvidia_cutlass_dsl_libs_core-4.7.1-py3-none-any.whl.metadata (2.8 kB)
-Collecting cuda-bindings~=13.4.1 (from cuda-python>=12.8->nvidia-cutlass-dsl-libs-base==4.7.1->nvidia-cutlass-dsl>=4.2.1->flashinfer-python==0.5.3->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading cuda_bindings-13.4.1-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
-Collecting cuda-core~=1.2.0 (from cuda-python>=12.8->nvidia-cutlass-dsl-libs-base==4.7.1->nvidia-cutlass-dsl>=4.2.1->flashinfer-python==0.5.3->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading cuda_core-1.2.0-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (3.3 kB)
-Collecting cuda-pathfinder~=1.1 (from cuda-python>=12.8->nvidia-cutlass-dsl-libs-base==4.7.1->nvidia-cutlass-dsl>=4.2.1->flashinfer-python==0.5.3->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading cuda_pathfinder-1.8.1-py3-none-any.whl.metadata (1.9 kB)
-Collecting httpx2<3,>=2.7.0 (from openai>=1.99.1->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading httpx2-2.12.0-py3-none-any.whl.metadata (9.5 kB)
-Collecting httpcore2==2.12.0 (from httpx2<3,>=2.7.0->openai>=1.99.1->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading httpcore2-2.12.0-py3-none-any.whl.metadata (25 kB)
-Collecting truststore>=0.10 (from httpx2<3,>=2.7.0->openai>=1.99.1->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading truststore-0.10.4-py3-none-any.whl.metadata (4.4 kB)
-Collecting pycountry>=23 (from pydantic-extra-types[pycountry]>=2.10.5->mistral_common>=1.8.5->mistral_common[image]>=1.8.5->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading pycountry-26.2.16-py3-none-any.whl.metadata (12 kB)
-Collecting python-dotenv>=0.21.0 (from pydantic-settings>=2.0.0->fastapi[standard]>=0.115.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading python_dotenv-1.2.3-py3-none-any.whl.metadata (29 kB)
-Collecting msgpack<2.0.0,>=1.0.0 (from ray>=2.48.0->ray[cgraph]>=2.48.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading msgpack-1.2.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.3 kB)
-Collecting cupy-cuda12x (from ray[cgraph]>=2.48.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading cupy_cuda12x-14.2.0-cp312-cp312-manylinux2014_x86_64.whl.metadata (2.8 kB)
-Collecting charset_normalizer<4,>=2 (from requests>=2.26.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading charset_normalizer-3.5.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (45 kB)
-Collecting urllib3<3,>=1.26 (from requests>=2.26.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading urllib3-2.7.0-py3-none-any.whl.metadata (6.9 kB)
-Collecting rich>=13.7.1 (from rich-toolkit>=0.14.8->fastapi-cli>=0.0.32->fastapi-cli[standard]>=0.0.32; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Using cached rich-15.0.0-py3-none-any.whl.metadata (18 kB)
-Collecting markdown-it-py>=2.2.0 (from rich>=13.7.1->rich-toolkit>=0.14.8->fastapi-cli>=0.0.32->fastapi-cli[standard]>=0.0.32; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Using cached markdown_it_py-4.2.0-py3-none-any.whl.metadata (7.4 kB)
-Collecting pygments<3.0.0,>=2.13.0 (from rich>=13.7.1->rich-toolkit>=0.14.8->fastapi-cli>=0.0.32->fastapi-cli[standard]>=0.0.32; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
-Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=13.7.1->rich-toolkit>=0.14.8->fastapi-cli>=0.0.32->fastapi-cli[standard]>=0.0.32; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Using cached mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
-Requirement already satisfied: mpmath<1.4,>=1.1.0 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from sympy>=1.13.3->torch==2.9.1->vllm==0.1.dev1+gae29af450.precompiled) (1.3.0)
-Collecting shellingham>=1.3.0 (from typer>=0.16.0->fastapi-cli>=0.0.32->fastapi-cli[standard]>=0.0.32; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Using cached shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
-Collecting httptools>=0.8.0 (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading httptools-0.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (3.5 kB)
-Collecting uvloop>=0.15.1 (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading uvloop-0.22.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (4.9 kB)
-Collecting websockets>=13.0 (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading websockets-17.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (6.3 kB)
-Collecting aiohappyeyeballs>=2.5.0 (from aiohttp->vllm==0.1.dev1+gae29af450.precompiled)
-  Using cached aiohappyeyeballs-2.7.1-py3-none-any.whl.metadata (5.9 kB)
-Collecting aiosignal>=1.4.0 (from aiohttp->vllm==0.1.dev1+gae29af450.precompiled)
-  Using cached aiosignal-1.4.0-py3-none-any.whl.metadata (3.7 kB)
-Collecting frozenlist>=1.1.1 (from aiohttp->vllm==0.1.dev1+gae29af450.precompiled)
-  Using cached frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (20 kB)
-Collecting multidict<7.0,>=4.5 (from aiohttp->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading multidict-6.8.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (5.3 kB)
-Collecting propcache>=0.2.0 (from aiohttp->vllm==0.1.dev1+gae29af450.precompiled)
-  Using cached propcache-0.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (16 kB)
-Collecting yarl<2.0,>=1.17.0 (from aiohttp->vllm==0.1.dev1+gae29af450.precompiled)
-  Using cached yarl-1.24.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (103 kB)
-Collecting mcp-types==2.2.0 (from mcp->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading mcp_types-2.2.0-py3-none-any.whl.metadata (1.9 kB)
-Collecting opentelemetry-api>=1.28.0 (from mcp->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading opentelemetry_api-1.44.0-py3-none-any.whl.metadata (1.4 kB)
-Collecting pyjwt>=2.10.1 (from pyjwt[crypto]>=2.10.1->mcp->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading pyjwt-2.13.0-py3-none-any.whl.metadata (3.4 kB)
-Collecting sse-starlette>=3.0.0 (from mcp->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading sse_starlette-3.4.11-py3-none-any.whl.metadata (15 kB)
-Collecting cryptography>=3.4.0 (from pyjwt[crypto]>=2.10.1->mcp->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading cryptography-50.0.1-cp311-abi3-manylinux_2_34_x86_64.whl.metadata (4.3 kB)
-Collecting cffi>=2.0.0 (from cryptography>=3.4.0->pyjwt[crypto]>=2.10.1->mcp->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.5 kB)
-Collecting pycparser (from cffi>=2.0.0->cryptography>=3.4.0->pyjwt[crypto]>=2.10.1->mcp->vllm==0.1.dev1+gae29af450.precompiled)
-  Downloading pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)
-Downloading anthropic-0.71.0-py3-none-any.whl (355 kB)
-Downloading compressed_tensors-0.13.0-py3-none-any.whl (192 kB)
-Downloading depyf-0.20.0-py3-none-any.whl (39 kB)
-Downloading diskcache-5.6.3-py3-none-any.whl (45 kB)
-Downloading flashinfer_python-0.5.3-py3-none-any.whl (7.0 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/7.0 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━[0m [32m6.8/7.0 MB[0m [31m39.8 MB/s[0m eta [36m0:00:01[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m7.0/7.0 MB[0m [31m35.8 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading lark-1.2.2-py3-none-any.whl (111 kB)
-Downloading lm_format_enforcer-0.11.3-py3-none-any.whl (45 kB)
-Downloading numba-0.61.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (3.9 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/3.9 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m3.9/3.9 MB[0m [31m65.0 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading outlines_core-0.2.11-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.3 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/2.3 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m2.3/2.3 MB[0m [31m73.6 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading torchvision-0.24.1-cp312-cp312-manylinux_2_28_x86_64.whl (8.0 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/8.0 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m8.0/8.0 MB[0m [31m114.3 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading xgrammar-0.1.27-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (8.9 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/8.9 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m8.9/8.9 MB[0m [31m140.7 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading anyio-4.15.1-py3-none-any.whl (132 kB)
-Downloading apache_tvm_ffi-0.1.13.post3-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (3.0 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/3.0 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m3.0/3.0 MB[0m [31m153.4 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading distro-1.9.0-py3-none-any.whl (20 kB)
-Downloading docstring_parser-0.18.0-py3-none-any.whl (22 kB)
-Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
-Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
-Downloading jiter-0.16.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (343 kB)
-Downloading llguidance-1.3.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.0 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/3.0 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m3.0/3.0 MB[0m [31m135.1 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading llvmlite-0.44.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (42.4 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/42.4 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m [32m42.2/42.4 MB[0m [31m312.8 MB/s[0m eta [36m0:00:01[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m42.4/42.4 MB[0m [31m204.0 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading model_hosting_container_standards-0.1.16-py3-none-any.whl (125 kB)
-Downloading numpy-2.2.6-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.5 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/16.5 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m16.5/16.5 MB[0m [31m254.6 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading pydantic-2.13.5-py3-none-any.whl (472 kB)
-Downloading pydantic_core-2.46.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/2.1 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m2.1/2.1 MB[0m [31m194.9 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading setuptools-80.10.2-py3-none-any.whl (1.1 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/1.1 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.1/1.1 MB[0m [31m146.6 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading transformers-4.57.6-py3-none-any.whl (12.0 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/12.0 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m12.0/12.0 MB[0m [31m250.6 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading huggingface_hub-0.36.2-py3-none-any.whl (566 kB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/566.4 kB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m566.4/566.4 kB[0m [31m74.9 MB/s[0m  [33m0:00:00[0m
-[?25hUsing cached hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.5 MB)
-Downloading tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/3.3 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m3.3/3.3 MB[0m [31m204.3 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
-Downloading fastapi-0.141.1-py3-none-any.whl (131 kB)
-Using cached annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
-Downloading email_validator-2.3.0-py3-none-any.whl (35 kB)
-Downloading dnspython-2.8.0-py3-none-any.whl (331 kB)
-Downloading fastapi_cli-0.0.32-py3-none-any.whl (14 kB)
-Downloading fastapi_cloud_cli-0.26.0-py3-none-any.whl (108 kB)
-Downloading agent_detector-2.0.0-py3-none-any.whl (9.4 kB)
-Downloading detect_installer-0.2.1-py3-none-any.whl (5.4 kB)
-Downloading fastar-0.12.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (808 kB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/808.1 kB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m808.1/808.1 kB[0m [31m113.1 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading gguf-0.19.0-py3-none-any.whl (118 kB)
-Downloading h11-0.16.0-py3-none-any.whl (37 kB)
-Downloading idna-3.19-py3-none-any.whl (68 kB)
-Downloading interegular-0.3.3-py37-none-any.whl (23 kB)
-Downloading mistral_common-1.11.7-py3-none-any.whl (6.6 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/6.6 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m6.6/6.6 MB[0m [31m179.7 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading jsonschema-4.26.0-py3-none-any.whl (90 kB)
-Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
-Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl (18 kB)
-Downloading nvidia_cudnn_frontend-1.28.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (5.7 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/5.7 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m5.7/5.7 MB[0m [31m173.5 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading nvidia_cutlass_dsl-4.7.1-py3-none-any.whl (10 kB)
-Downloading nvidia_cutlass_dsl_libs_base-4.7.1-cp312-cp312-manylinux_2_28_x86_64.whl (2.8 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/2.8 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m2.8/2.8 MB[0m [31m160.6 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading nvidia_cutlass_dsl_libs_core-4.7.1-py3-none-any.whl (1.2 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/1.2 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.2/1.2 MB[0m [31m161.3 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading nvidia_cutlass_dsl_libs_cu12-4.7.1-cp312-cp312-manylinux_2_28_x86_64.whl (88.7 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/88.7 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━[0m [32m55.6/88.7 MB[0m [31m279.6 MB/s[0m eta [36m0:00:01[0m[2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m [32m88.6/88.7 MB[0m [31m277.8 MB/s[0m eta [36m0:00:01[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m88.7/88.7 MB[0m [31m194.4 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading nvidia_cuda_nvdisasm-13.4.49-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.2 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/5.2 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m5.2/5.2 MB[0m [31m154.3 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading cuda_python-13.4.1-py3-none-any.whl (7.6 kB)
-Downloading cuda_bindings-13.4.1-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (7.2 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/7.2 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m7.2/7.2 MB[0m [31m194.3 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading cuda_core-1.2.0-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (6.6 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/6.6 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m6.6/6.6 MB[0m [31m182.4 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading cuda_pathfinder-1.8.1-py3-none-any.whl (62 kB)
-Downloading openai-3.13.0-py3-none-any.whl (2.0 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/2.0 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m2.0/2.0 MB[0m [31m204.1 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading httpx2-2.12.0-py3-none-any.whl (95 kB)
-Downloading httpcore2-2.12.0-py3-none-any.whl (83 kB)
-Downloading openai_harmony-0.0.8-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.0 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/3.0 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m3.0/3.0 MB[0m [31m213.1 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading opencv_python_headless-5.0.0.93-cp37-abi3-manylinux_2_28_x86_64.whl (61.2 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/61.2 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m [32m61.1/61.2 MB[0m [31m518.5 MB/s[0m eta [36m0:00:01[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m61.2/61.2 MB[0m [31m290.5 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading pillow-12.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.9 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/6.9 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m6.9/6.9 MB[0m [31m254.3 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading prometheus_client-0.26.0-py3-none-any.whl (64 kB)
-Downloading prometheus_fastapi_instrumentator-8.1.0-py3-none-any.whl (19 kB)
-Downloading starlette-1.6.0-py3-none-any.whl (75 kB)
-Downloading protobuf-7.36.1-cp310-abi3-manylinux2014_x86_64.whl (343 kB)
-Downloading pydantic_extra_types-2.11.1-py3-none-any.whl (79 kB)
-Downloading pycountry-26.2.16-py3-none-any.whl (8.0 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/8.0 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m8.0/8.0 MB[0m [31m253.1 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading pydantic_settings-2.15.0-py3-none-any.whl (69 kB)
-Downloading python_dotenv-1.2.3-py3-none-any.whl (22 kB)
-Downloading python_multipart-0.0.32-py3-none-any.whl (30 kB)
-Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/807.9 kB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m807.9/807.9 kB[0m [31m111.0 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading pyzmq-27.2.0-cp312-abi3-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (872 kB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/872.3 kB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m872.3/872.3 kB[0m [31m97.6 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading ray-2.58.0-cp312-cp312-manylinux2014_x86_64.whl (78.4 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/78.4 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━[0m [32m57.9/78.4 MB[0m [31m289.9 MB/s[0m eta [36m0:00:01[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m78.4/78.4 MB[0m [31m201.7 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading msgpack-1.2.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (420 kB)
-Using cached click-8.5.0-py3-none-any.whl (125 kB)
-Downloading referencing-0.37.0-py3-none-any.whl (26 kB)
-Downloading regex-2026.9.10-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (804 kB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/804.6 kB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m804.6/804.6 kB[0m [31m109.9 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading requests-2.34.2-py3-none-any.whl (73 kB)
-Downloading charset_normalizer-3.5.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (248 kB)
-Downloading urllib3-2.7.0-py3-none-any.whl (131 kB)
-Downloading certifi-2026.7.22-py3-none-any.whl (136 kB)
-Downloading rich_toolkit-0.20.5-py3-none-any.whl (39 kB)
-Using cached rich-15.0.0-py3-none-any.whl (310 kB)
-Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/1.3 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.3/1.3 MB[0m [31m153.4 MB/s[0m  [33m0:00:00[0m
-[?25hUsing cached markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
-Using cached mdurl-0.1.2-py3-none-any.whl (10.0 kB)
-Downloading rignore-0.8.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (927 kB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/927.8 kB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m927.8/927.8 kB[0m [31m135.6 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading rpds_py-2026.6.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (366 kB)
-Using cached safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (516 kB)
-Downloading sentry_sdk-2.69.1-py3-none-any.whl (528 kB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/528.6 kB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m528.6/528.6 kB[0m [31m68.9 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading six-1.17.0-py2.py3-none-any.whl (11 kB)
-Downloading supervisor-4.3.0-py2.py3-none-any.whl (320 kB)
-Downloading tiktoken-0.14.0-cp312-cp312-manylinux_2_28_x86_64.whl (1.2 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/1.2 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.2/1.2 MB[0m [31m159.4 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading tqdm-4.70.1-py3-none-any.whl (80 kB)
-Downloading truststore-0.10.4-py3-none-any.whl (18 kB)
-Using cached typer-0.27.2-py3-none-any.whl (123 kB)
-Using cached shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
-Downloading typing_inspection-0.4.4-py3-none-any.whl (14 kB)
-Downloading uvicorn-0.52.4-py3-none-any.whl (79 kB)
-Downloading httptools-0.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (523 kB)
-Downloading uvloop-0.22.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (4.4 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/4.4 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m4.4/4.4 MB[0m [31m236.7 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading watchfiles-1.2.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (456 kB)
-Downloading websockets-17.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (224 kB)
-Using cached aiohttp-3.14.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.8 MB)
-Downloading multidict-6.8.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (287 kB)
-Using cached yarl-1.24.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (109 kB)
-Using cached aiohappyeyeballs-2.7.1-py3-none-any.whl (15 kB)
-Using cached aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
-Using cached frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (242 kB)
-Using cached propcache-0.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (61 kB)
-Downloading astor-0.8.1-py2.py3-none-any.whl (27 kB)
-Downloading blake3-1.0.9-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (383 kB)
-Downloading cachetools-7.1.8-py3-none-any.whl (16 kB)
-Downloading cbor2-6.1.4-cp312-cp312-manylinux_2_28_x86_64.whl (461 kB)
-Downloading cloudpickle-3.1.2-py3-none-any.whl (22 kB)
-Downloading cupy_cuda12x-14.2.0-cp312-cp312-manylinux2014_x86_64.whl (136.1 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/136.1 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [91m━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━[0m [32m54.5/136.1 MB[0m [31m274.3 MB/s[0m eta [36m0:00:01[0m[2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━[0m [32m107.2/136.1 MB[0m [31m266.7 MB/s[0m eta [36m0:00:01[0m[2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m [32m136.1/136.1 MB[0m [31m266.4 MB/s[0m eta [36m0:00:01[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m136.1/136.1 MB[0m [31m189.8 MB/s[0m  [33m0:00:00[0m
-[?25hUsing cached dill-0.4.1-py3-none-any.whl (120 kB)
-Downloading einops-0.8.2-py3-none-any.whl (65 kB)
-Downloading ijson-3.5.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (149 kB)
-Downloading jmespath-1.1.0-py3-none-any.whl (20 kB)
-Downloading loguru-0.7.3-py3-none-any.whl (61 kB)
-Downloading mcp-2.2.0-py3-none-any.whl (365 kB)
-Downloading mcp_types-2.2.0-py3-none-any.whl (69 kB)
-Downloading opentelemetry_api-1.44.0-py3-none-any.whl (60 kB)
-Downloading pyjwt-2.13.0-py3-none-any.whl (31 kB)
-Downloading cryptography-50.0.1-cp311-abi3-manylinux_2_34_x86_64.whl (4.7 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/4.7 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m4.7/4.7 MB[0m [31m213.2 MB/s[0m  [33m0:00:00[0m
-[?25hDownloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (221 kB)
-Downloading sse_starlette-3.4.11-py3-none-any.whl (17 kB)
-Downloading msgspec-0.21.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (225 kB)
-Downloading nvidia_ml_py-13.610.43-py3-none-any.whl (53 kB)
-Downloading partial_json_parser-0.2.1.1.post7-py3-none-any.whl (10 kB)
-Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)
-Downloading py_cpuinfo-9.0.0-py3-none-any.whl (22 kB)
-Downloading pybase64-1.5.0-cp312-cp312-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl (94 kB)
-Downloading pycparser-3.0-py3-none-any.whl (48 kB)
-Downloading python_json_logger-4.2.0-py3-none-any.whl (14 kB)
-Downloading scipy-1.18.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)
-[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/35.3 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m35.3/35.3 MB[0m [31m256.7 MB/s[0m  [33m0:00:00[0m
-[?25hUsing cached sentencepiece-0.2.2-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (1.4 MB)
-Downloading setproctitle-1.3.7-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (32 kB)
-Downloading sniffio-1.3.1-py3-none-any.whl (10 kB)
-Downloading tabulate-0.10.0-py3-none-any.whl (39 kB)
-Building wheels for collected packages: vllm
-  Building editable for vllm (pyproject.toml) ... [?25l- \ | / done
-[?25h  Created wheel for vllm: filename=vllm-0.1.dev1+gae29af450.precompiled-0.editable-cp312-cp312-linux_x86_64.whl size=12284 sha256=39e4b0d72a8ae1ed28b32aaf9f0de1bd35fd3ad18c9c7125d8fa5601f581a581
-  Stored in directory: /tmp/pip-ephem-wheel-cache-i9hrk5fk/wheels/9d/f6/c0/0db7a99fbe5a158bb2fd4d8db3af3f8e3f5c0150369bc7f2f9
-Successfully built vllm
-Installing collected packages: supervisor, py-cpuinfo, nvidia-ml-py, websockets, uvloop, urllib3, typing-inspection, truststore, tqdm, tabulate, sniffio, six, shellingham, setuptools, setproctitle, sentencepiece, safetensors, rpds-py, rignore, regex, pyzmq, pyyaml, python-multipart, python-json-logger, python-dotenv, pyjwt, pygments, pydantic-core, pycparser, pycountry, pybase64, psutil, protobuf, propcache, prometheus_client, pillow, partial-json-parser, outlines_core, opentelemetry-api, nvidia-cudnn-frontend, nvidia-cuda-nvdisasm, numpy, multidict, msgspec, msgpack, mdurl, loguru, llvmlite, llguidance, lark, jmespath, jiter, interegular, ijson, idna, httptools, hf-xet, h11, frozenlist, fastar, einops, docstring-parser, dnspython, distro, diskcache, dill, detect-installer, cuda-pathfinder, cloudpickle, click, charset_normalizer, certifi, cbor2, cachetools, blake3, attrs, astor, apache-tvm-ffi, annotated-types, annotated-doc, aiohappyeyeballs, agent-detector, yarl, uvicorn, sentry-sdk, scipy, requests, referencing, pydantic, opencv-python-headless, numba, markdown-it-py, httpcore2, httpcore, email-validator, depyf, cupy-cuda12x, cuda-core, cuda-bindings, cffi, anyio, aiosignal, watchfiles, tiktoken, starlette, rich, pydantic-settings, pydantic-extra-types, openai-harmony, mcp-types, lm-format-enforcer, jsonschema-specifications, huggingface-hub, httpx2, httpx, gguf, cuda-python, cryptography, aiohttp, typer, torchvision, tokenizers, sse-starlette, rich-toolkit, prometheus-fastapi-instrumentator, openai, nvidia-cutlass-dsl-libs-core, jsonschema, fastapi, anthropic, transformers, ray, nvidia-cutlass-dsl-libs-base, model-hosting-container-standards, mistral_common, mcp, fastapi-cloud-cli, fastapi-cli, xgrammar, nvidia-cutlass-dsl-libs-cu12, compressed-tensors, nvidia-cutlass-dsl, flashinfer-python, vllm
-[?25l[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m  0/144[0m [supervisor][2K   [91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m  2/144[0m [nvidia-ml-py][2K   [91m━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m  4/144[0m [uvloop][2K   [91m━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m  8/144[0m [tqdm][2K  Attempting uninstall: setuptools
-   [91m━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m  8/144[0m [tqdm][2K    Found existing installation: setuptools 84.0.0
-   [91m━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m  8/144[0m [tqdm][2K    Uninstalling setuptools-84.0.0:
-   [91m━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m  8/144[0m [tqdm][2K   [91m━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 13/144[0m [setuptools][2K      Successfully uninstalled setuptools-84.0.0
-   [91m━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 13/144[0m [setuptools][2K   [91m━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 13/144[0m [setuptools][2K   [91m━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 13/144[0m [setuptools][2K   [91m━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 13/144[0m [setuptools][2K   [91m━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 13/144[0m [setuptools][2K   [91m━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 19/144[0m [regex][2K   [91m━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 21/144[0m [pyyaml][2K   [91m━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 26/144[0m [pygments][2K   [91m━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 26/144[0m [pygments][2K   [91m━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 26/144[0m [pygments][2K   [91m━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 26/144[0m [pygments][2K   [91m━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 28/144[0m [pycparser][2K   [91m━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 29/144[0m [pycountry][2K   [91m━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 32/144[0m [protobuf][2K   [91m━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 35/144[0m [pillow][2K   [91m━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 35/144[0m [pillow][2K   [91m━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 36/144[0m [partial-json-parser][2K   [91m━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 39/144[0m [nvidia-cudnn-frontend][2K   [91m━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 39/144[0m [nvidia-cudnn-frontend][2K   [91m━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 39/144[0m [nvidia-cudnn-frontend][2K   [91m━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 39/144[0m [nvidia-cudnn-frontend][2K   [91m━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 39/144[0m [nvidia-cudnn-frontend][2K   [91m━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 39/144[0m [nvidia-cudnn-frontend][2K   [91m━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 39/144[0m [nvidia-cudnn-frontend][2K   [91m━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 39/144[0m [nvidia-cudnn-frontend][2K   [91m━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 39/144[0m [nvidia-cudnn-frontend][2K   [91m━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 39/144[0m [nvidia-cudnn-frontend][2K   [91m━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 39/144[0m [nvidia-cudnn-frontend][2K   [91m━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 39/144[0m [nvidia-cudnn-frontend][2K   [91m━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 39/144[0m [nvidia-cudnn-frontend][2K   [91m━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 39/144[0m [nvidia-cudnn-frontend][2K  Attempting uninstall: numpy
-   [91m━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 39/144[0m [nvidia-cudnn-frontend][2K    Found existing installation: numpy 2.5.3
-   [91m━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 39/144[0m [nvidia-cudnn-frontend][2K    Uninstalling numpy-2.5.3:
-   [91m━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 39/144[0m [nvidia-cudnn-frontend][2K      Successfully uninstalled numpy-2.5.3
-   [91m━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 39/144[0m [nvidia-cudnn-frontend][2K   [91m━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 41/144[0m [numpy][2K   [91m━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 41/144[0m [numpy][2K   [91m━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 41/144[0m [numpy][2K   [91m━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 41/144[0m [numpy][2K   [91m━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 41/144[0m [numpy][2K   [91m━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 41/144[0m [numpy][2K   [91m━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 41/144[0m [numpy][2K   [91m━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 41/144[0m [numpy][2K   [91m━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 41/144[0m [numpy][2K   [91m━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 41/144[0m [numpy][2K   [91m━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 41/144[0m [numpy][2K   [91m━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 41/144[0m [numpy][2K   [91m━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 43/144[0m [msgspec][2K   [91m━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 47/144[0m [llvmlite][2K   [91m━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 47/144[0m [llvmlite][2K   [91m━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 47/144[0m [llvmlite][2K   [91m━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 47/144[0m [llvmlite][2K   [91m━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 47/144[0m [llvmlite][2K   [91m━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 48/144[0m [llguidance][2K   [91m━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 52/144[0m [interegular][2K   [91m━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m 57/144[0m [h11][2K   [91m━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━[0m [32m 62/144[0m [dnspython][2K   [91m━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━[0m [32m 62/144[0m [dnspython][2K   [91m━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━━━━━━[0m [32m 67/144[0m [cuda-pathfinder][2K   [91m━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━[0m [32m 72/144[0m [cbor2][2K   [91m━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━[0m [32m 77/144[0m [apache-tvm-ffi][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━[0m [32m 83/144[0m [uvicorn][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━[0m [32m 84/144[0m [sentry-sdk][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━[0m [32m 84/144[0m [sentry-sdk][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━[0m [32m 85/144[0m [scipy][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━[0m [32m 85/144[0m [scipy][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━[0m [32m 85/144[0m [scipy][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━[0m [32m 85/144[0m [scipy][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━[0m [32m 85/144[0m [scipy][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━[0m [32m 85/144[0m [scipy][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━[0m [32m 85/144[0m [scipy][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━[0m [32m 85/144[0m [scipy][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━[0m [32m 85/144[0m [scipy][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━[0m [32m 85/144[0m [scipy][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━[0m [32m 85/144[0m [scipy][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━[0m [32m 85/144[0m [scipy][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━[0m [32m 85/144[0m [scipy][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━[0m [32m 85/144[0m [scipy][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━[0m [32m 85/144[0m [scipy][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━━[0m [32m 85/144[0m [scipy][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━[0m [32m 88/144[0m [pydantic][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━[0m [32m 89/144[0m [opencv-python-headless][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━[0m [32m 89/144[0m [opencv-python-headless][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━[0m [32m 89/144[0m [opencv-python-headless][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━━━[0m [32m 89/144[0m [opencv-python-headless][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━[0m [32m 90/144[0m [numba][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━[0m [32m 90/144[0m [numba][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━[0m [32m 90/144[0m [numba][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━[0m [32m 90/144[0m [numba][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━[0m [32m 90/144[0m [numba][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━[0m [32m 90/144[0m [numba][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━[0m [32m 90/144[0m [numba][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━[0m [32m 90/144[0m [numba][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━[0m [32m 91/144[0m [markdown-it-py][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━[0m [32m 96/144[0m [cupy-cuda12x][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━[0m [32m 96/144[0m [cupy-cuda12x][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━[0m [32m 96/144[0m [cupy-cuda12x][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━[0m [32m 96/144[0m [cupy-cuda12x][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━[0m [32m 96/144[0m [cupy-cuda12x][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━[0m [32m 96/144[0m [cupy-cuda12x][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━[0m [32m 96/144[0m [cupy-cuda12x][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━[0m [32m 96/144[0m [cupy-cuda12x][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━[0m [32m 96/144[0m [cupy-cuda12x][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━[0m [32m 96/144[0m [cupy-cuda12x][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━━━[0m [32m 97/144[0m [cuda-core][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━[0m [32m 98/144[0m [cuda-bindings][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━━━━━[0m [32m104/144[0m [starlette][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━[0m [32m105/144[0m [rich][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━[0m [32m112/144[0m [huggingface-hub][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━[0m [32m113/144[0m [httpx2][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━[0m [32m117/144[0m [cryptography][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━━━[0m [32m118/144[0m [aiohttp][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━[0m [32m120/144[0m [torchvision][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━[0m [32m120/144[0m [torchvision][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━[0m [32m125/144[0m [openai][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━[0m [32m125/144[0m [openai][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━[0m [32m125/144[0m [openai][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━[0m [32m125/144[0m [openai][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━━[0m [32m125/144[0m [openai][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━[0m [32m126/144[0m [nvidia-cutlass-dsl-libs-core][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━[0m [32m126/144[0m [nvidia-cutlass-dsl-libs-core][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━[0m [32m128/144[0m [fastapi][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━━[0m [32m129/144[0m [anthropic][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m130/144[0m [transformers][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m131/144[0m [ray][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m131/144[0m [ray][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m131/144[0m [ray][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m131/144[0m [ray][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m131/144[0m [ray][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m131/144[0m [ray][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m131/144[0m [ray][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m131/144[0m [ray][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m131/144[0m [ray][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m131/144[0m [ray][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m131/144[0m [ray][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m131/144[0m [ray][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m131/144[0m [ray][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m131/144[0m [ray][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m131/144[0m [ray][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m131/144[0m [ray][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m131/144[0m [ray][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m131/144[0m [ray][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━[0m [32m131/144[0m [ray][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━[0m [32m132/144[0m [nvidia-cutlass-dsl-libs-base][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━━[0m [32m132/144[0m [nvidia-cutlass-dsl-libs-base][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━[0m [32m134/144[0m [mistral_common][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━━[0m [32m135/144[0m [mcp][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━[0m [32m138/144[0m [xgrammar][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━[0m [32m139/144[0m [nvidia-cutlass-dsl-libs-cu12][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━[0m [32m139/144[0m [nvidia-cutlass-dsl-libs-cu12][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━[0m [32m139/144[0m [nvidia-cutlass-dsl-libs-cu12][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━[0m [32m139/144[0m [nvidia-cutlass-dsl-libs-cu12][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[91m╸[0m[90m━[0m [32m139/144[0m [nvidia-cutlass-dsl-libs-cu12][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m [32m142/144[0m [flashinfer-python][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m [32m142/144[0m [flashinfer-python][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m [32m142/144[0m [flashinfer-python][2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m [32m142/144[0m [flashinfer-python][2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m144/144[0m [vllm]
-[?25h[1A[2KSuccessfully installed agent-detector-2.0.0 aiohappyeyeballs-2.7.1 aiohttp-3.14.3 aiosignal-1.4.0 annotated-doc-0.0.5 annotated-types-0.8.0 anthropic-0.71.0 anyio-4.15.1 apache-tvm-ffi-0.1.13.post3 astor-0.8.1 attrs-26.1.0 blake3-1.0.9 cachetools-7.1.8 cbor2-6.1.4 certifi-2026.7.22 cffi-2.1.1 charset_normalizer-3.5.1 click-8.5.0 cloudpickle-3.1.2 compressed-tensors-0.13.0 cryptography-50.0.1 cuda-bindings-13.4.1 cuda-core-1.2.0 cuda-pathfinder-1.8.1 cuda-python-13.4.1 cupy-cuda12x-14.2.0 depyf-0.20.0 detect-installer-0.2.1 dill-0.4.1 diskcache-5.6.3 distro-1.9.0 dnspython-2.8.0 docstring-parser-0.18.0 einops-0.8.2 email-validator-2.3.0 fastapi-0.141.1 fastapi-cli-0.0.32 fastapi-cloud-cli-0.26.0 fastar-0.12.0 flashinfer-python-0.5.3 frozenlist-1.8.0 gguf-0.19.0 h11-0.16.0 hf-xet-1.6.0 httpcore-1.0.9 httpcore2-2.12.0 httptools-0.8.0 httpx-0.28.1 httpx2-2.12.0 huggingface-hub-0.36.2 idna-3.19 ijson-3.5.1 interegular-0.3.3 jiter-0.16.0 jmespath-1.1.0 jsonschema-4.26.0 jsonschema-specifications-2025.9.1 lark-1.2.2 llguidance-1.3.0 llvmlite-0.44.0 lm-format-enforcer-0.11.3 loguru-0.7.3 markdown-it-py-4.2.0 mcp-2.2.0 mcp-types-2.2.0 mdurl-0.1.2 mistral_common-1.11.7 model-hosting-container-standards-0.1.16 msgpack-1.2.2 msgspec-0.21.1 multidict-6.8.0 numba-0.61.2 numpy-2.2.6 nvidia-cuda-nvdisasm-13.4.49 nvidia-cudnn-frontend-1.28.0 nvidia-cutlass-dsl-4.7.1 nvidia-cutlass-dsl-libs-base-4.7.1 nvidia-cutlass-dsl-libs-core-4.7.1 nvidia-cutlass-dsl-libs-cu12-4.7.1 nvidia-ml-py-13.610.43 openai-3.13.0 openai-harmony-0.0.8 opencv-python-headless-5.0.0.93 opentelemetry-api-1.44.0 outlines_core-0.2.11 partial-json-parser-0.2.1.1.post7 pillow-12.3.0 prometheus-fastapi-instrumentator-8.1.0 prometheus_client-0.26.0 propcache-0.5.2 protobuf-7.36.1 psutil-7.2.2 py-cpuinfo-9.0.0 pybase64-1.5.0 pycountry-26.2.16 pycparser-3.0 pydantic-2.13.5 pydantic-core-2.46.5 pydantic-extra-types-2.11.1 pydantic-settings-2.15.0 pygments-2.21.0 pyjwt-2.13.0 python-dotenv-1.2.3 python-json-logger-4.2.0 python-multipart-0.0.32 pyyaml-6.0.3 pyzmq-27.2.0 ray-2.58.0 referencing-0.37.0 regex-2026.9.10 requests-2.34.2 rich-15.0.0 rich-toolkit-0.20.5 rignore-0.8.1 rpds-py-2026.6.3 safetensors-0.8.0 scipy-1.18.1 sentencepiece-0.2.2 sentry-sdk-2.69.1 setproctitle-1.3.7 setuptools-80.10.2 shellingham-1.5.4 six-1.17.0 sniffio-1.3.1 sse-starlette-3.4.11 starlette-1.6.0 supervisor-4.3.0 tabulate-0.10.0 tiktoken-0.14.0 tokenizers-0.22.2 torchvision-0.24.1 tqdm-4.70.1 transformers-4.57.6 truststore-0.10.4 typer-0.27.2 typing-inspection-0.4.4 urllib3-2.7.0 uvicorn-0.52.4 uvloop-0.22.1 vllm-0.1.dev1+gae29af450.precompiled watchfiles-1.2.0 websockets-17.1 xgrammar-0.1.27 yarl-1.24.5
-Collecting soundfile
-  Using cached soundfile-0.14.0-py2.py3-none-manylinux_2_28_x86_64.whl.metadata (18 kB)
-Requirement already satisfied: scipy in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (1.18.1)
-Requirement already satisfied: pyyaml in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (6.0.3)
-Collecting jiwer
-  Using cached jiwer-4.0.0-py3-none-any.whl.metadata (3.3 kB)
-Requirement already satisfied: fastapi in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (0.141.1)
-Requirement already satisfied: uvicorn in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (0.52.4)
-Requirement already satisfied: httpx in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (0.28.1)
-Requirement already satisfied: safetensors in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (0.8.0)
-Requirement already satisfied: cffi>=1.0 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from soundfile) (2.1.1)
-Requirement already satisfied: numpy in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from soundfile) (2.2.6)
-Requirement already satisfied: typing-extensions in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from soundfile) (4.16.0)
-Requirement already satisfied: click>=8.1.8 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from jiwer) (8.5.0)
-Collecting rapidfuzz>=3.9.7 (from jiwer)
-  Using cached rapidfuzz-3.14.6-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (12 kB)
-Requirement already satisfied: starlette>=0.46.0 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from fastapi) (1.6.0)
-Requirement already satisfied: pydantic>=2.9.0 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from fastapi) (2.13.5)
-Requirement already satisfied: typing-inspection>=0.4.2 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from fastapi) (0.4.4)
-Requirement already satisfied: annotated-doc>=0.0.2 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from fastapi) (0.0.5)
-Requirement already satisfied: h11>=0.8 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from uvicorn) (0.16.0)
-Requirement already satisfied: anyio in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from httpx) (4.15.1)
-Requirement already satisfied: certifi in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from httpx) (2026.7.22)
-Requirement already satisfied: httpcore==1.* in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from httpx) (1.0.9)
-Requirement already satisfied: idna in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from httpx) (3.19)
-Requirement already satisfied: pycparser in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from cffi>=1.0->soundfile) (3.0)
-Requirement already satisfied: annotated-types>=0.6.0 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from pydantic>=2.9.0->fastapi) (0.8.0)
-Requirement already satisfied: pydantic-core==2.46.5 in /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages (from pydantic>=2.9.0->fastapi) (2.46.5)
-Using cached soundfile-0.14.0-py2.py3-none-manylinux_2_28_x86_64.whl (1.3 MB)
-Using cached jiwer-4.0.0-py3-none-any.whl (23 kB)
-Using cached rapidfuzz-3.14.6-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (3.2 MB)
-Installing collected packages: rapidfuzz, soundfile, jiwer
-[?25l[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m3/3[0m [jiwer]
-[?25h[1A[2KSuccessfully installed jiwer-4.0.0 rapidfuzz-3.14.6 soundfile-0.14.0
-2.9.1+cu129 12.9 0.1.dev1+gae29af450
-__VLLM_INSTALL_RETRY_DONE__

@@ -1,108 +1,0 @@
-/home/nvidia/Optimize-shrutam2/server_vllm.py:169: DeprecationWarning: 
-        on_event is deprecated, use lifespan event handlers instead.
-
-        Read more about it in the
-        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
-        
-  @app.on_event("startup")
-/home/nvidia/Optimize-shrutam2/server_vllm.py:191: DeprecationWarning: 
-        on_event is deprecated, use lifespan event handlers instead.
-
-        Read more about it in the
-        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
-        
-  @app.on_event("shutdown")
-INFO:     Started server process [2881714]
-INFO:     Waiting for application startup.
-The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
-INFO 09-11 08:30:21 [model.py:637] Resolved architecture: LlamaForCausalLM
-INFO 09-11 08:30:21 [model.py:1750] Using max model len 1024
-INFO 09-11 08:30:21 [scheduler.py:228] Chunked prefill is enabled with max_num_batched_tokens=32768.
-The tokenizer you are loading from '/home/nvidia/Optimize-shrutam2/model/llm' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
-[0;36m(EngineCore_DP0 pid=2882093)[0;0m INFO 09-11 08:30:26 [core.py:93] Initializing a V1 LLM engine (v0.12.0) with config: model='/home/nvidia/Optimize-shrutam2/model/llm', speculative_config=None, tokenizer='/home/nvidia/Optimize-shrutam2/model/llm', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=1024, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01), seed=0, served_model_name=/home/nvidia/Optimize-shrutam2/model/llm, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'level': None, 'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'splitting_ops': ['vllm::unified_attention', 'vllm::unified_attention_with_output', 'vllm::unified_mla_attention', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::gdn_attention_core', 'vllm::kda_attention', 'vllm::sparse_attn_indexer'], 'compile_mm_encoder': False, 'compile_sizes': [], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'eliminate_noops': True, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>}, 'local_cache_dir': None}
-[0;36m(EngineCore_DP0 pid=2882093)[0;0m INFO 09-11 08:30:28 [parallel_state.py:1200] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://172.16.0.150:42385 backend=nccl
-[0;36m(EngineCore_DP0 pid=2882093)[0;0m INFO 09-11 08:30:28 [parallel_state.py:1408] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank 0
-[0;36m(EngineCore_DP0 pid=2882093)[0;0m INFO 09-11 08:30:28 [gpu_model_runner.py:3467] Starting to load model /home/nvidia/Optimize-shrutam2/model/llm...
-[0;36m(EngineCore_DP0 pid=2882093)[0;0m /home/nvidia/Optimize-shrutam2/.venv-vllm/lib/python3.12/site-packages/tvm_ffi/_optional_torch_c_dlpack.py:192: UserWarning: Failed to JIT torch c dlpack extension, EnvTensorAllocator will not be enabled.
-[0;36m(EngineCore_DP0 pid=2882093)[0;0m We recommend installing via `pip install torch-c-dlpack-ext`
-[0;36m(EngineCore_DP0 pid=2882093)[0;0m   warnings.warn(
-[0;36m(EngineCore_DP0 pid=2882093)[0;0m INFO 09-11 08:30:30 [cuda.py:411] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION']
-[0;36m(EngineCore_DP0 pid=2882093)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
-[0;36m(EngineCore_DP0 pid=2882093)[0;0m Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  2.65it/s]
-[0;36m(EngineCore_DP0 pid=2882093)[0;0m Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  2.65it/s]
-[0;36m(EngineCore_DP0 pid=2882093)[0;0m 
-[0;36m(EngineCore_DP0 pid=2882093)[0;0m INFO 09-11 08:30:31 [default_loader.py:308] Loading weights took 0.43 seconds
-[0;36m(EngineCore_DP0 pid=2882093)[0;0m INFO 09-11 08:30:31 [gpu_model_runner.py:3549] Model loading took 2.3017 GiB memory and 1.988285 seconds
-[0;36m(EngineCore_DP0 pid=2882093)[0;0m INFO 09-11 08:30:33 [backends.py:655] Using cache directory: /home/nvidia/.cache/vllm/torch_compile_cache/dcbe380932/rank_0_0/backbone for vLLM's torch.compile
-[0;36m(EngineCore_DP0 pid=2882093)[0;0m INFO 09-11 08:30:33 [backends.py:715] Dynamo bytecode transform time: 1.90 s
-[0;36m(EngineCore_DP0 pid=2882093)[0;0m INFO 09-11 08:30:36 [backends.py:257] Cache the graph for dynamic shape for later use
-[0;36m(EngineCore_DP0 pid=2882093)[0;0m INFO 09-11 08:30:41 [backends.py:288] Compiling a graph for dynamic shape takes 7.41 s
-[0;36m(EngineCore_DP0 pid=2882093)[0;0m INFO 09-11 08:30:41 [monitor.py:34] torch.compile takes 9.31 s in total
-[0;36m(EngineCore_DP0 pid=2882093)[0;0m INFO 09-11 08:30:42 [gpu_worker.py:359] Available KV cache memory: 55.59 GiB
-[0;36m(EngineCore_DP0 pid=2882093)[0;0m INFO 09-11 08:30:42 [kv_cache_utils.py:1286] GPU KV cache size: 1,821,648 tokens
-[0;36m(EngineCore_DP0 pid=2882093)[0;0m INFO 09-11 08:30:42 [kv_cache_utils.py:1291] Maximum concurrency for 1,024 tokens per request: 1778.95x
-[0;36m(EngineCore_DP0 pid=2882093)[0;0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/51 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  10%|▉         | 5/51 [00:00<00:00, 49.36it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  20%|█▉        | 10/51 [00:00<00:00, 44.74it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  29%|██▉       | 15/51 [00:00<00:00, 40.75it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  39%|███▉      | 20/51 [00:00<00:00, 38.88it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  47%|████▋     | 24/51 [00:00<00:00, 37.14it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  55%|█████▍    | 28/51 [00:00<00:00, 36.55it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  63%|██████▎   | 32/51 [00:00<00:00, 36.04it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  71%|███████   | 36/51 [00:00<00:00, 36.22it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  78%|███████▊  | 40/51 [00:01<00:00, 36.05it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  86%|████████▋ | 44/51 [00:01<00:00, 34.92it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  94%|█████████▍| 48/51 [00:01<00:00, 35.19it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 51/51 [00:01<00:00, 37.02it/s]
-[0;36m(EngineCore_DP0 pid=2882093)[0;0m Capturing CUDA graphs (decode, FULL):   0%|          | 0/51 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):  12%|█▏        | 6/51 [00:00<00:00, 53.52it/s]Capturing CUDA graphs (decode, FULL):  24%|██▎       | 12/51 [00:00<00:00, 56.72it/s]Capturing CUDA graphs (decode, FULL):  35%|███▌      | 18/51 [00:00<00:00, 55.99it/s]Capturing CUDA graphs (decode, FULL):  47%|████▋     | 24/51 [00:00<00:00, 56.21it/s]Capturing CUDA graphs (decode, FULL):  59%|█████▉    | 30/51 [00:00<00:00, 56.88it/s]Capturing CUDA graphs (decode, FULL):  71%|███████   | 36/51 [00:00<00:00, 56.99it/s]Capturing CUDA graphs (decode, FULL):  82%|████████▏ | 42/51 [00:00<00:00, 57.74it/s]Capturing CUDA graphs (decode, FULL):  94%|█████████▍| 48/51 [00:00<00:00, 58.26it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 51/51 [00:00<00:00, 57.34it/s]
-[0;36m(EngineCore_DP0 pid=2882093)[0;0m INFO 09-11 08:30:45 [gpu_model_runner.py:4466] Graph capturing finished in 3 secs, took 0.39 GiB
-[0;36m(EngineCore_DP0 pid=2882093)[0;0m INFO 09-11 08:30:45 [core.py:254] init engine (profile, create kv cache, warmup model) took 14.54 seconds
-[0;36m(EngineCore_DP0 pid=2882093)[0;0m The tokenizer you are loading from '/home/nvidia/Optimize-shrutam2/model/llm' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
-The tokenizer you are loading from '/home/nvidia/Optimize-shrutam2/model/llm' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
-`torch_dtype` is deprecated! Use `dtype` instead!
-cudagraph partition due to non gpu ops
-cudagraph partition due to non gpu ops
-cudagraph partition due to non gpu ops
-cudagraph partition due to non gpu ops
-cudagraph partition due to non gpu ops
-cudagraph partition due to non gpu ops
-cudagraph partition due to non gpu ops
-cudagraph partition due to non gpu ops
-cudagraph partition due to non gpu ops
-cudagraph partition due to non gpu ops
-cudagraph partition due to non gpu ops
-cudagraph partition due to non gpu ops
-cudagraph partition due to non gpu ops
-cudagraph partition due to non gpu ops
-cudagraph partition due to non gpu ops
-cudagraph partition due to non gpu ops
-cudagraph partition due to non gpu ops
-cudagraph partition due to non gpu ops
-cudagraph partition due to non gpu ops
-cudagraph partition due to non gpu ops
-cudagraph partition due to non gpu ops
-cudagraph partition due to non gpu ops
-cudagraph partition due to non gpu ops
-cudagraph partition due to non gpu ops
-cudagraph partition due to non gpu ops
-cudagraph partition due to non gpu ops
-cudagraph partition due to DeviceCopy ops
-cudagraph partition into 2 partitions
-W0911 08:32:21.081000 2881714 .venv-vllm/lib/python3.12/site-packages/torch/utils/_sympy/interp.py:176] [0/0_1] failed while executing pow_by_natural([VR[5, 20000], VR[-1, -1]])
-W0911 08:32:21.327000 2881714 .venv-vllm/lib/python3.12/site-packages/torch/utils/_sympy/interp.py:176] [0/0_1] failed while executing pow_by_natural([VR[3, 10000], VR[-1, -1]])
-W0911 08:32:21.511000 2881714 .venv-vllm/lib/python3.12/site-packages/torch/utils/_sympy/interp.py:176] [0/0_1] failed while executing pow_by_natural([VR[3, 10000], VR[-1, -1]])
-W0911 08:32:21.624000 2881714 .venv-vllm/lib/python3.12/site-packages/torch/utils/_sympy/interp.py:176] [0/0_1] failed while executing pow_by_natural([VR[2, 5000], VR[-1, -1]])
-W0911 08:32:21.843000 2881714 .venv-vllm/lib/python3.12/site-packages/torch/utils/_sympy/interp.py:176] [0/0_1] failed while executing pow_by_natural([VR[2, 5000], VR[-1, -1]])
-W0911 08:32:21.962000 2881714 .venv-vllm/lib/python3.12/site-packages/torch/utils/_sympy/interp.py:176] [0/0_1] failed while executing pow_by_natural([VR[2, 5000], VR[-1, -1]])
-W0911 08:32:24.491000 2881714 .venv-vllm/lib/python3.12/site-packages/torch/utils/_sympy/interp.py:176] [0/0_1] failed while executing pow_by_natural([VR[2, 5000], VR[-1, -1]])
-W0911 08:32:28.086000 2881714 .venv-vllm/lib/python3.12/site-packages/torch/utils/_sympy/interp.py:176] [0/0_1] failed while executing pow_by_natural([VR[2, 5000], VR[-1, -1]])
-W0911 08:32:29.302000 2881714 .venv-vllm/lib/python3.12/site-packages/torch/utils/_sympy/interp.py:176] [0/0_1] failed while executing pow_by_natural([VR[2, 5000], VR[-1, -1]])
-W0911 08:32:30.422000 2881714 .venv-vllm/lib/python3.12/site-packages/torch/utils/_sympy/interp.py:176] [0/0_1] failed while executing pow_by_natural([VR[2, 5000], VR[-1, -1]])
-W0911 08:32:31.562000 2881714 .venv-vllm/lib/python3.12/site-packages/torch/utils/_sympy/interp.py:176] [0/0_1] failed while executing pow_by_natural([VR[2, 5000], VR[-1, -1]])
-W0911 08:32:32.707000 2881714 .venv-vllm/lib/python3.12/site-packages/torch/utils/_sympy/interp.py:176] [0/0_1] failed while executing pow_by_natural([VR[2, 5000], VR[-1, -1]])
-W0911 08:32:33.850000 2881714 .venv-vllm/lib/python3.12/site-packages/torch/utils/_sympy/interp.py:176] [0/0_1] failed while executing pow_by_natural([VR[2, 5000], VR[-1, -1]])
-W0911 08:32:34.901000 2881714 .venv-vllm/lib/python3.12/site-packages/torch/utils/_sympy/interp.py:176] [0/0_1] failed while executing pow_by_natural([VR[2, 5000], VR[-1, -1]])
-W0911 08:32:35.586000 2881714 .venv-vllm/lib/python3.12/site-packages/torch/utils/_sympy/interp.py:176] [0/0_1] failed while executing pow_by_natural([VR[2, 5000], VR[-1, -1]])
-W0911 08:32:36.992000 2881714 .venv-vllm/lib/python3.12/site-packages/torch/utils/_sympy/interp.py:176] [0/0_1] failed while executing pow_by_natural([VR[2, 5000], VR[-1, -1]])
-W0911 08:32:37.683000 2881714 .venv-vllm/lib/python3.12/site-packages/torch/utils/_sympy/interp.py:176] [0/0_1] failed while executing pow_by_natural([VR[2, 5000], VR[-1, -1]])
-W0911 08:32:38.370000 2881714 .venv-vllm/lib/python3.12/site-packages/torch/utils/_sympy/interp.py:176] [0/0_1] failed while executing pow_by_natural([VR[2, 5000], VR[-1, -1]])
-W0911 08:32:39.052000 2881714 .venv-vllm/lib/python3.12/site-packages/torch/utils/_sympy/interp.py:176] [0/0_1] failed while executing pow_by_natural([VR[2, 5000], VR[-1, -1]])
-W0911 08:32:39.747000 2881714 .venv-vllm/lib/python3.12/site-packages/torch/utils/_sympy/interp.py:176] [0/0_1] failed while executing pow_by_natural([VR[2, 5000], VR[-1, -1]])
-W0911 08:32:40.428000 2881714 .venv-vllm/lib/python3.12/site-packages/torch/utils/_sympy/interp.py:176] [0/0_1] failed while executing pow_by_natural([VR[2, 5000], VR[-1, -1]])
-W0911 08:32:41.115000 2881714 .venv-vllm/lib/python3.12/site-packages/torch/utils/_sympy/interp.py:176] [0/0_1] failed while executing pow_by_natural([VR[2, 5000], VR[-1, -1]])
-W0911 08:32:41.799000 2881714 .venv-vllm/lib/python3.12/site-packages/torch/utils/_sympy/interp.py:176] [0/0_1] failed while executing pow_by_natural([VR[2, 5000], VR[-1, -1]])
-W0911 08:32:42.484000 2881714 .venv-vllm/lib/python3.12/site-packages/torch/utils/_sympy/interp.py:176] [0/0_1] failed while executing pow_by_natural([VR[2, 5000], VR[-1, -1]])
-W0911 08:32:43.167000 2881714 .venv-vllm/lib/python3.12/site-packages/torch/utils/_sympy/interp.py:176] [0/0_1] failed while executing pow_by_natural([VR[2, 5000], VR[-1, -1]])
-W0911 08:32:43.854000 2881714 .venv-vllm/lib/python3.12/site-packages/torch/utils/_sympy/interp.py:176] [0/0_1] failed while executing pow_by_natural([VR[2, 5000], VR[-1, -1]])
-W0911 08:32:44.540000 2881714 .venv-vllm/lib/python3.12/site-packages/torch/utils/_sympy/interp.py:176] [0/0_1] failed while executing pow_by_natural([VR[2, 5000], VR[-1, -1]])
-W0911 08:32:45.226000 2881714 .venv-vllm/lib/python3.12/site-packages/torch/utils/_sympy/interp.py:176] [0/0_1] failed while executing pow_by_natural([VR[2, 5000], VR[-1, -1]])
-W0911 08:32:45.913000 2881714 .venv-vllm/lib/python3.12/site-packages/torch/utils/_sympy/interp.py:176] [0/0_1] failed while executing pow_by_natural([VR[2, 5000], VR[-1, -1]])
-W0911 08:32:46.596000 2881714 .venv-vllm/lib/python3.12/site-packages/torch/utils/_sympy/interp.py:176] [0/0_1] failed while executing pow_by_natural([VR[2, 5000], VR[-1, -1]])

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Materialize the fine-tuned Shrutam decoder as a vLLM model directory."""
+"""Export the fine-tuned Shrutam decoder checkpoint for ModelOpt conversion."""
 
 from __future__ import annotations
 
@@ -24,8 +24,8 @@ def sha256(path: Path) -> str:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model-dir", default="/home/nvidia/Optimize-shrutam2/model")
-    parser.add_argument("--output-dir", default="/home/nvidia/Optimize-shrutam2/artifacts/vllm_llm_bf16")
+    parser.add_argument("--model-dir", default="/workspace/model")
+    parser.add_argument("--output-dir", default="/workspace/artifacts/decoder_bf16")
     args = parser.parse_args()
     model_dir = Path(args.model_dir)
     source_llm = model_dir / "llm"

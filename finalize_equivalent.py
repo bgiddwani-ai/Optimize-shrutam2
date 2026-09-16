@@ -92,7 +92,7 @@ def main() -> None:
         rows.append(row)
 
     artifact_paths = [
-        ARTIFACTS / "vllm_llm_bf16" / "model.safetensors",
+        ARTIFACTS / "decoder_bf16" / "model.safetensors",
         ARTIFACTS / "shrutam2_encoder_equiv_bf16.plan",
         ARTIFACTS / "shrutam2_encoder_modelopt_fp8.plan",
         ARTIFACTS / "trtllm_equiv_bf16_engine" / "rank0.engine",

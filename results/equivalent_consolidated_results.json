@@ -6448,7 +6448,7 @@
     }
   },
   "artifact_inventory": {
-    "artifacts/vllm_llm_bf16/model.safetensors": {
+    "artifacts/decoder_bf16/model.safetensors": {
       "bytes": 2470662568,
       "sha256": "727c0cf4b68d9cfac69da68e5e796ea4170d697d48a57d937a70b1853e8f81fa"
     },

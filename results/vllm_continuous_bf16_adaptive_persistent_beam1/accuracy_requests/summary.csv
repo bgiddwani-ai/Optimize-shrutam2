@@ -1,2 +1,0 @@
-concurrency,requests,valid,failed,wall_seconds,audio_seconds,rtfx,requests_per_second,latency_mean_ms,latency_p50_ms,latency_p95_ms,latency_p99_ms,observed_batch_sizes,preconnected_streams,preconnect_ms_untimed
-1,64,64,0,8.279791414970532,280.6381875,33.89435475301751,7.729663320296067,129.21343920424988,121.88251301995479,199.68323017528743,233.8242776831612,[1],1,52.826642990112305

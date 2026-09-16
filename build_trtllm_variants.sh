@@ -3,9 +3,6 @@ set -euo pipefail
 
 ROOT=${ROOT:-/home/ubuntu/Optimize-shrutam2}
 IMAGE=${IMAGE:-shrutam2-trtllm:0.20}
-MODEL_DIR=/workspace/artifacts/vllm_llm_bf16
-ARTIFACTS=/workspace/artifacts
-
 docker run --rm --gpus device=0 --ipc=host -v "$ROOT:/workspace" -w /workspace \
   "$IMAGE" bash -lc '
 set -euo pipefail
@@ -17,14 +14,14 @@ rm -rf \
 
 if [[ ! -f /workspace/artifacts/trtllm_equiv_bf16_ckpt/config.json ]]; then
 python /app/tensorrt_llm/examples/models/core/llama/convert_checkpoint.py \
-  --model_dir /workspace/artifacts/vllm_llm_bf16 \
+  --model_dir /workspace/artifacts/decoder_bf16 \
   --output_dir /workspace/artifacts/trtllm_equiv_bf16_ckpt \
   --dtype bfloat16 --tp_size 1
 fi
 
 if [[ ! -f /workspace/artifacts/trtllm_equiv_fp8w_bf16kv_ckpt/config.json ]]; then
 python /app/tensorrt_llm/examples/quantization/quantize.py \
-  --model_dir /workspace/artifacts/vllm_llm_bf16 \
+  --model_dir /workspace/artifacts/decoder_bf16 \
   --dtype bfloat16 --qformat fp8 \
   --calib_dataset cnn_dailymail --calib_size 128 --batch_size 8 \
   --calib_max_seq_length 512 \
@@ -33,7 +30,7 @@ fi
 
 if [[ ! -f /workspace/artifacts/trtllm_equiv_bf16w_fp8kv_ckpt/config.json ]]; then
 python /app/tensorrt_llm/examples/quantization/quantize.py \
-  --model_dir /workspace/artifacts/vllm_llm_bf16 \
+  --model_dir /workspace/artifacts/decoder_bf16 \
   --dtype bfloat16 --qformat full_prec --kv_cache_dtype fp8 \
   --calib_dataset cnn_dailymail --calib_size 128 --batch_size 8 \
   --calib_max_seq_length 512 \
@@ -42,7 +39,7 @@ fi
 
 if [[ ! -f /workspace/artifacts/trtllm_equiv_fp8w_fp8kv_ckpt/config.json ]]; then
 python /app/tensorrt_llm/examples/quantization/quantize.py \
-  --model_dir /workspace/artifacts/vllm_llm_bf16 \
+  --model_dir /workspace/artifacts/decoder_bf16 \
   --dtype bfloat16 --qformat fp8 --kv_cache_dtype fp8 \
   --calib_dataset cnn_dailymail --calib_size 128 --batch_size 8 \
   --calib_max_seq_length 512 \

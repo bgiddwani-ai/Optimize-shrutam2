@@ -22,10 +22,10 @@ sha256sum model/model.pt model/encoder.pt model/llm/model.safetensors \
   | tee logs/equivalent_model_sha256.txt
 
 docker run --rm -v "$ROOT:/workspace" -w /workspace "$IMAGE" \
-  python export_vllm_checkpoint.py \
+  python export_decoder_checkpoint.py \
     --model-dir /workspace/model \
-    --output-dir /workspace/artifacts/vllm_llm_bf16 \
-  2>&1 | tee logs/equivalent_export_vllm_checkpoint.log
+    --output-dir /workspace/artifacts/decoder_bf16 \
+  2>&1 | tee logs/equivalent_export_decoder_checkpoint.log
 
 docker run --rm -v "$ROOT:/workspace" -w /workspace "$IMAGE" \
   python prepare_fleurs_quick.py \

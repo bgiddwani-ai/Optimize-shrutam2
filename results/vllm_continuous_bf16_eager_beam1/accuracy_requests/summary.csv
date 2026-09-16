@@ -1,2 +1,0 @@
-concurrency,requests,valid,failed,wall_seconds,audio_seconds,rtfx,requests_per_second,latency_mean_ms,latency_p50_ms,latency_p95_ms,latency_p99_ms,observed_batch_sizes
-1,64,64,0,7.7714404329890385,280.6381875,36.111476362698106,8.23528154810606,121.27468017115461,115.3713405074086,186.1673456733115,213.52758583147076,[1]

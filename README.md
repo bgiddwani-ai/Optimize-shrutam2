@@ -13,8 +13,8 @@ It retains only the required paths:
 - HTTP server/client RTFx matrices and one common cleaned IndicVoices Hindi
   WER/CER evaluation.
 
-The historical evidence, raw logs, and final reports are preserved. Old AOTI,
-vLLM, single-engine experiments, and their launch/build helpers are removed.
+The historical evidence and final reports are preserved. Disconnected legacy
+experiments and their launch/build helpers are removed.
 
 ## Final results
 
@@ -94,8 +94,8 @@ used only after conversion to measure WER/CER.
 ### 1. Create the model and calibration inputs
 
 `setup_equivalent.sh` performs this stage. It downloads the pinned model,
-exports the fine-tuned decoder to the historical but required
-`artifacts/vllm_llm_bf16/` path, creates a deterministic FLEURS test set, and
+exports the fine-tuned decoder to `artifacts/decoder_bf16/`, creates a
+deterministic FLEURS test set, and
 exports both BF16 and FP32 FastConformer ONNX graphs. Run it once after the
 runtime-image build:
 

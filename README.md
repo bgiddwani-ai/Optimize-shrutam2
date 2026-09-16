@@ -84,10 +84,181 @@ ROOT=$PWD bash build_trtllm_variants.sh
 ROOT=$PWD bash build_equivalent_encoder_engines.sh
 ```
 
-Decoder ModelOpt calibration uses 128 CNN/DailyMail sequences. Encoder ModelOpt
-calibration uses the 48 FLEURS waveforms after Shrutam's real log-mel frontend.
-The mixed-FP8 TensorRT plan quantizes eligible convolution/MatMul operators;
-unsupported depthwise convolutions remain at higher precision.
+## ModelOpt FP8 conversion and calibration
+
+This is the exact data-to-engine path used for the two FP8 model variants in
+the table. Keep calibration and evaluation separate: FLEURS and CNN/DailyMail
+calibrate the encoder and decoder respectively; cleaned IndicVoices Hindi is
+used only after conversion to measure WER/CER.
+
+### 1. Create the model and calibration inputs
+
+`setup_equivalent.sh` performs this stage. It downloads the pinned model,
+exports the fine-tuned decoder to the historical but required
+`artifacts/vllm_llm_bf16/` path, creates a deterministic FLEURS test set, and
+exports both BF16 and FP32 FastConformer ONNX graphs. Run it once after the
+runtime-image build:
+
+```bash
+ROOT=$PWD bash setup_equivalent.sh
+```
+
+The encoder calibration input is intentionally *not* raw audio. The setup
+script feeds 48 FLEURS waveforms (four test clips from each of 12 Indic
+language configurations) through Shrutam's actual preprocessor and writes:
+
+```text
+data/fleurs_quick/manifest.jsonl
+artifacts/encoder_equiv_fp8_calibration.npz
+artifacts/encoder_equiv_fp8_calibration.npz.json
+artifacts/shrutam2_encoder_equiv_fp32.onnx
+```
+
+The `.npz` has `audio_signal` as FP32 log-mel frames and `lengths` as int64,
+which exactly match the FastConformer ONNX inputs. To regenerate only these
+calibration tensors from an existing model and FLEURS manifest:
+
+```bash
+docker run --rm --gpus device=0 --ipc=host \
+  -v "$PWD:/workspace" -w /workspace shrutam2-runtime:25.02 \
+  python prepare_encoder_calibration.py \
+    --model-dir /workspace/model \
+    --manifest /workspace/data/fleurs_quick/manifest.jsonl \
+    --output /workspace/artifacts/encoder_equiv_fp8_calibration.npz
+```
+
+### 2. Convert the FastConformer encoder to calibrated mixed FP8
+
+The conversion starts from **FP32** ONNX, retains BF16 as the high-precision
+fallback type, and runs NVIDIA Model Optimizer ONNX quantization with these
+fixed settings:
+
+- `quantize_mode=fp8`, calibration method `max`, and CUDA plus CPU calibration
+  execution providers;
+- quantize only `Conv` and `MatMul`; use FP32 MHA accumulation;
+- write FP8 Q/DQ ONNX with external data and ONNX opset 19.
+
+The supported wrapper runs the conversion, also builds the BF16 control plan,
+and then builds the strongly typed FP8 TensorRT plan with batch `1/32/64` and
+mel-frame profile `101/501/2001`:
+
+```bash
+ROOT=$PWD bash build_equivalent_encoder_engines.sh
+```
+
+For transparency, the ModelOpt conversion inside that wrapper is equivalent to:
+
+```bash
+docker run --rm --gpus device=0 --ipc=host \
+  -v "$PWD:/workspace" -w /workspace shrutam2-trtllm:0.20 \
+  python quantize_encoder_modelopt.py \
+    --onnx /workspace/artifacts/shrutam2_encoder_equiv_fp32.onnx \
+    --calibration /workspace/artifacts/encoder_equiv_fp8_calibration.npz \
+    --output /workspace/artifacts/shrutam2_encoder_modelopt_fp8.onnx \
+    --log /workspace/logs/equivalent_encoder_modelopt_fp8.log
+```
+
+The conversion writes an operator/Q-DQ report at
+`artifacts/shrutam2_encoder_modelopt_fp8.onnx.json`; building writes the
+deployable plan `artifacts/shrutam2_encoder_modelopt_fp8.plan` and its hash in
+`artifacts/equivalent_encoder_engines.json`. It is called *mixed FP8* because
+TensorRT keeps unsupported depthwise convolutions at higher precision.
+
+### 3. Convert the Llama decoder to ModelOpt FP8 weights and FP8 KV
+
+Build every decoder engine together; this avoids configuration drift between
+the BF16 controls and FP8 comparisons:
+
+```bash
+ROOT=$PWD bash build_trtllm_variants.sh
+```
+
+The TensorRT-LLM 0.20 ModelOpt quantizer uses the exported fine-tuned decoder
+and a fixed CNN/DailyMail calibration set of 128 sequences, batch size 8,
+maximum sequence length 512. It creates these checkpoints and engines:
+
+| Variant | Quantizer settings | Deployable engine |
+|---|---|---|
+| BF16 | converted BF16 checkpoint | `trtllm_equiv_bf16_engine` |
+| FP8 weights / BF16 KV | `--qformat fp8` | `trtllm_equiv_fp8w_bf16kv_engine` |
+| BF16 weights / FP8 KV | `--qformat full_prec --kv_cache_dtype fp8` | `trtllm_equiv_bf16w_fp8kv_engine` |
+| FP8 weights / FP8 KV | `--qformat fp8 --kv_cache_dtype fp8` | `trtllm_equiv_fp8w_fp8kv_engine` |
+
+All four engines use beam 1, max batch 64, input/sequence limits 256/512,
+paged KV, context FMHA, removed input padding, multiple profiles, and a
+16,384-entry prompt-embedding table. The generated
+`artifacts/equivalent_trtllm_variants.json` records each engine's quantization
+and KV-cache settings. `build_trtllm_variants.sh` replaces only the engine
+directories, so rerun it after changing an engine build parameter.
+
+### 4. Verify conversion artifacts before serving
+
+Run this host-side check after both build commands. It proves that the expected
+calibration report, mixed-FP8 encoder plan, and FP8-weight/FP8-KV decoder
+engine exist; it does not substitute for real-audio accuracy evaluation.
+
+```bash
+python3 - <<'PY'
+import json
+from pathlib import Path
+
+required = [
+    "artifacts/encoder_equiv_fp8_calibration.npz.json",
+    "artifacts/shrutam2_encoder_modelopt_fp8.onnx.json",
+    "artifacts/shrutam2_encoder_modelopt_fp8.plan",
+    "artifacts/trtllm_equiv_fp8w_fp8kv_engine/config.json",
+]
+for name in required:
+    path = Path(name)
+    assert path.is_file() and path.stat().st_size > 0, f"missing: {path}"
+encoder = json.loads(Path(required[1]).read_text())
+engine = json.loads(Path(required[3]).read_text())
+quant = engine["pretrained_config"].get("quantization") or {}
+assert encoder["quantize_linear_nodes"] > 0
+assert quant.get("quant_algo")
+assert quant.get("kv_cache_quant_algo")
+print({"encoder_qdq": encoder["quantize_linear_nodes"], "decoder_quantization": quant})
+PY
+```
+
+### 5. Run calibrated FP8 server/client inference
+
+Launch the complete mixed-FP8 encoder plus FP8-weight/FP8-KV decoder profile:
+
+```bash
+ROOT=$PWD \
+ENGINE_DIR=$PWD/artifacts/trtllm_equiv_fp8w_fp8kv_engine \
+ENCODER_RUNTIME=trt \
+TRT_ENGINE=$PWD/artifacts/shrutam2_encoder_modelopt_fp8.plan \
+NUM_BEAMS=1 MAX_BATCH_SIZE=64 MAX_DELAY_MS=12 \
+  bash start_server_trtllm.sh
+```
+
+In a separate shell, use the included persistent HTTP client for real audio:
+
+```bash
+curl -fsS http://127.0.0.1:8092/health
+docker exec shrutam2-trtllm-server python /workspace/benchmark_client.py \
+  --url http://127.0.0.1:8092 \
+  --manifest /workspace/data/fleurs_quick/manifest.jsonl \
+  --output-dir /workspace/results/modelopt_fp8_smoke \
+  --concurrency 1 --min-requests 1 --rounds 1
+```
+
+For the controlled throughput matrices, run:
+
+```bash
+ROOT=$PWD bash run_equivalent_remaining_trtllm.sh
+```
+
+For the required held-out quality gate, prepare IndicVoices below and run:
+
+```bash
+ROOT=$PWD bash run_all_indicvoices_hindi_eval.sh
+```
+
+The server rejects audio over 19 seconds before batching to preserve the
+256-token TensorRT-LLM contract.
 
 ## Prepare the held-out accuracy set
 
@@ -144,36 +315,11 @@ then runs both requested concurrency matrices. The server rejects audio longer
 than 19 seconds before adaptive batching. The IndicVoices run uses concurrency
 32 and requires one non-empty successful transcript for every manifest row.
 
-## Deploy and infer with the winning profile
+## Stop the server
 
-Start the winning mixed-FP8 encoder plus ModelOpt FP8-weight/FP8-KV decoder
-server. This is a blocking command; run it in its own screen window.
-
-```bash
-ROOT=$PWD \
-ENGINE_DIR=$PWD/artifacts/trtllm_equiv_fp8w_fp8kv_engine \
-ENCODER_RUNTIME=trt \
-TRT_ENGINE=$PWD/artifacts/shrutam2_encoder_modelopt_fp8.plan \
-NUM_BEAMS=1 MAX_BATCH_SIZE=64 MAX_DELAY_MS=12 \
-  bash start_server_trtllm.sh
-```
-
-In a second shell, verify health and submit a real client request from the
-prepared FLEURS set:
-
-```bash
-curl -fsS http://127.0.0.1:8092/health
-
-docker exec shrutam2-trtllm-server python /workspace/benchmark_client.py \
-  --url http://127.0.0.1:8092 \
-  --manifest /workspace/data/fleurs_quick/manifest.jsonl \
-  --output-dir /workspace/results/standalone_infer \
-  --concurrency 1 --min-requests 1 --rounds 1
-```
-
-The HTTP API accepts non-empty little-endian signed-16-bit 16 kHz PCM on
-`POST /transcribe`, with optional `x-language` (default `hi`). Inspect live
-batching through `/stats`, then release GPU memory with:
+The HTTP API in the FP8 run step accepts non-empty little-endian signed-16-bit
+16 kHz PCM on `POST /transcribe`, with optional `x-language` (default `hi`).
+Inspect live batching through `/stats`, then release GPU memory with:
 
 ```bash
 bash stop_server.sh

@@ -138,8 +138,6 @@ def build_app(args: argparse.Namespace) -> FastAPI:
             runtime=args.runtime,
             precision=args.precision,
             decode=DecodeConfig(max_new_tokens=args.max_new_tokens, num_beams=args.num_beams),
-            aoti_package=args.aoti_package,
-            trt_engine=args.trt_engine,
         )
         app.state.warmup = await asyncio.to_thread(app.state.model.warmup, args.warmup_batches)
         app.state.batcher = DynamicBatcher(app.state.model, args.max_batch_size, args.max_delay_ms)
@@ -204,10 +202,8 @@ def build_app(args: argparse.Namespace) -> FastAPI:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--model-dir", default="/workspace/model")
-    parser.add_argument("--runtime", choices=("eager", "compile", "aoti", "trt"), default="eager")
+    parser.add_argument("--runtime", choices=("eager", "compile"), default="eager")
     parser.add_argument("--precision", choices=("upstream", "bf16"), default="bf16")
-    parser.add_argument("--aoti-package")
-    parser.add_argument("--trt-engine")
     parser.add_argument("--host", default="0.0.0.0")
     parser.add_argument("--port", type=int, default=8092)
     parser.add_argument("--max-batch-size", type=int, default=32)

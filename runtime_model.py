@@ -57,7 +57,6 @@ class ShrutamRuntime:
         runtime: str = "eager",
         precision: str = "bf16",
         decode: DecodeConfig | None = None,
-        aoti_package: str | None = None,
         trt_engine: str | None = None,
     ) -> None:
         self.model_dir = Path(model_dir).resolve()
@@ -69,9 +68,9 @@ class ShrutamRuntime:
         self.decode = decode or DecodeConfig()
         self.dtype = torch.bfloat16 if precision == "bf16" else torch.float32
         self.llm_dtype = torch.bfloat16
-        self._load(aoti_package=aoti_package, trt_engine=trt_engine)
+        self._load(trt_engine=trt_engine)
 
-    def _load(self, *, aoti_package: str | None, trt_engine: str | None) -> None:
+    def _load(self, *, trt_engine: str | None) -> None:
         sys.path.insert(0, str(self.model_dir))
         # The released speech_encoder imports torchaudio but never uses it in
         # preprocessing or Conformer inference. NeMo 25.02 intentionally omits
@@ -132,10 +131,6 @@ class ShrutamRuntime:
                 fullgraph=False,
                 mode=os.getenv("SHRUTAM_COMPILE_MODE", "reduce-overhead"),
             )
-        elif self.runtime_name == "aoti":
-            if not aoti_package:
-                raise ValueError("aoti runtime requires --aoti-package")
-            self.encoder = torch._inductor.aoti_load_package(aoti_package)
         elif self.runtime_name == "trt":
             if not trt_engine:
                 raise ValueError("trt runtime requires --trt-engine")
@@ -180,7 +175,7 @@ class ShrutamRuntime:
                 encoded, encoded_lengths = self.encoder(encoder_input, mel_lengths)
         if encoded.ndim != 3:
             raise RuntimeError(f"encoder produced invalid shape {tuple(encoded.shape)}")
-        # PyTorch Conformer emits [B,D,T]; the TRT/AOTI exports preserve it.
+        # PyTorch and TensorRT exports emit [B,D,T].
         encoded = encoded.transpose(1, 2).contiguous()
         return encoded.to(self.dtype), encoded_lengths.to(torch.long)
 

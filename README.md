@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Optimize Shrutam-2
 
 This repository is the minimal, reproducible server/client workflow that
@@ -334,3 +335,7 @@ bash stop_server.sh
 - `artifacts/equivalent_evidence_20260916.tgz` — archive of remote evidence;
   SHA-256 `a204b400fe1f29c7d22abe5ad4d1e7bdaf371abe22ce2f77b648d93334199f20`.
 - `LEARNIGS.md` — retained technical decisions, failures, and limitations.
+=======
+# Optimize-shrutam2
+Shrutam2 Model Optimization
+>>>>>>> be36b8450a139c3a2bb17f7a30df4c89659dd3ef

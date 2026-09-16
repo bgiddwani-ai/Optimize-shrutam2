@@ -1,2 +1,0 @@
-{"concurrency": 512, "requests": 512, "valid": 512, "failed": 0, "wall_seconds": 5.459607354016043, "audio_seconds": 512.0, "rtfx": 93.7796377652281, "requests_per_second": 93.7796377652281, "latency_mean_ms": 2739.237667116754, "latency_p50_ms": 2572.8623585018795, "latency_p95_ms": 4625.542516328278, "latency_p99_ms": 4890.106235517887, "observed_batch_sizes": [2, 9, 21, 32, 64], "preconnected_streams": 256, "preconnect_ms_untimed": 1660.0054259761237}
-__KEEPALIVE_C512_DONE__

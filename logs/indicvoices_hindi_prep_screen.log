@@ -1,88 +1,0 @@
-
-=============
-== PyTorch ==
-=============
-
-NVIDIA Release 25.04 (build 159049541)
-PyTorch Version 2.7.0a0+79aa174
-Container image Copyright (c) 2025, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
-Copyright (c) 2014-2024 Facebook Inc.
-Copyright (c) 2011-2014 Idiap Research Institute (Ronan Collobert)
-Copyright (c) 2012-2014 Deepmind Technologies    (Koray Kavukcuoglu)
-Copyright (c) 2011-2012 NEC Laboratories America (Koray Kavukcuoglu)
-Copyright (c) 2011-2013 NYU                      (Clement Farabet)
-Copyright (c) 2006-2010 NEC Laboratories America (Ronan Collobert, Leon Bottou, Iain Melvin, Jason Weston)
-Copyright (c) 2006      Idiap Research Institute (Samy Bengio)
-Copyright (c) 2001-2004 Idiap Research Institute (Ronan Collobert, Samy Bengio, Johnny Mariethoz)
-Copyright (c) 2015      Google Inc.
-Copyright (c) 2015      Yangqing Jia
-Copyright (c) 2013-2016 The Caffe contributors
-All rights reserved.
-
-Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
-
-GOVERNING TERMS: The software and materials are governed by the NVIDIA Software License Agreement
-(found at https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-software-license-agreement/)
-and the Product-Specific Terms for NVIDIA AI Products
-(found at https://www.nvidia.com/en-us/agreements/enterprise-software/product-specific-terms-for-ai-products/).
-
-NOTE: The SHMEM allocation limit is set to the default of 64MB.  This may be
-   insufficient for PyTorch.  NVIDIA recommends the use of the following flags:
-   docker run --gpus all --ipc=host --ulimit memlock=-1 --ulimit stack=67108864 ...
-
-Downloading data:   0%|          | 0/82 [00:00<?, ?files/s]Downloading data:   1%|          | 1/82 [00:02<03:45,  2.78s/files]Downloading data:   2%|▏         | 2/82 [00:05<03:27,  2.60s/files]Downloading data:   4%|▎         | 3/82 [00:08<03:47,  2.88s/files]Downloading data:   5%|▍         | 4/82 [00:11<03:45,  2.90s/files]Downloading data:   6%|▌         | 5/82 [00:14<03:42,  2.89s/files]Downloading data:   7%|▋         | 6/82 [00:17<03:37,  2.87s/files]Downloading data:   9%|▊         | 7/82 [00:20<03:47,  3.03s/files]Downloading data:  10%|▉         | 8/82 [00:23<03:42,  3.00s/files]Downloading data:  11%|█         | 9/82 [00:27<03:55,  3.23s/files]Downloading data:  12%|█▏        | 10/82 [00:30<03:47,  3.16s/files]Downloading data:  13%|█▎        | 11/82 [00:32<03:35,  3.04s/files]Downloading data:  15%|█▍        | 12/82 [00:35<03:26,  2.94s/files]Downloading data:  16%|█▌        | 13/82 [00:39<03:51,  3.36s/files]Downloading data:  17%|█▋        | 14/82 [00:43<03:58,  3.50s/files]Downloading data:  18%|█▊        | 15/82 [00:47<04:03,  3.64s/files]Downloading data:  20%|█▉        | 16/82 [00:55<05:18,  4.82s/files]Downloading data:  21%|██        | 17/82 [01:06<07:27,  6.89s/files]Downloading data:  22%|██▏       | 18/82 [01:13<07:03,  6.62s/files]Downloading data:  23%|██▎       | 19/82 [01:19<06:52,  6.54s/files]Downloading data:  24%|██▍       | 20/82 [01:27<07:09,  6.92s/files]Downloading data:  26%|██▌       | 21/82 [01:34<07:10,  7.06s/files]Downloading data:  27%|██▋       | 22/82 [01:41<06:53,  6.89s/files]Downloading data:  28%|██▊       | 23/82 [01:47<06:39,  6.76s/files]Downloading data:  29%|██▉       | 24/82 [01:53<06:16,  6.50s/files]Downloading data:  30%|███       | 25/82 [02:00<06:23,  6.72s/files]Downloading data:  32%|███▏      | 26/82 [02:08<06:30,  6.98s/files]
-=============
-== PyTorch ==
-=============
-
-NVIDIA Release 25.04 (build 159049541)
-PyTorch Version 2.7.0a0+79aa174
-Container image Copyright (c) 2025, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
-Copyright (c) 2014-2024 Facebook Inc.
-Copyright (c) 2011-2014 Idiap Research Institute (Ronan Collobert)
-Copyright (c) 2012-2014 Deepmind Technologies    (Koray Kavukcuoglu)
-Copyright (c) 2011-2012 NEC Laboratories America (Koray Kavukcuoglu)
-Copyright (c) 2011-2013 NYU                      (Clement Farabet)
-Copyright (c) 2006-2010 NEC Laboratories America (Ronan Collobert, Leon Bottou, Iain Melvin, Jason Weston)
-Copyright (c) 2006      Idiap Research Institute (Samy Bengio)
-Copyright (c) 2001-2004 Idiap Research Institute (Ronan Collobert, Samy Bengio, Johnny Mariethoz)
-Copyright (c) 2015      Google Inc.
-Copyright (c) 2015      Yangqing Jia
-Copyright (c) 2013-2016 The Caffe contributors
-All rights reserved.
-
-Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
-
-GOVERNING TERMS: The software and materials are governed by the NVIDIA Software License Agreement
-(found at https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-software-license-agreement/)
-and the Product-Specific Terms for NVIDIA AI Products
-(found at https://www.nvidia.com/en-us/agreements/enterprise-software/product-specific-terms-for-ai-products/).
-
-NOTE: The SHMEM allocation limit is set to the default of 64MB.  This may be
-   insufficient for PyTorch.  NVIDIA recommends the use of the following flags:
-   docker run --gpus all --ipc=host --ulimit memlock=-1 --ulimit stack=67108864 ...
-
-Generating valid split: 0 examples [00:00, ? examples/s]Generating valid split: 1195 examples [00:00, 6843.11 examples/s]Generating valid split: 2390 examples [00:00, 7252.60 examples/s]Generating valid split: 3585 examples [00:00, 7002.37 examples/s]Generating valid split: 4780 examples [00:00, 5677.73 examples/s]Generating valid split: 5530 examples [00:00, 5443.13 examples/s]Generating valid split: 5530 examples [00:00, 5885.64 examples/s]
-{
-  "dataset": "ai4bharat/IndicVoices",
-  "config": "hindi",
-  "split": "valid",
-  "source_examples": 5530,
-  "selection": "all usable rows in source order",
-  "filters": {
-    "min_seconds": 0.5,
-    "max_seconds": 20.0
-  },
-  "samples": 4986,
-  "audio_seconds": 28854.0483125,
-  "excluded": {
-    "missing_reference": 0,
-    "unintelligible": 205,
-    "duration": 339,
-    "decode": 0,
-    "silent": 0
-  },
-  "manifest": "/workspace/data/indicvoices_hindi_valid/manifest.jsonl",
-  "dataset_fingerprint": "82ff900d2acb033d",
-  "source_file": "hindi/valid-00000-of-00001.parquet"
-}
